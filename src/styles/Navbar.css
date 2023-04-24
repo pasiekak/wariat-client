@@ -1,0 +1,28 @@
+.navbar {
+    width: 100%;
+    height: 120px;
+    background-color: #000411;
+    background-size: contain;
+}
+.logo {
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.links {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+.links a {
+    font-size: large;
+    text-decoration: none;
+    color: white;
+}
