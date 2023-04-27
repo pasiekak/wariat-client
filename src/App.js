@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
+import MainBody from './components/MainBody.js';
 import './styles/App.css'
 
 function App() {
@@ -8,11 +10,14 @@ function App() {
     <div className='App'>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" />
+        <Routes >
+          <Route path="/" element={<MainBody/>} />
+          <Route path="/products" />
+          <Route path="/gallery" />
+          <Route path="/contact" />
           <Route path="/about" />
-          <Route path="/cart" />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
