@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar.js';
+import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import MainBody from './components/MainBody.js';
 import './styles/App.css'
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <Navbar />
+        <Header />
         <Routes >
           <Route path="/" element={<MainBody/>} />
           <Route path="/products" />
