@@ -3,6 +3,7 @@ import Header from './pages/Header.js';
 import Footer from './pages/Footer.js';
 import Home from './pages/Home.js';
 import Products from './pages/Products.js';
+import CreateProduct from './pages/CreateProduct.js';
 import './styles/App.css'
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <Header />
         <Routes >
           <Route path="/" element={<Home/>} />
-          <Route path="/products" element={<Products />}/>
+          <Route path="/products" element={<Products />} />
+          <Route path='/createProduct' element={<CreateProduct />} />
           <Route path="/gallery" />
           <Route path="/contact" />
           <Route path="/about" />
