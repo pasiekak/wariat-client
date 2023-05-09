@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css'
-import logo from '../images/random150x150.png';
+import logo from '../images/wariatLogo.png';
 import SearchBar from './SearchBar.js'
 
 

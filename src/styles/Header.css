@@ -3,12 +3,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 3rem;
 
-    min-height: 150px;
+    max-height: 150px;
     background-color: #000411;
 
     box-shadow: #2C313A 0px 5px, #575E62 0px 10px, #838A8B 0px 15px;
+}
+.Header img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
 }
 .linksAndSearch {
     display: flex;
@@ -19,7 +24,7 @@
 .links {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 4rem;
 
 }
 .Header a {

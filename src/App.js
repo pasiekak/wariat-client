@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
-import MainBody from './components/MainBody.js';
+import Header from './pages/Header.js';
+import Footer from './pages/Footer.js';
+import Home from './pages/Home.js';
+import Products from './pages/Products.js';
 import './styles/App.css'
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
       <Router>
         <Header />
         <Routes >
-          <Route path="/" element={<MainBody/>} />
-          <Route path="/products" />
+          <Route path="/" element={<Home/>} />
+          <Route path="/products" element={<Products />}/>
           <Route path="/gallery" />
           <Route path="/contact" />
           <Route path="/about" />
