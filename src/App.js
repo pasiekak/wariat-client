@@ -1,10 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './pages/Header.js';
-import Footer from './pages/Footer.js';
-import Home from './pages/Home.js';
-import Products from './pages/Products.js';
-import LoginForm from './pages/LoginForm.js';
-import CreateProduct from './pages/CreateProduct.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+import Home from './components/Home.js';
+import Products from './components/Products.js';
+import LoginPage from './components/LoginPage.js';
+import Gallery from './components/Gallery.js';
+import CreateProduct from './components/CreateProduct.js';
+import NotFound from './components/NotFound.js';
 import './styles/App.css'
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
       <Router>
         <Routes >
           <Route path="/*" element={<NormalRoutes/>} />
-          <Route path='/login' element={<LoginForm/>}/>
+          <Route path='/login' element={<LoginPage/>} />
         </Routes>
       </Router>
     </div>
@@ -29,9 +31,10 @@ const NormalRoutes = () => {
           <Route path='/' element={<Home/>} />
           <Route path="/products" element={<Products />} />
           <Route path='/createProduct' element={<CreateProduct />} />
-          <Route path="/gallery" />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" />
           <Route path="/about" />
+          <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
     </>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from "yup";
-import '../styles/LoginForm.css';
-const LoginForm = () => {
+import axios from 'axios';
+import '../styles/LoginPage.css';
+const LoginPage = () => {
     const schema = Yup.object().shape({
         login: Yup.string()
         .required("Login jest wymagany"),
@@ -20,7 +21,8 @@ const LoginForm = () => {
                     validationSchema={schema}
                     initialValues={{login:'',password:''}}
                     onSubmit={(values) => {
-                        alert(JSON.stringify(values));
+                        axios.post('/login', values)
+                        // TODO: wyslanie loginu i hasla do servera i obsluzenie prosby o zalogowanie, pozniej dodanie dashboarda
                     }}
                 >   
                     {({ errors, touched }) => (
@@ -45,4 +47,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm;
+export default LoginPage;
