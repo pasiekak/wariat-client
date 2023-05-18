@@ -5,8 +5,8 @@ import Home from './components/Home.js';
 import Products from './components/Products.js';
 import LoginPage from './components/LoginPage.js';
 import Gallery from './components/Gallery.js';
-import CreateProduct from './components/CreateProduct.js';
 import NotFound from './components/NotFound.js';
+import Dashboard from './components/dashboard/Dashboard.js';
 import './styles/App.css'
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Routes >
           <Route path="/*" element={<NormalRoutes/>} />
           <Route path='/login' element={<LoginPage/>} />
+          <Route path='/dashboard' element={<Dashboard/>}/>
         </Routes>
       </Router>
     </div>
@@ -30,7 +31,6 @@ const NormalRoutes = () => {
       <Routes >
           <Route path='/' element={<Home/>} />
           <Route path="/products" element={<Products />} />
-          <Route path='/createProduct' element={<CreateProduct />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" />
           <Route path="/about" />

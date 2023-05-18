@@ -1,41 +1,39 @@
 .Header {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
 
-    max-height: 150px;
+    max-height: 100px;
     background-color: #000411;
 
     box-shadow: #2C313A 0px 5px, #575E62 0px 10px, #838A8B 0px 15px;
 }
-.Header img {
-    object-fit: cover;
-    height: 200px;
-    width: 200px;
-}
-.linksAndSearch {
+.imageHeader {
+    flex: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
 }
-.links {
+.imageHeader img {
+    width: 100%;
+    height: 150px;
+}
+.leftHeader, .rightHeader {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    gap: 4rem;
-
+    justify-content: space-around;
+    align-items: center;
 }
-.Header a {
+.Header a, .Header span {
     font-size: large;
     text-decoration-color: transparent;
     color: white;
+    cursor: pointer;
 
     transition: 200ms;
 }
 
-.Header a:hover {
+.Header a:hover, .Header span:hover {
     text-decoration-color: white;
     text-shadow: 0px 0px 35px white;
 }
