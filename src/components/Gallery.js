@@ -9,7 +9,7 @@ const Gallery = () => {
 
     return (
         <div className='Gallery'>
-            TU SOM ZDJECIA
+            in construction
         </div>
     );
 };

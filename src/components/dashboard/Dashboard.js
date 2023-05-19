@@ -16,11 +16,12 @@ const Dashboard = () => {
                 const response = await axios.get('/api');
                 setData(response.data);
                 setError(null);
-                if (response.data.user.type === 'client') {
+                console.log(response.data);
+                if (response.data.user.isAdmin === false) {
                     navigate('/');
                 }
             } catch (err) {
-                setError(`${err.response.status} : ${err.response.data.message}`);
+                setError(err);
                 setData(null);
                 navigate('/');
             } finally {
@@ -35,6 +36,7 @@ const Dashboard = () => {
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
             {data && data.user.username}
+            in construction
         </div>
     )
 }

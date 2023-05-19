@@ -1,9 +1,9 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import axios from 'axios';
-import '../styles/LoginPage.css';
+import '../styles/LRForm.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/wariatLogo.png';
 
@@ -18,11 +18,11 @@ const LoginPage = () => {
     });
 
     const login = async ({username, password}) => {
-        axios.post('/api/login', {username, password}).then((axiosRes) => {
+        axios.post('/login', {username, password}).then((axiosRes) => {
             if (axiosRes.data.auth === true) {
-                if (axiosRes.data.user.type === 'admin') {
+                if (axiosRes.data.user.isAdmin === true) {
                     navigate('/dashboard');
-                } else if (axiosRes.data.user.type === 'client') {
+                } else if (axiosRes.data.user.isAdmin === false) {
                     navigate('/');
                 }
             }
@@ -34,7 +34,7 @@ const LoginPage = () => {
             <div className='Logo'>
                 <Link to='/'><img src={logo} alt='Wariat logo'/></Link>
             </div>
-            <div className='LoginForm'>
+            <div className='form'>
                 <Formik
                     validationSchema={schema}
                     initialValues={{username:'',password:''}}
@@ -59,6 +59,10 @@ const LoginPage = () => {
                         </Form>
                     )}
                 </Formik>
+                <div className='links'>
+                    <Link to='/register'>Nie masz konta? Zarejestruj się!</Link>
+                    <Link to='/'>Wróć do strony głównej</Link>
+                </div>
             </div>
         </div>
     )

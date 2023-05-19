@@ -14,6 +14,7 @@ const Products = () => {
     
     return (
         <div className="Products">
+            
                 {listOfProducts.map((product, key) => {
                     return (
                         <div className='product' key={key}>

@@ -23,7 +23,6 @@ const Header = () => {
 
     return (
         <header className="Header">
-            {user.username && 'Witaj ' + user.username}
             <div className='leftHeader'>
                 <Link to="/">Strona główna</Link>
                 <Link to="/products">Produkty</Link>
@@ -36,7 +35,7 @@ const Header = () => {
                 <Link to="/contact">Kontakt</Link>
                 <Link to="/about">O nas</Link>
                 {(user.username) ? '' : <Link to="/login">Logowanie</Link>}
-                {(user.username) ? <Link to="/login">Twoje konto</Link> : ''}
+                {(user.username) ? <Link to="/accountManager">Twoje konto</Link> : ''}
                 {(user.username) ? <span onClick={logout}>Wyloguj się</span> : ''}
             </div>
         </header>
