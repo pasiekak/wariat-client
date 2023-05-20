@@ -1,17 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header.js';
-import Footer from './components/Footer.js';
-import Home from './components/Home.js';
-import Products from './components/Products.js';
-import LoginPage from './components/LoginPage.js';
-import Gallery from './components/Gallery.js';
-import NotFound from './components/NotFound.js';
-import Dashboard from './components/dashboard/Dashboard.js';
-import RegisterPage from './components/RegisterPage.js';
-import About from './components/About.js';
-import Contact from './components/Contact.js';
-import AccountManager from './components/AccountManager.js';
-import './styles/App.css'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Home from './components/home/Home';
+import Products from './components/products/Products';
+import Gallery from './components/gallery/Gallery';
+import Contact from './components/contact/Contact';
+import About from './components/about/About';
+import Account from './components/account/Account';
+import NotFound from './components/notFound/NotFound';
+import LoginPage from './components/login/LoginPage';
+import RegisterPage from './components/register/RegisterPage';
+import Dashboard from './components/dashboard/Dashboard';
+import './styles/App.css';
 
 function App() {
 
@@ -39,7 +39,7 @@ const NormalRoutes = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/about" element={<About />}/>
-          <Route path="/accountManager" element={<AccountManager/>}/>
+          <Route path="/accountManager" element={<Account/>}/>
           <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>

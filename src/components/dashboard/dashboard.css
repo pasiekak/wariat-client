@@ -1,0 +1,40 @@
+.Dashboard {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.topPanel {
+    flex: 0.1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000411;
+    color: #E1EFE6;
+}
+.bottomPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: #E1EFE6;
+}
+.leftPanel {
+    flex: 0.02;
+    background-color: #160C28;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    transition: 500ms ease;
+}
+.rightPanel {
+    flex: 1;
+    background-color: #E1EFE6;
+}
+
+.leftPanel:hover {
+    flex: 0.2;
+}
+
+.topPanel img {
+    width: 100%;
+    height: 50px;
+}

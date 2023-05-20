@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../images/wariatLogo.png';
+import './dashboard.css';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -29,14 +30,24 @@ const Dashboard = () => {
             }
         };
         getData();
-    }, []);
+    }, [navigate]);
 
     return (
         <div className='Dashboard'>
-            {loading && <div>Loading...</div>}
-            {error && <div>{error}</div>}
-            {data && data.user.username}
-            in construction
+            <div className='topPanel'>
+                <Link to="/"><img src={logo} alt="Wariat logo"/></Link>
+                {loading && <div>Loading...</div>}
+                {error && <div>{error}</div>}
+                {data && <span>Witaj {data.user.username}</span>}
+            </div>
+            <div className='bottomPanel'>
+                <div className='leftPanel'>
+                    
+                </div>
+                <div className='rightPanel'>
+                    
+                </div>
+            </div>
         </div>
     )
 }

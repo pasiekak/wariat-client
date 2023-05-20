@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/Products.css';
+import './products.css';
+import SearchBar from '../searchBar/SearchBar.js';
 
 const Products = () => {
     const [listOfProducts, setListOfProducts] = useState([]);
@@ -14,7 +15,8 @@ const Products = () => {
     
     return (
         <div className="Products">
-            
+            <SearchBar />
+            <div className='list'>
                 {listOfProducts.map((product, key) => {
                     return (
                         <div className='product' key={key}>
@@ -24,6 +26,7 @@ const Products = () => {
                         </div>
                         ) 
                 })}
+            </div>
         </div>
     );
 }
