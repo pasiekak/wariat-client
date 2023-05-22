@@ -16,16 +16,11 @@ const LoginForm = () => {
 
     const login = async ({username, password}) => {
         axios.post('/login', {username, password}).then((axiosRes) => {
-            if (axiosRes.data.auth === true) {
-                console.log(axiosRes.data.user);
-                if (axiosRes.data.user.isAdmin === true) {
-                    navigate('/dashboard');
-                } else if (axiosRes.data.user.isAdmin === false) {
-                    navigate('/');
-                }
-            }
+            navigate('/');
         })
     }
+
+
 
     return (
         <div className='LoginForm'>

@@ -1,25 +1,17 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import './header.css'
 import logo from '../../images/wariatLogo.png';
-import axios from 'axios';
+import responseHandler from '../../api/responseHandler';
 
 const Header = () => {
-    const [user, setUser] = useState({});
+    const [cookies, removeCookie] = useCookies();
 
-    const logout = () => {
-        axios.delete('/logout').then((axiosRes) => {
-            setUser({});
-        });
+    const logout = async () => {
+        removeCookie('user');
+        await responseHandler.logout();
     }
-
-    useEffect(() => {
-        axios.get('/login').then((axiosRes) => {  
-            if (axiosRes.data.auth === true) {
-                setUser(axiosRes.data.user);
-            }
-        })
-    }, [])
 
     return (
         <header className="Header">
@@ -34,9 +26,9 @@ const Header = () => {
             <div className='rightHeader'>
                 <Link to="/contact">Kontakt</Link>
                 <Link to="/about">O nas</Link>
-                {(user.username) ? '' : <Link to="/login">Logowanie</Link>}
-                {(user.username) ? <Link to="/accountManager">Twoje konto</Link> : ''}
-                {(user.username) ? <span onClick={logout}>Wyloguj się</span> : ''}
+                {(cookies.user) ? '' : <Link to="/login">Zaloguj się</Link>}
+                {(cookies.user) ? <Link to="/account">Moje konto</Link> : ''}
+                {(cookies.user) ? <span onClick={logout}>Wyloguj się</span> : ''}
             </div>
         </header>
     )
