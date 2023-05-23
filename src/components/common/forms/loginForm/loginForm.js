@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { loginSchema } from '../schemas/loginSchema';
 import { useNavigate } from 'react-router-dom';
 import loginApiHandler from '../../../../api/loginApiHandler';
 
 const LoginForm = () => {
-    const navigate = useNavigate();
     const [success, setSuccess] = useState(false);
     const [apiMsg, setApiMsg] = useState(null)
 
-    const schema = Yup.object().shape({
-        username: Yup.string()
-        .required("Nazwa użytkownika jest wymagana"),
-        password: Yup.string()
-        .required('Hasło jest wymagane')
-    });
+    const navigate = useNavigate();
+    const schema = loginSchema;
 
     const login = async (username, password) => {
         let apiResponse = await loginApiHandler.login(username, password);
@@ -46,14 +41,14 @@ const LoginForm = () => {
                 >
                     <h1>Logowanie</h1>
                     <label htmlFor='username'>Nazwa użytkownika</label>
-                    <Field id='username' name='username' type='text'/>
-                    <div className='error'><ErrorMessage name='username'/></div>
+                        <Field id='username' name='username' type='text'/>
+                        <div className='error'><ErrorMessage name='username'/></div>
                     <label htmlFor='password'>Password</label>
-                    <Field id='password' name='password' type='password'/>
-                    <div className='error'>
-                        <ErrorMessage name='password'/>
-                        <p>{apiMsg}</p>
-                    </div>
+                        <Field id='password' name='password' type='password'/>
+                        <div className='error'>
+                            <ErrorMessage name='password'/>
+                            <p>{apiMsg}</p>
+                        </div>
                     <button type='submit'>Zaloguj się</button>
                 </Form>
             </Formik>
