@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import loginApiHandler from '../../../../api/loginApiHandler';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
-    const [ error, setError ] = useState(null);
+    const [regSuccess, setRegSuccess] = useState(false);
+    const [logSuccess, setLogSuccess] = useState(false);
+    const [apiMsg, setApiMsg ] = useState(null);
     const navigate = useNavigate();
 
     const schema = Yup.object().shape({
@@ -26,61 +28,64 @@ const RegisterForm = () => {
         firstName: Yup.string().optional(),
     });
 
-    const register = async({username, password, email, firstName}) => {
-        axios.post('/register', {username, password, email, firstName}).then((axiosRes) => {
-            setError(null);
-            axios.post('/login', {username, password}).then((res) => {
-                setError(null);
-                navigate('/');
-            }).catch((err) => {
-                setError(err);
-            })
-        }).catch((err) => {
-            setError(err);
-        });
+    const register = async(username, password, email, firstName) => {
+        console.log('hello from register');
+        let apiResponse = await loginApiHandler.register(username, password, email, firstName);
+        setRegSuccess(apiResponse.success);
+        setApiMsg(apiResponse.message);
     }
+
+    const login = async(username, password) => {
+        console.log('hello from login');
+        let apiResponse = await loginApiHandler.login(username, password);
+        setLogSuccess(apiResponse.success);
+    }
+
+    const handleOnChange = () => {
+        setRegSuccess(false);
+        setLogSuccess(false);
+        setApiMsg(null)
+    }
+
+    useEffect(() => {
+        if (regSuccess && logSuccess) navigate('/');
+    }, [navigate, regSuccess, logSuccess])
+
     return (
         <div className='RegisterForm'>
             <Formik
                 validationSchema={schema}
                 initialValues={{username:'',password:'',passwordRepeat:'',email:'',firstName:''}}
-                onSubmit={(values) => {
-                    register(values);
+                onSubmit={async (values) => {
+                    await register(values.username, values.password, values.email, values.firstName);
+                    await login(values.username, values.password);
                 }}    
             >
-                {({ errors, touched }) => (
-                    <Form autoComplete='off'> 
+                <Form autoComplete='off'
+                onChange={handleOnChange}
+                > 
                     <h1>Rejestracja</h1>
                     <label htmlFor='username'>Nazwa użytkownika</label>
                     <Field id='username' name='username' type='text'/>
-                    {errors.username && touched.username ? (
-                        <div className='error'>{errors.username}</div>
-                    ) : <div></div>}
+                    <div className='error'><ErrorMessage name='username'/></div>
                     <label htmlFor='password'>Hasło</label>
                     <Field id='password' name='password' type='password'/>
-                    {errors.password && touched.password ? (
-                        <div className='error'>{errors.password}</div>
-                    ) : <div></div>}
+                    <div className='error'><ErrorMessage name='password'/></div>
                     <label htmlFor='passwordRepeat'>Powtórz hasło</label>
                     <Field id='passwordRepeat' name='passwordRepeat' type='password'/>
-                    {errors.passwordRepeat && touched.passwordRepeat ? (
-                        <div className='error'>{errors.passwordRepeat}</div>
-                    ) : <div></div>}
+                    <div className='error'><ErrorMessage name='passwordRepeat'/></div>
                     <label htmlFor='email'>Adres email</label>
                     <Field id='email' name='email' type='email'/>
-                    {errors.email && touched.email ? (
-                        <div className='error'>{errors.email}</div>
-                    ) : <div></div>}
+                    <div className='error'><ErrorMessage name='email'/></div>
                     <label htmlFor='firstName'>Imię</label>
                     <Field id='firstName' name='firstName' type='text'/>
-                    {errors.firstName && touched.firstName ? (
-                        <div className='error'>{errors.firstName}</div>
-                    ) : <div></div>}
+                    <div className='error'>
+                        <ErrorMessage name='firstName'/>
+                        <p>{apiMsg}</p>
+                    </div>
                     <button type='submit'>Zarejestruj się</button>
-                    </Form>
-                )}
+                </Form>
             </Formik>
-            {error && <span>{error.response.status}</span>}
         </div>
     )
 }

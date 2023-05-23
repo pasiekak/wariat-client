@@ -1,11 +1,13 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import loginApiHandler from '../../../../api/loginApiHandler';
 
 const LoginForm = () => {
     const navigate = useNavigate();
+    const [success, setSuccess] = useState(false);
+    const [apiMsg, setApiMsg] = useState(null)
 
     const schema = Yup.object().shape({
         username: Yup.string()
@@ -14,41 +16,47 @@ const LoginForm = () => {
         .required('Hasło jest wymagane')
     });
 
-    const login = async ({username, password}) => {
-        axios.post('/login', {username, password}).then((axiosRes) => {
-            navigate('/');
-        })
+    const login = async (username, password) => {
+        let apiResponse = await loginApiHandler.login(username, password);
+        setSuccess(apiResponse.success);
+        setApiMsg(apiResponse.message);
     }
 
+    const handleOnChange = () => {
+        setSuccess(false);
+        setApiMsg(null);
+    }
 
+    useEffect(() => {
+        if (success) navigate('/');
+    }, [success, navigate])
 
     return (
         <div className='LoginForm'>
             <Formik
                 validationSchema={schema}
                 initialValues={{username:'',password:''}}
-                onSubmit={(values) => {
-                    login(values);
+                onSubmit={ async (values) => {
+                    await login(values.username, values.password);
+                    values.password = '';
                 }}
             >   
-                {({ errors, touched }) => (
-                    <Form autoComplete='off'>
+                <Form autoComplete='off'
+                    onChange={handleOnChange}
+                >
                     <h1>Logowanie</h1>
                     <label htmlFor='username'>Nazwa użytkownika</label>
                     <Field id='username' name='username' type='text'/>
-                    {errors.username && touched.username ? (
-                        <div className='error'>{errors.username}</div>
-                    ) : <div></div>}
+                    <div className='error'><ErrorMessage name='username'/></div>
                     <label htmlFor='password'>Password</label>
                     <Field id='password' name='password' type='password'/>
-                    {errors.password && touched.password ? (
-                        <div className='error'>{errors.password}</div>
-                    ) : <div></div>}
+                    <div className='error'>
+                        <ErrorMessage name='password'/>
+                        <p>{apiMsg}</p>
+                    </div>
                     <button type='submit'>Zaloguj się</button>
-                    </Form>
-                )}
+                </Form>
             </Formik>
-            {}
         </div>
     )
 }

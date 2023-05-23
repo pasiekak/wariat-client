@@ -3,14 +3,14 @@ import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import './header.css'
 import logo from '../../images/wariatLogo.png';
-import responseHandler from '../../api/responseHandler';
+import loginApiHandler from '../../api/loginApiHandler';
 
 const Header = () => {
-    const [cookies, removeCookie] = useCookies();
+    const [cookies, setCookie, removeCookie] = useCookies();
 
     const logout = async () => {
         removeCookie('user');
-        await responseHandler.logout();
+        await loginApiHandler.logout();
     }
 
     return (

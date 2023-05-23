@@ -11,7 +11,7 @@
     width: 400px;
     height: 400px;
 }
-.form, .registerForm {
+.form {
     background-color: rgba(235, 235, 235, 0.13);
     height: auto;
     width: 400px;
@@ -28,8 +28,10 @@
 .form h1 {
     align-self: center;
 }
-form div {
-    height: 1rem;
+form .error {
+    min-height: 19px;
+    font-size: small;
+    height: auto;
 }
 .form input {
     background-color: rgba(255,255,255, 0.07);
