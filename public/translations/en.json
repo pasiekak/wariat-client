@@ -8,5 +8,18 @@
     "login": "Login",
     "logout": "Logout",
     "your_account": "Your account",
-    "projects": "Projects"
+    "projects": "Projects",
+    "loginPage_title": "Login",
+    "loginPage_username": "Username",
+    "loginPage_username_required": "Username is required",
+    "loginPage_password": "Password",
+    "loginPage_password_required": "Password is required",
+    "loginPage_button": "Log in",
+    "loginPage_noAccount": "Don't have an account? Sign up!",
+    "loginPage_goBack": "Go back to main page.",
+    "login_status_200": "Logged successfully",
+    "login_status_400": "Invalid data",
+    "login_status_401": "Check if the name and password are correct",
+    "login_status_500": "No response from the server",
+    "login_status_error": "An error occurred"
 }
