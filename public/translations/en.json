@@ -1,3 +1,10 @@
 {
-    "welcome": "Welcome"
+    "main-page": "Main page",
+    "products": "Products",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "about": "About",
+    "login": "Login",
+    "logout": "Logout",
+    "your-account": "Your account"
 }
