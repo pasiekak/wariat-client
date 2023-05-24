@@ -13,6 +13,11 @@ import RegisterPage from './components/views/register/RegisterPage';
 import Dashboard from './components/views/dashboard/Dashboard';
 import './styles/App.css';
 
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+
+
 function App() {
 
   return (
