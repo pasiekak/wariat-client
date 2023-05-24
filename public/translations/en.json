@@ -8,5 +8,18 @@
     "login": "Login",
     "logout": "Logout",
     "your_account": "Your account",
-    "projects": "Projects"
+    "projects": "Projects",
+    "loginPage_title": "Logowanie",
+    "loginPage_username": "Nazwa użytkownika",
+    "loginPage_username_required": "Nazwa użytkownika jest wymagana",
+    "loginPage_password": "Hasło",
+    "loginPage_password_required": "Hasło jest wymagane",
+    "loginPage_button": "Zaloguj się",
+    "loginPage_noAccount": "Nie masz konta? Zarejestruj się!",
+    "loginPage_goBack": "Wróć do strony głównej.",
+    "login_status_200": "Zalogowano pomyślnie",
+    "login_status_400": "Błędne dane",
+    "login_status_401": "Sprawdź, czy nazwa i hasło są poprawne",
+    "login_status_500": "Brak odpowiedzi z serwera",
+    "login_status_error": "Wystąpił błąd"
 }
