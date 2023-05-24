@@ -2,18 +2,22 @@ import React from 'react';
 import './footer.css';
 import { Link  } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <footer className='Footer'>
             <div className='container'>
                 <div className='column'>
-                    <h4>O nas</h4>
-                    <Link to='/projects'>Projekty</Link>
+                    <h4>{t('about')}</h4>
+                    <Link to='/projects'>{t('projects')}</Link>
                     <Link to='/'>Cos tam</Link>
                     <Link to='/'>Cos tam</Link>
                 </div>
                 <div className='column'>
-                    <h4>Kontakt</h4>
+                    <h4>{t('contact')}</h4>
                     <div className='mediaPhone'>
                         <a href='/'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-phone" viewBox="0 0 16 16">

@@ -1,10 +1,11 @@
 // Constant values for status descriptions
+
 export const loginStatusMsg = {
-    200: 'Zalogowano pomyślnie',
-    400: 'Błędne dane',
-    401: 'Sprawdź, czy nazwa i hasło są poprawne',
-    500: 'Brak odpowiedzi z serwera',
-    error: 'Wystąpił błąd',
+    200: 'login_status_200',
+    400: 'login_status_400',
+    401: 'login_status_401',
+    500: 'login_status_500',
+    error: 'login_status_error',
 };
 
 export const registerStatusMsg = {

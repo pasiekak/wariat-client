@@ -3,18 +3,19 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { loginSchema } from '../schemas/loginSchema';
 import { useNavigate } from 'react-router-dom';
 import loginApiHandler from '../../../../api/loginApiHandler';
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = () => {
     const [success, setSuccess] = useState(false);
     const [apiMsg, setApiMsg] = useState(null)
-
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const schema = loginSchema;
 
     const login = async (username, password) => {
         let apiResponse = await loginApiHandler.login(username, password);
         setSuccess(apiResponse.success);
-        setApiMsg(apiResponse.message);
+        setApiMsg(t(apiResponse.message));
     }
 
     const handleOnChange = () => {
