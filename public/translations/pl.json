@@ -1,12 +1,12 @@
 {
     "header": {
-        "main_page": "Main page",
-        "products": "Products",
-        "galerry": "Galerry",
-        "contact": "Contact",
-        "about": "About us",
-        "login": "Login",
-        "logout": "Logout",
-        "account": "Your account"
+        "main_page": "Strona główna",
+        "products": "Produkty",
+        "galerry": "Galeria",
+        "contact": "Kontakt",
+        "about": "O nas",
+        "login": "Zaloguj się",
+        "logout": "Wyloguj się",
+        "account": "Twoje konto"
     }
 }
