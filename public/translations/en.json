@@ -1,3 +1,10 @@
 {
-    "main-page": "Strona główna"
+    "main-page": "Strona główna",
+    "products": "Produkty",
+    "gallery": "Galeria",
+    "contact": "Kontakt",
+    "about": "O nas",
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "your-account": "Twoje konto"
 }
