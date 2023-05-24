@@ -1,8 +1,8 @@
 import React from "react";
-import logo from '../../images/wariatLogo.png';
+import logo from '../../../images/wariatLogo.png';
 import { Link } from 'react-router-dom';
-import RegisterForm from '../common/forms/registerForm/registerForm.js';
-import '../../styles/login-register-form.css';
+import RegisterForm from '../../common/forms/registerForm/registerForm.js';
+import '../../../styles/login-register-form.css';
 
 const RegisterPage = () => {
     

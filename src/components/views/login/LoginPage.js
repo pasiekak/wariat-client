@@ -1,8 +1,8 @@
 import { React } from 'react';
-import '../../styles/login-register-form.css';
+import '../../../styles/login-register-form.css';
 import { Link } from 'react-router-dom';
-import logo from '../../images/wariatLogo.png';
-import LoginForm from '../common/forms/loginForm/loginForm';
+import logo from '../../../images/wariatLogo.png';
+import LoginForm from '../../common/forms/loginForm/loginForm';
 
 const LoginPage = () => {
 

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import './header.css'
-import logo from '../../images/wariatLogo.png';
-import loginApiHandler from '../../api/loginApiHandler';
+import logo from '../../../images/wariatLogo.png'
+import loginApiHandler from '../../../api/loginApiHandler';
 
 const Header = () => {
     const [cookies, setCookie, removeCookie] = useCookies();
@@ -12,7 +12,7 @@ const Header = () => {
         removeCookie('user');
         await loginApiHandler.logout();
     }
-
+    // TODO: Polish/English for whole page
     return (
         <header className="Header">
             <div className='leftHeader'>
