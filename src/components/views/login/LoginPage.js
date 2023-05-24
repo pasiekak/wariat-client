@@ -3,6 +3,7 @@ import '../../../styles/login-register-form.css';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/wariatLogo.png';
 import LoginForm from '../../common/forms/loginForm/loginForm';
+import FormLinks from '../../common/forms/formLinks/FormLinks';
 
 const LoginPage = () => {
 
@@ -13,10 +14,7 @@ const LoginPage = () => {
             </div>
             <div className='form'>
                 <LoginForm/>
-                <div className='links'>
-                    <Link to='/register'>Nie masz konta? Zarejestruj się!</Link>
-                    <Link to='/'>Wróć do strony głównej</Link>
-                </div>
+                <FormLinks/>
             </div>
         </div>
     )

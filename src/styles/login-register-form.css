@@ -70,7 +70,7 @@ form .error {
 .form input, .form button {
     height: 2rem;
 }
-.links {
+.FormLinks {
     display: flex;
     flex-direction: column;
 }

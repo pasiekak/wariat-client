@@ -2,18 +2,18 @@ import * as Yup from 'yup';
 
 export const registerSchema = Yup.object().shape({
     username: Yup.string()
-    .required('Nazwa użytkownika jest wymagana'),
+    .required('register_schema_username_required'),
     password: Yup.string()
-    .required('Hasło jest wymagane')
-    .matches(/[0-9]/, 'Hasło musi mieć cyfrę')
-    .matches(/[a-z]/, 'Hasło musi mieć małą literę')
-    .matches(/[A-Z]/, 'Hasło musi mieć dużą literę')
-    .matches(/[^\w]/, 'Hasło musi mieć symbol (np. !@#$%^&*)'),
+    .required('register_schema_password_required')
+    .matches(/[0-9]/, 'register_schema_password_digits')
+    .matches(/[a-z]/, 'register_schema_password_small_letter')
+    .matches(/[A-Z]/, 'register_schema_password_big_letter')
+    .matches(/[^\w]/, 'register_schema_password_symbol'),
     passwordRepeat: Yup.string()
-    .required('Powtórz hasło')
-    .oneOf([Yup.ref('password'), null], 'Hasła muszą być takie same'),
+    .required('register_schema_passwordRepeat_required')
+    .oneOf([Yup.ref('password'), null], 'register_schema_passwordRepeat_oneOf'),
     email: Yup.string()
-    .email('Niepoprawny adres email')
-    .required('Adres email jest wymagany'),
+    .email('register_schema_email_invalid')
+    .required('register_schema_email_required'),
     firstName: Yup.string().optional(),
 });

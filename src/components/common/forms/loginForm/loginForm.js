@@ -40,17 +40,19 @@ const LoginForm = () => {
                 <Form autoComplete='off'
                     onChange={handleOnChange}
                 >
-                    <h1>Logowanie</h1>
-                    <label htmlFor='username'>Nazwa użytkownika</label>
+                    <h1>{t('loginPage_title')}</h1>
+                    <label htmlFor='username'>{t('loginPage_username')}</label>
                         <Field id='username' name='username' type='text'/>
-                        <div className='error'><ErrorMessage name='username'/></div>
-                    <label htmlFor='password'>Password</label>
+                        <div className='error'>
+                            <ErrorMessage name='username' render={msg => t(msg)}/>
+                        </div>
+                    <label htmlFor='password'>{t('loginPage_password')}</label>
                         <Field id='password' name='password' type='password'/>
                         <div className='error'>
-                            <ErrorMessage name='password'/>
+                            <ErrorMessage name='password' render={msg => t(msg)}/>
                             <p>{apiMsg}</p>
                         </div>
-                    <button type='submit'>Zaloguj się</button>
+                    <button type='submit'>{t('loginPage_button')}</button>
                 </Form>
             </Formik>
         </div>

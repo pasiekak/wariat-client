@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 
 export const loginSchema = Yup.object().shape({
     username: Yup.string()
-    .required("Nazwa użytkownika jest wymagana"),
+    .required('login_schema_username_required'),
     password: Yup.string()
-    .required('Hasło jest wymagane')
+    .required('login_schema_password_required')
 });

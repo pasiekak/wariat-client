@@ -9,11 +9,11 @@ export const loginStatusMsg = {
 };
 
 export const registerStatusMsg = {
-    201: 'Udało Ci się zarejestrować konto',
-    400: 'Rejestracja się nie powiodła',
-    409: 'Konto o takich parametrach już istnieje',
-    500: 'Brak odpowiedzi z serwera',
-    error: 'Wystąpił błąd'
+    201: 'register_status_201',
+    400: 'register_status_400',
+    409: 'register_status_409',
+    500: 'register_status_500',
+    error: 'register_status_error'
 }
 
 export const logoutStatusMsg = {
