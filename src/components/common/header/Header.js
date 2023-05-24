@@ -5,14 +5,21 @@ import './header.css'
 import logo from '../../../images/wariatLogo.png'
 import loginApiHandler from '../../../api/loginApiHandler';
 
+import { useTranslation } from 'react-i18next';
+
 const Header = () => {
     const [cookies, setCookie, removeCookie] = useCookies();
+    const { t, i18n } = useTranslation();
 
     const logout = async () => {
         removeCookie('user');
         await loginApiHandler.logout();
     }
-    // TODO: Polish/English for whole page
+
+    const onChange = (event) => {
+        i18n.changeLanguage(event.target.value);
+    }
+
     return (
         <header className="Header">
             <div className='leftHeader'>
@@ -29,6 +36,10 @@ const Header = () => {
                 {(cookies.user) ? '' : <Link to="/login">Zaloguj się</Link>}
                 {(cookies.user) ? <Link to="/account">Moje konto</Link> : ''}
                 {(cookies.user) ? <span onClick={logout}>Wyloguj się</span> : ''}
+                <select name='language' onChange={onChange}>
+                    <option value='pl'>Polish</option>
+                    <option value='en'>English</option>
+                </select>
             </div>
         </header>
     )
