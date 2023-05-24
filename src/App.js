@@ -22,8 +22,8 @@ i18n
   .use(HttpBackend)
   .init({
     backend: { loadPath: "/translations/{{lng}}.json"},
-    lng: "en",
-    fallbackLng: "en",
+    lng: "pl",
+    fallbackLng: "pl",
     interpolation: { escapeValue: false },
   });
 const App = () => {
@@ -38,8 +38,8 @@ const App = () => {
       <Router>
         <h1>{t("welcome")}</h1>
         <select name='language' onChange={onChange}>
-          <option value='en'>English</option>
           <option value='pl'>Polish</option>
+          <option value='en'>English</option>
         </select>
         <Routes >
           <Route path='/*' element={<NormalRoutes/>} />
