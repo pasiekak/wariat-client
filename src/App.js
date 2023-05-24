@@ -17,10 +17,6 @@ import i18n from 'i18next';
 import { useTranslation, initReactI18next, Trans } from 'react-i18next';
 import HttpBackend from "i18next-http-backend";
 
-const translationsEn = {
-  welcome: "Welcome"
-}
-
 i18n
   .use(initReactI18next)
   .use(HttpBackend)
