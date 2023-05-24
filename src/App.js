@@ -14,17 +14,39 @@ import Dashboard from './components/views/dashboard/Dashboard';
 import './styles/App.css';
 
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import { useTranslation, initReactI18next, Trans } from 'react-i18next';
+import HttpBackend from "i18next-http-backend";
 
+const translationsEn = {
+  welcome: "Welcome"
+}
 
+i18n
+  .use(initReactI18next)
+  .use(HttpBackend)
+  .init({
+    backend: { loadPath: "/translations/{{lng}}.json"},
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: { escapeValue: false },
+  });
+const App = () => {
+  const { t } = useTranslation();
+  const onChange = (event) => {
+    i18n.changeLanguage(event.target.value);
+  }
 
-function App() {
 
   return (
     <div className='App'>
       <Router>
+        <h1>{t("welcome")}</h1>
+        <select name='language' onChange={onChange}>
+          <option value='en'>English</option>
+          <option value='pl'>Polish</option>
+        </select>
         <Routes >
-          <Route path="/*" element={<NormalRoutes/>} />
+          <Route path='/*' element={<NormalRoutes/>} />
           <Route path='/login' element={<LoginPage/>} />
           <Route path='/register' element={<RegisterPage/>} />
           <Route path='/dashboard' element={<Dashboard/>}/>

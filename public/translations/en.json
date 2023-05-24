@@ -1,12 +1,3 @@
 {
-    "header" : {
-        "main_page" : "Main page",
-        "products" : "Products",
-        "gallery" : "Gallery",
-        "contact" : "Contact",
-        "about" : "About us",
-        "login" : "Login",
-        "logout" : "Logout",
-        "account" : "Your account"
-    }
+    "welcome": "Welcome"
 }
