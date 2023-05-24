@@ -18,8 +18,8 @@ const loginApiHandler = {
     },
     login: async (username, password) => {
         try {
-            await axios.post('/login', {username, password})
-            return { success: true, message: loginStatusMsg[200] };
+            let response = await axios.post('/login', {username, password})
+            return { success: true, message: loginStatusMsg[response.status] };
         } catch (err) {
             if (err.response?.status === 500) {
                 return { success: false, message: loginStatusMsg['500']}

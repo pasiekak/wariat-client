@@ -9,7 +9,6 @@
     box-shadow: #2C313A 0px 5px, #575E62 0px 10px, #838A8B 0px 15px;
 }
 .imageHeader {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
