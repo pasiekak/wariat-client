@@ -1,12 +1,12 @@
 {
-    "welcome": "Witaj na naszej stronie!",
-    "main_page": "Strona główna",
-    "products": "Produkty",
-    "gallery": "Galeria",
-    "contact": "Kontakt",
-    "about": "O nas",
-    "login": "Zaloguj się",
-    "logout": "Wyloguj się",
-    "your_account": "Twoje konto",
-    "projects": "Projekty"
+    "welcome": "Welcome to our page!",
+    "main_page": "Main page",
+    "products": "Products",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "about": "About",
+    "login": "Login",
+    "logout": "Logout",
+    "your_account": "Your account",
+    "projects": "Projects"
 }
