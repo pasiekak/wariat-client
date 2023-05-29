@@ -43,5 +43,6 @@
     "register_status_400": "Sign up failed",
     "register_status_409": "An account with these parameters already exists",
     "register_status_500": "No response from the server",
-    "register_status_error": "An error occurred"
+    "register_status_error": "An error occurred",
+    "some_message": "Cos jakis tekst"
 }
