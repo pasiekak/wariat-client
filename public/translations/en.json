@@ -13,57 +13,57 @@
     },
     "forms": {
         "login": {
-            "title": "Logowanie",
-            "username": "Nazwa użytkownika",
-            "password": "Hasło",
-            "button": "Zaloguj się"
+            "title": "Logging",
+            "username": "Username",
+            "password": "Password",
+            "button": "Sign in"
         },
         "register": {
-            "title": "Rejestracja",
-            "username": "Nazwa użytkownika",
-            "password": "Hasło",
-            "repeatPassword": "Powtórz hasło",
-            "email": "Adres email",
-            "firstName": "Imię",
-            "button": "Zarejestruj się"
+            "title": "Registration",
+            "username": "Username",
+            "password": "Password",
+            "repeatPassword": "Repeat password",
+            "email": "Email address",
+            "firstName": "Name",
+            "button": "Register"
         },
         "links": {
-            "noAccount": "Nie masz konta? Zarejestruj się!",
-            "goBack": "Wróć do strony głównej."
+            "noAccount": "Don't have an account? Sign up!",
+            "goBack": "Return to home page."
         }
     },
     "schemas": {
         "login": {
-            "passwordRequired": "Hasło jest wymagane",
-            "usernameRequired": "Nazwa użytkownika jest wymagana"
+            "passwordRequired": "Password is required",
+            "usernameRequired": "User name is required"
         },
         "register": {
-            "usernameRequired": "Nazwa użytkownika jest wymagana",
-            "passwordRequired": "Hasło jest wymagane",
-            "passwordDigits": "Hasło musi mieć cyfrę",
-            "passwordSmallLetter": "Hasło musi mieć małą literę",
-            "passwordBigLetter": "Hasło musi mieć dużą literę",
-            "passwordSymbol": "Hasło musi mieć symbol (np. !@#$%^&*)",
-            "passwordRepeatRequired": "Powtórz hasło",
-            "passwordRepeatOneOf": "Hasła muszą być takie same",
-            "emailInvalid": "Niepoprawny adres email",
-            "emailRequired": "Adres email jest wymagany"
+            "usernameRequired": "User name is required",
+            "passwordRequired": "Password is required",
+            "passwordDigits": "The password must have a digit",
+            "passwordSmallLetter": "The password must be lowercase",
+            "passwordBigLetter": "The password must have a capital letter",
+            "passwordSymbol": "The password must have a symbol (e.g. !@#$%^&*)",
+            "passwordRepeatRequired": "Repeat password",
+            "passwordRepeatOneOf": "Passwords must be the same",
+            "emailInvalid": "Incorrect email address",
+            "emailRequired": "Email address is required"
         }
     },
     "status_messages": {
         "login": {
-            "200": "Zalogowano pomyślnie",
-            "400": "Błędne dane",
-            "401": "Sprawdź, czy nazwa i hasło są poprawne",
-            "500": "Brak odpowiedzi z serwera",
-            "error": "Wystąpił błąd"
+            "200": "Logged in successfully",
+            "400": "Incorrect data",
+            "401": "Check that the name and password are correct",
+            "500": "No response from the server",
+            "error": "An error occurred"
         },
         "register": {
-            "201": "Udało Ci się zarejestrować konto",
-            "400": "Rejestracja się nie powiodła",
-            "409": "Konto o takich parametrach już istnieje",
-            "500": "Brak odpowiedzi z serwera",
-            "error": "Wystąpił błąd"
+            "201": "You have successfully registered an account",
+            "400": "Registration failed",
+            "409": "An account with these parameters already exists",
+            "500": "No response from the server",
+            "error": "An error occurred"
         }
     }
 }
