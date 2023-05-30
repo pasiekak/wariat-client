@@ -5,7 +5,7 @@ import { Link  } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('header', {keyPrefix: 'header' });
 
     return (
         <footer className='Footer'>

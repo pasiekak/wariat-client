@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 const LoginForm = () => {
     const [success, setSuccess] = useState(false);
     const [apiMsg, setApiMsg] = useState(null)
-    const { t } = useTranslation();
+    const { t } = useTranslation('forms', { keyPrefix: 'forms.login' });
+    const { t: tErr } = useTranslation('schemas', { keyPrefix: 'schemas.login' });
     const navigate = useNavigate();
     const schema = loginSchema;
 
@@ -44,12 +45,12 @@ const LoginForm = () => {
                     <label htmlFor='username'>{t('loginPage_username')}</label>
                         <Field id='username' name='username' type='text'/>
                         <div className='error'>
-                            <ErrorMessage name='username' render={msg => t(msg)}/>
+                            <ErrorMessage name='username' render={msg => tErr(msg)}/>
                         </div>
                     <label htmlFor='password'>{t('loginPage_password')}</label>
                         <Field id='password' name='password' type='password'/>
                         <div className='error'>
-                            <ErrorMessage name='password' render={msg => t(msg)}/>
+                            <ErrorMessage name='password' render={msg => tErr(msg)}/>
                             <p>{apiMsg}</p>
                         </div>
                     <button type='submit'>{t('loginPage_button')}</button>

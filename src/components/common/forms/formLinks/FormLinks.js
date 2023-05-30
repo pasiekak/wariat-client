@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const FormLinks = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('links', {keyPrefix: 'forms.links' });
 
     return (
         <div className='FormLinks'>
