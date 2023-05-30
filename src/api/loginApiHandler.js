@@ -1,18 +1,18 @@
 import axios from 'axios';
-import { loginStatusMsg, registerStatusMsg } from '../constants/statusMessages';
+import { loginStatusMsg } from '../constants/statusMessages';
 
 const loginApiHandler = {
     register: async (username, password, email, firstName) => {
         try {
             let response = await axios.post('/register', { username, password, email, firstName });
-            return { success: true, message: registerStatusMsg[response.status] }
+            return response.data;
         } catch (err) {
             if (err.response?.status === 500) {
-                return { success: false, message: registerStatusMsg['500'] };
-            } else if (err.response?.status === 400) {
-                return { success: false, message: registerStatusMsg['400'] };
+                return { success: false, message: 'serverError' };
+            } else if (err.response.status) {
+                return err.response.data;
             } else {
-                return { success: false, message: registerStatusMsg['error'] };
+                return { success: false, message: 'error' };
             }
         }
     },
@@ -21,14 +21,10 @@ const loginApiHandler = {
             let response = await axios.post('/login', {username, password})
             return { success: true, message: loginStatusMsg[response.status] };
         } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: loginStatusMsg['500'] };
-            } else if (err.response?.status === 400) {
-                return { success: false, message: loginStatusMsg['400'] };
-            } else if (err.response?.status === 401) {
-                return { success: false, message: loginStatusMsg['401'] };
+            if (err.response?.status) {
+                return err.response.data
             } else {
-                return { success: false, message: loginStatusMsg['error'] };
+                return { success: false, message: 'error' };
             }
         }
     },
