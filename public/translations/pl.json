@@ -77,22 +77,25 @@
 
         "login":{
 
-            "200": "Zalogowano pomyślnie",
-            "400": "Błędne dane",
-            "401": "Sprawdź, czy nazwa i hasło są poprawne",
-            "500": "Brak odpowiedzi z serwera",
+            "success": "Zalogowano pomyślnie",
+            "noDataProvided": "Nie dostarczono loginu i hasła",
+            "wrongUsernameOrPassword": "Sprawdź, czy nazwa i hasło są poprawne",
+            "serverError": "Wystąpił błąd serwera",
             "error": "Wystąpił błąd"
 
         },
         
         "register":{
 
-            "201": "Udało Ci się zarejestrować konto",
-            "400": "Rejestracja się nie powiodła",
-            "409": "Konto o takich parametrach już istnieje",
-            "500": "Brak odpowiedzi z serwera",
+            "success": "Udało Ci się zarejestrować konto",
             "error": "Wystąpił błąd"
 
+        },
+
+        "logout": {
+
+            "success": "Wylogowano pomyślnie",
+            "error": "Wystąpił błąd"
         }
 
     }
