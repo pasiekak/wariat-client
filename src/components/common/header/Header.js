@@ -10,7 +10,7 @@ import LanguageSelect from '../languageSelect/LanguageSelect';
 
 const Header = () => {
     const [cookies, setCookie, removeCookie] = useCookies();
-    const { t } = useTranslation();
+    const { t } = useTranslation('header');
 
     const logout = async () => {
         removeCookie('user');
