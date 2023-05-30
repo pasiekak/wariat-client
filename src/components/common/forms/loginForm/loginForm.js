@@ -41,19 +41,19 @@ const LoginForm = () => {
                 <Form autoComplete='off'
                     onChange={handleOnChange}
                 >
-                    <h1>{t('loginPage_title')}</h1>
-                    <label htmlFor='username'>{t('loginPage_username')}</label>
+                    <h1>{t('title')}</h1>
+                    <label htmlFor='username'>{t('username')}</label>
                         <Field id='username' name='username' type='text'/>
                         <div className='error'>
                             <ErrorMessage name='username' render={msg => tErr(msg)}/>
                         </div>
-                    <label htmlFor='password'>{t('loginPage_password')}</label>
+                    <label htmlFor='password'>{t('password')}</label>
                         <Field id='password' name='password' type='password'/>
                         <div className='error'>
                             <ErrorMessage name='password' render={msg => tErr(msg)}/>
                             <p>{apiMsg}</p>
                         </div>
-                    <button type='submit'>{t('loginPage_button')}</button>
+                    <button type='submit'>{t('button')}</button>
                 </Form>
             </Formik>
         </div>

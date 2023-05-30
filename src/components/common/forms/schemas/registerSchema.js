@@ -2,18 +2,18 @@ import * as Yup from 'yup';
 
 export const registerSchema = Yup.object().shape({
     username: Yup.string()
-    .required('register_schema_username_required'),
+    .required('usernameRequired'),
     password: Yup.string()
-    .required('register_schema_password_required')
-    .matches(/[0-9]/, 'register_schema_password_digits')
-    .matches(/[a-z]/, 'register_schema_password_small_letter')
-    .matches(/[A-Z]/, 'register_schema_password_big_letter')
-    .matches(/[^\w]/, 'register_schema_password_symbol'),
+    .required('passwordRequired')
+    .matches(/[0-9]/, 'passwordDigits')
+    .matches(/[a-z]/, 'passwordSmallLetter')
+    .matches(/[A-Z]/, 'passwordBigLetter')
+    .matches(/[^\w]/, 'passwordSymbol'),
     passwordRepeat: Yup.string()
-    .required('register_schema_passwordRepeat_required')
-    .oneOf([Yup.ref('password'), null], 'register_schema_passwordRepeat_oneOf'),
+    .required('passwordRepeatRequired')
+    .oneOf([Yup.ref('password'), null], 'passwordRepeatOneOf'),
     email: Yup.string()
-    .email('register_schema_email_invalid')
-    .required('register_schema_email_required'),
+    .email('emailInvalid')
+    .required('emailRequired'),
     firstName: Yup.string().optional(),
 });

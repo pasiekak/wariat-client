@@ -7,8 +7,8 @@ const FormLinks = () => {
 
     return (
         <div className='FormLinks'>
-            <Link to='/register'>{t('formLinks_noAccount')}</Link>
-            <Link to='/'>{t('formLinks_goBack')}</Link>
+            <Link to='/register'>{t('noAccount')}</Link>
+            <Link to='/'>{t('goBack')}</Link>
         </div>
     )
 }
