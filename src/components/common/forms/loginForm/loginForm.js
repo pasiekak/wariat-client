@@ -10,13 +10,14 @@ const LoginForm = () => {
     const [apiMsg, setApiMsg] = useState(null)
     const { t } = useTranslation('forms', { keyPrefix: 'forms.login' });
     const { t: tErr } = useTranslation('schemas', { keyPrefix: 'schemas.login' });
+    const { t: tStatus } = useTranslation('status', { keyPrefix: 'status_messages.login' });
     const navigate = useNavigate();
     const schema = loginSchema;
 
     const login = async (username, password) => {
         let apiResponse = await loginApiHandler.login(username, password);
         setSuccess(apiResponse.success);
-        setApiMsg(t(apiResponse.message));
+        setApiMsg(tStatus(apiResponse.message));
     }
 
     const handleOnChange = () => {

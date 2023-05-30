@@ -19,7 +19,7 @@ const loginApiHandler = {
     login: async (username, password) => {
         try {
             let response = await axios.post('/login', {username, password})
-            return { success: true, message: loginStatusMsg[response.status] };
+            return response.data;
         } catch (err) {
             if (err.response?.status) {
                 return err.response.data
