@@ -52,19 +52,19 @@
     },
     "status_messages": {
         "login": {
-            "success": "Zalogowano pomyślnie",
-            "noDataProvided": "Nie dostarczono loginu i hasła",
-            "wrongUsernameOrPassword": "Sprawdź, czy nazwa i hasło są poprawne",
-            "serverError": "Wystąpił błąd serwera",
+            "success": "Logged in successfully",
+            "noDataProvided": "No login and password provided",
+            "wrongUsernameOrPassword": "Check that the name and password are correct",
+            "serverError": "A server error occurred",
             "error": "An error occurred"
         },
         "register": {
-            "success": "Udało Ci się zarejestrować konto",
+            "success": "You have successfully registered an account",
             "error": "An error occurred"
         },
         "logout": {
-            "success": "Wylogowano pomyślnie",
-            "error": "Wystąpił błąd"
+            "success": "Logged out successfully",
+            "error": "An error occurred"
         }
     }
 }
