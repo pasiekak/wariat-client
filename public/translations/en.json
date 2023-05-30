@@ -1,0 +1,55 @@
+{
+    "header": {
+        "welcome": "Welcome to our website!",
+        "main_page": "Homepage",
+        "products": "Products",
+        "gallery": "Gallery",
+        "contact": "Contact",
+        "about": "About us",
+        "login": "Sign in",
+        "logout": "Log out",
+        "your_account": "Your account",
+        "projects": "Projects"
+    },
+    "forms": {
+        "loginPage_title": "Logging",
+        "loginPage_username": "Username",
+        "loginPage_password": "Password",
+        "loginPage_button": "Sign in",
+        "registerPage_title": "Registration",
+        "registerPage_username": "Username",
+        "registerPage_password": "Password",
+        "registerPage_repeatPassword": "Repeat password",
+        "registerPage_email": "Email address",
+        "registerPage_firstName": "Name",
+        "registerPage_button": "Register",
+        "formLinks_noAccount": "Don't have an account? Sign up!",
+        "formLinks_goBack": "Return to home page."
+    },
+    "schemas": {
+        "login_schema_password_required": "Password is required",
+        "login_schema_username_required": "User name is required",
+        "register_schema_username_required": "User name is required",
+        "register_schema_password_required": "Password is required",
+        "register_schema_password_digits": "The password must have a digit",
+        "register_schema_password_small_letter": "The password must be lowercase",
+        "register_schema_password_big_letter": "The password must have a capital letter",
+        "register_schema_password_symbol": "The password must have a symbol (e.g. !@#$%^&*)",
+        "register_schema_passwordRepeat_required": "Repeat password",
+        "register_schema_passwordRepeat_oneOf": "Passwords must be the same",
+        "register_schema_email_invalid": "Incorrect email address",
+        "register_schema_email_required": "Email address is required"
+    },
+    "status_messages": {
+        "login_status_200": "Logged in successfully",
+        "login_status_400": "Incorrect data",
+        "login_status_401": "Check that the name and password are correct",
+        "login_status_500": "No response from the server",
+        "login_status_error": "An error occurred",
+        "register_status_201": "You have successfully registered an account",
+        "register_status_400": "Registration failed",
+        "register_status_409": "An account with these parameters already exists",
+        "register_status_500": "No response from the server",
+        "register_status_error": "An error occurred"
+    }
+}
