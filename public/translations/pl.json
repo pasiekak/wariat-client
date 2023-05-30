@@ -1,5 +1,7 @@
 {
-    "header": {
+
+    "header":{
+
         "welcome": "Witaj na naszej stronie!",
         "main_page": "Strona główna",
         "products": "Produkty",
@@ -9,61 +11,58 @@
         "login": "Zaloguj się",
         "logout": "Wyloguj się",
         "your_account": "Twoje konto",
-        "projects": "Projekty",
+        "projects": "Projekty"
+
     },
-    "forms": {
-        "login": {
-            "loginPage_title": "Logowanie",
-            "loginPage_username": "Nazwa użytkownika",
-            "loginPage_password": "Hasło",
-            "loginPage_button": "Zaloguj się",
-        },
-        "register": {
-            "registerPage_title": "Rejestracja",
-            "registerPage_username": "Nazwa użytkownika",
-            "registerPage_password": "Hasło",
-            "registerPage_repeatPassword": "Powtórz hasło",
-            "registerPage_email": "Adres email",
-            "registerPage_firstName": "Imię",
-            "registerPage_button": "Zarejestruj się",
-        },
-        "links": {
-            "formLinks_noAccount": "Nie masz konta? Zarejestruj się!",
-            "formLinks_goBack": "Wróć do strony głównej.",
-        }
+
+    "forms":{
+
+        "loginPage_title": "Logowanie",
+        "loginPage_username": "Nazwa użytkownika",
+        "loginPage_password": "Hasło",
+        "loginPage_button": "Zaloguj się",
+        "registerPage_title": "Rejestracja",
+        "registerPage_username": "Nazwa użytkownika",
+        "registerPage_password": "Hasło",
+        "registerPage_repeatPassword": "Powtórz hasło",
+        "registerPage_email": "Adres email",
+        "registerPage_firstName": "Imię",
+        "registerPage_button": "Zarejestruj się",
+        "formLinks_noAccount": "Nie masz konta? Zarejestruj się!",
+        "formLinks_goBack": "Wróć do strony głównej."
+
     },
-    "schemas": {
-        "login": {
-            "login_schema_password_required": "Hasło jest wymagane",
-            "login_schema_username_required": "Nazwa użytkownika jest wymagana",
-        },
-        "register": {
-            "register_schema_username_required": "Nazwa użytkownika jest wymagana",
-            "register_schema_password_required": "Hasło jest wymagane",
-            "register_schema_password_digits": "Hasło musi mieć cyfrę",
-            "register_schema_password_small_letter": "Hasło musi mieć małą literę",
-            "register_schema_password_big_letter": "Hasło musi mieć dużą literę",
-            "register_schema_password_symbol": "Hasło musi mieć symbol (np. !@#$%^&*)",
-            "register_schema_passwordRepeat_required": "Powtórz hasło",
-            "register_schema_passwordRepeat_oneOf": "Hasła muszą być takie same",
-            "register_schema_email_invalid": "Niepoprawny adres email",
-            "register_schema_email_required": "Adres email jest wymagany",
-        }
+
+    "schemas":{
+
+        "login_schema_password_required": "Hasło jest wymagane",
+        "login_schema_username_required": "Nazwa użytkownika jest wymagana",
+        "register_schema_username_required": "Nazwa użytkownika jest wymagana",
+        "register_schema_password_required": "Hasło jest wymagane",
+        "register_schema_password_digits": "Hasło musi mieć cyfrę",
+        "register_schema_password_small_letter": "Hasło musi mieć małą literę",
+        "register_schema_password_big_letter": "Hasło musi mieć dużą literę",
+        "register_schema_password_symbol": "Hasło musi mieć symbol (np. !@#$%^&*)",
+        "register_schema_passwordRepeat_required": "Powtórz hasło",
+        "register_schema_passwordRepeat_oneOf": "Hasła muszą być takie same",
+        "register_schema_email_invalid": "Niepoprawny adres email",
+        "register_schema_email_required": "Adres email jest wymagany"
+
     },
-    "status_messages": {
-        "login": {
-            "login_status_200": "Zalogowano pomyślnie",
-            "login_status_400": "Błędne dane",
-            "login_status_401": "Sprawdź, czy nazwa i hasło są poprawne",
-            "login_status_500": "Brak odpowiedzi z serwera",
-            "login_status_error": "Wystąpił błąd",
-        },
-        "register": {
-            "register_status_201": "Udało Ci się zarejestrować konto",
-            "register_status_400": "Rejestracja się nie powiodła",
-            "register_status_409": "Konto o takich parametrach już istnieje",
-            "register_status_500": "Brak odpowiedzi z serwera",
-            "register_status_error": "Wystąpił błąd"
-        }
+
+    "status_messages":{
+
+        "login_status_200": "Zalogowano pomyślnie",
+        "login_status_400": "Błędne dane",
+        "login_status_401": "Sprawdź, czy nazwa i hasło są poprawne",
+        "login_status_500": "Brak odpowiedzi z serwera",
+        "login_status_error": "Wystąpił błąd",
+        "register_status_201": "Udało Ci się zarejestrować konto",
+        "register_status_400": "Rejestracja się nie powiodła",
+        "register_status_409": "Konto o takich parametrach już istnieje",
+        "register_status_500": "Brak odpowiedzi z serwera",
+        "register_status_error": "Wystąpił błąd"
+
     }
+    
 }
