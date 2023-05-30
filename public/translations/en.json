@@ -52,18 +52,19 @@
     },
     "status_messages": {
         "login": {
-            "200": "Logged in successfully",
-            "400": "Incorrect data",
-            "401": "Check that the name and password are correct",
-            "500": "No response from the server",
+            "success": "Zalogowano pomyślnie",
+            "noDataProvided": "Nie dostarczono loginu i hasła",
+            "wrongUsernameOrPassword": "Sprawdź, czy nazwa i hasło są poprawne",
+            "serverError": "Wystąpił błąd serwera",
             "error": "An error occurred"
         },
         "register": {
-            "201": "You have successfully registered an account",
-            "400": "Registration failed",
-            "409": "An account with these parameters already exists",
-            "500": "No response from the server",
+            "success": "Udało Ci się zarejestrować konto",
             "error": "An error occurred"
+        },
+        "logout": {
+            "success": "Wylogowano pomyślnie",
+            "error": "Wystąpił błąd"
         }
     }
 }
