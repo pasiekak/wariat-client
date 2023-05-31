@@ -24,10 +24,10 @@ class RegisterPage extends React.Component {
     pickRegValues = (regValues) => {
         this.setState({data: regValues});
         // Check if user exists > send email verification > register
-        this.checkIfUserExists(regValues.username, regValues.password, regValues.email);
+        this.checkIfUserExists(regValues.username, regValues.email);
     }
  
-    checkIfUserExists = async(username, password, email) => {
+    checkIfUserExists = async(username, email) => {
         let userExists = await loginApiHandler.checkIfUserExists(username, email);
         if (userExists === false) {
             this.setState({userExists: false});
@@ -47,7 +47,7 @@ class RegisterPage extends React.Component {
                     :  
                     <p>Email Verification</p>}
                     
-                    <FormLinks/>
+                    <FormLinks withRegister={false}/>
                 </div>
             </div>
         )

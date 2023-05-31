@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { loginStatusMsg } from '../constants/statusMessages';
 
 const loginApiHandler = {
     register: async (username, password, email, firstName) => {
@@ -21,9 +20,13 @@ const loginApiHandler = {
             let response = await axios.post('/login', {username, password})
             return response.data;
         } catch (err) {
-            if (err.response?.status) {
+            console.log(err);
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status) { 
                 return err.response.data
-            } else {
+            } 
+            else {
                 return { success: false, message: 'error' };
             }
         }
@@ -37,7 +40,6 @@ const loginApiHandler = {
     },
     checkIfUserExists: async (username, email) => {
         axios.post('/checkIfUserExists', {username, email}).then((res) => {
-            console.log(res);
             return { success: true, exists: res.data };
         }).catch((err) => {
         

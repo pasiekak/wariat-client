@@ -14,7 +14,7 @@ const LoginPage = () => {
             </div>
             <div className='form'>
                 <LoginForm/>
-                <FormLinks/>
+                <FormLinks withRegister={true}/>
             </div>
         </div>
     )

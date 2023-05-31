@@ -41,6 +41,7 @@
         "links":{
 
             "noAccount": "Nie masz konta? Zarejestruj się!",
+            "haveAccount": "Masz już konto? Zaloguj się!",
             "goBack": "Wróć do strony głównej."
 
         }
