@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from '../src/reportWebVitals';
@@ -9,7 +10,9 @@ import i18n from './i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <I18nextProvider i18n={i18n} >
-        <App />
+        <Router>
+            <App />
+        </Router>
     </I18nextProvider>
 );
 

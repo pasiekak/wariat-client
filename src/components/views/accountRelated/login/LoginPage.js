@@ -1,9 +1,9 @@
 import { React } from 'react';
-import '../../../styles/login-register-form.css';
+import '../../../../styles/login-register.css';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/wariatLogo.png';
-import LoginForm from '../../common/forms/loginForm/loginForm';
-import FormLinks from '../../common/forms/formLinks/FormLinks';
+import logo from '../../../../images/wariatLogo.png'
+import LoginForm from './loginForm';
+import FormLinks from '../formLinks/FormLinks';
 
 const LoginPage = () => {
 

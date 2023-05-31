@@ -3,10 +3,10 @@ import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import './header.css'
 import logo from '../../../images/wariatLogo.png'
-import loginApiHandler from '../../../api/loginApiHandler';
+import accountActions from '../../../api/accountActions';
 
 import { useTranslation } from 'react-i18next';
-import LanguageSelect from '../languageSelect/LanguageSelect';
+import LanguageSelect from './languageSelect/LanguageSelect';
 
 const Header = () => {
     const [cookies, setCookie, removeCookie] = useCookies();
@@ -14,7 +14,7 @@ const Header = () => {
 
     const logout = async () => {
         removeCookie('user');
-        await loginApiHandler.logout();
+        await accountActions.logout();
     }
 
     return (

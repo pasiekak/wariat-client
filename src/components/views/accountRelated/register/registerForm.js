@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { registerSchema } from '../schemas/registerSchema';
+import { registerSchema } from './registerSchema';
 import { Translation } from 'react-i18next';
 
 class RegisterForm extends React.Component {

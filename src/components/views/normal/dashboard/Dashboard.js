@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../../images/wariatLogo.png';
+import logo from '../../../../images/wariatLogo.png';
 import './dashboard.css';
 
 const Dashboard = () => {

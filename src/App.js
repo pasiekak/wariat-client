@@ -1,30 +1,30 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
-import Home from './components/views/home/Home';
-import Products from './components/views/products/Products';
-import Gallery from './components/views/gallery/Gallery';
-import Contact from './components/views/contact/Contact';
-import About from './components/views/about/About';
-import Account from './components/views/account/Account';
-import NotFound from './components/views/notFound/NotFound';
-import LoginPage from './components/views/login/LoginPage';
-import RegisterPage from './components/views/register/RegisterPage';
-import Dashboard from './components/views/dashboard/Dashboard';
+import Home from './components/views/normal/home/Home';
+import Products from './components/views/normal/products/Products';
+import Gallery from './components/views/normal/gallery/Gallery';
+import Contact from './components/views/normal/contact/Contact';
+import About from './components/views/normal/about/About';
+import Account from './components/views/accountRelated/account/Account';
+import NotFound from './components/views/normal/notFound/NotFound';
+import LoginPage from './components/views/accountRelated/login/LoginPage';
+import RegisterPage from './components/views/accountRelated/register/RegisterPage';
+import Dashboard from './components/views/normal/dashboard/Dashboard';
+import EmailVerificationPage from './components/views/accountRelated/email/EmailVerPage';
 import './styles/App.css';
 
 function App() {
 
   return (
     <div className='App'>
-      <Router>
         <Routes >
-          <Route path="/*" element={<NormalRoutes/>} />
-          <Route path='/login' element={<LoginPage/>} />
-          <Route path='/register' element={<RegisterPage/>} />
-          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path="/*" Component={NormalRoutes} />
+          <Route path='/login' Component={LoginPage} />
+          <Route path='/register' Component={RegisterPage} />
+          <Route exact path='/email-confirmation' Component={EmailVerificationPage} />
+          <Route path='/dashboard' Component={Dashboard}/>
         </Routes>
-      </Router>
     </div>
   );
 }
@@ -34,13 +34,13 @@ const NormalRoutes = () => {
     <>
       <Header/>
       <Routes >
-          <Route path='/' element={<Home/>} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/about" element={<About />}/>
-          <Route path="/account" element={<Account/>}/>
-          <Route path="/*" element={<NotFound/>} />
+          <Route path='/' Component={Home} />
+          <Route path="/products" Component={Products} />
+          <Route path="/gallery" Component={Gallery} />
+          <Route path="/contact" Component={Contact}/>
+          <Route path="/about" Component={About}/>
+          <Route path="/account" Component={Account}/>
+          <Route path="/*" Component={NotFound} />
       </Routes>
       <Footer/>
     </>

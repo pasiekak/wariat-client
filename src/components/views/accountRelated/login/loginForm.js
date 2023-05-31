@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { loginSchema } from '../schemas/loginSchema';
+import { loginSchema } from './loginSchema';
 import { useNavigate } from 'react-router-dom';
-import loginApiHandler from '../../../../api/loginApiHandler';
+import accountActions from '../../../../api/accountActions';
 import { useTranslation } from 'react-i18next';
 
 const LoginForm = () => {
@@ -15,7 +15,7 @@ const LoginForm = () => {
     const schema = loginSchema;
 
     const login = async (username, password) => {
-        let apiResponse = await loginApiHandler.login(username, password);
+        let apiResponse = await accountActions.login(username, password);
         setSuccess(apiResponse.success);
         setApiMsg(tStatus(apiResponse.message));
     }

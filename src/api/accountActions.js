@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const loginApiHandler = {
+const accountActions = {
     register: async (username, password, email, firstName) => {
         try {
-            let response = await axios.post('/register', { username, password, email, firstName });
+            let response = await axios.post('/api/auth/register', { username, password, email, firstName });
             return response.data;
         } catch (err) {
             if (err.response?.status === 500) {
@@ -17,10 +17,9 @@ const loginApiHandler = {
     },
     login: async (username, password) => {
         try {
-            let response = await axios.post('/login', {username, password})
+            let response = await axios.post('/api/auth/login', {username, password})
             return response.data;
         } catch (err) {
-            console.log(err);
             if (err.response?.status === 500) {
                 return { success: false, message: 'serverError' }
             } else if (err.response?.status) { 
@@ -32,19 +31,33 @@ const loginApiHandler = {
         }
     },
     logout: async () => {
-        axios.delete('/logout').then(() => {
+        axios.delete('/api/auth/logout').then(() => {
             alert('Wylogowano pomyślnie.');
         }).catch((err) => {
             alert('Coś poszło nie tak..')
         })
     },
     checkIfUserExists: async (username, email) => {
-        axios.post('/checkIfUserExists', {username, email}).then((res) => {
-            return { success: true, exists: res.data };
-        }).catch((err) => {
-        
-        });
+        try {
+            let response = await axios.post('/api/auth/checkIfUserExists', { username, email });
+            return response.data;
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' };
+            } else if (err.response.status) {
+                return err.response.data;
+            } else {
+                return { success: false, message: 'error' };
+            }
+        }
     },
+    sendVerificationEmail: async (email) => {
+        try {
+            await axios.post('/api/auth/sendEmail', { email });
+        } catch (err) {
+
+        }
+    }
 }
 
-export default loginApiHandler
+export default accountActions
