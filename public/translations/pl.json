@@ -31,10 +31,13 @@
             "title": "Rejestracja",
             "username": "Nazwa użytkownika",
             "password": "Hasło",
-            "repeatPassword": "Powtórz hasło",
+            "passwordRepeat": "Powtórz hasło",
             "email": "Adres email",
             "firstName": "Imię",
-            "button": "Zarejestruj się"
+            "lastName": "Nazwisko",
+            "button": "Zarejestruj się",
+            "buttonNext": "Dalej",
+            "buttonPrev": "Wróć"
 
         },
         
@@ -43,6 +46,14 @@
             "noAccount": "Nie masz konta? Zarejestruj się!",
             "haveAccount": "Masz już konto? Zaloguj się!",
             "goBack": "Wróć do strony głównej."
+
+        },
+
+        "emailCode":{
+
+            "title": "Weryfikacja adresu email",
+            "code": "Wpisz kod otrzymany na adres email",
+            "button": "Zweryfikuj"
 
         }
 
@@ -70,11 +81,18 @@
             "emailInvalid": "Niepoprawny adres email",
             "emailRequired": "Adres email jest wymagany"
 
+        },
+
+        "emailCode":{
+
+            "codeRequired": "Kod jest wymagany",
+            "codeInvalid": "Niepoprawny kod"
+
         }
 
     },
 
-    "status_messages":{
+    "apiMessages":{
 
         "login":{
 
@@ -89,6 +107,8 @@
         "register":{
 
             "success": "Udało Ci się zarejestrować konto",
+            "userExists": "Taki użytkownik już istnieje",
+            "serverError": "Wystąpił błąd serwera",
             "error": "Wystąpił błąd"
 
         },

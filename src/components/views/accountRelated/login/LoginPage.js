@@ -1,18 +1,19 @@
 import { React } from 'react';
-import '../../../../styles/login-register.css';
 import { Link } from 'react-router-dom';
-import logo from '../../../../images/wariatLogo.png'
-import LoginForm from './loginForm';
+
+import Logo from '../../../common/logo/Logo';
+import LoginForm from './form/LoginForm';
 import FormLinks from '../formLinks/FormLinks';
+import './loginPage.css';
 
 const LoginPage = () => {
 
     return (
         <div className='LoginPage'>
-            <div className='Logo'>
-                <Link to='/'><img src={logo} alt='Wariat logo'/></Link>
+            <div className='left'>
+                <Logo/>
             </div>
-            <div className='form'>
+            <div className='right'>
                 <LoginForm/>
                 <FormLinks withRegister={true}/>
             </div>

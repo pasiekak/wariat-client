@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import './formLinks.css';
+
 const FormLinks = (props) => {
     const [withRegister, setWithRegister] = useState(props.withRegister);
     const { t } = useTranslation('links', {keyPrefix: 'forms.links' });

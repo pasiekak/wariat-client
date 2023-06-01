@@ -11,7 +11,7 @@ import NotFound from './components/views/normal/notFound/NotFound';
 import LoginPage from './components/views/accountRelated/login/LoginPage';
 import RegisterPage from './components/views/accountRelated/register/RegisterPage';
 import Dashboard from './components/views/normal/dashboard/Dashboard';
-import EmailVerificationPage from './components/views/accountRelated/email/EmailVerPage';
+import EmailVerification from './components/views/accountRelated/email/emailVerification';
 import './styles/App.css';
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
           <Route path="/*" Component={NormalRoutes} />
           <Route path='/login' Component={LoginPage} />
           <Route path='/register' Component={RegisterPage} />
-          <Route exact path='/email-confirmation' Component={EmailVerificationPage} />
           <Route path='/dashboard' Component={Dashboard}/>
+          <Route path='/email-verification' Component={EmailVerification}/>
         </Routes>
     </div>
   );

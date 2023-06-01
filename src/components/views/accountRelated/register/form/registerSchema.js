@@ -16,4 +16,5 @@ export const registerSchema = Yup.object().shape({
     .email('emailInvalid')
     .required('emailRequired'),
     firstName: Yup.string().optional(),
+    lastName: Yup.string().optional()
 });

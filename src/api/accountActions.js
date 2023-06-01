@@ -1,18 +1,11 @@
 import axios from 'axios';
 
 const accountActions = {
-    register: async (username, password, email, firstName) => {
+    verifyEmailCodeAndRegister: async (newUser, code) => {
         try {
-            let response = await axios.post('/api/auth/register', { username, password, email, firstName });
-            return response.data;
+            let response = await axios.post('/api/auth/register', { newUser, code });
         } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' };
-            } else if (err.response.status) {
-                return err.response.data;
-            } else {
-                return { success: false, message: 'error' };
-            }
+
         }
     },
     login: async (username, password) => {
@@ -53,9 +46,12 @@ const accountActions = {
     },
     sendVerificationEmail: async (email) => {
         try {
-            await axios.post('/api/auth/sendEmail', { email });
+            let response = await axios.post('/api/auth/sendEmail', { email });
+            return response.data;
         } catch (err) {
-
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' };
+            }
         }
     }
 }
