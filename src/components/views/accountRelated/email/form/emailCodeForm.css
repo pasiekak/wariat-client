@@ -1,0 +1,39 @@
+.EmailCodeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(126, 129, 132);
+}
+.EmailCodeForm h1 {
+    align-self: center;
+}
+.EmailCodeForm button {
+    background-color: #000411;
+    border-radius: 5px;
+    border: 1px solid rgba(118,120,126, 0.10);
+    font-size: large;
+    cursor: pointer;
+    color: rgb(126, 129, 132);
+    transition: 500ms ease;
+    height: 2rem;
+}
+.EmailCodeForm input {
+    align-self: center;
+    background-color: rgba(255,255,255, 0.07);
+    border: 3px solid rgba(118,120,126, 0.10);
+    border-radius: 3px;
+    color: rgb(126, 129, 132);
+    padding: 0;
+    height: 2rem;
+    width: 4rem;
+    
+}
+.EmailCodeForm .submitButton:hover {
+    border-color: rgba(255,255,255,0.25);
+}
+.EmailCodeForm span {
+    min-height: 19px;
+    font-size: small;
+    height: auto;
+    color: red;
+}

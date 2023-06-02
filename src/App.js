@@ -11,7 +11,7 @@ import NotFound from './components/views/normal/notFound/NotFound';
 import LoginPage from './components/views/accountRelated/login/LoginPage';
 import RegisterPage from './components/views/accountRelated/register/RegisterPage';
 import Dashboard from './components/views/normal/dashboard/Dashboard';
-import EmailVerification from './components/views/accountRelated/email/emailVerification';
+import EmailVerification from './components/views/accountRelated/email/EmailVerification';
 import './styles/App.css';
 
 function App() {

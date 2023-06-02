@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import OtaClient from '@crowdin/ota-client';
+//import OtaClient from '@crowdin/ota-client';
 import HttpBackend from 'i18next-http-backend';
 
 // ota setup - Crowdin

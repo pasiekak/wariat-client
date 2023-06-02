@@ -52,8 +52,8 @@
         "emailCode":{
 
             "title": "Weryfikacja adresu email",
-            "code": "Wpisz kod otrzymany na adres email",
-            "button": "Zweryfikuj"
+            "codeLabel": "Wpisz kod otrzymany na adres email",
+            "submit": "Zweryfikuj"
 
         }
 
@@ -86,7 +86,8 @@
         "emailCode":{
 
             "codeRequired": "Kod jest wymagany",
-            "codeInvalid": "Niepoprawny kod"
+            "codeExactlyFourDigits": "Kod musi mieć dokładnie 4 cyfry",
+            "codeDigitsOnly": "Kod musi zawierać tylko cyfry"
 
         }
 
@@ -117,6 +118,14 @@
 
             "success": "Wylogowano pomyślnie",
             "error": "Wystąpił błąd"
+        },
+
+        "emailCode": {
+            "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
+            "error": "Wystąpił błąd",
+            "noCodeCookie": "Wystąpił błąd.",
+            "wrongCode": "Podano zły kod"
+
         }
 
     }

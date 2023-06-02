@@ -4,9 +4,17 @@ const accountActions = {
     verifyEmailCodeAndRegister: async (newUser, code) => {
         try {
             let response = await axios.post('/api/auth/register', { newUser, code });
+            return response.data;
         } catch (err) {
-
-        }
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status === 401 || err.response?.status === 403) { 
+                return err.response.data
+            } 
+            else {
+                return { success: false, message: 'error' };
+            }
+        }   
     },
     login: async (username, password) => {
         try {
