@@ -1,32 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './products.css';
+import React, { useEffect } from 'react';
+
+import productsApi from '../../../../api/productsApi.js';
 import SearchBar from '../../../common/searchBar/SearchBar.js';
+import './products.css';
 
 const Products = () => {
-    const [listOfProducts, setListOfProducts] = useState([]);
-
     useEffect(() => {
-        axios.get('/api/products/allProducts')
-            .then(res => {
-                setListOfProducts(res.data)
-            })
+        productsApi.getAllProducts().then((response) => {
+            if(response?.success) {
+                console.log(response);
+            } else {
+                console.error(response.message);
+            }
+        })
     }, []);
     
     return (
         <div className="Products">
             <SearchBar />
-            <div className='list'>
-                {listOfProducts.map((product, key) => {
-                    return (
-                        <div className='product' key={key}>
-                            {/* <img src={`data:image/jpeg;base64,${product.image.toString('base64')}`} alt={product.shortDescription}/> */}
-                            <div className='productName'>{product.name}</div>
-                            <div className='productPrice'>{product.price} zł</div>
-                        </div>
-                        ) 
-                })}
-            </div>
         </div>
     );
 }

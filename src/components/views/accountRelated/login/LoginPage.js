@@ -1,5 +1,4 @@
 import { React } from 'react';
-import { Link } from 'react-router-dom';
 
 import Logo from '../../../common/logo/Logo';
 import LoginForm from './form/LoginForm';

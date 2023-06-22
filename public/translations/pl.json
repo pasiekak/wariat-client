@@ -126,6 +126,13 @@
             "noCodeCookie": "Wystąpił błąd.",
             "wrongCode": "Podano zły kod"
 
+        },
+
+        "token": {
+            "noToken": "Użytkownik prawdopodobnie nie jest zalogowany",
+            "badToken": "Nieudana próba autentykacji użytkownika",
+            "notAdmin": "Nie masz uprawnień do tej operacji",
+            "notModerator": "Nie masz uprawnień do tej operacji"
         }
 
     }

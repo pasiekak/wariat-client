@@ -28,8 +28,9 @@ const EmailCodeForm = ({regData}) => {
         setShowSpinner(true);
         let response = await accountActions.verifyEmailCodeAndRegister(regData, data.code);
         setShowSpinner(false)
+
         setSuccess(response.success);
-        if(response.success === false) {
+        if(response?.success === false) {
             setApiMessage(response.message)
         } else {
             setApiMessage(response.message)

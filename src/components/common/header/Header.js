@@ -32,7 +32,7 @@ const Header = () => {
                 <Link to="/about">{t('about')}</Link>
                 {(cookies.user) ? '' : <Link to="/login">{t('login')}</Link>}
                 {(cookies.user) ? <Link to="/account">{t('your_account')}</Link> : ''}
-                {(cookies.user) ? <span onClick={logout}>{t('logout')}</span> : ''}
+                {(cookies.user) ? <Link to="/"><span onClick={logout}>{t('logout')}</span></Link> : ''}
             </div>
             <LanguageSelect/>
         </header>
