@@ -3,7 +3,7 @@
     "header":{
 
         "welcome": "Witaj na naszej stronie!",
-        "main_page": "Strona główna",
+        "mainPage": "Strona główna",
         "products": "Produkty",
         "gallery": "Galeria",
         "contact": "Kontakt",
@@ -118,9 +118,11 @@
 
             "success": "Wylogowano pomyślnie",
             "error": "Wystąpił błąd"
+
         },
 
         "emailCode": {
+
             "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
             "error": "Wystąpił błąd",
             "noCodeCookie": "Wystąpił błąd.",
@@ -133,8 +135,34 @@
             "badToken": "Nieudana próba autentykacji użytkownika",
             "notAdmin": "Nie masz uprawnień do tej operacji",
             "notModerator": "Nie masz uprawnień do tej operacji"
+
         }
 
-    }
+    },
+
+    "account": {
+        
+        "moderator": {
+
+            "link": "Zarządzaj zawartością strony"
+
+        },
+
+        "attributes": {
+
+            "username": "Nazwa użytkownika",
+            "email": "Adres email",
+            "firstName": "Imię",
+            "lastName": "Nazwisko"
+
+        },
+
+        "notLogged": {
+
+            "message": "Aby uzyskać dostęp do tego zasobu musisz się zalogować."
+        
+        }
     
+    }
+
 }

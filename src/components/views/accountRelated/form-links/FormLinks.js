@@ -6,16 +6,22 @@ import './formLinks.css';
 
 const FormLinks = (props) => {
     const [withRegister] = useState(props.withRegister);
+    const [withLogin] = useState(props.withLogin);
+    const [color] = useState(props.color || 'rgb(126, 129, 132)')
     const { t } = useTranslation('links', {keyPrefix: 'forms.links' });
 
     return (
         
         <div className='FormLinks'>
         {withRegister ? 
-        <Link to='/register'>{t('noAccount')}</Link>
+        <Link to='/register' style={{color: color}}>{t('noAccount')}</Link>
         :
-        <Link to='/login'>{t('haveAccount')}</Link>}
-            <Link to='/'>{t('goBack')}</Link>
+        null}
+        {withLogin ?
+        <Link to='/login' style={{color: color}}>{t('haveAccount')}</Link>
+        :
+        null}
+        <Link to='/' style={{color: color}}>{t('goBack')}</Link>
         </div>
     )
 }

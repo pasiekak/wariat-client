@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import productsApi from '../../../../api/productsApi.js';
-import SearchBar from '../../../common/searchBar/SearchBar.js';
+import SearchBar from '../../../common/search/SearchBar.js';
 import './products.css';
 
 const Products = () => {

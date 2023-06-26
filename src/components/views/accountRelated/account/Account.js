@@ -1,37 +1,29 @@
 import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 
-import accountActions from '../../../../api/accountActions';
+import AccountContent from './account-content/AccountContent';
+import NotLogged from '../not-logged/Not-logged';
 import './account.css';
 
-
 const Account = () => {
+    const [cookies] = useCookies(['user']);
     const [modAccess, setModAccess] = useState(false);
-    const [notLoged, setNotLoged] = useState(true);
+    const [logged, setLogged] = useState(false);
     useEffect(() => {
-        accountActions.getAccountType().then(res => {
-            if (res.success) {
-                setNotLoged(false);
-                if (['admin', 'moderator'].includes(res.data)) {
-                    setModAccess(true);
-                }
-            } else {
-
+        if (cookies.user) {
+            setLogged(true);
+            if(['moderator','administrator'].includes(cookies.user?.role)) {
+                setModAccess(true);
             }
-        })
-    }, []);
+        }
+    }, [cookies]);
 
     return (
         <div className="Account">
-            {notLoged ? 
-            <p>Nie jesteś zalogowany</p> // TODO: Stworzyć komponent, który będzie się pokazywać w przypadku nieautoryzowanej ścieżki z linkiem do zalogowania
+            {logged ? 
+            <AccountContent mod={modAccess} user={cookies.user}/>
             :
-            <>
-            {modAccess ? 
-                <p>Moderator Kontent</p> // TODO: Normalny kontent ale z linkiem do adminowego dashboardu
-                :
-                <p>Kontent dla zwykłego klienta</p> // TODO: Stworzyć normalny kontent, na razie wyświetlanie wszystkich danych użytkownika
-            }
-            </>
+            <NotLogged/>
             }
             
         </div>

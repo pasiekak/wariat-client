@@ -3,7 +3,6 @@
     flex-direction: column;
 }
 .FormLinks a {
-    color: rgb(126, 129, 132);
     text-decoration-color: transparent;
     transition: 200ms;
 }

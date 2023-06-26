@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <header className="Header">
             <div className='leftHeader'>
-                <Link to="/">{t('main_page')}</Link>
+                <Link to="/">{t('mainPage')}</Link>
                 <Link to="/products">{t('products')}</Link>
                 <Link to="/gallery">{t('gallery')}</Link>
             </div>

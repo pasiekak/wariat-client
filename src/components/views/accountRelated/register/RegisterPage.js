@@ -1,6 +1,6 @@
 import Logo from "../../../common/logo/Logo";
 import RegisterMultiForm from "./form/RegisterMultiForm";
-import FormLinks from "../formLinks/FormLinks";
+import FormLinks from "../form-links/FormLinks";
 
 import './registerPage.css';
 
@@ -12,7 +12,7 @@ const RegisterPage = () => {
             </div>            
             <div className="right">
                 <RegisterMultiForm/>
-                <FormLinks/>
+                <FormLinks withLogin={true}/>
             </div>
         </div>
     )

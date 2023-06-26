@@ -1,8 +1,6 @@
-import { React } from 'react';
-
 import Logo from '../../../common/logo/Logo';
 import LoginForm from './form/LoginForm';
-import FormLinks from '../formLinks/FormLinks';
+import FormLinks from '../form-links/FormLinks';
 import './loginPage.css';
 
 const LoginPage = () => {
