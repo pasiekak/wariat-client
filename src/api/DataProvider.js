@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class ModelActions {
+class DataProvider {
     constructor(tableName) {
         this.tableName = tableName;
     }
@@ -15,4 +15,4 @@ class ModelActions {
     }
 }
 
-export default ModelActions;
+export default DataProvider;
