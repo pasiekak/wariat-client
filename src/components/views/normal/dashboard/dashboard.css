@@ -1,5 +1,6 @@
 .Dashboard {
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -18,20 +19,14 @@
     background-color: #E1EFE6;
 }
 .leftPanel {
-    flex: 0.02;
-    background-color: #160C28;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-    transition: 500ms ease;
+    display: flex;
+    flex: 0.1;
 }
 .rightPanel {
+    display: flex;
     flex: 1;
+    overflow: auto;
     background-color: #E1EFE6;
-}
-
-.leftPanel:hover {
-    flex: 0.2;
 }
 
 .topPanel img {

@@ -1,54 +1,54 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+import SelectedTable from './tables/SelectedTable';
+import TableNamesList from './tables/TableNamesList';
+import NotLogged from '../../accountRelated/not-logged/Not-logged';
+import accountActions from '../../../../api/accountActions';
 import logo from '../../../../images/wariatLogo.png';
+
 import './dashboard.css';
 
 const Dashboard = () => {
-    const navigate = useNavigate();
+    let user = useLocation()?.state?.user;
 
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null); 
+    const [selectedTable, setSelectedTable] = useState(null);
+    const [apiRes, setApiRes] = useState(null);
+
+    const verify = async () => {
+        let {success, message} = await accountActions.verifyModerator();
+        setApiRes({success, message});
+    }
+
+    const handleChange = (tableName) => {
+        setSelectedTable(tableName);
+    };
 
     useEffect(() => {    
-        const getData = async () => {
-            try {
-                const response = await axios.get('/api');
-                setData(response.data);
-                setError(null);
-                console.log(response.data);
-                if (response.data.user.isAdmin === false) {
-                    navigate('/');
-                }
-            } catch (err) {
-                setError(err);
-                setData(null);
-                navigate('/');
-            } finally {
-                setLoading(false);
-            }
-        };
-        getData();
-    }, [navigate]);
+        verify()
+    }, []);
 
     return (
-        <div className='Dashboard'>
-            <div className='topPanel'>
-                <Link to="/"><img src={logo} alt="Wariat logo"/></Link>
-                {loading && <div>Loading...</div>}
-                {error && <div>{error}</div>}
-                {data && <span>Witaj {data.user.username}</span>}
-            </div>
-            <div className='bottomPanel'>
-                <div className='leftPanel'>
-                    
-                </div>
-                <div className='rightPanel'>
-                    
-                </div>
-            </div>
-        </div>
+        <>
+            {apiRes?.success ? 
+                <div className='Dashboard'>
+                    <div className='topPanel'>
+                        <Link to="/"><img src={logo} alt="Wariat logo"/></Link>
+                        {user && <span>Witaj {user.username}</span>}
+                        <span></span>
+                    </div>
+                    <div className='bottomPanel'>
+                        <div className='leftPanel'>
+                            <TableNamesList onChange={handleChange}/>
+                        </div>
+                        <div className='rightPanel'>
+                            {selectedTable &&
+                            <SelectedTable tableName={selectedTable}/>}
+                        </div>
+                    </div>
+                </div>    
+                : <NotLogged message={apiRes?.message}/> }
+        </>
     )
 }
 

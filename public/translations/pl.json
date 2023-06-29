@@ -131,11 +131,11 @@
         },
 
         "token": {
-            "noToken": "Użytkownik prawdopodobnie nie jest zalogowany",
+            "authorized": "Zalogowany i uprawniony użytkownik do wykonania tej operacji",
+            "noToken": "Musisz się zalogować",
             "badToken": "Nieudana próba autentykacji użytkownika",
             "notAdmin": "Nie masz uprawnień do tej operacji",
             "notModerator": "Nie masz uprawnień do tej operacji"
-
         }
 
     },
@@ -155,14 +155,21 @@
             "firstName": "Imię",
             "lastName": "Nazwisko"
 
-        },
-
-        "notLogged": {
-
-            "message": "Aby uzyskać dostęp do tego zasobu musisz się zalogować."
-        
         }
     
+    },
+
+    "dashboard": {
+
+        "tables": {
+
+            "products": "Produkty",
+            "users": "Użytkownicy",
+            "images": "Zdjęcia",
+            "categories": "Kategorie"
+
+        }
+
     }
 
 }

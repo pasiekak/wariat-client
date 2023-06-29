@@ -61,6 +61,20 @@ const accountActions = {
                 return { success: false, message: 'serverError' };
             }
         }
+    },
+    verifyModerator: async() => {
+        try {
+            let response = await axios.get('/api');
+            return response.data;
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response.status) {
+                return err.response.data;
+            } else {
+                return { success: false, message: 'error' };
+            }
+        }
     }
 }
 
