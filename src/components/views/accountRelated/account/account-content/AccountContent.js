@@ -16,7 +16,7 @@ const AccountContent = (props) => {
             </div>
             {props.mod ? 
                 <div className='moderatorContent'>
-                <Link to='/dashboard' state={{ user: props.user }}>{tMod('link')}</Link>
+                <Link to='/dashboard'>{tMod('link')}</Link>
                 </div>
             : null}
         </div>

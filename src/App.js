@@ -10,9 +10,13 @@ import Account from './components/views/accountRelated/account/Account';
 import NotFound from './components/views/normal/notFound/NotFound';
 import LoginPage from './components/views/accountRelated/login/LoginPage';
 import RegisterPage from './components/views/accountRelated/register/RegisterPage';
-import Dashboard from './components/views/normal/dashboard/Dashboard';
 import EmailVerification from './components/views/accountRelated/email/EmailVerification';
 import './styles/App.css';
+import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
+import UserTable from './components/views/normal/dashboard/tables/UserTable';
+import ProductTable from './components/views/normal/dashboard/tables/ProductTable';
+import ImageTable from './components/views/normal/dashboard/tables/ImageTable';
+import CategoryTable from './components/views/normal/dashboard/tables/CategoryTable';
 
 function App() {
 
@@ -22,7 +26,12 @@ function App() {
           <Route path="/*" Component={NormalRoutes} />
           <Route path='/login' Component={LoginPage} />
           <Route path='/register' Component={RegisterPage} />
-          <Route path='/dashboard' Component={Dashboard}/>
+          <Route path='/dashboard' Component={DashboardLayout}>
+            <Route path='users' Component={UserTable} />
+            <Route path='products' Component={ProductTable} />
+            <Route path='images' Component={ImageTable} />
+            <Route path='categories' Component={CategoryTable} />
+          </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
         </Routes>
     </div>

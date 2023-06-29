@@ -10,7 +10,7 @@
     background-color: #160C28;
 }
 
-.TableNamesList span {  
+.TableNamesList a {  
     color: #E1EFE6; /* Temporary */
     border-radius: 5px;
     display: flex;
@@ -18,10 +18,11 @@
     align-items: center;
     height: 2rem;
     cursor: pointer;
+    text-decoration: none;
 
     transition: 500ms ease;
 }
-.TableNamesList span:hover {
+.TableNamesList a:hover {
     background-color: rgba(239, 203, 104);
     color: black;
 }
