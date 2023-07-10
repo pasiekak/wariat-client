@@ -13,10 +13,7 @@ import RegisterPage from './components/views/accountRelated/register/RegisterPag
 import EmailVerification from './components/views/accountRelated/email/EmailVerification';
 import './styles/App.css';
 import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
-import UserTable from './components/views/normal/dashboard/tables/UserTable';
-import ProductTable from './components/views/normal/dashboard/tables/ProductTable';
-import ImageTable from './components/views/normal/dashboard/tables/ImageTable';
-import CategoryTable from './components/views/normal/dashboard/tables/CategoryTable';
+import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
 
 function App() {
 
@@ -27,10 +24,10 @@ function App() {
           <Route path='/login' Component={LoginPage} />
           <Route path='/register' Component={RegisterPage} />
           <Route path='/dashboard' Component={DashboardLayout}>
-            <Route path='users' Component={UserTable} />
-            <Route path='products' Component={ProductTable} />
-            <Route path='images' Component={ImageTable} />
-            <Route path='categories' Component={CategoryTable} />
+            <Route path='users' element={<BasicTable tableName='users'/>} />
+            <Route path='products' element={<BasicTable tableName='products'/>}/>
+            <Route path='images' element={<BasicTable tableName='images'/>}/>
+            <Route path='categories' element={<BasicTable tableName='categories'/>}/>
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
         </Routes>

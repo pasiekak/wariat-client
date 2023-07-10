@@ -22,7 +22,7 @@
 
     transition: 500ms ease;
 }
-.TableNamesList a:hover {
+.TableNamesList a:hover, .TableNamesList .active {
     background-color: rgba(239, 203, 104);
     color: black;
 }

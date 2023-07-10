@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useLocation } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import TableNamesList from "./tableNames/TableNamesList";
 
 import './dashboard-layout.css';

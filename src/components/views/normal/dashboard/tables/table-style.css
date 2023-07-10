@@ -1,0 +1,79 @@
+.table-wrapper {
+    width: 100%;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table-wrapper thead {
+    background-color: #000411;
+    color: white;
+}
+.table-wrapper thead th {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.table-wrapper tbody td {
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+}
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #AEB7B3;
+}
+.table-wrapper .buttons button {
+    border: 1px rgba(0,0,0,0.1) solid;
+    background-color: rgba(239, 203, 104);
+    border-radius: 5px;
+    padding: 10px;
+    margin:10px;
+    transition: 500ms;
+    font-size: large;
+}
+.table-wrapper .buttons button:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(0,0,0,0.8)
+}
+.table-wrapper .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.table-wrapper .buttons .search {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.table-wrapper .buttons .search label {
+    align-self: center;
+}
+.table-wrapper .buttons .search input {
+    height: 2rem;
+    text-align: center;
+    font-size: medium;
+    background-color: transparent;
+    border: 1px rgba(1,1,1,0.2) solid;
+    border-radius: 5px;
+}
+.table-wrapper .buttons .bottom-buttons, .table-wrapper .buttons .top-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.table-wrapper .table-buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.BasicTable {
+    position: relative;
+    width: 100%;
+}
