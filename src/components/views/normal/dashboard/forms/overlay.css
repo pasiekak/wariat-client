@@ -18,17 +18,24 @@
     align-items: flex-start;
     padding: 50px;
     background-color: #aeb7b3;
-    border: 3px solid rgba(0,0,0,0.8);
     border-radius: 10px;
 }
 .overlay .overlay-content form label {
+    margin-top: 8px;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
+.overlay .overlay-content form .form-buttons {
+    display: flex;
+    width: 100%;
+    margin-top: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .overlay .overlay-content form input[type="text"],  .overlay .overlay-content form input[type="number"] {
     padding: 8px;
-    margin-bottom: 16px;
     width: 300px;
 }
 
@@ -38,4 +45,8 @@
     color: #fff;
     border: none;
     cursor: pointer;
+}
+.overlay .error-span {
+    color: red;
+    margin-bottom: 8px;
 }

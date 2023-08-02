@@ -3,6 +3,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    font-size: smaller;
 }
 .topPanel {
     flex: 0.1;
