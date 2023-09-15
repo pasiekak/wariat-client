@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import ProductForm from "./productForm/ProductForm";
-
+import CategoriesForm from "./categoriesForm/CategoriesForm";
 
 import './overlay.css';
 
@@ -16,9 +16,15 @@ const Overlay = ({ overlayOptions }) => {
                 goBack={overlayOptions.goBack} 
                 setRefresh={overlayOptions.setRefresh}
                 refresh={overlayOptions.refresh}/>)
-        } else if (overlayOptions.tableName === 'users') {
-            
+        } else if (overlayOptions.tableName === 'categories') {
+            setComponentToDisplay(<CategoriesForm
+                type={overlayOptions.type} 
+                oldData={overlayOptions.oldData} 
+                goBack={overlayOptions.goBack} 
+                setRefresh={overlayOptions.setRefresh}
+                refresh={overlayOptions.refresh}/>)
         }
+        console.log(overlayOptions);
     }, [overlayOptions])
 
     return (

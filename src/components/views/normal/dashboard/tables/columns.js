@@ -57,6 +57,10 @@ const columns = {
             header: 'Nazwa',
             accessorKey: 'name',
         },
+        {
+            header: 'Akcje',
+            accessorKey: 'buttons'
+        }
     ],
     'images': [
         {
@@ -90,6 +94,10 @@ const columns = {
             header: 'Data modyfikacji',
             accessorKey: 'updatedAt',
             cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED)
+        },
+        {
+            header: 'Kategorie',
+            accessorKey: 'productCategories'
         },
         {
             header: 'Akcje',

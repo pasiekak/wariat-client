@@ -3,18 +3,20 @@ import { getCoreRowModel, useReactTable, flexRender, getPaginationRowModel, getS
 
 import allColumns from "./columns";
 import FadeLoader from "react-spinners/FadeLoader";
+import CategorySelect from "../tableAssets/CategorySelect";
+
 import DataProvider from "../../../../../api/DataProvider";
+import categoryActions from "../../../../../api/categoryActions";
 
 import './table-style.css';
 import Overlay from "../forms/Overlay";
-
-import productActions from "../../../../../api/productActions";
 
 const BaseTable = ({tableName}) => {
     const [data, setData] = useState([]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState('');
     const [refresh, setRefresh] = useState(false);
+    const [categoryNames, setCategoryNames] = useState(null);
     const columns = allColumns[tableName];
 
     const [overlayOptions, setOverlayOptions] = useState({ 
@@ -28,14 +30,18 @@ const BaseTable = ({tableName}) => {
     const hideOverlay = () => {
         setOverlayDisplay(false);
     }
-
+    
     useEffect(() => {
         const dataProvider = new DataProvider(tableName);
-        const fetchData = async() => {
-            let res = await dataProvider.getAll();
-            setData(res.body);
+        const fetchData = async () => {
+            if (tableName === 'products') {
+                let res = await categoryActions.getCategoryNames()
+                setCategoryNames(res.body)
+            }
+            let res = await dataProvider.getAll()
+            setData(res.body)
         }
-        fetchData();
+        fetchData()
     }, [tableName, refresh])
 
     const table = useReactTable({
@@ -82,41 +88,47 @@ const BaseTable = ({tableName}) => {
                                 <tr key={row.id}>
                                     {row.getVisibleCells().map(cell => (
                                         <td key={cell.id}>
-                                            {cell.column.columnDef.accessorKey !== 'buttons' ? flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext()
-                                            ) : 
-                                            <div className="table-buttons">
-                                                <button id="editButton" onClick={() => {
-                                                    setOverlayOptions({
-                                                        type: 'edit',
-                                                        tableName: tableName,
-                                                        oldData: row.original,
-                                                        goBack: hideOverlay,
-                                                        refresh: refresh,
-                                                        setRefresh: setRefresh  
-                                                    })
-                                                    setOverlayDisplay(true)
-                                                }}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
-                                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                                                    </svg>
-                                                </button>
-                                                <button id="deletebutton" onClick={async () => {
-                                                    let res = await productActions.deleteProduct(row.original.id)
-                                                    if (res.success) {
-                                                        alert(`Usunięto wiersz o id: ${row.original.id}`)
-                                                        setRefresh(!refresh);
-                                                    } else {
-                                                        alert('Wystąpił błąd przy usuwaniu wiersza.')
-                                                    }
-                                                }}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
-                                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                                    </svg>
-                                                </button>
-                                            </div>
+                                            {
+                                                cell.column.columnDef.accessorKey === 'productCategories' ? 
+                                                <CategorySelect categoryNames={categoryNames} productId={cell.row.original.id}/> :
+                                                    cell.column.columnDef.accessorKey === 'buttons' ? 
+                                                    <div className="table-buttons">
+                                                        <button id="editButton" onClick={() => {
+                                                            setOverlayOptions({
+                                                                type: 'edit',
+                                                                tableName: tableName,
+                                                                oldData: row.original,
+                                                                goBack: hideOverlay,
+                                                                refresh: refresh,
+                                                                setRefresh: setRefresh  
+                                                            })
+                                                            setOverlayDisplay(true)
+                                                        }}>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
+                                                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                                            </svg>
+                                                        </button>
+                                                        <button id="deletebutton" onClick={async () => {
+                                                            setOverlayOptions({
+                                                                type: 'delete',
+                                                                tableName: tableName,
+                                                                oldData: row.original,
+                                                                goBack: hideOverlay,
+                                                                refresh: refresh,
+                                                                setRefresh: setRefresh
+                                                            })
+                                                            setOverlayDisplay(true)
+                                                        }}>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
+                                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </div> : 
+                                                    flexRender(
+                                                        cell.column.columnDef.cell,
+                                                        cell.getContext()
+                                                    )
                                             }
                                         </td>
                                     ))}
