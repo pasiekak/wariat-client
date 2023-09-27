@@ -1,5 +1,7 @@
 .overlay {
     position: absolute;
+    min-height: 100%;
+    max-height: fit-content;
     left: 0;
     top: 0;
     right: 0;
@@ -33,13 +35,18 @@
     flex-direction: row;
     justify-content: space-around;
 }
+.overlay .overlay-content form .checkbox-adnotation {
+    max-width: 300px;
+    display: flex;
+    align-items: flex-start;
+}
 
-.overlay .overlay-content form input[type="text"],  .overlay .overlay-content form input[type="number"] {
+.overlay .overlay-content input[type="text"],  .overlay .overlay-content input[type="number"] {
     padding: 8px;
     width: 300px;
 }
 
-.overlay .overlay-content form input[type="submit"],  .overlay .overlay-content form button {
+.overlay .overlay-content input[type="submit"],  .overlay .overlay-content button {
     padding: 8px 16px;
     background-color: #007bff;
     color: #fff;
@@ -47,6 +54,12 @@
     cursor: pointer;
 }
 .overlay .error-span {
+    max-width: 300px;
     color: red;
     margin-bottom: 8px;
+    
+}
+.overlay .overlay-content input[type="submit"]:disabled {
+    opacity: 0.5; /* Przykładowy styl: zmniejsza przezroczystość */
+    pointer-events: none;
 }

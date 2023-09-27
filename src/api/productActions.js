@@ -91,6 +91,23 @@ const productActions = {
                 return { success: false, message: 'error' };
             }
         }
+    },
+    getSingleProductImages: async (ProductId) => {
+        try {
+            let imagesDetails = await axios.get(`/api/images/products/${ProductId}`);
+            if (imagesDetails.status === 200) {
+                return { success: true, images: imagesDetails.data.body}
+            }
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status === 401 || err.response?.status === 403) { 
+                return err.response.data
+            } 
+            else {
+                return { success: false, message: 'error' };
+            }
+        }
     }
 }
 

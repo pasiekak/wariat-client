@@ -10,6 +10,7 @@ const ProductForm = ({type, oldData, goBack, setRefresh, refresh}) => {
 
     const onSubmit = (data) => {
         if (type === 'edit') {
+            console.log(data);
             edit(data)
         } else if (type === 'add') {
             add(data)
@@ -48,7 +49,7 @@ const ProductForm = ({type, oldData, goBack, setRefresh, refresh}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="productForm">
             {
             (type === 'add' || type === 'edit') && 
             <>
@@ -63,8 +64,17 @@ const ProductForm = ({type, oldData, goBack, setRefresh, refresh}) => {
                 {errors.description?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
                 <label htmlFor="price">Cena</label>
-                <input type="number" {...register('price', { required: true })} />
+                <input type="number" step='0.01' {...register('price', { required: true })} />
                 {errors.price?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
+
+                <label htmlFor="published">Publikacja</label>
+                <div className="checkbox-adnotation">
+                    <input type="checkbox" {...register('published')} />
+                    <span className="checkbox-adnotation">Zaznacz jeśli chcesz żeby produkt został opublikowany.</span>
+                </div>
+                
+                
+                
                 
                 <div className="form-buttons">
                         <button onClick={() => goBack()}>Wróć</button>

@@ -47,7 +47,7 @@ const CategoriesForm = ({type, oldData, goBack, setRefresh, refresh}) => {
         }
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="categoryForm">
             {(type === 'add' || type === 'edit') &&
                 <>
                     {type === 'add' && <h2>Dodawanie kategorii</h2>}

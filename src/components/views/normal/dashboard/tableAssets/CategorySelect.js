@@ -15,7 +15,6 @@ const CategorySelect = ({categoryNames, productId}) => {
         return selectedCategories.includes(categoryId);
     }
     // Funkcja do obsługi zmiany stanu checkboxa
-    // Funkcja do obsługi zmiany stanu checkboxa
     const handleCheckboxChange = (categoryId) => {
         setSelectedCategories(prevCategories => {
         if (prevCategories.includes(categoryId)) {
@@ -35,7 +34,7 @@ const CategorySelect = ({categoryNames, productId}) => {
     return (
         <div className="categories-wrapper">
             <div className='category-checkbox'>
-                {categoryNames.map((category) => (
+                {categoryNames && categoryNames.map((category) => (
                     <Checkbox
                         label={category.name}
                         value={category.id}

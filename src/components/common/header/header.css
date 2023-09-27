@@ -39,7 +39,7 @@
     .Header {
         min-height: auto;
     }
-    img {
+    .Header img {
         display: none;
     }
 }

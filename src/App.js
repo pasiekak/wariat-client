@@ -28,6 +28,7 @@ function App() {
             <Route path='products' element={<BasicTable tableName='products'/>}/>
             <Route path='images' element={<BasicTable tableName='images'/>}/>
             <Route path='categories' element={<BasicTable tableName='categories'/>}/>
+            <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
         </Routes>

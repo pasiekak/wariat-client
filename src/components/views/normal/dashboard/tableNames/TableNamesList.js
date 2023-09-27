@@ -12,6 +12,7 @@ const TableNamesList = () => {
             <NavLink to='products'>{tTables('products')}</NavLink> 
             <NavLink to='images'>{tTables('images')}</NavLink>
             <NavLink to='categories'>{tTables('categories')}</NavLink>
+            <NavLink to='discounts'>{tTables('discounts')}</NavLink>
         </div>
     )
 }

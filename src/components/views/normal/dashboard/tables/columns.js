@@ -86,6 +86,13 @@ const columns = {
             accessorKey: 'price',
         },
         {
+            header: 'Opublikowane?',
+            accessorKey: 'published',
+            cell: (info) => {
+                return info.getValue() ? 'Tak' : 'Nie'
+            }
+        },
+        {
             header: 'Data utworzenia',
             accessorKey: 'createdAt',
             cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED)
@@ -103,7 +110,49 @@ const columns = {
             header: 'Akcje',
             accessorKey: 'buttons'
         }
-    ]   
+    ],
+    'discounts': [
+        {
+            header: 'ID',
+            accessorKey: 'id',
+        },
+        {
+            header: 'Data ważności',
+            accessorKey: 'expires',
+            cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATETIME_MED),
+        },
+        {
+            header: 'Wartość',
+            accessorKey: 'percentage',
+            cell: info => `${info.getValue()} %`
+        },
+        {
+            header: 'Utworzono',
+            accessorKey: 'createdAt',
+            cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED)
+        },
+        {
+            header: 'Zmodyfikowano',
+            accessorKey: 'updatedAt',
+            cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+        },
+        {
+            header: 'Kategoria',
+            accessorKey: 'CategoryId',
+        },
+        {
+            header: 'Użytkownik',
+            accessorKey: 'UserId',
+        },
+        {
+            header: 'Produkt',
+            accessorKey: 'ProductId',
+        },
+        {
+            header: 'Akcje',
+            accessorKey: 'buttons'
+        }
+    ],  
 }
 
 export default columns;
