@@ -4,12 +4,13 @@ import ProductForm from "./productForm/ProductForm";
 import CategoriesForm from "./categoriesForm/CategoriesForm";
 import ProductGallery from "../tableAssets/ProductGallery";
 import DiscountForm from "./discountsForm/DiscountForm";
+import MarkForm from "./marksForm/MarkForm";
 
 import './overlay.css';
 
 const Overlay = ({ overlayOptions }) => {
     const [componentToDisplay, setComponentToDisplay] = useState(null);
-    const { tableName, type, oldData, goBack, setRefresh, refresh } = overlayOptions;
+    const { tableName, type, oldData, goBack, reloadPage } = overlayOptions;
     useEffect(() => {
         if (tableName === 'products') {
             if (type === 'singleProductGallery') {
@@ -17,16 +18,14 @@ const Overlay = ({ overlayOptions }) => {
                     type={type} 
                     oldData={oldData} 
                     goBack={goBack} 
-                    setRefresh={setRefresh}
-                    refresh={refresh}
+                    reloadPage={reloadPage}
                     />)
                 } else {
                 setComponentToDisplay(<ProductForm 
                     type={type} 
                     oldData={oldData} 
                     goBack={goBack} 
-                    setRefresh={setRefresh}
-                    refresh={refresh}
+                    reloadPage={reloadPage}
                     />)
                 }
             
@@ -35,20 +34,25 @@ const Overlay = ({ overlayOptions }) => {
                 type={type} 
                 oldData={oldData} 
                 goBack={goBack} 
-                setRefresh={setRefresh}
-                refresh={refresh}
+                reloadPage={reloadPage}
                 />)
         } else if (tableName === 'discounts') {
             setComponentToDisplay(<DiscountForm
                 type={type} 
                 oldData={oldData} 
                 goBack={goBack} 
-                setRefresh={setRefresh}
-                refresh={refresh}
+                reloadPage={reloadPage}
+                />)
+        } else if (tableName === 'marks') {
+            setComponentToDisplay(<MarkForm
+                type={type} 
+                oldData={oldData} 
+                goBack={goBack} 
+                reloadPage={reloadPage}
                 />)
         }
 
-    }, [type, oldData, goBack, setRefresh, refresh, tableName])
+    }, [type, oldData, goBack, reloadPage, tableName])
 
     return (
         <div className="overlay">

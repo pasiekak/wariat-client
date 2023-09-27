@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import productActions from "../../../../../../api/productActions";
 
-const ProductForm = ({type, oldData, goBack, setRefresh, refresh}) => {
+const ProductForm = ({type, oldData, goBack, reloadPage}) => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onChange',
         defaultValues: oldData,
@@ -17,7 +17,7 @@ const ProductForm = ({type, oldData, goBack, setRefresh, refresh}) => {
         } else if (type === 'delete') {
             del(data)
         }
-        setRefresh(!refresh);
+        reloadPage();
         goBack();
     }
 

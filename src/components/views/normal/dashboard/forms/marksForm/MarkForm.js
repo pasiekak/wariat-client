@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import categoryActions from "../../../../../../api/categoryActions";
+import markActions from "../../../../../../api/markActions";
 
-const CategoriesForm = ({type, oldData, goBack, reloadPage}) => {
+const MarkForm = ({type, oldData, goBack, reloadPage}) => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'onChange',
         defaultValues: oldData,
@@ -21,39 +21,39 @@ const CategoriesForm = ({type, oldData, goBack, reloadPage}) => {
 
 
     const add = async (data) => {
-        let res = await categoryActions.addCategory(data)
+        let res = await markActions.addMark(data)
         if(res.success) {
-            alert('Pomyślnie dodano kategorię')
+            alert('Pomyślnie dodano markę')
         } else {
             alert(res.message)
         }
     }
 
     const edit = async (newData) => {
-        let res = await categoryActions.editCategory(oldData.id, newData)
+        let res = await markActions.editMark(oldData.id, newData)
         if(res.success) {
-            alert('Pomyślnie edytowano kategorię')
+            alert('Pomyślnie edytowano markę')
         } else {
             alert(res.message)
         }
     }
 
     const del = async (data) => {
-        let res = await categoryActions.deleteCategory(data.id)
+        let res = await markActions.deleteMark(data.id)
         if(res.success) {
-            alert('Pomyślnie usunięto kategorię')
+            alert('Pomyślnie usunięto markę')
         } else {
             alert(res.message)
         }
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="categoryForm">
+        <form onSubmit={handleSubmit(onSubmit)} className="markForm">
             {(type === 'add' || type === 'edit') &&
                 <>
-                    {type === 'add' && <h2>Dodawanie kategorii</h2>}
-                    {type === 'edit' && <h2>Edytowanie kategorii</h2>}
+                    {type === 'add' && <h2>Dodawanie marki</h2>}
+                    {type === 'edit' && <h2>Edytowanie marki</h2>}
 
-                    <label htmlFor="name">Nazwa kategorii</label>
+                    <label htmlFor="name">Nazwa marki</label>
                     <input type="text" {...register('name', { required: { value: true, message: 'To pole jest wymagane' } })} />
                     {errors.name?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
@@ -78,4 +78,4 @@ const CategoriesForm = ({type, oldData, goBack, reloadPage}) => {
     )
 }
 
-export default CategoriesForm;
+export default MarkForm;

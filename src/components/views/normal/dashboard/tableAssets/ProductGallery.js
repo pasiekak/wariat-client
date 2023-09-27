@@ -6,7 +6,7 @@ import imageActions from '../../../../../api/imageActions';
 
 import './productGallery.css';
 
-const ProductGallery = ({type, oldData, goBack, setRefresh, refresh}) => {
+const ProductGallery = ({type, oldData, goBack, reloadPage}) => {
     const inputRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [imagesIds, setImagesIds] = useState(null)

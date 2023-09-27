@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import discountActions from "../../../../../../api/discountActions";
 
-const DiscountForm = ({type, oldData, goBack, setRefresh, refresh}) => {
+const DiscountForm = ({type, oldData, goBack, reloadPage}) => {
     console.log(oldData);
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         mode: 'onChange',
@@ -25,7 +25,7 @@ const DiscountForm = ({type, oldData, goBack, setRefresh, refresh}) => {
         } else if (type === 'delete') {
             del(data)
         }
-        setRefresh(!refresh);
+        reloadPage()
         goBack();
     }
     const add = async (data) => {

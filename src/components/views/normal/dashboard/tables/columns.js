@@ -62,11 +62,19 @@ const columns = {
             accessorKey: 'buttons'
         }
     ],
-    'images': [
+    'marks': [
         {
             header: 'ID',
             accessorKey: 'id',
         },
+        {
+            header: 'Nazwa',
+            accessorKey: 'name',
+        },
+        {
+            header: 'Akcje',
+            accessorKey: 'buttons'
+        }
     ],
     'products': [
         {

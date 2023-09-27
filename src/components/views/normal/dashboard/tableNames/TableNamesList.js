@@ -9,9 +9,9 @@ const TableNamesList = () => {
     return (
         <div className="TableNamesList">
             <NavLink to='users'>{tTables('users')}</NavLink>
-            <NavLink to='products'>{tTables('products')}</NavLink> 
-            <NavLink to='images'>{tTables('images')}</NavLink>
+            <NavLink to='products'>{tTables('products')}</NavLink>
             <NavLink to='categories'>{tTables('categories')}</NavLink>
+            <NavLink to='marks'>{tTables('marks')}</NavLink>
             <NavLink to='discounts'>{tTables('discounts')}</NavLink>
         </div>
     )

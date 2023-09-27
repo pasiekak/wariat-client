@@ -26,8 +26,8 @@ function App() {
           <Route path='/dashboard' Component={DashboardLayout}>
             <Route path='users' element={<BasicTable tableName='users'/>} />
             <Route path='products' element={<BasicTable tableName='products'/>}/>
-            <Route path='images' element={<BasicTable tableName='images'/>}/>
             <Route path='categories' element={<BasicTable tableName='categories'/>}/>
+            <Route path='marks' element={<BasicTable tableName='marks'/>}/>
             <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>

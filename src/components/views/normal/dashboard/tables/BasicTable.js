@@ -24,8 +24,14 @@ const BaseTable = ({tableName}) => {
         tableName: null,
         oldData: null,
         goBack: null,
+        reloadPage: null,
     });
     const [overlayDisplay, setOverlayDisplay] = useState(false);
+
+    const reloadPage = () => {
+        console.log('IM RELOADING');
+        setRefresh(!refresh);
+    }
 
     const hideOverlay = () => {
         setOverlayDisplay(false);
@@ -99,8 +105,7 @@ const BaseTable = ({tableName}) => {
                                                                 tableName: tableName,
                                                                 oldData: row.original,
                                                                 goBack: hideOverlay,
-                                                                refresh: refresh,
-                                                                setRefresh: setRefresh  
+                                                                reloadPage: reloadPage 
                                                             })
                                                             setOverlayDisplay(true)
                                                         }}>
@@ -114,8 +119,7 @@ const BaseTable = ({tableName}) => {
                                                                 tableName: tableName,
                                                                 oldData: row.original,
                                                                 goBack: hideOverlay,
-                                                                refresh: refresh,
-                                                                setRefresh: setRefresh
+                                                                reloadPage: reloadPage
                                                             })
                                                             setOverlayDisplay(true)
                                                         }}>
@@ -131,8 +135,7 @@ const BaseTable = ({tableName}) => {
                                                                 tableName: tableName,
                                                                 oldData: row.original,
                                                                 goBack: hideOverlay,
-                                                                refresh: refresh,
-                                                                setRefresh: setRefresh
+                                                                reloadPage: reloadPage
                                                             })
                                                             setOverlayDisplay(true);
                                                         }}>
@@ -177,8 +180,7 @@ const BaseTable = ({tableName}) => {
                                         tableName: tableName,
                                         oldData: null,
                                         goBack: hideOverlay,
-                                        refresh: refresh,
-                                        setRefresh: setRefresh   
+                                        reloadPage: reloadPage  
                                     })
                                     setOverlayDisplay(true)
                                 }}>Dodaj</button>                        
