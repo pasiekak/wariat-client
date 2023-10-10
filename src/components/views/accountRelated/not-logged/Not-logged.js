@@ -8,8 +8,8 @@ const NotLogged = (props) => {
 
 
     return (
-        <div className="NotLogged">
-            {props.message ? t(props.message) : "Niezalogowany"}
+        <div className="NotLogged bck-smooth">
+            <span className='not-logged-span-message'>{props.message ? t(props.message) : "Jesteś niezalogowany i nie masz dostępu do tych treści"}</span>
             <FormLinks withLogin={true} withRegister={true} color={'black'}/>
         </div>
     )

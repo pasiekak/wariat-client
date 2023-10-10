@@ -12,7 +12,7 @@ const EmailVerification = () => {
     return (
         <div className="EmailVerification">
             <div className="left">
-                <Logo/>
+                <Logo width={400} height={400}/>
             </div>
             <div className="right">
                 <EmailCodeForm regData={data}/>

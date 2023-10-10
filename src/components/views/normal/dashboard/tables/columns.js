@@ -115,6 +115,10 @@ const columns = {
             accessorKey: 'productCategories'
         },
         {
+            header: 'Marki',
+            accessorKey: 'productMarks'
+        },
+        {
             header: 'Akcje',
             accessorKey: 'buttons'
         }

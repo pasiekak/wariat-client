@@ -19,7 +19,7 @@ const Account = () => {
     }, [cookies]);
 
     return (
-        <div className="Account">
+        <div className="Account bck-smooth">
             {logged ? 
             <AccountContent mod={modAccess} user={cookies.user}/>
             :

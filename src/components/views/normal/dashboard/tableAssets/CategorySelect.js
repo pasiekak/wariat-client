@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import productActions from '../../../../../api/productActions';
 
-import './categorySelect.css';
+import './select-asset.css';
 
 const CategorySelect = ({categoryNames, productId}) => {
     const [selectedCategories, setSelectedCategories] = useState([])
@@ -32,8 +32,8 @@ const CategorySelect = ({categoryNames, productId}) => {
     }
 
     return (
-        <div className="categories-wrapper">
-            <div className='category-checkbox'>
+        <div className="select-wrapper">
+            <div className='select-checkbox'>
                 {categoryNames && categoryNames.map((category) => (
                     <Checkbox
                         label={category.name}

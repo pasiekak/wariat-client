@@ -55,6 +55,12 @@
             "codeLabel": "Wpisz kod otrzymany na adres email",
             "submit": "Zweryfikuj"
 
+        },
+
+        "searchBar": {
+
+            "placeholder": "Szukaj..."
+
         }
 
     },

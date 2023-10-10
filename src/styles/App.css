@@ -3,3 +3,8 @@
     min-height: 100vh;
     flex-direction: column;
 }
+.bck-smooth {
+    flex: 1;
+    background: rgb(131,138,139);
+    background: linear-gradient(180deg, rgba(131,138,139,1) 0%, rgba(186,192,189,1) 100%);
+}

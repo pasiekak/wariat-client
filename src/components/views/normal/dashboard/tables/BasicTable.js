@@ -4,9 +4,11 @@ import { getCoreRowModel, useReactTable, flexRender, getPaginationRowModel, getS
 import allColumns from "./columns";
 import FadeLoader from "react-spinners/FadeLoader";
 import CategorySelect from "../tableAssets/CategorySelect";
+import MarkSelect from "../tableAssets/MarkSelect";
 
 import DataProvider from "../../../../../api/DataProvider";
 import categoryActions from "../../../../../api/categoryActions";
+import markActions from "../../../../../api/markActions";
 
 import './table-style.css';
 import Overlay from "../forms/Overlay";
@@ -17,6 +19,7 @@ const BaseTable = ({tableName}) => {
     const [filtering, setFiltering] = useState('');
     const [refresh, setRefresh] = useState(false);
     const [categoryNames, setCategoryNames] = useState(null);
+    const [markNames, setMarkNames] = useState(null);
     const columns = allColumns[tableName];
 
     const [overlayOptions, setOverlayOptions] = useState({ 
@@ -41,11 +44,13 @@ const BaseTable = ({tableName}) => {
         const dataProvider = new DataProvider(tableName);
         const fetchData = async () => {
             if (tableName === 'products') {
-                let res = await categoryActions.getCategoryNames()
-                setCategoryNames(res.body)
+                let res = await categoryActions.getCategoryNames();
+                setCategoryNames(res.body);
+                let res2 = await markActions.getMarkNames();
+                setMarkNames(res2.body);
             }
-            let res = await dataProvider.getAll()
-            setData(res.body)
+            let res = await dataProvider.getAll();
+            setData(res.body);
         }
         fetchData()
     }, [tableName, refresh])
@@ -64,6 +69,7 @@ const BaseTable = ({tableName}) => {
         onSortingChange: setSorting,
         onGlobalFilterChange: setFiltering,
     })
+
     return (
         <>
             {data !== null ? 
@@ -96,8 +102,10 @@ const BaseTable = ({tableName}) => {
                                         <td key={cell.id}>
                                             {
                                                 cell.column.columnDef.accessorKey === 'productCategories' ? 
-                                                <CategorySelect categoryNames={categoryNames} productId={cell.row.original.id}/> :
-                                                    cell.column.columnDef.accessorKey === 'buttons' ? 
+                                                <CategorySelect categoryNames={categoryNames} productId={row.original.id}/> :
+                                                cell.column.columnDef.accessorKey === 'productMarks' ?
+                                                <MarkSelect markNames={markNames} productId={row.original.id}/> :
+                                                cell.column.columnDef.accessorKey === 'buttons' ? 
                                                     <div className="table-buttons">
                                                         <button id="editButton" onClick={() => {
                                                             setOverlayOptions({

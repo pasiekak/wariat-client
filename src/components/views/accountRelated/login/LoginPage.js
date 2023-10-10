@@ -8,7 +8,7 @@ const LoginPage = () => {
     return (
         <div className='LoginPage'>
             <div className='left'>
-                <Logo/>
+                <Logo width={400} height={400}/>
             </div>
             <div className='right'>
                 <LoginForm/>

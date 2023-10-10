@@ -8,7 +8,7 @@ const RegisterPage = () => {
     return (
         <div className="RegisterPage">
             <div className="left">
-                <Logo/>    
+                <Logo width={400} height={400}/>    
             </div>            
             <div className="right">
                 <RegisterMultiForm/>

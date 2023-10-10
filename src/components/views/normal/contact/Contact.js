@@ -4,7 +4,7 @@ import './contact.css';
 const Contact = () => {
     
     return (
-        <div className="Contact">
+        <div className="Contact bck-smooth">
             in construction
         </div>
     );   

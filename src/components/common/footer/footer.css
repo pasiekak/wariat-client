@@ -3,10 +3,10 @@
 
     background-color: #DCDCDC;
     background-size: contain;
+    
+    box-shadow: #D1D3D2 0px -5px, #C5CAC8 0px -10px, #BAC0BD 0px -15px;
 
-    -webkit-box-shadow: 0px -20px 18px -10px rgb(136, 136, 136);
-    -moz-box-shadow: 0px -20px 18px -10px rgb(136, 136, 136);
-    box-shadow: #D1D3D2 20px -5px, #C5CAC8 0px -10px, #BAC0BD 0px -15px;
+    margin-top: 10px;
 }
 .container {
     display: flex;

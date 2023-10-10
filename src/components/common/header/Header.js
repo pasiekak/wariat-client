@@ -2,11 +2,11 @@ import React from 'react';
 import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import './header.css'
-import logo from '../../../images/wariatLogo.png'
 import accountActions from '../../../api/accountActions';
 
 import { useTranslation } from 'react-i18next';
 import LanguageSelect from './languageSelect/LanguageSelect';
+import Logo from '../logo/Logo';
 
 const Header = () => {
     const [cookies, setCookie, removeCookie] = useCookies();
@@ -24,9 +24,7 @@ const Header = () => {
                 <Link to="/products">{t('products')}</Link>
                 <Link to="/gallery">{t('gallery')}</Link>
             </div>
-            <div className='imageHeader'>
-                <Link to="/"><img src={logo} alt="Wariat logo"/></Link>
-            </div>
+            <Logo width={125} height={125}/>
             <div className='rightHeader'>
                 <Link to="/contact">{t('contact')}</Link>
                 <Link to="/about">{t('about')}</Link>

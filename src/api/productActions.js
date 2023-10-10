@@ -62,9 +62,57 @@ const productActions = {
             }
         }
     },
+    getSingleProductImages: async (id) => {
+        try {
+            let imagesDetails = await axios.get(`/api/images/products/${id}`);
+            if (imagesDetails.status === 200) {
+                return { success: true, images: imagesDetails.data.body}
+            }
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status === 401 || err.response?.status === 403) { 
+                return err.response.data
+            } 
+            else {
+                return { success: false, message: 'error' };
+            }
+        }
+    },
+    getSingleProductMarks: async (id) => {
+        try {
+            let response = await axios.get('/api/productMarks')
+            let finalResponse = response.data.body.filter((row) => row.ProductId === id).map((row) => row.MarkId);
+            return finalResponse
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status === 401 || err.response?.status === 403) { 
+                return err.response.data
+            } 
+            else {
+                return { success: false, message: 'error' };
+            }
+        }
+    },
     addProductCategory: async (productID, categoryID) => {
         try {
             let response = await axios.post('/api/productCategories', {ProductId: productID, CategoryId: categoryID})
+            return response.data
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response?.status === 401 || err.response?.status === 403) { 
+                return err.response.data
+            } 
+            else {
+                return { success: false, message: 'error' };
+            }
+        }
+    },
+    addProductMark: async (productID, markID) => {
+        try {
+            let response = await axios.post('/api/productMarks', {ProductId: productID, MarkId: markID})
             return response.data
         } catch (err) {
             if (err.response?.status === 500) {
@@ -92,12 +140,10 @@ const productActions = {
             }
         }
     },
-    getSingleProductImages: async (ProductId) => {
+    delProductMark: async (productId, markId) => {
         try {
-            let imagesDetails = await axios.get(`/api/images/products/${ProductId}`);
-            if (imagesDetails.status === 200) {
-                return { success: true, images: imagesDetails.data.body}
-            }
+            let response = await axios.delete(`/api/productMarks/${productId}/${markId}`)
+            return response.data
         } catch (err) {
             if (err.response?.status === 500) {
                 return { success: false, message: 'serverError' }
@@ -108,7 +154,7 @@ const productActions = {
                 return { success: false, message: 'error' };
             }
         }
-    }
+    },
 }
 
 export default productActions;

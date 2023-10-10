@@ -8,7 +8,7 @@ const Gallery = () => {
     })
 
     return (
-        <div className='Gallery'>
+        <div className='Gallery bck-smooth'>
             in construction
         </div>
     );
