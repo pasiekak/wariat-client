@@ -1,7 +1,7 @@
 {
     "header": {
         "welcome": "Welcome to our website!",
-        "mainPage": "Strona główna",
+        "mainPage": "Homepage",
         "products": "Products",
         "gallery": "Gallery",
         "contact": "Contact",
@@ -22,26 +22,26 @@
             "title": "Registration",
             "username": "Username",
             "password": "Password",
-            "passwordRepeat": "Powtórz hasło",
+            "passwordRepeat": "Repeat password",
             "email": "Email address",
             "firstName": "Name",
-            "lastName": "Nazwisko",
+            "lastName": "Name",
             "button": "Register",
-            "buttonNext": "Dalej",
-            "buttonPrev": "Wróć"
+            "buttonNext": "Continue",
+            "buttonPrev": "Return"
         },
         "links": {
             "noAccount": "Don't have an account? Sign up!",
-            "haveAccount": "Masz już konto? Zaloguj się!",
+            "haveAccount": "Do you already have an account? Sign in!",
             "goBack": "Return to home page."
         },
         "emailCode": {
-            "title": "Weryfikacja adresu email",
-            "codeLabel": "Wpisz kod otrzymany na adres email",
-            "submit": "Zweryfikuj"
+            "title": "Email address verification",
+            "codeLabel": "Enter the code you received to your email address",
+            "submit": "Verify"
         },
         "searchBar": {
-            "placeholder": "Szukaj..."
+            "placeholder": "Search..."
         }
     },
     "schemas": {
@@ -62,61 +62,61 @@
             "emailRequired": "Email address is required"
         },
         "emailCode": {
-            "codeRequired": "Kod jest wymagany",
-            "codeExactlyFourDigits": "Kod musi mieć dokładnie 4 cyfry",
-            "codeDigitsOnly": "Kod musi zawierać tylko cyfry"
+            "codeRequired": "Code Required",
+            "codeExactlyFourDigits": "The code must have exactly 4 digits",
+            "codeDigitsOnly": "The code must contain only digits"
         }
     },
     "apiMessages": {
         "login": {
-            "success": "Zalogowano pomyślnie",
-            "noDataProvided": "Nie dostarczono loginu i hasła",
-            "wrongUsernameOrPassword": "Sprawdź, czy nazwa i hasło są poprawne",
-            "serverError": "Wystąpił błąd serwera",
-            "error": "Wystąpił błąd"
+            "success": "Logged in successfully",
+            "noDataProvided": "No login and password provided",
+            "wrongUsernameOrPassword": "Check that the name and password are correct",
+            "serverError": "A server error occurred",
+            "error": "An error occurred"
         },
         "register": {
-            "success": "Udało Ci się zarejestrować konto",
-            "userExists": "Taki użytkownik już istnieje",
-            "serverError": "Wystąpił błąd serwera",
-            "error": "Wystąpił błąd"
+            "success": "You have successfully registered an account",
+            "userExists": "Such a user already exists",
+            "serverError": "A server error occurred",
+            "error": "An error occurred"
         },
         "logout": {
-            "success": "Wylogowano pomyślnie",
-            "error": "Wystąpił błąd"
+            "success": "Logged out successfully",
+            "error": "An error occurred"
         },
         "emailCode": {
-            "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
-            "error": "Wystąpił błąd",
-            "noCodeCookie": "Wystąpił błąd.",
-            "wrongCode": "Podano zły kod"
+            "userRegistered": "You have successfully registered an account, we are about to redirect you to the home page.",
+            "error": "An error occurred",
+            "noCodeCookie": "An error occurred.",
+            "wrongCode": "Wrong code specified"
         },
         "token": {
-            "authorized": "Zalogowany i uprawniony użytkownik do wykonania tej operacji",
-            "noToken": "Musisz się zalogować",
-            "badToken": "Nieudana próba autentykacji użytkownika",
-            "notAdmin": "Nie masz uprawnień do tej operacji",
-            "notModerator": "Nie masz uprawnień do tej operacji"
+            "authorized": "Logged in and authorized user to perform this operation",
+            "noToken": "You need to log in",
+            "badToken": "Failed user authentication attempt",
+            "notAdmin": "You do not have authorization for this operation",
+            "notModerator": "You do not have authorization for this operation"
         }
     },
     "account": {
         "moderator": {
-            "link": "Zarządzaj zawartością strony"
+            "link": "Manage site content"
         },
         "attributes": {
-            "username": "Nazwa użytkownika",
-            "email": "Adres email",
-            "firstName": "Imię",
-            "lastName": "Nazwisko"
+            "username": "Username",
+            "email": "Email address",
+            "firstName": "Firstname",
+            "lastName": "Surname"
         }
     },
     "dashboard": {
         "tables": {
-            "products": "Produkty",
-            "users": "Użytkownicy",
-            "marks": "Marki",
-            "categories": "Kategorie",
-            "discounts": "Zniżki"
+            "products": "Products",
+            "users": "Users",
+            "marks": "Brands",
+            "categories": "Categories",
+            "discounts": "Discounts"
         }
     }
 }
