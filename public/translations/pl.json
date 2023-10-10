@@ -3,7 +3,7 @@
     "header":{
 
         "welcome": "Witaj na naszej stronie!",
-        "main_page": "Strona główna",
+        "mainPage": "Strona główna",
         "products": "Produkty",
         "gallery": "Galeria",
         "contact": "Kontakt",
@@ -31,17 +31,35 @@
             "title": "Rejestracja",
             "username": "Nazwa użytkownika",
             "password": "Hasło",
-            "repeatPassword": "Powtórz hasło",
+            "passwordRepeat": "Powtórz hasło",
             "email": "Adres email",
             "firstName": "Imię",
-            "button": "Zarejestruj się"
+            "lastName": "Nazwisko",
+            "button": "Zarejestruj się",
+            "buttonNext": "Dalej",
+            "buttonPrev": "Wróć"
 
         },
         
         "links":{
 
             "noAccount": "Nie masz konta? Zarejestruj się!",
+            "haveAccount": "Masz już konto? Zaloguj się!",
             "goBack": "Wróć do strony głównej."
+
+        },
+
+        "emailCode":{
+
+            "title": "Weryfikacja adresu email",
+            "codeLabel": "Wpisz kod otrzymany na adres email",
+            "submit": "Zweryfikuj"
+
+        },
+
+        "searchBar": {
+
+            "placeholder": "Szukaj..."
 
         }
 
@@ -69,11 +87,19 @@
             "emailInvalid": "Niepoprawny adres email",
             "emailRequired": "Adres email jest wymagany"
 
+        },
+
+        "emailCode":{
+
+            "codeRequired": "Kod jest wymagany",
+            "codeExactlyFourDigits": "Kod musi mieć dokładnie 4 cyfry",
+            "codeDigitsOnly": "Kod musi zawierać tylko cyfry"
+
         }
 
     },
 
-    "status_messages":{
+    "apiMessages":{
 
         "login":{
 
@@ -88,6 +114,8 @@
         "register":{
 
             "success": "Udało Ci się zarejestrować konto",
+            "userExists": "Taki użytkownik już istnieje",
+            "serverError": "Wystąpił błąd serwera",
             "error": "Wystąpił błąd"
 
         },
@@ -96,8 +124,59 @@
 
             "success": "Wylogowano pomyślnie",
             "error": "Wystąpił błąd"
+
+        },
+
+        "emailCode": {
+
+            "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
+            "error": "Wystąpił błąd",
+            "noCodeCookie": "Wystąpił błąd.",
+            "wrongCode": "Podano zły kod"
+
+        },
+
+        "token": {
+            "authorized": "Zalogowany i uprawniony użytkownik do wykonania tej operacji",
+            "noToken": "Musisz się zalogować",
+            "badToken": "Nieudana próba autentykacji użytkownika",
+            "notAdmin": "Nie masz uprawnień do tej operacji",
+            "notModerator": "Nie masz uprawnień do tej operacji"
+        }
+
+    },
+
+    "account": {
+        
+        "moderator": {
+
+            "link": "Zarządzaj zawartością strony"
+
+        },
+
+        "attributes": {
+
+            "username": "Nazwa użytkownika",
+            "email": "Adres email",
+            "firstName": "Imię",
+            "lastName": "Nazwisko"
+
+        }
+    
+    },
+
+    "dashboard": {
+
+        "tables": {
+
+            "products": "Produkty",
+            "users": "Użytkownicy",
+            "marks": "Marki",
+            "categories": "Kategorie",
+            "discounts": "Zniżki"
+
         }
 
     }
-    
+
 }
