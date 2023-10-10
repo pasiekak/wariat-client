@@ -1,7 +1,7 @@
 {
     "header": {
         "welcome": "Welcome to our website!",
-        "main_page": "Homepage",
+        "mainPage": "Strona główna",
         "products": "Products",
         "gallery": "Gallery",
         "contact": "Contact",
@@ -22,14 +22,26 @@
             "title": "Registration",
             "username": "Username",
             "password": "Password",
-            "repeatPassword": "Repeat password",
+            "passwordRepeat": "Powtórz hasło",
             "email": "Email address",
             "firstName": "Name",
-            "button": "Register"
+            "lastName": "Nazwisko",
+            "button": "Register",
+            "buttonNext": "Dalej",
+            "buttonPrev": "Wróć"
         },
         "links": {
             "noAccount": "Don't have an account? Sign up!",
+            "haveAccount": "Masz już konto? Zaloguj się!",
             "goBack": "Return to home page."
+        },
+        "emailCode": {
+            "title": "Weryfikacja adresu email",
+            "codeLabel": "Wpisz kod otrzymany na adres email",
+            "submit": "Zweryfikuj"
+        },
+        "searchBar": {
+            "placeholder": "Szukaj..."
         }
     },
     "schemas": {
@@ -48,23 +60,63 @@
             "passwordRepeatOneOf": "Passwords must be the same",
             "emailInvalid": "Incorrect email address",
             "emailRequired": "Email address is required"
+        },
+        "emailCode": {
+            "codeRequired": "Kod jest wymagany",
+            "codeExactlyFourDigits": "Kod musi mieć dokładnie 4 cyfry",
+            "codeDigitsOnly": "Kod musi zawierać tylko cyfry"
         }
     },
-    "status_messages": {
+    "apiMessages": {
         "login": {
-            "success": "Logged in successfully",
-            "noDataProvided": "No login and password provided",
-            "wrongUsernameOrPassword": "Check that the name and password are correct",
-            "serverError": "A server error occurred",
-            "error": "An error occurred"
+            "success": "Zalogowano pomyślnie",
+            "noDataProvided": "Nie dostarczono loginu i hasła",
+            "wrongUsernameOrPassword": "Sprawdź, czy nazwa i hasło są poprawne",
+            "serverError": "Wystąpił błąd serwera",
+            "error": "Wystąpił błąd"
         },
         "register": {
-            "success": "You have successfully registered an account",
-            "error": "An error occurred"
+            "success": "Udało Ci się zarejestrować konto",
+            "userExists": "Taki użytkownik już istnieje",
+            "serverError": "Wystąpił błąd serwera",
+            "error": "Wystąpił błąd"
         },
         "logout": {
-            "success": "Logged out successfully",
-            "error": "An error occurred"
+            "success": "Wylogowano pomyślnie",
+            "error": "Wystąpił błąd"
+        },
+        "emailCode": {
+            "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
+            "error": "Wystąpił błąd",
+            "noCodeCookie": "Wystąpił błąd.",
+            "wrongCode": "Podano zły kod"
+        },
+        "token": {
+            "authorized": "Zalogowany i uprawniony użytkownik do wykonania tej operacji",
+            "noToken": "Musisz się zalogować",
+            "badToken": "Nieudana próba autentykacji użytkownika",
+            "notAdmin": "Nie masz uprawnień do tej operacji",
+            "notModerator": "Nie masz uprawnień do tej operacji"
+        }
+    },
+    "account": {
+        "moderator": {
+            "link": "Zarządzaj zawartością strony"
+        },
+        "attributes": {
+            "username": "Nazwa użytkownika",
+            "email": "Adres email",
+            "firstName": "Imię",
+            "lastName": "Nazwisko"
+        }
+    },
+    "dashboard": {
+        "tables": {
+            "products": "Produkty",
+            "users": "Użytkownicy",
+            "marks": "Marki",
+            "categories": "Kategorie",
+            "discounts": "Zniżki"
         }
     }
 }
