@@ -1,160 +1,63 @@
 import axios from "axios";
 
-const productActions = {
-    addProduct: async (data) => {
-        try {
-            let response = await axios.post('/api/products', data)
-            return response.data;
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
+// Wspólna funkcja do obsługi błędów
+const handleRequest = async (requestPromise) => {
+    try {
+        const response = await requestPromise;
+        return response.data;
+    } catch (err) {
+        if (err.response?.status === 500) {
+            return { success: false, message: 'serverError' };
+        } else if (err.response?.status === 401 || err.response?.status === 403) { 
+            return err.response.data;
+        } else {
+            return { success: false, message: 'error' };
         }
+    }
+};
+
+const productActions = {
+    getAllProducts: async (options) => {
+        return handleRequest(axios.get('/api/products', { params: options }));
+    },
+    addProduct: async (data) => {
+        return handleRequest(axios.post('/api/products', data));
     },
     deleteProduct: async (id) => {
-        try {
-            let response = await axios.delete(`/api/products/${id}`)
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
+        return handleRequest(axios.delete(`/api/products/${id}`));
     },
     editProduct: async (id, newData) => {
-        try {
-            let response = await axios.put(`/api/products/${id}`, newData)
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
+        return handleRequest(axios.put(`/api/products/${id}`, newData));
     },
-    getSingleProductCategories: async (id) => {
-        try {
-            let response = await axios.get('/api/productCategories')
-            let finalResponse = response.data.body.filter((row) => row.ProductId === id).map((row) => row.CategoryId);
-            return finalResponse
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
+    getProductForeignAttributes: async (attributeType, id) => {
+        if (attributeType === 'category') {
+            return handleRequest(axios.get(`/api/productCategories/product/${id}`));
+        } else if (attributeType === 'mark') {
+            return handleRequest(axios.get(`/api/productMarks/product/${id}`));
         }
     },
     getSingleProductImages: async (id) => {
-        try {
-            let imagesDetails = await axios.get(`/api/images/products/${id}`);
-            if (imagesDetails.status === 200) {
-                return { success: true, images: imagesDetails.data.body}
-            }
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
+        return handleRequest(axios.get(`/api/images/products/${id}`));
     },
-    getSingleProductMarks: async (id) => {
-        try {
-            let response = await axios.get('/api/productMarks')
-            let finalResponse = response.data.body.filter((row) => row.ProductId === id).map((row) => row.MarkId);
-            return finalResponse
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
+    addProductForeignAttribute: async (attributeType, productID, attributeID) => {
+        let path;
+        let postBody = {ProductId: productID}
+        if (attributeType === 'category') {
+            path = '/api/productCategories';
+            postBody.CategoryId = attributeID;
         }
-    },
-    addProductCategory: async (productID, categoryID) => {
-        try {
-            let response = await axios.post('/api/productCategories', {ProductId: productID, CategoryId: categoryID})
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
+        if (attributeType === 'mark') {
+            path = '/api/productMarks';
+            postBody.MarkId = attributeID
         }
+        return handleRequest(axios.post(`${path}`, postBody)); 
     },
-    addProductMark: async (productID, markID) => {
-        try {
-            let response = await axios.post('/api/productMarks', {ProductId: productID, MarkId: markID})
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
-    },
-    delProductCategory: async (productId, categoryId) => {
-        try {
-            let response = await axios.delete(`/api/productCategories/${productId}/${categoryId}`)
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
-    },
-    delProductMark: async (productId, markId) => {
-        try {
-            let response = await axios.delete(`/api/productMarks/${productId}/${markId}`)
-            return response.data
-        } catch (err) {
-            if (err.response?.status === 500) {
-                return { success: false, message: 'serverError' }
-            } else if (err.response?.status === 401 || err.response?.status === 403) { 
-                return err.response.data
-            } 
-            else {
-                return { success: false, message: 'error' };
-            }
-        }
-    },
-}
+    delProductForeignAttribute: async (attributeType, productID, attributeID) => {
+        let path;
+        if (attributeType === 'category') path = '/api/productCategories';
+        if (attributeType === 'mark') path = '/api/productMarks';
+        return handleRequest(axios.delete(`${path}/${productID}/${attributeID}`)); 
+    }
+};
 
 export default productActions;

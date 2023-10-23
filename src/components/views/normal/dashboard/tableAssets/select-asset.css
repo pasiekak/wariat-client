@@ -1,23 +1,21 @@
 .select-wrapper {
     display: flex; /* Użyj flexbox */
-    flex-direction: row; /* Ustaw kierunek wierszy */
-    max-height: 50px;
-    overflow: hidden;
+    max-height: 100px;
+    flex-direction: column; /* Ustaw kierunek wierszy */
+    overflow-y: scroll;
     transition: 500ms;
-  }
+}
 
 .select-wrapper:hover {
-    max-height: 100px;
-    overflow-y: scroll;
 }
   
-  .select-checkbox {
-    display: flex; /* Użyj flexbox */
-    flex-direction: column; /* Ustaw kierunek kolumn */
-  }
+.select-checkbox {
+  display: flex; /* Użyj flexbox */
+  flex-direction: column; /* Ustaw kierunek kolumn */
+}
   
-  .select-checkbox label {
-    display: flex; /* Użyj flexbox dla wewnętrznych elementów */
-    align-items: center; /* Wyśrodkuj elementy w pionie */
-    margin-right: 20px; /* Dodaj odstęp między kategoriami */
-  }
+.select-checkbox label {
+  display: flex; /* Użyj flexbox dla wewnętrznych elementów */
+  align-items: center; /* Wyśrodkuj elementy w pionie */
+  margin-right: 20px; /* Dodaj odstęp między kategoriami */
+}

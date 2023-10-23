@@ -32,6 +32,7 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
 
     const edit = async (newData) => {
         let res = await productActions.editProduct(oldData.id, newData)
+        console.log(newData);
         if(res.success) {
             alert('Pomyślnie edytowano produkt')
         } else {
@@ -60,7 +61,7 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
                 {errors.name?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
                 <label htmlFor="description">Opis</label>
-                <input type="text" {...register('description', { required: true })} />
+                <textarea {...register('description', { required: true })} />
                 {errors.description?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
                 <label htmlFor="price">Cena</label>
@@ -70,7 +71,7 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
                 <label htmlFor="published">Publikacja</label>
                 <div className="checkbox-adnotation">
                     <input type="checkbox" {...register('published')} />
-                    <span className="checkbox-adnotation">Zaznacz jeśli chcesz żeby produkt został opublikowany.</span>
+                    <span className="checkbox-adnotation">Zaznacz jeśli chcesz żeby produkt został opublikowany. Odznacz jeśli produkt ma być nieaktywny.</span>
                 </div>
                 
                 

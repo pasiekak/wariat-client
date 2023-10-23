@@ -41,9 +41,12 @@
     align-items: flex-start;
 }
 
-.overlay .overlay-content input[type="text"],  .overlay .overlay-content input[type="number"] {
+.overlay .overlay-content input[type="text"],  .overlay .overlay-content input[type="number"], .overlay .overlay-content textarea {
     padding: 8px;
     width: 300px;
+}
+.overlay textarea {
+    min-height: 100px;
 }
 
 .overlay .overlay-content input[type="submit"],  .overlay .overlay-content button {

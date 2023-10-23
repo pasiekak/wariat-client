@@ -1,0 +1,62 @@
+.card {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    padding: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 1000ms ease;
+}
+.card:hover {
+    border: 1px solid #4e4e4e;
+}
+.card .card-image {
+    height: 60%;
+}
+.card .card-image div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 100%;
+    width: 100%;
+}
+.card img {
+    display: block;
+
+    border-radius: 5px;
+
+    max-width:100%;
+    max-height:100%;
+    width: auto;
+    height: auto;
+}
+
+.card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+}
+.card .card-content .card-description {
+    height: 3.6em;
+    width: 100%;
+    overflow: hidden;
+    white-space: pre-line;
+}
+.card .card-content .card-title {
+
+    align-self: center;
+    text-align: center;
+    font-size: 18px;
+    height: 1.2em;
+    overflow: hidden;
+}
+.card .card-content .card-price {
+    font-weight: 600;
+    text-align: right;
+}

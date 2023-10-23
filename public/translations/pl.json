@@ -55,12 +55,6 @@
             "codeLabel": "Wpisz kod otrzymany na adres email",
             "submit": "Zweryfikuj"
 
-        },
-
-        "searchBar": {
-
-            "placeholder": "Szukaj..."
-
         }
 
     },
@@ -174,6 +168,25 @@
             "marks": "Marki",
             "categories": "Kategorie",
             "discounts": "Zniżki"
+
+        }
+
+    },
+
+    "products": {
+
+        "searchBar": {
+
+            "placeholder": "Czego szukasz?"
+
+        },
+
+        "filters": {
+
+            "title": "Filtry",
+            "marks": "Marki",
+            "categories": "Kategorie",
+            "filter_confirm": "Filtruj"
 
         }
 

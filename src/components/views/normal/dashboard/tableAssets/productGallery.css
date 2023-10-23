@@ -40,7 +40,7 @@
     left: 50%; /* Wyśrodkowanie w poziomie */
     transform: translate(-50%, -50%); /* Wyśrodkowanie w obu kierunkach */
 }
-.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile .remove-button {
+.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile button {
     position: absolute;
     padding: 5px;
     bottom: 10px;
@@ -51,11 +51,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Dodaj cień do przycisku */
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Dodaj animację */
     display: none;
-}  
-.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile .remove-button svg {
+}
+.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile .main-button {
+    left: 54px;
+}
+.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile button svg {
     fill: black; /* Kolor przycisku usuwania */
 }
-.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile .remove-button:hover {
+.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile button:hover {
     transform: scale(1.2); /* Powiększ przycisk po najechaniu */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Zwiększ cień po najechaniu */
   }
@@ -69,7 +72,7 @@
     transform: scale(1.05); /* Powiększ obraz o 5% */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Zwiększ cień podczas najechania */
 }
-.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile:hover .remove-button {
+.gallery-overlay-wrapper .gallery-wrapper .pictures .image-tile:hover button {
     display: block;
 }
 .gallery-overlay-wrapper .gallery-wrapper .pick-image-tile input[type="file"] {

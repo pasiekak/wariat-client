@@ -1,0 +1,64 @@
+.Filters {
+    min-height: fit-content;
+    margin: 10px 0 10px 10px;
+}
+.Filters .filters-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+    background-color: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+
+.Filters .filters-title {
+    align-self: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.Filters .line {
+    align-self: center;
+    height: 1px;
+    width: 80%;
+    margin-block: 5px;
+    background-color: black;
+}
+.Filters .categories .line, .Filters .marks .line {
+    width: 60%;
+}
+.Filters .marks, .Filters .categories {
+    display: flex;
+    flex-direction: column;
+}
+.Filters .title {
+    align-self: center;
+}
+.Filters .expand-collapse {
+    align-self: center;
+    transition: 500ms ease;
+    cursor: pointer;
+}
+.Filters .buttons {
+    margin-top: 10px;
+    align-self: center;
+}
+.Filters .buttons button {
+    background-color: #007bff; /* Kolor tła przycisku */
+    color: #fff; /* Kolor tekstu */
+    border: none;
+    padding: 10px 20px; /* Dostosuj wewnętrzne marginesy */
+    border-radius: 5px; /* Zaokrąglenie naroży */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Efekt przejścia koloru tła */
+
+    display: flex; /* Wyśrodkowanie zawartości w pionie i poziomie */
+    align-items: center;
+    justify-content: center;
+}
+.Filters .buttons button:hover {
+    background-color: #0056b3;
+}
+.Filters button svg {
+    margin-left: 5px;
+}

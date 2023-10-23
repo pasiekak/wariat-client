@@ -3,7 +3,7 @@ import logo from './wariatLogo.png';
 import logoPhone from './wariatPhone.png';
 import './logo.css';
 
-const Logo = ({width, height, withPhone=false}) => {
+const Logo = ({width, height, withPhone=false, pathTo}) => {
     const logoStyle = {
         width: width,
         height: height
@@ -11,7 +11,11 @@ const Logo = ({width, height, withPhone=false}) => {
 
     return (
         <div className='Logo'>
-            <Link to='/'><img src={withPhone ? logoPhone : logo} style={logoStyle} alt='Wariat logo'/></Link>
+            {pathTo ? 
+            <Link to={pathTo}><img src={withPhone ? logoPhone : logo} style={logoStyle} alt='Wariat logo'/></Link>
+            :
+            <img src={withPhone ? logoPhone : logo} style={logoStyle} alt='Wariat logo'/>
+            }
         </div>
     )
 }

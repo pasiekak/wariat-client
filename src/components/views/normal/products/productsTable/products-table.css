@@ -1,0 +1,13 @@
+.ProductsTable {
+    display: grid;
+    
+    grid-auto-rows: 300px;
+    grid-gap: 20px;
+
+  }
+  /* Ogranicz wysokość na ekranach o szerokości większej niż 1200px */
+  @media (min-width: 600px) {
+    .ProductsTable {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }

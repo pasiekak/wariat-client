@@ -23,7 +23,7 @@ const DashboardLayout = () => {
             {access === true ? 
                 <div className="DashboardLayout">
                     <div className="topPanel">
-                        <Logo/>
+                        <Logo pathTo={'/'}/>
                     </div>
                     <div className="bottomPanel">
                         <div className="leftPanel">

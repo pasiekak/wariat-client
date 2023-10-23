@@ -7,7 +7,12 @@ class DataProvider {
 
     getAll = async () => {
         try {
-            let response = await axios.get(`/api/${this.tableName}`);
+            let response;
+            if(this.tableName === 'products') {
+                response = await axios.get(`/api/${this.tableName}/admin`);
+            } else {
+                response = await axios.get(`/api/${this.tableName}`);
+            }
             return response.data;
         } catch (err) {
             return { success: false, error: err };

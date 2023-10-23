@@ -3,8 +3,7 @@ import { getCoreRowModel, useReactTable, flexRender, getPaginationRowModel, getS
 
 import allColumns from "./columns";
 import FadeLoader from "react-spinners/FadeLoader";
-import CategorySelect from "../tableAssets/CategorySelect";
-import MarkSelect from "../tableAssets/MarkSelect";
+import SelectList from "../tableAssets/SelectList";
 
 import DataProvider from "../../../../../api/DataProvider";
 import categoryActions from "../../../../../api/categoryActions";
@@ -32,27 +31,30 @@ const BaseTable = ({tableName}) => {
     const [overlayDisplay, setOverlayDisplay] = useState(false);
 
     const reloadPage = () => {
-        console.log('IM RELOADING');
         setRefresh(!refresh);
     }
 
     const hideOverlay = () => {
         setOverlayDisplay(false);
     }
+
+    const clearData = () => {
+        setData([]);
+        setCategoryNames(null);
+        setMarkNames(null);
+    }
     
     useEffect(() => {
+        clearData()
         const dataProvider = new DataProvider(tableName);
-        const fetchData = async () => {
-            if (tableName === 'products') {
-                let res = await categoryActions.getCategoryNames();
-                setCategoryNames(res.body);
-                let res2 = await markActions.getMarkNames();
-                setMarkNames(res2.body);
-            }
-            let res = await dataProvider.getAll();
-            setData(res.body);
+        dataProvider.getAll().then(res => setData(res.body));
+        if (tableName === 'products') {
+            categoryActions.getCategoryNames().then(res => {
+                setCategoryNames(res.body)
+                console.log(res);
+            });
+            markActions.getMarkNames().then(res => setMarkNames(res.body));
         }
-        fetchData()
     }, [tableName, refresh])
 
     const table = useReactTable({
@@ -101,10 +103,16 @@ const BaseTable = ({tableName}) => {
                                     {row.getVisibleCells().map(cell => (
                                         <td key={cell.id}>
                                             {
-                                                cell.column.columnDef.accessorKey === 'productCategories' ? 
-                                                <CategorySelect categoryNames={categoryNames} productId={row.original.id}/> :
-                                                cell.column.columnDef.accessorKey === 'productMarks' ?
-                                                <MarkSelect markNames={markNames} productId={row.original.id}/> :
+                                                cell.column.columnDef.accessorKey === 'productCategories' ?
+
+                                                categoryNames && <SelectList 
+                                                attributeType={'category'} attributeNames={categoryNames} productId={row.original.id}/> 
+                                                :
+                                                cell.column.columnDef.accessorKey === 'productMarks' 
+                                                ?
+                                                markNames && <SelectList 
+                                                attributeType={'mark'} attributeNames={markNames} productId={row.original.id}/> 
+                                                :
                                                 cell.column.columnDef.accessorKey === 'buttons' ? 
                                                     <div className="table-buttons">
                                                         <button id="editButton" onClick={() => {
@@ -153,11 +161,12 @@ const BaseTable = ({tableName}) => {
                                                             </svg>
                                                         </button>
                                                         }
-                                                    </div> : 
-                                                    flexRender(
-                                                        cell.column.columnDef.cell,
-                                                        cell.getContext()
-                                                    )
+                                                    </div> : <div className="cell-content">
+                                                        {flexRender(
+                                                            cell.column.columnDef.cell,
+                                                            cell.getContext()
+                                                        )}
+                                                    </div>
                                             }
                                         </td>
                                     ))}
