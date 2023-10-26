@@ -1,11 +1,14 @@
 import React from 'react';
-import './footer.css';
 import { Link  } from 'react-router-dom';
-
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
+
+import './footer.css';
+import LanguageSelect from '../header/languageSelect/LanguageSelect';
 
 const Footer = () => {
     const { t } = useTranslation('header', {keyPrefix: 'header' });
+    const isMobile = useMediaQuery({maxWidth: 767});
 
     return (
         <footer className='Footer'>
@@ -50,6 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            {isMobile && <LanguageSelect className={'bottomLang'}/>}
         </footer>
     )
 }

@@ -19,7 +19,7 @@ const ProductTile = ({product}) => {
     },[product]);
 
     return (
-        <div className="card" onClick={() => navigate(`product/${product.id}`)}>
+        <div className="cardd" onClick={() => navigate(`/products/product/${product.id}`)}>
             <div className="card-image">
                 {image ? 
                 <div className="card-image-wrapper">

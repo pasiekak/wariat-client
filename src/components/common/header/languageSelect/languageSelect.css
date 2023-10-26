@@ -1,10 +1,48 @@
-.LanguageSelect {
-    position: absolute;
+.topLang {
     top: 0;
     right: 0;
+    border-left: 2px solid rgba(44, 49, 58);
+    border-bottom: 2px solid rgba(44, 49, 58);
+    border-bottom-left-radius: 5px;
+}
+.topLang select {
+    background-color: #000411;
+    color: rgba(255, 255, 255, 0.2);
+    border-bottom-left-radius: 5px;
+}
+.topLang:hover {
+    border-left: 2px solid #DCDCDC;
+    border-bottom: 2px solid #DCDCDC;
+}
+.topLang select:hover {
+    color: #DCDCDC;
+}
+.bottomLang {
+    bottom: 0;
+    right: 0;
+    border-left: 2px solid rgba(44, 49, 58, 0.1);
+    border-top: 2px solid rgb(44, 49, 58, 0.1);
+    border-top-left-radius: 5px;
+}
+.bottomLang select {
+    background-color: #DCDCDC;
+    color: black;
+    border-top-left-radius: 5px;
+}
+.bottomLang:hover {
+    border-left: 2px solid rgba(44, 49, 58);
+    border-top: 2px solid rgba(44, 49, 58);
+}
+
+.LanguageSelect {
+    position: absolute;
+    transition: 1s;
 }
 .LanguageSelect select {
-    background-color: #AEB7B3;
-    border-bottom-left-radius: 10px;
+    border: 0;
     padding-left: 5px;
+    transition: 1s;
+}
+.LanguageSelect select:focus, .LanguageSelect select:active {
+    outline: none;
 }

@@ -1,9 +1,8 @@
 .Footer {
     width: 100%;
-
+    position: relative;
     background-color: #DCDCDC;
     background-size: contain;
-    
     box-shadow: #D1D3D2 0px -5px, #C5CAC8 0px -10px, #BAC0BD 0px -15px;
 
     margin-top: 10px;

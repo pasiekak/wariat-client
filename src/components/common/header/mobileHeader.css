@@ -1,0 +1,59 @@
+.mobileHeader {
+    display: flex;
+    flex-direction: row;
+    background-color: #000411;
+    box-shadow: #2C313A 0px 5px, #575E62 0px 10px, #838A8B 0px 15px;
+    margin-bottom: 10px;
+}
+.mobileHeader .leftMobile {
+    border-right: solid 5px #2C313A;
+    flex: 0.2;
+    text-align: center;
+}
+.mobileHeader .Logo {
+    flex: 0.6;
+}
+.mobileHeader .rightMobile {
+    border-left: solid 5px #2C313A;
+    flex: 0.2;
+    text-align: center;
+}
+
+.mobileHeader .mobileDropdownList {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    width: 50%;
+    height: fit-content;
+
+    background-color: #000411;
+
+    z-index: 1;
+}
+.mobileHeader .mobileDropdownList a {
+    text-decoration: none;
+    color: white;
+    height: 2em;
+}
+.mobileHeader .leftDropdown {
+    box-shadow: 
+    5px 0 10px rgba(0, 0, 0, 0.5), 
+    0px 5px 10px rgba(0,0,0,0.5),
+    5px 5px 10px rgba(0,0,0,0.5);
+    border-bottom-right-radius: 5px;
+}
+.mobileHeader .rightDropdown {
+    box-shadow: 
+    -5px 0 10px rgba(0, 0, 0, 0.5), 
+    0px 5px 10px rgba(0,0,0,0.5),
+    -5px 5px 10px rgba(0,0,0,0.5);
+    border-bottom-left-radius: 5px;
+}
+
+.mobileHeader .rightMobile .mobileDropdownList {
+    left: 50%;
+}
+.mobileHeader .leftMobile .mobileDropdownList {
+    left: 0;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import './languageSelect.css';
 
-const LanguageSelect = () => {
+const LanguageSelect = ({className}) => {
     const [lang, setLang] = useState('pl');
     const { i18n } = useTranslation();
 
@@ -19,7 +19,7 @@ const LanguageSelect = () => {
 
 
     return (
-        <div className="LanguageSelect">
+        <div className={`LanguageSelect${' '+className}`}>
             <select name='language' onChange={onChange} value={lang}>Wybierz język
                 <option value='pl'>Polski</option>
                 <option value='en'>English</option>

@@ -20,6 +20,9 @@ const productActions = {
     getAllProducts: async (options) => {
         return handleRequest(axios.get('/api/products', { params: options }));
     },
+    getProduct: async (id) => {
+        return handleRequest(axios.get(`/api/products/${id}`));
+    },
     addProduct: async (data) => {
         return handleRequest(axios.post('/api/products', data));
     },

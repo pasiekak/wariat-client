@@ -1,13 +1,16 @@
 import  React from 'react';
-import './home.css';
+import { useMediaQuery } from 'react-responsive';
 
 import Logo from '../../../common/logo/Logo';
 
+import './home.css';
+
 const Home = () => {
+    const isMobile = useMediaQuery({maxWidth: 767});
 
     return (
         <div className="Home bck-smooth">
-            <Logo width={400} height={400} withPhone={true}/>
+            {!isMobile && <Logo width={400} height={400} withPhone={true}/>}
             <div className='page-description'>
                 <span>
                     Eiusmod ullamco nulla eiusmod qui. Cillum irure ipsum aute occaecat ipsum. Deserunt proident voluptate laboris aliqua proident nulla dolore sit magna proident laborum elit.

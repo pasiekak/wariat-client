@@ -3,6 +3,7 @@ import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 import Home from './components/views/normal/home/Home';
 import Products from './components/views/normal/products/Products';
+import ProductDetails from './components/views/normal/productDetails/ProductDetails';
 import Gallery from './components/views/normal/gallery/Gallery';
 import Contact from './components/views/normal/contact/Contact';
 import About from './components/views/normal/about/About';
@@ -14,6 +15,8 @@ import EmailVerification from './components/views/accountRelated/email/EmailVeri
 import './styles/App.css';
 import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
 import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -41,8 +44,9 @@ const NormalRoutes = () => {
     <>
       <Header/>
       <Routes >
-          <Route path='/' Component={Home} />
-          <Route path="/products" Component={Products} />
+          <Route path="/" Component={Home} />
+          <Route path="/products" Component={Products}/>
+          <Route path="/products/product/:productId" Component={ProductDetails} />
           <Route path="/gallery" Component={Gallery} />
           <Route path="/contact" Component={Contact}/>
           <Route path="/about" Component={About}/>

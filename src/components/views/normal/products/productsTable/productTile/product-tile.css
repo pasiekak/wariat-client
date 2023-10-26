@@ -1,6 +1,5 @@
-.card {
+.cardd {
     display: flex;
-
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
@@ -10,14 +9,16 @@
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: 1000ms ease;
+
+    cursor: pointer;
 }
-.card:hover {
+.cardd:hover {
     border: 1px solid #4e4e4e;
 }
-.card .card-image {
+.cardd .card-image {
     height: 60%;
 }
-.card .card-image div {
+.cardd .card-image div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +26,7 @@
     height: 100%;
     width: 100%;
 }
-.card img {
+.cardd img {
     display: block;
 
     border-radius: 5px;
@@ -36,19 +37,19 @@
     height: auto;
 }
 
-.card .card-content {
+.cardd .card-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 40%;
 }
-.card .card-content .card-description {
+.cardd .card-content .card-description {
     height: 3.6em;
     width: 100%;
     overflow: hidden;
     white-space: pre-line;
 }
-.card .card-content .card-title {
+.cardd .card-content .card-title {
 
     align-self: center;
     text-align: center;
@@ -56,7 +57,7 @@
     height: 1.2em;
     overflow: hidden;
 }
-.card .card-content .card-price {
+.cardd .card-content .card-price {
     font-weight: 600;
     text-align: right;
 }
