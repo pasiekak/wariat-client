@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import Logo from "../logo/Logo";
-import LanguageSelect from "./languageSelect/LanguageSelect";
 import './mobileHeader.css';
 import { useState } from "react";
 

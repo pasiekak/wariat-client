@@ -36,34 +36,38 @@ const ProductDetails = () => {
     const uploadImages = async (imageDetails) => {
         for (let i = 0; i < imageDetails.length; i++) {
             let image = imageDetails[i];
-            let imageSrc = await imageActions.getImage(image.id);
-            setSlides((prevValues) => [...prevValues, { original: imageSrc }]);
+            imageActions.getImage(image.id).then(res => {
+                setSlides((prevValues) => [...prevValues, { original: res }]);
+            })
         }
-        if(slides.length > 0)
-        setShowLightbox(true);
     }
+
+    useEffect(() => {
+        if(slides.length > 0) setShowLightbox(true);
+    }, [slides])
 
     return (
         <div className="ProductDetails bck-smooth">
             <div className="product-wrapper">
                 <div className="left">
-                    <div className="gallery" style={{background: showLightbox ? 'black' : 'transparent'}}>
+                    <div className="gallery">
                         {showLightbox ?
                         <ImageGallery 
                             items={slides}
                             showPlayButton={false}
                             slideInterval={1000}
                             useBrowserFullscreen={false}
+                            lazyLoad={true}
                         />
                         :
-                        <FadeLoader />
+                        <FadeLoader color="white"/>
                         }
                     </div>
                 </div>
                 <div className="right">
                     <span className="title">{data && data.name}</span>
                     <span className="description">{data && data.description}</span>
-                    <span className="price">{data && data.price} zł Netto</span>
+                    <span className="price">{data && data.price} zł Brutto</span>
                     <Button variant="primary">Zamów</Button>
                 </div>
             </div>

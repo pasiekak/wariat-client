@@ -28,7 +28,7 @@ const MultiSelectFilter = ({data, style, set}) => {
                             name={option.name}
                             onChange={handleChange}
                         />
-                        {option.name}
+                        <span className='optionFilter'>{option.name}</span>
                     </div>
                 ))}
             </form>

@@ -13,8 +13,11 @@ const ProductTile = ({product}) => {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
-        if(product.Images.length !== 0) {
-            imageActions.getImage(product.Images.find(image => image.main === true).id).then(res => setImage(res));
+        if(product.Images.length > 0) {
+            let mainImageId;
+            let mainImage = product.Images.find(image => image.main === true);
+            if(!mainImage) { mainImageId = product.Images[0].id } else { mainImageId = mainImage.id }
+            imageActions.getImage(mainImageId).then(res => setImage(res));
         }
     },[product]);
 
@@ -30,7 +33,6 @@ const ProductTile = ({product}) => {
             </div>
             <div className="card-content">
                 <span className="card-title">{product.name}</span>
-                <span className="card-description">{product.description}</span>
                 <span className="card-price">{product.price} zł</span>
             </div>
         </div>

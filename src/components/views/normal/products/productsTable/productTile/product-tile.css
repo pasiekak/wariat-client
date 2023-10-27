@@ -43,18 +43,10 @@
     justify-content: space-between;
     height: 40%;
 }
-.cardd .card-content .card-description {
-    height: 3.6em;
-    width: 100%;
-    overflow: hidden;
-    white-space: pre-line;
-}
 .cardd .card-content .card-title {
-
     align-self: center;
     text-align: center;
     font-size: 18px;
-    height: 1.2em;
     overflow: hidden;
 }
 .cardd .card-content .card-price {

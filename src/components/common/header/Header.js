@@ -12,7 +12,7 @@ import Logo from '../logo/Logo';
 import './header.css';
 
 const Header = () => {
-    const [cookies, setCookie, removeCookie] = useCookies();
+    const [cookies, , removeCookie] = useCookies();
     const { t } = useTranslation('header', {keyPrefix: 'header' });
     const isMobile = useMediaQuery({maxWidth: 767});
 
