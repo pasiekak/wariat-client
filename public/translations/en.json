@@ -1,15 +1,44 @@
 {
-    "header": {
-        "welcome": "Welcome to our website!",
-        "mainPage": "Homepage",
-        "products": "Products",
-        "gallery": "Gallery",
-        "contact": "Contact",
-        "about": "About us",
-        "login": "Sign in",
-        "logout": "Log out",
-        "your_account": "Your account",
-        "projects": "Projects"
+    "components": {
+        "header": {
+            "mainPage": "Home",
+            "products": "Products",
+            "gallery": "Gallery",
+            "contact": "Contact",
+            "about": "About us",
+            "login": "Log in",
+            "logout": "Log out",
+            "your_account": "Your account"
+        },
+        "home": {
+            "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
+        },
+        "products": {
+            "filters": {
+                "title": "Filters",
+                "marks": "Manufacturers",
+                "categories": "Categories",
+                "confirm-button": "Filter"
+            },
+            "search-bar": {
+                "placeholder": "Enter your search term..."
+            }
+        },
+        "product": {
+            "order-button": "Order"
+        },
+        "account": {
+            "username": "Username",
+            "email": "Email address",
+            "firstName": "Firstname",
+            "lastName": "Last Name",
+            "dashboard-message": "Site content management."
+        },
+        "footer": {
+            "about": "About us",
+            "projects": "Our projects",
+            "contact": "Contact"
+        }
     },
     "forms": {
         "login": {
@@ -39,9 +68,6 @@
             "title": "Email address verification",
             "codeLabel": "Enter the code you received to your email address",
             "submit": "Verify"
-        },
-        "searchBar": {
-            "placeholder": "Search..."
         }
     },
     "schemas": {
@@ -97,26 +123,6 @@
             "badToken": "Failed user authentication attempt",
             "notAdmin": "You do not have authorization for this operation",
             "notModerator": "You do not have authorization for this operation"
-        }
-    },
-    "account": {
-        "moderator": {
-            "link": "Manage site content"
-        },
-        "attributes": {
-            "username": "Username",
-            "email": "Email address",
-            "firstName": "Firstname",
-            "lastName": "Surname"
-        }
-    },
-    "dashboard": {
-        "tables": {
-            "products": "Products",
-            "users": "Users",
-            "marks": "Brands",
-            "categories": "Categories",
-            "discounts": "Discounts"
         }
     }
 }
