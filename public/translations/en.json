@@ -1,15 +1,44 @@
 {
-    "header": {
-        "welcome": "Welcome to our website!",
-        "mainPage": "Homepage",
-        "products": "Products",
-        "gallery": "Gallery",
-        "contact": "Contact",
-        "about": "About us",
-        "login": "Sign in",
-        "logout": "Log out",
-        "your_account": "Your account",
-        "projects": "Projects"
+    "components": {
+        "header": {
+            "mainPage": "Strona główna",
+            "products": "Produkty",
+            "gallery": "Galeria",
+            "contact": "Kontakt",
+            "about": "O nas",
+            "login": "Zaloguj się",
+            "logout": "Wyloguj się",
+            "your_account": "Twoje konto"
+        },
+        "home": {
+            "welcomeMessage": "Witaj w Wariat Garage – miejscu, gdzie terenówki stają się prawdziwymi mistrzami off-roadu! Jesteśmy zespołem zapalonych specjalistów, którzy oddają się sztuce modyfikowania, naprawiania i tunigowania terenówek. Nasza pasja to odmienianie tych potężnych pojazdów, aby stały się doskonałe w każdym calu. Niezależnie od tego, czy potrzebujesz profesjonalnych modyfikacji, naprawy, czy tuningu, jesteśmy gotowi dostarczyć Ci najwyższej jakości usługi. Nasza praca to sztuka, a Twoja terenówka staje się płótnem, na którym tworzymy dzieło sztuki. Niech duch przygody towarzyszy Ci w każdym zakręcie. Dołącz do nas w Wariat Garage i doświadcz potęgi off-roadu, którą tworzymy razem! (Created by GPT 3.5)"
+        },
+        "products": {
+            "filters": {
+                "title": "Filtry",
+                "marks": "Producenci",
+                "categories": "Kategorie",
+                "confirm-button": "Filtruj"
+            },
+            "search-bar": {
+                "placeholder": "Wpisz wyszukiwane hasło..."
+            }
+        },
+        "product": {
+            "order-button": "Zamów"
+        },
+        "account": {
+            "username": "Nazwa użytkownika",
+            "email": "Adres email",
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "dashboard-message": "Zarządzanie treścią strony."
+        },
+        "footer": {
+            "about": "O nas",
+            "projects": "Nasze projekty",
+            "contact": "Kontakt"
+        }
     },
     "forms": {
         "login": {
@@ -39,9 +68,6 @@
             "title": "Email address verification",
             "codeLabel": "Enter the code you received to your email address",
             "submit": "Verify"
-        },
-        "searchBar": {
-            "placeholder": "Search..."
         }
     },
     "schemas": {
@@ -97,26 +123,6 @@
             "badToken": "Failed user authentication attempt",
             "notAdmin": "You do not have authorization for this operation",
             "notModerator": "You do not have authorization for this operation"
-        }
-    },
-    "account": {
-        "moderator": {
-            "link": "Manage site content"
-        },
-        "attributes": {
-            "username": "Username",
-            "email": "Email address",
-            "firstName": "Firstname",
-            "lastName": "Surname"
-        }
-    },
-    "dashboard": {
-        "tables": {
-            "products": "Products",
-            "users": "Users",
-            "marks": "Brands",
-            "categories": "Categories",
-            "discounts": "Discounts"
         }
     }
 }
