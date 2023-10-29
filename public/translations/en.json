@@ -1,43 +1,43 @@
 {
     "components": {
         "header": {
-            "mainPage": "Strona główna",
-            "products": "Produkty",
-            "gallery": "Galeria",
-            "contact": "Kontakt",
-            "about": "O nas",
-            "login": "Zaloguj się",
-            "logout": "Wyloguj się",
-            "your_account": "Twoje konto"
+            "mainPage": "Home",
+            "products": "Products",
+            "gallery": "Gallery",
+            "contact": "Contact",
+            "about": "About us",
+            "login": "Log in",
+            "logout": "Log out",
+            "your_account": "Your account"
         },
         "home": {
-            "welcomeMessage": "Witaj w Wariat Garage – miejscu, gdzie terenówki stają się prawdziwymi mistrzami off-roadu! Jesteśmy zespołem zapalonych specjalistów, którzy oddają się sztuce modyfikowania, naprawiania i tunigowania terenówek. Nasza pasja to odmienianie tych potężnych pojazdów, aby stały się doskonałe w każdym calu. Niezależnie od tego, czy potrzebujesz profesjonalnych modyfikacji, naprawy, czy tuningu, jesteśmy gotowi dostarczyć Ci najwyższej jakości usługi. Nasza praca to sztuka, a Twoja terenówka staje się płótnem, na którym tworzymy dzieło sztuki. Niech duch przygody towarzyszy Ci w każdym zakręcie. Dołącz do nas w Wariat Garage i doświadcz potęgi off-roadu, którą tworzymy razem! (Created by GPT 3.5)"
+            "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
         },
         "products": {
             "filters": {
-                "title": "Filtry",
-                "marks": "Producenci",
-                "categories": "Kategorie",
-                "confirm-button": "Filtruj"
+                "title": "Filters",
+                "marks": "Manufacturers",
+                "categories": "Categories",
+                "confirm-button": "Filter"
             },
             "search-bar": {
-                "placeholder": "Wpisz wyszukiwane hasło..."
+                "placeholder": "Enter your search term..."
             }
         },
         "product": {
-            "order-button": "Zamów"
+            "order-button": "Order"
         },
         "account": {
-            "username": "Nazwa użytkownika",
-            "email": "Adres email",
-            "firstName": "Imię",
-            "lastName": "Nazwisko",
-            "dashboard-message": "Zarządzanie treścią strony."
+            "username": "Username",
+            "email": "Email address",
+            "firstName": "Firstname",
+            "lastName": "Last Name",
+            "dashboard-message": "Site content management."
         },
         "footer": {
-            "about": "O nas",
-            "projects": "Nasze projekty",
-            "contact": "Kontakt"
+            "about": "About us",
+            "projects": "Our projects",
+            "contact": "Contact"
         }
     },
     "forms": {
