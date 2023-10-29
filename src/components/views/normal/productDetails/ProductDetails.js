@@ -10,8 +10,10 @@ import './product-details.css';
 import "react-image-gallery/styles/css/image-gallery.css";
 
 import imageActions from "../../../../api/imageActions";
+import { useTranslation } from "react-i18next";
 
 const ProductDetails = () => {
+    const { t } = useTranslation(null, { keyPrefix: "components.product" });
     const { productId } = useParams();
     const [data, setData] = useState(null);
     const [showLightbox, setShowLightbox] = useState(false);
@@ -68,7 +70,7 @@ const ProductDetails = () => {
                     <span className="title">{data && data.name}</span>
                     <span className="description">{data && data.description}</span>
                     <span className="price">{data && data.price} zł Brutto</span>
-                    <Button variant="primary">Zamów</Button>
+                    <Button variant="primary">{t('order-button')}</Button>
                 </div>
             </div>
         </div>

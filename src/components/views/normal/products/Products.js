@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import productActions from '../../../../api/productActions';
 
 import SearchBar from './searchBar/SearchBar';
@@ -9,12 +11,14 @@ import { useEffect, useState } from 'react';
 
 
 const Products = () => {
+    const isMobile = useMediaQuery({maxWidth: 767});
     const [productsToDisplay, setProductsToDisplay] = useState(null); 
     const [selectedCategories, setSelectedCategories] = useState(null);
     const [selectedMarks, setSelectedMarks] = useState(null);
     const [searchWord, setSearchWord] = useState(null);
     const [refreshProducts, setRefreshProducts] = useState(false);
 
+    
     const refresh = () => {
         setRefreshProducts(!refreshProducts);
     }

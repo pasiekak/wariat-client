@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import './search-bar.css';
 
 const SearchBar = ({ updateSearchWord, refresh }) => {
-    const { t } = useTranslation('products', { keyPrefix: 'products.searchBar' });
+    const { t } = useTranslation(null, { keyPrefix: 'components.products.search-bar' });
 
     const handleInputChange = (e) => {
         const searchWord = e.target.value;

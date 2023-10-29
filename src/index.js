@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
@@ -9,11 +9,13 @@ import i18n from './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <I18nextProvider i18n={i18n} >
         <Router>
-            <App />
+            <Suspense fallback="Loading...">
+                <I18nextProvider i18n={i18n} >
+                    <App />
+                </I18nextProvider>
+            </Suspense>
         </Router>
-    </I18nextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

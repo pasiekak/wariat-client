@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import discountActions from "../../../../../../api/discountActions";
 
 const DiscountForm = ({type, oldData, goBack, reloadPage}) => {
-    console.log(oldData);
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         mode: 'onChange',
         defaultValues: type === 'edit' ? {

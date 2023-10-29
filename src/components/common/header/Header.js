@@ -13,7 +13,7 @@ import './header.css';
 
 const Header = () => {
     const [cookies, , removeCookie] = useCookies();
-    const { t } = useTranslation('header', {keyPrefix: 'header' });
+    const { t } = useTranslation(null, {keyPrefix: 'components.header' });
     const isMobile = useMediaQuery({maxWidth: 767});
 
     const logout = async () => {
