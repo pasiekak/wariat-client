@@ -15,6 +15,7 @@ import EmailVerification from './components/views/accountRelated/email/EmailVeri
 import './styles/App.css';
 import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
 import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
+import Cart from './components/views/normal/cart/Cart';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -44,14 +45,15 @@ const NormalRoutes = () => {
     <>
       <Header/>
       <Routes >
-          <Route path="/" Component={Home} />
+          <Route path="/" Component={Home}/>
           <Route path="/products" Component={Products}/>
-          <Route path="/products/product/:productId" Component={ProductDetails} />
+          <Route path="/products/product/:productId" Component={ProductDetails}/>
           <Route path="/gallery" Component={Gallery} />
           <Route path="/contact" Component={Contact}/>
           <Route path="/about" Component={About}/>
           <Route path="/account" Component={Account}/>
-          <Route path="/*" Component={NotFound} />
+          <Route path="/cart" Component={Cart}/>
+          <Route path="/*" Component={NotFound}/>
       </Routes>
       <Footer/>
     </>

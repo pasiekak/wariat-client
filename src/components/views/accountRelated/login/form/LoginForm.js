@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import './loginForm.css';
@@ -13,6 +13,8 @@ const LoginForm = () => {
     const { t } = useTranslation('forms', { keyPrefix: 'forms.login' });
     const { t: tErr } = useTranslation('schemas', { keyPrefix: 'schemas.login' });
     const { t: tStatus } = useTranslation('status', { keyPrefix: 'apiMessages.login' });
+    const location = useLocation();
+    const redirectPath = new URLSearchParams(location.search).get('redirect');
     const navigate = useNavigate();
     const schema = loginSchema;
 
@@ -28,7 +30,13 @@ const LoginForm = () => {
     }
 
     useEffect(() => {
-        if (success) navigate('/');
+        if (success) {
+            if(redirectPath) {
+                navigate(`/${redirectPath}`)
+            } else {
+                navigate('/')
+            }
+        }
     }, [success, navigate])
 
     return (

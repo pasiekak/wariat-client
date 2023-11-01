@@ -1,4 +1,5 @@
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from 'react';
 
 import productActions from '../../../../api/productActions';
 
@@ -7,18 +8,15 @@ import Filters from './filters/Filters';
 import ProductsTable from './productsTable/ProductsTable';
 
 import './products.css';
-import { useEffect, useState } from 'react';
-
 
 const Products = () => {
-    const isMobile = useMediaQuery({maxWidth: 767});
+    const isMobile = useMediaQuery({maxWidth: 767})
     const [productsToDisplay, setProductsToDisplay] = useState(null); 
     const [selectedCategories, setSelectedCategories] = useState(null);
     const [selectedMarks, setSelectedMarks] = useState(null);
     const [searchWord, setSearchWord] = useState(null);
     const [refreshProducts, setRefreshProducts] = useState(false);
 
-    
     const refresh = () => {
         setRefreshProducts(!refreshProducts);
     }
@@ -42,10 +40,14 @@ const Products = () => {
     },[refreshProducts])
 
     return (
+        
         <div className='Products bck-smooth'>
-            <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>
+            {!isMobile &&
+            <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>}
             <div className='content'>
                 <SearchBar updateSearchWord={setSearchWord} refresh={refresh}/>
+                {isMobile && 
+                <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>}
                 <ProductsTable products={productsToDisplay} />
             </div>
         </div>

@@ -43,22 +43,3 @@
     margin-top: 10px;
     align-self: center;
 }
-.Filters .buttons button {
-    background-color: #007bff; /* Kolor tła przycisku */
-    color: #fff; /* Kolor tekstu */
-    border: none;
-    padding: 10px 20px; /* Dostosuj wewnętrzne marginesy */
-    border-radius: 5px; /* Zaokrąglenie naroży */
-    cursor: pointer;
-    transition: background-color 0.3s; /* Efekt przejścia koloru tła */
-
-    display: flex; /* Wyśrodkowanie zawartości w pionie i poziomie */
-    align-items: center;
-    justify-content: center;
-}
-.Filters .buttons button:hover {
-    background-color: #0056b3;
-}
-.Filters button svg {
-    margin-left: 5px;
-}

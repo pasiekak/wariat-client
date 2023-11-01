@@ -51,7 +51,6 @@ const BaseTable = ({tableName}) => {
         if (tableName === 'products') {
             categoryActions.getCategoryNames().then(res => {
                 setCategoryNames(res.body)
-                console.log(res);
             });
             markActions.getMarkNames().then(res => setMarkNames(res.body));
         }

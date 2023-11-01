@@ -42,3 +42,10 @@
     color: black;
     text-shadow: 0px 0px 25px rgb(75, 75, 75);
 }
+@media (max-width: 400px) {
+    .Footer .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

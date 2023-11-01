@@ -1,7 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 import './multi-select-filter.css';
 
-const MultiSelectFilter = ({data, style, set}) => {
-
+const MultiSelectFilter = ({data, style, set, t}) => {
     const handleChange = (e) => {
         const { name, checked } = e.target;
 
@@ -20,8 +21,9 @@ const MultiSelectFilter = ({data, style, set}) => {
 
     return (
         <div className="MultiSelectFilter" style={style}>
-            <form>
-                {data.map((option) => (
+            {data.length > 0 ? <form>
+                {
+                data.map((option) => (
                     <div className="singleFilter" key={option.id}>
                         <input
                             type="checkbox"
@@ -31,7 +33,7 @@ const MultiSelectFilter = ({data, style, set}) => {
                         <span className='optionFilter'>{option.name}</span>
                     </div>
                 ))}
-            </form>
+            </form> : <div className="singleFilter"><span className='optionFiler'>{t('no-filters-message')}</span></div>}
         </div>
     )
 }

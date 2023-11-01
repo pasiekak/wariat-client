@@ -29,7 +29,15 @@
 .ProductDetails .product-wrapper .right .price {
     align-self: last baseline;
     font-weight: bold;
+    margin-block: 1rem;
 }   
+.ProductDetails .product-wrapper .right .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 .ProductDetails .title {
     font-size: 20px;
     align-self: center;

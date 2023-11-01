@@ -19,3 +19,15 @@
 .ProductsTable {
     flex: 0.9;   
 }
+
+@media (max-width: 767px) {
+    .ProductsTable {
+        flex: 1;
+    }
+    .content {
+        flex: 1;
+    }
+    .Filters {
+        margin-right: 10px;
+    }
+}

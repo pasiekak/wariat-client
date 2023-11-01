@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
+import Button from "react-bootstrap/Button";
 import markActions from "../../../../../api/markActions";
 import categoryActions from "../../../../../api/categoryActions";
 
@@ -59,7 +59,9 @@ const Filters = ({updateSelectedMarks, updateSelectedCategories, refresh}) => {
                 <div className="marks">
                     <span className="title">{t('marks')}</span>
                     <span className="line"></span>
-                    {(marks) && <MultiSelectFilter style={markStyle} key={1} data={marks} set={updateSelectedMarks}/>}
+                    {
+                    (marks) && <MultiSelectFilter style={markStyle} key={1} data={marks} set={updateSelectedMarks} t={t}/>
+                    }
                     <svg xmlns="http://www.w3.org/2000/svg" style={markCaretStyle} onClick={toggleMarks} width="20" height="20" fill="currentColor" className="expand-collapse" viewBox="0 0 16 16">
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
@@ -67,18 +69,13 @@ const Filters = ({updateSelectedMarks, updateSelectedCategories, refresh}) => {
                 <div className="categories">
                     <span className="title">{t('categories')}</span>
                     <span className="line"></span>
-                    {(categories) && <MultiSelectFilter style={catStyle} key={2} data={categories} set={updateSelectedCategories}/>}
+                    {(categories) && <MultiSelectFilter style={catStyle} key={2} data={categories} set={updateSelectedCategories} t={t}/>}
                     <svg xmlns="http://www.w3.org/2000/svg" style={catCaretStyle} onClick={toggleCategories} width="20" height="20" fill="currentColor" className="expand-collapse" viewBox="0 0 16 16">
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
                 </div>
                 <div className="buttons">
-                    <button onClick={() => refresh()}>
-                        {t('confirm-button')}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </button>
+                    <Button variant="dark" onClick={() => refresh()}>{t('confirm-button')}</Button>
                 </div>
             </div>
         </div>

@@ -3,9 +3,6 @@ import './gallery.css'
 
 const Gallery = () => {
     
-    useEffect (() => {
-        console.log('hello');
-    })
 
     return (
         <div className='Gallery bck-smooth'>

@@ -10,7 +10,9 @@
             "about": "O nas",
             "login": "Zaloguj się",
             "logout": "Wyloguj się",
-            "your_account": "Twoje konto"
+            "account": "Konto",
+            "your-account": "Twoje konto",
+            "cart": "Koszyk"
     
         },
 
@@ -27,7 +29,8 @@
                 "title":"Filtry",
                 "marks":"Producenci",
                 "categories":"Kategorie",
-                "confirm-button":"Filtruj"
+                "confirm-button":"Filtruj",
+                "no-filters-message":"Brak dostępnych filtrów"
 
             },
 
@@ -39,9 +42,15 @@
 
         },
 
-        "product":{
-
-            "order-button":"Zamów"
+        "cart": {
+        
+            "add-to-cart-button":"Dodaj do koszyka",
+            "remove-from-cart-button":"Usuń z koszyka",
+            "order-button":"Przejdź do zamówienia",
+            "empty-cart-message": "Twój koszyk jest pusty",
+            "title": "Twój koszyk",
+            "total": "Łączna cena",
+            "not-logged": "Musisz się zalogować aby dokonać zamówienia"
         
         },
 

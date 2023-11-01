@@ -43,17 +43,13 @@
     5px 5px 10px rgba(0,0,0,0.5);
     border-bottom-right-radius: 5px;
 }
-.mobileHeader .rightDropdown {
-    box-shadow: 
-    -5px 0 10px rgba(0, 0, 0, 0.5), 
-    0px 5px 10px rgba(0,0,0,0.5),
-    -5px 5px 10px rgba(0,0,0,0.5);
-    border-bottom-left-radius: 5px;
-}
 
 .mobileHeader .rightMobile .mobileDropdownList {
     left: 50%;
 }
 .mobileHeader .leftMobile .mobileDropdownList {
     left: 0;
+}
+.mobileHeader svg {
+    margin-top: 10px;
 }

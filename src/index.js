@@ -1,18 +1,24 @@
 import React, { Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './styles/index.css';
-import App from './App';
 import reportWebVitals from '../src/reportWebVitals';
+
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
+
+import App from './App';
+import { CartProvider } from './context/cart';
+
+import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
         <Router>
             <Suspense fallback="Loading...">
                 <I18nextProvider i18n={i18n} >
-                    <App />
+                    <CartProvider>
+                        <App />
+                    </CartProvider>
                 </I18nextProvider>
             </Suspense>
         </Router>
