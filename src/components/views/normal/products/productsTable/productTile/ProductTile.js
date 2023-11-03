@@ -15,8 +15,7 @@ const ProductTile = ({product}) => {
     const navigate = useNavigate();
     const { t: tCart } = useTranslation(null, { keyPrefix: "components.cart"})
     const { addToCart, removeFromCart, isInCart } = useContext(CartContext)
-    
-    const [image, setImage] = useState(null);
+    const [mainImageId, setMainImageId] = useState(null);
 
     useEffect(() => {
         if(product.Images.length > 0) {
@@ -24,22 +23,24 @@ const ProductTile = ({product}) => {
             let mainImage = product.Images.find(image => image.main === true);
             if(!mainImage) { mainImageId = product.Images[0].id } else { mainImageId = mainImage.id }
             product.mainImageId = mainImageId;
-            imageActions.getImage(mainImageId).then(res => { setImage(res); });
+            setMainImageId(mainImageId);
         }
     },[product]);
 
     return (
         <div className="cardd">
             <div className="card-image">
-                {image ? 
+                {mainImageId ? 
                 <div className="card-image-wrapper">
-                    <img src={image} alt={`${product.name}`}/> 
+                    <img src={`/api/images/${mainImageId}`} alt={`${product.name}`}/> 
                 </div>
                 : 
                 <Logo/>}
             </div>
             <div className="card-content">
-                <span className="card-title" onClick={() => navigate(`/products/product/${product.id}`)}>{product.name}</span>
+                <span className="card-title" onClick={() => navigate(`/products/product/${product.id}`, { state: {
+                    product, mainImageId
+                }} )}>{product.name}</span>
                 <div className="card-bottom">
                     {isInCart(product) ? 
                         <Button 

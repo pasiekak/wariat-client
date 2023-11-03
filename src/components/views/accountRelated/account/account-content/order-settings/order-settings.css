@@ -1,0 +1,6 @@
+.order-settings {
+    min-height: 100%;
+    padding-inline: 10%;
+    display: flex;
+    flex-direction: column;
+}

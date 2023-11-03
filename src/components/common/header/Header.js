@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 import accountActions from '../../../api/accountActions';
 import { CartContext } from '../../../context/cart';
+import { AccountContext } from '../../../context/account';
 import LanguageSelect from './languageSelect/LanguageSelect';
 import MobileHeader from './mobileHeader';
 import Logo from '../logo/Logo';
@@ -18,8 +19,9 @@ const Header = () => {
     const { t } = useTranslation(null, {keyPrefix: 'components.header' });
     const isMobile = useMediaQuery({maxWidth: 767});
     const { getCartCount } = useContext(CartContext);
-
+    const { clearAccount } = useContext(AccountContext);
     const logout = async () => {
+        clearAccount();
         removeCookie('user');
         await accountActions.logout();
     }

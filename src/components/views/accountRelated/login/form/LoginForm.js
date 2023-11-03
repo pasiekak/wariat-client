@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import './loginForm.css';
 import accountActions from '../../../../../api/accountActions';
+
+import { AccountContext } from '../../../../../context/account';
 import { loginSchema } from '../loginSchema';
+
+import './loginForm.css';
 
 const LoginForm = () => {
     const [success, setSuccess] = useState(false);
@@ -13,6 +16,7 @@ const LoginForm = () => {
     const { t } = useTranslation('forms', { keyPrefix: 'forms.login' });
     const { t: tErr } = useTranslation('schemas', { keyPrefix: 'schemas.login' });
     const { t: tStatus } = useTranslation('status', { keyPrefix: 'apiMessages.login' });
+    const { setAccountData } = useContext(AccountContext);
     const location = useLocation();
     const redirectPath = new URLSearchParams(location.search).get('redirect');
     const navigate = useNavigate();
@@ -22,6 +26,9 @@ const LoginForm = () => {
         let apiResponse = await accountActions.login(username, password);
         setSuccess(apiResponse.success);
         setApiMsg(tStatus(apiResponse.message));
+        if(apiResponse.success) {
+            setAccountData(apiResponse.data);
+        }
     }
 
     const handleOnChange = () => {

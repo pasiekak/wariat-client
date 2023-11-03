@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import FadeLoader from 'react-spinners/FadeLoader';
 
-import { codeSchema } from "./schema";
-import './emailCodeForm.css';
 import accountActions from "../../../../../api/accountActions";
+
+import { AccountContext } from "../../../../../context/account";
+import { codeSchema } from "./schema";
+
+import './emailCodeForm.css';
 
 const EmailCodeForm = ({regData}) => {
     const { register, handleSubmit, formState: { errors }} = useForm(
@@ -23,6 +26,7 @@ const EmailCodeForm = ({regData}) => {
     const [showSpinner, setShowSpinner] = useState(false);
     const [success, setSuccess] = useState(null);
     const [apiMessage, setApiMessage] = useState(null);
+    const { setAccountData } = useContext(AccountContext);
     
     const onSubmit = async data => {
         setShowSpinner(true);
@@ -34,7 +38,10 @@ const EmailCodeForm = ({regData}) => {
             setApiMessage(response.message)
         } else {
             setApiMessage(response.message)
-            await accountActions.login(regData.username, regData.password);
+            let apiResponse = await accountActions.login(regData.username, regData.password);
+            if(apiResponse.success) {
+                setAccountData(apiResponse.data);
+            }
             setTimeout(() => {
                 navigate('/')
             }, 1500)

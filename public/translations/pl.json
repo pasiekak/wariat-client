@@ -46,8 +46,9 @@
         
             "add-to-cart-button":"Dodaj do koszyka",
             "remove-from-cart-button":"Usuń z koszyka",
-            "order-button":"Przejdź do zamówienia",
+            "order-button":"Wybierz sposób dostawy",
             "empty-cart-message": "Twój koszyk jest pusty",
+            "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
             "title": "Twój koszyk",
             "total": "Łączna cena",
             "not-logged": "Musisz się zalogować aby dokonać zamówienia"
@@ -56,13 +57,19 @@
 
         "account":{
 
-            "username":"Nazwa użytkownika",
-            "email":"Adres email",
-            "firstName":"Imię",
-            "lastName":"Nazwisko",
-
-            "dashboard-message":"Zarządzanie treścią strony."
-
+            "welcome-message": "Cześć",
+            "account-settings": {
+                "title": "Ustawienia i dane konta",
+                "login": "Nazwa użytkownika",
+                "email": "Adres email",
+                "first-last-name": "Imię i nazwisko",
+                "no-name-provided": "Uzupełnij swoje imię i nazwisko",
+                "dashboard-place": "Panel administracyjny",
+                "dashboard-button": "Przejdź do panelu administracyjnego"
+            },
+            "order-settings": {
+                "title": "Dane do zamówień"
+            }
         },
 
         "footer":{

@@ -76,14 +76,7 @@ const ProductGallery = ({type, oldData, goBack, reloadPage}) => {
 }
 
 const ImageTile = ({imageId, refreshProductGallery, setRefreshProductGallery, haveMain, setHaveMain, isMain}) => {
-    const [image, setImage] = useState(null);
     const [main, setMain] = useState(isMain);
-
-    useEffect(() => {
-        imageActions.getImage(imageId).then(res => {
-            setImage(res)
-        });
-    },[imageId])
 
     const deletePhoto = () => {
         let approve = window.confirm('Na pewno chcesz usunąć to zdjęcie?')
@@ -112,9 +105,9 @@ const ImageTile = ({imageId, refreshProductGallery, setRefreshProductGallery, ha
     return (
         <div className='image-tile'>
             {
-            image && 
+            imageId && 
             <>
-                <img src={image} alt='' loading='lazy'/>
+                <img src={`/api/images/${imageId}`} alt='' loading='lazy'/>
                 <button className="remove-button" onClick={() => deletePhoto()}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>

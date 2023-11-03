@@ -8,6 +8,7 @@ import i18n from './i18n';
 
 import App from './App';
 import { CartProvider } from './context/cart';
+import { AccountProvider } from './context/account';
 
 import './styles/index.css';
 
@@ -15,10 +16,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
         <Router>
             <Suspense fallback="Loading...">
-                <I18nextProvider i18n={i18n} >
-                    <CartProvider>
-                        <App />
-                    </CartProvider>
+                <I18nextProvider i18n={i18n}>
+                    <AccountProvider>
+                        <CartProvider>
+                            <App />
+                        </CartProvider>
+                    </AccountProvider>
                 </I18nextProvider>
             </Suspense>
         </Router>

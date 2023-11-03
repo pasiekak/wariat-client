@@ -9,7 +9,7 @@ const imageActions = {
                 base64String += String.fromCharCode(uint8Array[i]);
             }
             const imageSource = `data:image/jpeg;base64,${btoa(base64String)}`;
-            return imageSource;
+            return response;
         } catch (err) {
             if (err.response?.status === 500) {
                 return { success: false, message: 'serverError' }

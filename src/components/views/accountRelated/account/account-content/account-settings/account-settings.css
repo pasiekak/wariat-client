@@ -1,0 +1,21 @@
+.account-settings {
+    min-height: 100%;
+    padding-inline: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.account-settings h6 {
+    margin-bottom: 2px
+}
+.account-settings .single-property {
+    height: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: white;
+    border-radius: 10px;
+    padding-inline: 1rem;
+    margin-bottom: 10px;
+}

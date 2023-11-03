@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useCookies } from 'react-cookie';
 
+import { AccountContext } from '../../../../context/account';
 import AccountContent from './account-content/AccountContent';
 import NotLogged from '../not-logged/Not-logged';
 import './account.css';
@@ -9,6 +10,8 @@ const Account = () => {
     const [cookies] = useCookies(['user']);
     const [modAccess, setModAccess] = useState(false);
     const [logged, setLogged] = useState(false);
+    const { user, address } = useContext(AccountContext);
+    
     useEffect(() => {
         if (cookies.user) {
             setLogged(true);
@@ -21,7 +24,7 @@ const Account = () => {
     return (
         <div className="Account bck-smooth">
             {logged ? 
-            <AccountContent mod={modAccess} user={cookies.user}/>
+            (user && <AccountContent mod={modAccess} user={user} address={address}/>)
             :
             <NotLogged/>
             }

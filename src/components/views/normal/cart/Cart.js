@@ -11,7 +11,7 @@ import './cart.css';
 
 const Cart = () => {
     const { t } = useTranslation(null, { keyPrefix: "components.cart" })
-    const { cartItems, getCartTotal } = useContext(CartContext);
+    const { cartItems, getCartTotal, getCartCount } = useContext(CartContext);
     const [cookies, , removeCookie] = useCookies();
 
     return (
@@ -21,7 +21,7 @@ const Cart = () => {
                 <div className="cart-wrapper">
                     <div className="cart-summary">
                         <div className="cart-products-list">
-                            {cartItems.length > 0 ? 
+                            {getCartCount() > 0 ? 
                             <ListGroup>
                                 {cartItems.map(item => {
                                     return <ListItem item={item} key={item.id}/>
@@ -37,13 +37,18 @@ const Cart = () => {
                             <span id="not-logged-message">{t('not-logged')}</span>
                             <Button href="/login?redirect=cart">Zaloguj się</Button>
                         </div>}
+                        {(getCartCount() === 0 && (cookies.user)) && 
+                        <div className="empty-cart-wrapper">
+                            <span id="empty-cart-message">{t('empty-cart-button-disabled')}</span>
+                        </div>
+                        }
                         <div className="order-wrapper">
                             <div className="total-price-wrapper">
                                 <span className="total-message">{t('total')}:</span>
                                 <span className="total">{getCartTotal()} zł</span> 
                             </div>
                             <Button variant="success" 
-                            disabled={!(cookies.user)}>{(cookies.user) ? t('order-button') : t('not-logged')}</Button>    
+                            disabled={(!(cookies.user) || getCartCount() === 0)}>{(cookies.user) ? t('order-button') : t('not-logged')}</Button>    
                         </div>
                     </div>
                 </div>
