@@ -8,9 +8,9 @@
             "about": "About us",
             "login": "Log in",
             "logout": "Log out",
-            "account": "Konto",
-            "your-account": "Twoje konto",
-            "cart": "Koszyk"
+            "account": "Account",
+            "your-account": "Your account",
+            "cart": "Cart"
         },
         "home": {
             "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
@@ -21,68 +21,68 @@
                 "marks": "Manufacturers",
                 "categories": "Categories",
                 "confirm-button": "Filter",
-                "no-filters-message": "Brak dostępnych filtrów"
+                "no-filters-message": "No filters available"
             },
             "search-bar": {
                 "placeholder": "Enter your search term..."
             }
         },
         "cart": {
-            "add-to-cart-button": "Dodaj do koszyka",
-            "remove-from-cart-button": "Usuń z koszyka",
-            "order-button": "Wybierz sposób dostawy",
-            "empty-cart-message": "Twój koszyk jest pusty",
-            "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
-            "title": "Twój koszyk",
-            "total": "Łączna cena",
-            "total-disc": "Cena po uwzględnieniu zniżek",
-            "not-logged": "Musisz się zalogować aby dokonać zamówienia"
+            "add-to-cart-button": "Add to cart",
+            "remove-from-cart-button": "Remove from cart",
+            "order-button": "Choose your delivery method",
+            "empty-cart-message": "Your cart is empty",
+            "empty-cart-button-disabled": "The order cannot be processed because the shopping cart is empty",
+            "title": "Your Cart",
+            "total": "Total Price",
+            "total-disc": "Price after discounts",
+            "not-logged": "You must log in to place an order"
         },
         "account": {
-            "welcome-message": "Cześć",
-            "change-button": "Zmień",
-            "confirm-button": "Zatwierdź",
-            "go-back-button": "Wróć",
-            "empty-property-message": "Brak danych",
+            "welcome-message": "Hello",
+            "change-button": "Modify",
+            "confirm-button": "Approve",
+            "go-back-button": "Back",
+            "empty-property-message": "No data available",
             "account-settings": {
-                "title": "Ustawienia i dane konta",
-                "login": "Nazwa użytkownika",
-                "email": "Adres email",
-                "dashboard-place": "Panel administracyjny",
-                "dashboard-button": "Panel administracyjny"
+                "title": "Settings and account details",
+                "login": "Username",
+                "email": "Email address",
+                "dashboard-place": "Dashboard",
+                "dashboard-button": "Dashboard"
             },
             "order-settings": {
-                "title": "Dane do zamówień",
-                "private-person": "Dane odbiorcy",
-                "delivery-data": "Adresy dostawy",
-                "company": "Dane do faktury",
+                "title": "Order data",
+                "private-person": "Credentials",
+                "delivery-data": "Delivery Address",
+                "company": "Billing",
                 "person-properties": {
-                    "first-last-name": "Imię i nazwisko",
-                    "first-name-placeholder": "Imię",
-                    "last-name-placeholder": "Nazwisko",
-                    "no-first-and-last-name-provided": "Uzupełnij swoje imię i nazwisko",
-                    "no-first-name-provided": "Uzupełnij swoje imię",
-                    "no-last-name-provided": "Uzupełnij swoje nazwisko",
-                    "phone-number": "Numer telefonu",
-                    "no-phone-number-provided": "Uzupełnij swój numer telefonu",
-                    "phone-number-placeholder": "Podaj swój numer telefonu...",
-                    "phone-number-err-message": "Niepoprawny numer telefonu"
+                    "first-last-name": "Full Name",
+                    "first-name-placeholder": "Firstname",
+                    "last-name-placeholder": "Last Name",
+                    "no-first-and-last-name-provided": "Fill in your first name and last name",
+                    "no-first-name-provided": "Fill in your name",
+                    "no-last-name-provided": "Fill in your last name",
+                    "phone-number": "Phone number",
+                    "no-phone-number-provided": "Fill in your phone number",
+                    "phone-number-placeholder": "Type phone number",
+                    "phone-number-err-message": "Invalid phone number"
                 },
                 "delivery-or-company-properties": {
-                    "country": "Kraj",
-                    "country-placeholder": "Kraj pochodzenia",
-                    "city": "Miasto",
-                    "city-placeholder": "Miasto zamieszkania",
-                    "street": "Ulica",
-                    "street-placeholder": "Twoja ulica",
-                    "home-number": "Numer domu",
-                    "home-number-placeholder": "Twój numer domu",
-                    "postal-code": "Kod pocztowy",
-                    "postal-code-placeholder": "Kod pocztowy w formacie 'xx-xxx'",
-                    "company-name": "Nazwa firmy",
-                    "company-name-placeholder": "Nazwa twojej firmy",
-                    "nip": "NIP",
-                    "nip-placeholder": "Numer NIP twojej firmy"
+                    "country": "Country",
+                    "country-placeholder": "Country of origin",
+                    "city": "City",
+                    "city-placeholder": "City of residence",
+                    "street": "Street",
+                    "street-placeholder": "Your street name",
+                    "home-number": "House number",
+                    "home-number-placeholder": "Your house number",
+                    "postal-code": "Post code/ZIP",
+                    "postal-code-placeholder": "Postal code in the format 'xx-xxx'",
+                    "company-name": "Company Name",
+                    "company-name-placeholder": "Your company name",
+                    "nip": "Company identification code",
+                    "nip-placeholder": "Your company identification code"
                 }
             }
         },
