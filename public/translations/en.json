@@ -8,7 +8,9 @@
             "about": "About us",
             "login": "Log in",
             "logout": "Log out",
-            "your_account": "Your account"
+            "account": "Konto",
+            "your-account": "Twoje konto",
+            "cart": "Koszyk"
         },
         "home": {
             "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
@@ -18,21 +20,71 @@
                 "title": "Filters",
                 "marks": "Manufacturers",
                 "categories": "Categories",
-                "confirm-button": "Filter"
+                "confirm-button": "Filter",
+                "no-filters-message": "Brak dostępnych filtrów"
             },
             "search-bar": {
                 "placeholder": "Enter your search term..."
             }
         },
-        "product": {
-            "order-button": "Order"
+        "cart": {
+            "add-to-cart-button": "Dodaj do koszyka",
+            "remove-from-cart-button": "Usuń z koszyka",
+            "order-button": "Wybierz sposób dostawy",
+            "empty-cart-message": "Twój koszyk jest pusty",
+            "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
+            "title": "Twój koszyk",
+            "total": "Łączna cena",
+            "total-disc": "Cena po uwzględnieniu zniżek",
+            "not-logged": "Musisz się zalogować aby dokonać zamówienia"
         },
         "account": {
-            "username": "Username",
-            "email": "Email address",
-            "firstName": "Firstname",
-            "lastName": "Last Name",
-            "dashboard-message": "Site content management."
+            "welcome-message": "Cześć",
+            "change-button": "Zmień",
+            "confirm-button": "Zatwierdź",
+            "go-back-button": "Wróć",
+            "empty-property-message": "Brak danych",
+            "account-settings": {
+                "title": "Ustawienia i dane konta",
+                "login": "Nazwa użytkownika",
+                "email": "Adres email",
+                "dashboard-place": "Panel administracyjny",
+                "dashboard-button": "Panel administracyjny"
+            },
+            "order-settings": {
+                "title": "Dane do zamówień",
+                "private-person": "Dane odbiorcy",
+                "delivery-data": "Adresy dostawy",
+                "company": "Dane do faktury",
+                "person-properties": {
+                    "first-last-name": "Imię i nazwisko",
+                    "first-name-placeholder": "Imię",
+                    "last-name-placeholder": "Nazwisko",
+                    "no-first-and-last-name-provided": "Uzupełnij swoje imię i nazwisko",
+                    "no-first-name-provided": "Uzupełnij swoje imię",
+                    "no-last-name-provided": "Uzupełnij swoje nazwisko",
+                    "phone-number": "Numer telefonu",
+                    "no-phone-number-provided": "Uzupełnij swój numer telefonu",
+                    "phone-number-placeholder": "Podaj swój numer telefonu...",
+                    "phone-number-err-message": "Niepoprawny numer telefonu"
+                },
+                "delivery-or-company-properties": {
+                    "country": "Kraj",
+                    "country-placeholder": "Kraj pochodzenia",
+                    "city": "Miasto",
+                    "city-placeholder": "Miasto zamieszkania",
+                    "street": "Ulica",
+                    "street-placeholder": "Twoja ulica",
+                    "home-number": "Numer domu",
+                    "home-number-placeholder": "Twój numer domu",
+                    "postal-code": "Kod pocztowy",
+                    "postal-code-placeholder": "Kod pocztowy w formacie 'xx-xxx'",
+                    "company-name": "Nazwa firmy",
+                    "company-name-placeholder": "Nazwa twojej firmy",
+                    "nip": "NIP",
+                    "nip-placeholder": "Numer NIP twojej firmy"
+                }
+            }
         },
         "footer": {
             "about": "About us",
