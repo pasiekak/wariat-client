@@ -1,0 +1,68 @@
+.product-row {
+    display: flex;
+    flex-direction: row;
+    min-height: 120px;
+    height: fit-content;
+    margin-bottom: 1rem;
+
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    transition: all 0.2s;
+}
+.product-row:hover {
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 5px 0.2px;
+}
+.product-row .left-row {
+    flex: 0.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-row .left-row img {
+    max-width: 80%;
+    max-height: 80%;
+
+    border-radius: 5px;
+}
+.product-row .line {
+    width: 0.5px;
+    height: 80%;
+    background-color: rgba(0,0,0,0.2);
+    align-self: center;
+    margin-right: 1rem;
+}
+.product-row .right-row {
+    display: flex;
+    height: 80%;
+    justify-content: space-between;
+    align-self: center;
+
+    padding-right: 5px;
+    flex: 0.8;
+}
+.product-row .right-row #name {
+    display: flex;
+    align-self: flex-start;
+    cursor: pointer;
+}
+.product-row .right-row #name:hover {
+    text-decoration: underline;
+}
+.product-row .right-row #price {
+    display: flex;
+    font-weight: 600;
+    align-self: flex-end;
+    text-wrap: nowrap;
+}
+.product-row .right-row .name-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.product-row .right-row .name-and-buttons button {
+    width: fit-content;
+    padding-inline: 0.5rem;
+    padding-top: 0.3rem;
+}

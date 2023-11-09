@@ -4,9 +4,11 @@ import { useTranslation } from "react-i18next";
 import AccountSettings from "./account-settings/AccountSettings";
 import OrderSettings from "./order-settings/OrderSettings";
 
-const AccountContent = ({mod, user, address}) => {
+import './account-content.css';
+
+const AccountContent = ({mod, user}) => {
     const { t } = useTranslation(null, { keyPrefix: 'components.account' });
-    
+
     const [index,setIndex] = useState(1);
     return (
         <div className='account-content-wrapper'>
@@ -36,8 +38,8 @@ const AccountContent = ({mod, user, address}) => {
                 
             </div>
             <div className="right">
-                {index === 1 && <OrderSettings/>} 
-                {index === 2 && <AccountSettings user={user} />}
+                {index === 1 && <OrderSettings user={user} />} 
+                {index === 2 && <AccountSettings user={user} mod={mod} />}
             </div>
         </div>
     )

@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import './multi-select-filter.css';
 
 const MultiSelectFilter = ({data, style, set, t}) => {

@@ -29,9 +29,9 @@
 .Account .account-content-wrapper .line {
     width: 1px;
     height: 80%;
+    margin-inline: 1rem;
     background-color: gray;
     align-self: center;
-    margin-inline: 1rem;
 }
 .Account .account-content-wrapper .right {
     flex: 0.8;
@@ -53,4 +53,15 @@
 }
 .Account .account-content-wrapper .left .left-item:hover {
     background: #0000001a;
+}
+
+@media (max-width: 767px) {
+    .Account .account-content-wrapper {
+        flex-direction: column;
+    }
+    .Account .account-content-wrapper .line {
+        width: 80%;
+        height: 1px;
+        margin-block: 1rem;
+    }
 }

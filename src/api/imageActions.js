@@ -3,12 +3,6 @@ const imageActions = {
     getImage: async (id) => {
         try {
             let response = await axios.get(`/api/images/${id}`);
-            const uint8Array = new Uint8Array(response.data.image.data);
-            let base64String = '';
-            for (let i = 0; i < uint8Array.length; i++) {
-                base64String += String.fromCharCode(uint8Array[i]);
-            }
-            const imageSource = `data:image/jpeg;base64,${btoa(base64String)}`;
             return response;
         } catch (err) {
             if (err.response?.status === 500) {

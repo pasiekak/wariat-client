@@ -5,6 +5,7 @@ import CategoriesForm from "./categoriesForm/CategoriesForm";
 import ProductGallery from "../tableAssets/ProductGallery";
 import DiscountForm from "./discountsForm/DiscountForm";
 import MarkForm from "./marksForm/MarkForm";
+import DiscountGroupForm from "./discountGroupForm/DiscountGroupForm";
 
 import './overlay.css';
 
@@ -45,6 +46,13 @@ const Overlay = ({ overlayOptions }) => {
                 />)
         } else if (tableName === 'marks') {
             setComponentToDisplay(<MarkForm
+                type={type} 
+                oldData={oldData} 
+                goBack={goBack} 
+                reloadPage={reloadPage}
+                />)
+        } else if (tableName === 'discountGroups') {
+            setComponentToDisplay(<DiscountGroupForm
                 type={type} 
                 oldData={oldData} 
                 goBack={goBack} 

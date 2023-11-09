@@ -18,13 +18,13 @@
     gap: 1rem;
     margin-block: 1rem;
 }
-.mediaIcons, .mediaPhone a, .mediaMail a {
+.mediaIcons, .mediaPhone, .mediaMail {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-.mediaPhone a, .mediaMail a {
+.mediaPhone, .mediaMail {
     justify-content: center;
     gap: 1rem;
 }

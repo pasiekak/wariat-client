@@ -16,11 +16,11 @@ const columns = {
         },
         {
             header: 'Imię',
-            accessorKey: 'firstName',
+            accessorKey: 'PersonalData.firstName',
         },
         {
             header: 'Nazwisko',
-            accessorKey: 'lastName',
+            accessorKey: 'PersonalData.lastName',
         },
         {
             header: 'Data utworzenia',
@@ -38,14 +38,6 @@ const columns = {
             cell: info => (info.getValue() === 3) ? 'Klient' 
             : ((info.getValue() === 2) ? 'Moderator' 
             : ((info.getValue() === 1) ? 'Administrator' : 'Inne'))
-        },
-        {
-            header: 'ID adresu',
-            accessorKey: 'AddressId',
-        },
-        {
-            header: 'Akcje',
-            accessorKey: 'buttons'
         }
     ],
     'categories': [
@@ -159,6 +151,21 @@ const columns = {
         {
             header: 'Produkt',
             accessorKey: 'ProductId',
+        },
+        {
+            header: 'Akcje',
+            accessorKey: 'buttons'
+        }
+    ],  
+    'discountGroups': [
+        {
+            header: 'ID',
+            accessorKey: 'id',
+        },
+        {
+            header: 'Wartość',
+            accessorKey: 'percentage',
+            cell: info => `${info.getValue()} %`
         },
         {
             header: 'Akcje',

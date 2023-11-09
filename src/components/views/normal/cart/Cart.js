@@ -11,8 +11,8 @@ import './cart.css';
 
 const Cart = () => {
     const { t } = useTranslation(null, { keyPrefix: "components.cart" })
-    const { cartItems, getCartTotal, getCartCount } = useContext(CartContext);
-    const [cookies, , removeCookie] = useCookies();
+    const { cartItems, getCartTotal, getCartCount, getCartAfterDisc } = useContext(CartContext);
+    const [cookies] = useCookies();
 
     return (
         <div className="Cart bck-smooth">
@@ -44,8 +44,14 @@ const Cart = () => {
                         }
                         <div className="order-wrapper">
                             <div className="total-price-wrapper">
-                                <span className="total-message">{t('total')}:</span>
-                                <span className="total">{getCartTotal()} zł</span> 
+                                <div className="total-normal">
+                                    <span className="total-message">{t('total')}:</span>
+                                    <span className="total">{getCartTotal()} zł</span> 
+                                </div>
+                                {getCartAfterDisc() && <div className="total-disc">
+                                    <span className="total-disc-message">{t('total-disc')}:</span>
+                                    <span className="total">{getCartAfterDisc()} zł</span>
+                                </div>}
                             </div>
                             <Button variant="success" 
                             disabled={(!(cookies.user) || getCartCount() === 0)}>{(cookies.user) ? t('order-button') : t('not-logged')}</Button>    

@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom"
-import TableNamesList from "./tableNames/TableNamesList";
+import { useCookies } from 'react-cookie';
+
+import accountActions from "../../../../api/accountActions";
+
+import TableNamesDropdown from "./tableNames/TableNamesDropdown";
+import Logo from "../../../common/logo/Logo";
+import NotLogged from '../../accountRelated/not-logged/Not-logged';
 
 import './dashboard-layout.css';
-import Logo from "../../../common/logo/Logo";
-import accountActions from "../../../../api/accountActions";
-import NotLogged from '../../accountRelated/not-logged/Not-logged';
+
 
 const DashboardLayout = () => {
     const [access, setAccess] = useState(null);
+    const [cookies] = useCookies();
     const verifyAccess = async () => {
         let res = await accountActions.verifyModerator()
         setAccess(res.success);
     }
-
     useEffect(() => {
         verifyAccess();
     }, [])
@@ -23,15 +27,12 @@ const DashboardLayout = () => {
             {access === true ? 
                 <div className="DashboardLayout">
                     <div className="topPanel">
+                        <TableNamesDropdown/>
+                        <h3>Cześć {cookies.user.username}</h3>
                         <Logo pathTo={'/'}/>
                     </div>
                     <div className="bottomPanel">
-                        <div className="leftPanel">
-                            <TableNamesList/>
-                        </div>
-                        <div className="rightPanel">
-                            <Outlet/>
-                        </div>
+                        <Outlet/>
                     </div>
                 </div>    
             : <NotLogged/>}

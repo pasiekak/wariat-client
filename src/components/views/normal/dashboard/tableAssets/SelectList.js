@@ -14,7 +14,6 @@ const SelectList = ({attributeType, attributeNames, productId}) => {
         }) 
     }, [productId, attributeType])
     
-    //TODO: OBEJRZEC JAKIS PORADNIK Z CHECKBOXAMI W REACT
     const handleChange = (attributeId) => {
         setSelectedAttributes(prevAttributes => {
             const wasBefore = prevAttributes.some(({ProductId, CategoryId, MarkId}) => ProductId === productId && 
@@ -29,8 +28,9 @@ const SelectList = ({attributeType, attributeNames, productId}) => {
                 productActions.delProductForeignAttribute(attributeType, productId, attributeId);
                 return prevAttributes.filter(({CategoryId, MarkId}) => 
                 {
-                    if(attributeType === 'category') return CategoryId !== attributeId
-                    if(attributeType === 'mark') return MarkId !== attributeId
+                    if(attributeType === 'category') { return CategoryId !== attributeId }
+                    else if(attributeType === 'mark') { return MarkId !== attributeId }
+                    else { return false }
                 })
                 
             }

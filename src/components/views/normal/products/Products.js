@@ -6,28 +6,33 @@ import productActions from '../../../../api/productActions';
 import SearchBar from './searchBar/SearchBar';
 import Filters from './filters/Filters';
 import ProductsTable from './productsTable/ProductsTable';
+import ProductsList from "./productsList/ProductsList";
 
 import './products.css';
 
 const Products = () => {
     const isMobile = useMediaQuery({maxWidth: 767})
-    const [productsToDisplay, setProductsToDisplay] = useState(null); 
+    const [componentRendered, setComponentRendered] = useState(false);
+    //SeachBar state
+    const [searchWord, setSearchWord] = useState(null);
+    //Filters state
     const [selectedCategories, setSelectedCategories] = useState(null);
     const [selectedMarks, setSelectedMarks] = useState(null);
-    const [searchWord, setSearchWord] = useState(null);
-    const [refreshProducts, setRefreshProducts] = useState(false);
+    //Layout
+    const [layout, setLayout] = useState('grid');
+    //Table, List state
+    const [productsToDisplay, setProductsToDisplay] = useState(null); 
 
     const refresh = () => {
-        setRefreshProducts(!refreshProducts);
+        updateProductsToDisplay();
     }
 
-    
     const updateProductsToDisplay = async () => {
         let options = null
         if (selectedCategories || selectedMarks || searchWord) {
             options = {
-                categories: selectedCategories ? Object.keys(selectedCategories) : null,
-                marks: selectedMarks ? Object.keys(selectedMarks) : null,
+                categories: selectedCategories ? Object.keys(selectedCategories).filter(category => selectedCategories[category]) : null,
+                marks: selectedMarks ? Object.keys(selectedMarks).filter(mark => selectedMarks[mark]) : null,
                 searchWord: searchWord === "" ? undefined : searchWord
             }
         }
@@ -36,8 +41,12 @@ const Products = () => {
     }
 
     useEffect(() => {
-        updateProductsToDisplay();
-    },[refreshProducts])
+        if(!componentRendered) {
+            productActions.getAllProducts({categories: null, marks: null, searchWord: undefined}).then(res => setProductsToDisplay(res.body));
+        }
+        setComponentRendered(true);
+    }, [componentRendered])
+
 
     return (
         
@@ -45,10 +54,13 @@ const Products = () => {
             {!isMobile &&
             <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>}
             <div className='content'>
-                <SearchBar updateSearchWord={setSearchWord} refresh={refresh}/>
-                {isMobile && 
-                <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>}
-                <ProductsTable products={productsToDisplay} />
+                <SearchBar updateSearchWord={setSearchWord} refresh={refresh} layout={layout} setLayout={setLayout}/>
+                {
+                isMobile && 
+                <Filters updateSelectedCategories={setSelectedCategories} updateSelectedMarks={setSelectedMarks} refresh={refresh}/>
+                }
+                {layout === 'grid' && <ProductsTable products={productsToDisplay} />}
+                {layout === 'list' && <ProductsList products={productsToDisplay} />}
             </div>
         </div>
     );

@@ -1,0 +1,7 @@
+.nip-form-input-error {
+    display: flex;
+    flex-direction: column;
+}
+.nip-form-input-error input {
+    width: 100%;
+}

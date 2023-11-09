@@ -3,8 +3,6 @@ import Button from 'react-bootstrap/Button'
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import imageActions from "../../../../../../api/imageActions";
-
 import Logo from "../../../../../common/logo/Logo";
 import { CartContext } from "../../../../../../context/cart";
 

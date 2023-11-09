@@ -1,0 +1,59 @@
+.account-content-wrapper .single-property-wrapper {
+    height: fit-content;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.account-content-wrapper .single-property-wrapper .single-property .property-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.account-content-wrapper .single-property-wrapper .single-property .buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.account-content-wrapper .single-property-wrapper h5, .account-content-wrapper .single-property-wrapper h6 {
+    padding-inline: 1rem;
+}
+.account-content-wrapper .properties {
+    margin-top: 1rem;
+}
+.account-content-wrapper .properties .single-property-wrapper .single-property form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+.account-content-wrapper .single-property {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 1rem 5px 1rem;
+    background-color: white;
+
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.AccountContent h6 {
+    margin-bottom: 2px
+}
+
+@media (max-width: 767px) {
+    .account-content-wrapper .single-property-wrapper .single-property form {
+        flex-direction: column !important;
+    }
+}

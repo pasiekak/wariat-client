@@ -47,7 +47,7 @@ const BaseTable = ({tableName}) => {
     useEffect(() => {
         clearData()
         const dataProvider = new DataProvider(tableName);
-        dataProvider.getAll().then(res => setData(res.body));
+        dataProvider.getAll().then(res => {setData(res.body);});
         if (tableName === 'products') {
             categoryActions.getCategoryNames().then(res => {
                 setCategoryNames(res.body)
@@ -190,7 +190,7 @@ const BaseTable = ({tableName}) => {
                                 />                    
                             </div>
                             <div className="bottom-buttons">
-                                <button onClick={() => {
+                                {tableName !== 'users' && <button onClick={() => {
                                     setOverlayOptions({
                                         type: 'add',
                                         tableName: tableName,
@@ -199,7 +199,7 @@ const BaseTable = ({tableName}) => {
                                         reloadPage: reloadPage  
                                     })
                                     setOverlayDisplay(true)
-                                }}>Dodaj</button>                        
+                                }}>Dodaj</button>}                       
                             </div>                        
                         </div>
                     </div>

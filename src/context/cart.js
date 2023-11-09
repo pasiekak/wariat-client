@@ -1,10 +1,12 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
+import { AccountContext } from "./account";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
-    
+    const { discountGroup } = useContext(AccountContext);
+
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
       }, [cartItems]);
@@ -61,15 +63,22 @@ export const CartProvider = ({children}) => {
           updatedCart[productIndex].quantity = newQuantity;
         }
         setCartItems(updatedCart);
-      };
+    };
 
     const clearCart = () => {
         setCartItems([]); // set the cart items to an empty array
     };
 
     const getCartTotal = () => {
-        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0); // calculate the total price of the items in the cart
+        return Number(cartItems.reduce((total, item) => total + item.price * item.quantity, 0)).toFixed(2); // calculate the total price of the items in the cart
     };
+    const getCartAfterDisc = () => {
+        if (discountGroup?.id > 1) {
+            return Number(getCartTotal() * (1 - discountGroup.percentage * 0.01)).toFixed(2); 
+        } else {
+            return null
+        }
+    }
 
     const getCartCount = () => {
         return cartItems.length;
@@ -85,6 +94,7 @@ export const CartProvider = ({children}) => {
             updateQuantityInCart,
             getCartTotal,
             getCartCount,
+            getCartAfterDisc,
             isInCart
           }}
         >

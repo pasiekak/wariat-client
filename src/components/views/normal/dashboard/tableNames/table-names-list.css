@@ -1,28 +1,4 @@
-.TableNamesList {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 3rem;
-    overflow: hidden;
-
-    padding: 2rem 20px 2rem 20px;
-
-    background-color: #160C28;
-}
-
-.TableNamesList a {  
-    color: #E1EFE6; /* Temporary */
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    cursor: pointer;
+.table-names-dropdown a {
     text-decoration: none;
-
-    transition: 500ms ease;
-}
-.TableNamesList a:hover, .TableNamesList .active {
-    background-color: rgba(239, 203, 104);
     color: black;
 }

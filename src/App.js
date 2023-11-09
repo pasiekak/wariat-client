@@ -5,7 +5,6 @@ import Home from './components/views/normal/home/Home';
 import Products from './components/views/normal/products/Products';
 import ProductDetails from './components/views/normal/productDetails/ProductDetails';
 import Gallery from './components/views/normal/gallery/Gallery';
-import Contact from './components/views/normal/contact/Contact';
 import About from './components/views/normal/about/About';
 import Account from './components/views/accountRelated/account/Account';
 import NotFound from './components/views/normal/notFound/NotFound';
@@ -33,6 +32,7 @@ function App() {
             <Route path='categories' element={<BasicTable tableName='categories'/>}/>
             <Route path='marks' element={<BasicTable tableName='marks'/>}/>
             <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
+            <Route path='discountGroups' element={<BasicTable tableName='discountGroups'/>}/>
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
         </Routes>
@@ -49,7 +49,6 @@ const NormalRoutes = () => {
           <Route path="/products" Component={Products}/>
           <Route path="/products/product/:productId" Component={ProductDetails}/>
           <Route path="/gallery" Component={Gallery} />
-          <Route path="/contact" Component={Contact}/>
           <Route path="/about" Component={About}/>
           <Route path="/account" Component={Account}/>
           <Route path="/cart" Component={Cart}/>

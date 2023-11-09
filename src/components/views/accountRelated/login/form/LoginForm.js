@@ -44,7 +44,7 @@ const LoginForm = () => {
                 navigate('/')
             }
         }
-    }, [success, navigate])
+    }, [success, navigate, redirectPath])
 
     return (
         <Formik

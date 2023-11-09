@@ -1,5 +1,6 @@
 .Products {
     flex: 1;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
 }
@@ -16,8 +17,8 @@
 .SearchBar {
     flex: 0.1;
 }
-.ProductsTable {
-    flex: 0.9;   
+.ProductsTable, .ProductsList {
+    flex: 0.9;
 }
 
 @media (max-width: 767px) {

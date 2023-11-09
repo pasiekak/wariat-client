@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
-
-import imageActions from "../../../../../api/imageActions";
 
 import { CartContext } from "../../../../../context/cart";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -76,7 +74,7 @@ const ListItem = ({item}) => {
                 <option value="9">9</option>
                 <option value="custom">9+</option>
                 </Form.Select>}
-                <span className="price">{item.price*item.quantity} zł</span>
+                <span className="price">{Number(item.price*item.quantity).toFixed(2)} zł</span>
             </div>
         </ListGroup.Item>
     )

@@ -39,7 +39,6 @@ const Header = () => {
                 </div>
                 <Logo width={125} height={125} pathTo={'/'}/>
             <div className='rightHeader'>
-                <Link to="/contact">{t('contact')}</Link>
                 <Link to="/about">{t('about')}</Link>
                 <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic">
