@@ -102,10 +102,11 @@
                     "building-number-placeholder": "Twój numer budynku...",
                     "building-number-required": "Numer budynku jest wymagany",
                     "nip-label": "NIP",
-                    "nip-placeholder": "Twój numer NIP...",
+                    "nip-placeholder": "10-cio cyfrowy kod identyfikujący firmę",
                     "nip-required": "NIP jest wymagany",
                     "nip-invalid": "Ten NIP jest niepoprawny",
                     "load-nip-data": "Wczytaj dane wykorzystując NIP",
+                    "too-much-requests": "Poczekaj minutę",
                     "unable-to-load-nip": "Nie udało się wczytać danych firmy",
                     "back-to-delivery-type-button": "Wróć do wyboru sposobu dostawy",
                     "submit-button": "Złóż zamówienie"

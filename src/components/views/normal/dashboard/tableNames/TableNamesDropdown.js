@@ -1,9 +1,10 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 
 import './table-names-list.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const TableNamesDropdown = () => {
+    const navigate = useNavigate();
 
     return (
         <div className="table-names-dropdown">
@@ -13,23 +14,23 @@ const TableNamesDropdown = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item>
-                        <Link to='users'>Użytkownicy</Link>
-                        </Dropdown.Item>
-                    <Dropdown.Item>
-                        <Link to='products'>Produkty</Link>
-                        </Dropdown.Item>
-                    <Dropdown.Item>
-                        <Link to='categories'>Kategorie</Link>
+                    <Dropdown.Item onClick={() => navigate('users')}>
+                        Użytkownicy
                     </Dropdown.Item>
-                    <Dropdown.Item>
-                        <Link to='marks'>Marki</Link>
+                    <Dropdown.Item onClick={() => navigate('products')}>
+                        Produkty
                     </Dropdown.Item>
-                    <Dropdown.Item>
-                        <Link to='discounts'>Zniżki</Link>
+                    <Dropdown.Item onClick={() => navigate('categories')}>
+                        Kategorie
                     </Dropdown.Item>
-                    <Dropdown.Item>
-                        <Link to='discountGroups'>Grupy zniżkowe</Link>
+                    <Dropdown.Item onClick={() => navigate('marks')}>
+                        Marki
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate('discounts')}>
+                        Zniżki
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate('discountGroups')}>
+                        Grupy zniżkowe
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

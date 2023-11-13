@@ -10,7 +10,6 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
 
     const onSubmit = (data) => {
         if (type === 'edit') {
-            console.log(data);
             edit(data)
         } else if (type === 'add') {
             add(data)
@@ -66,6 +65,10 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
 
                 <label htmlFor="price">Cena</label>
                 <input type="number" step='0.01' {...register('price', { required: true, min: 0, max: 999999 })} />
+                {errors.price?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
+
+                <label htmlFor="maxQuantity">Ilość</label>
+                <input type="number" {...register('maxQuantity', { required: true, min: 0, max: 999999 })} />
                 {errors.price?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
                 <label htmlFor="published">Publikacja</label>

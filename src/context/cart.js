@@ -9,7 +9,7 @@ export const CartProvider = ({children}) => {
 
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      }, [cartItems]);
+    }, [cartItems]);
 
     useEffect(() => {
         const cartItems = localStorage.getItem("cartItems");
@@ -37,17 +37,9 @@ export const CartProvider = ({children}) => {
     const removeFromCart = (item) => {
         const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
         
-        if (isItemInCart.quantity === 1) {
+        if (isItemInCart) {
             setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id)); // if the quantity of the item is 1, remove the item from the cart
-        } else {
-            setCartItems(
-            cartItems.map((cartItem) =>
-                cartItem.id === item.id
-                ? { ...cartItem, quantity: cartItem.quantity - 1 } // if the quantity of the item is greater than 1, decrease the quantity of the item
-                : cartItem
-            )
-            );
-        }
+        } 
     };
 
     const isInCart = (item) => {
@@ -60,7 +52,7 @@ export const CartProvider = ({children}) => {
         const updatedCart = [...cartItems];
         const productIndex = updatedCart.findIndex(item => item.id === itemId);
         if (productIndex !== -1) {
-          updatedCart[productIndex].quantity = newQuantity;
+            if(newQuantity <= updatedCart[productIndex].maxQuantity) updatedCart[productIndex].quantity = newQuantity;
         }
         setCartItems(updatedCart);
     };

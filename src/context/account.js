@@ -21,10 +21,6 @@ export const AccountProvider = ({children}) => {
         };
     },[user, cookies]);
 
-    useEffect(() => {
-        console.log(companyData);
-    }, [companyData])
-
     const setAccountData = (data) => {
         const {user, address, personalData, discountGroup, companyData} = data;
         setUser(user);

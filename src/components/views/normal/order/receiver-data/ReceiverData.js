@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isValidNip } from "../../../accountRelated/account/account-content/order-settings/company-properties/nip-property/NipProperty";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,6 +13,8 @@ import accountActions from "../../../../../api/accountActions";
 const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, personalData, companyData }) => {
     const { t } = useTranslation(null, { keyPrefix: 'components.order.receiver-data' });
     const [nipLoading, setNipLoading] = useState(false);
+    const [nipReqCount, setNipReqCount] = useState(0);
+    const [isNipButtonDisabled, setIsNipButtonDisabled] = useState(false);
     const { register, handleSubmit, control, watch, setError, setValue, clearErrors, formState: { errors } } = useForm({
         defaultValues: {
             // receiver personal data
@@ -38,6 +40,18 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
         }
     });
 
+    useEffect(() => {
+        let timer;
+        if (nipReqCount >= 5) {
+            setIsNipButtonDisabled(true);
+            timer = setTimeout(() => {
+                setIsNipButtonDisabled(false);
+                setNipReqCount(0);
+            }, 60000)
+        }
+        return () => clearTimeout(timer);
+    }, [nipReqCount]);
+
     const onSubmit = (data) => {
         if(!isValidNip(data.companyNip)) {
             setError('nip', {
@@ -61,10 +75,10 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
             setNipLoading(true);
             accountActions.companyData.getDataByNIP(nip).then(res => {
                 if (res.success) {
+                    setNipReqCount((prev) => prev+1);
                     setNipLoading(false);
                     // Pobrane dane z CEIDG
                     const ceidgData = res.data;
-                    
                     // Ustawienie pobranych danych jako defaultValues
                     Object.keys(ceidgData).forEach((key) => {
                         setValue(key, ceidgData[key]);
@@ -126,8 +140,9 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
                         </Form.Group>
                     </div>
 
-                    <h5>{t('shipment-data-title')}</h5>
                     {needAddress && (
+                        <>
+                        <h5>{t('shipment-data-title')}</h5>
                         <div className="delivery-address-wrapper">
                             <Form.Group controlId="formCountry">
                                 <Form.Label>{t('form.country-label')}</Form.Label>
@@ -175,6 +190,7 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
                                 {errors.homeNumber && <span>{errors.homeNumber.message}</span>}
                             </Form.Group>
                         </div>
+                        </>
                     )}
                         <Form.Group controlId="formWantInvoice">
                             <Form.Check
@@ -192,12 +208,14 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
                                         <Form.Control
                                             type="number"
                                             placeholder={t('form.nip-placeholder')}
+                                            maxLength='10'
                                             {...register('companyNip', { required: t('form.nip-required') })}
                                         />
                                         {errors.nip && <span>{errors.nip.message}</span>}
                                     </Form.Group>
-                                    <Button onClick={() => loadCompanyDataFromApi()}>
-                                        {nipLoading ? <Spinner/> : t('form.load-nip-data')}
+                                    <Button disabled={isNipButtonDisabled}
+                                    onClick={() => loadCompanyDataFromApi()}>
+                                        {nipLoading ? <Spinner/> : (isNipButtonDisabled ? t('form.too-much-requests') : t('form.load-nip-data'))}
                                     
                                     </Button>
                                 </div>

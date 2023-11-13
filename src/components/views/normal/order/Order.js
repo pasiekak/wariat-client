@@ -9,6 +9,7 @@ import Delivery from "./delivery/Delivery";
 import ReceiverData from "./receiver-data/ReceiverData";
 
 import './order.css';
+import orderActions from "../../../../api/orderActions";
 
 const countReducer = (state, action) => {
     switch(action.type) {
@@ -62,7 +63,7 @@ const Order = () => {
             deliveryMethod,
             receiverData: data
         }
-        console.log(order);
+        orderActions.makeOrder(order);
     }
 
     return (
