@@ -13,7 +13,7 @@ i18n
     .use(HttpBackend)
     .init({
         backend: { loadPath: '/translations/{{lng}}.json'},
-        lng: 'pl',
+        lng: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'pl',
         fallbackLng: 'pl',
         interpolation: { escapeValue: false },
         react: { useSuspense: true }

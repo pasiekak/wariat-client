@@ -34,8 +34,7 @@ const ProductRow = ({product}) => {
             <div className='right-row'>
                 <div className='name-and-buttons'>
                     <span id='name' onClick={() => navigate(`/products/product/${product.id}`, { state: {
-                        product, mainImageId
-                    }})}>{product.name}</span>
+                        product}})}>{product.name}</span>
                     {isInCart(product) ? 
                         <Button 
                         variant="outline-dark" 

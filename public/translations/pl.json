@@ -42,18 +42,75 @@
 
         },
 
-        "cart": {
+        "order" : {
+            "cart": {
         
-            "add-to-cart-button":"Dodaj do koszyka",
-            "remove-from-cart-button":"Usuń z koszyka",
-            "order-button":"Wybierz sposób dostawy",
-            "empty-cart-message": "Twój koszyk jest pusty",
-            "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
-            "title": "Twój koszyk",
-            "total": "Łączna cena",
-            "total-disc": "Cena po uwzględnieniu zniżek",
-            "not-logged": "Musisz się zalogować aby dokonać zamówienia"
-        
+                "add-to-cart-button":"Dodaj do koszyka",
+                "remove-from-cart-button":"Usuń z koszyka",
+                "order-button":"Wybierz sposób dostawy",
+                "empty-cart-message": "Twój koszyk jest pusty",
+                "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
+                "title": "Twój koszyk",
+                "total": "Łączna cena",
+                "total-disc": "Cena po uwzględnieniu zniżek",
+                "not-logged": "Musisz się zalogować aby dokonać zamówienia"
+            
+            },
+            "delivery-type": {
+                "title": "Wybierz sposób dostawy",
+                "back-to-cart-button": "Wróć do koszyka",
+                "move-to-receiver-data": "Przejdź do danych wysyłki"
+            },
+            "receiver-data": {
+                "title": "Uzupełnij dane odbiorcy",
+                "shipment-data-title": "Adres dostawy",
+                "personal-data-title": "Dane odbiorcy",
+                "company-data-title": "Dane firmy",
+                "form": {
+                    "first-name-label": "Imię",
+                    "first-name-placeholder": "Twoje imię...",
+                    "first-name-required": "Imię jest wymagane",
+                    "last-name-label": "Nazwisko",
+                    "last-name-placeholder": "Twoje nazwisko...",
+                    "last-name-required": "Nazwisko jest wymagane",
+                    "phone-label": "Numer telefonu",
+                    "phone-placeholder": "Twój numer telefonu...",
+                    "phone-required": "Numer telefonu jest wymagany",
+                    "email-label": "Email",
+                    "email-placeholder": "Twój adres email...",
+                    "email-required": "Adres email jest wymagany",
+                    "want-invoice-label": "Chcesz fakturę?",
+                    "company-name-label": "Nazwa firmy",
+                    "company-name-placeholder": "Nazwa Twojej firmy...",
+                    "company-name-required": "Nazwa firmy jest wymagana",
+                    "country-label": "Kraj",
+                    "country-placeholder": "Twój kraj...",
+                    "country-required": "Kraj jest wymagany",
+                    "city-label": "Miasto",
+                    "city-placeholder": "Twoje miasto...",
+                    "city-required": "Miasto jest wymagane",
+                    "postal-code-label": "Kod pocztowy",
+                    "postal-code-placeholder": "Twój kod pocztowy...",
+                    "postal-code-required": "Kod pocztowy jest wymagany",
+                    "street-label": "Ulica",
+                    "street-placeholder": "Twoja ulica...",
+                    "street-required": "Ulica jest wymagana",
+                    "home-number-label": "Numer budynku",
+                    "home-number-placeholder": "Twój numer budynku...",
+                    "home-number-required": "Numer budynku jest wymagany",
+                    "building-number-label": "Numer budynku",
+                    "building-number-placeholder": "Twój numer budynku...",
+                    "building-number-required": "Numer budynku jest wymagany",
+                    "nip-label": "NIP",
+                    "nip-placeholder": "Twój numer NIP...",
+                    "nip-required": "NIP jest wymagany",
+                    "nip-invalid": "Ten NIP jest niepoprawny",
+                    "load-nip-data": "Wczytaj dane wykorzystując NIP",
+                    "unable-to-load-nip": "Nie udało się wczytać danych firmy",
+                    "back-to-delivery-type-button": "Wróć do wyboru sposobu dostawy",
+                    "submit-button": "Złóż zamówienie"
+                }
+            }
         },
 
         "account":{
@@ -63,6 +120,7 @@
             "confirm-button": "Zatwierdź",
             "go-back-button": "Wróć",
             "empty-property-message": "Brak danych",
+            "upload-company-data": "Uzupełnij dane wykorzystując NIP",
             "account-settings": {
                 "title": "Ustawienia i dane konta",
                 "login": "Nazwa użytkownika",
@@ -95,13 +153,18 @@
                     "street": "Ulica",
                     "street-placeholder": "Twoja ulica",
                     "home-number": "Numer domu",
-                    "home-number-placeholder": "Twój numer domu",
+                    "home-number-placeholder": "Numer domu",
+                    "building-number": "Numer budynku",
+                    "building-number-placeholder": "Numer budynku firmy",
                     "postal-code": "Kod pocztowy",
                     "postal-code-placeholder": "Kod pocztowy w formacie 'xx-xxx'",
                     "company-name": "Nazwa firmy",
                     "company-name-placeholder": "Nazwa twojej firmy",
                     "nip": "NIP",
-                    "nip-placeholder": "Numer NIP twojej firmy"
+                    "nip-placeholder": "Numer NIP twojej firmy",
+                    "nip-required":"NIP jest wymagany",
+                    "nip-digits": "NIP musi zawierać 10 cyfr",
+                    "nip-valid": "Ten NIP jest niepoprawny"
                 }
             }
         },

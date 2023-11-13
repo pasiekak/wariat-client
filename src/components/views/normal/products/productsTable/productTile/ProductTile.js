@@ -37,8 +37,7 @@ const ProductTile = ({product}) => {
             </div>
             <div className="card-content">
                 <span className="card-title" onClick={() => navigate(`/products/product/${product.id}`, { state: {
-                    product, mainImageId
-                }} )}>{product.name}</span>
+                    product}})}>{product.name}</span>
                 <div className="card-bottom">
                     {isInCart(product) ? 
                         <Button 

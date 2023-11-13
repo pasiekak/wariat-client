@@ -1,17 +1,3 @@
-.Cart {
-    display: flex;
-}
-.Cart .cart-title-wrapper {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    margin: 20px 10px 20px 10px;
-    padding: 10px 20px 10px 20px;
-    background-color: #DCDCDC;
-    border: 1px solid #a5a5a5;
-    border-radius: 10px;
-}
 .Cart .cart-wrapper {
     flex: 1;
 
@@ -79,7 +65,7 @@
 .Cart .price {
     width: fit-content;
 }
-.Cart .not-logged-wrapper, .Cart .order-wrapper, .Cart .empty-cart-wrapper {
+.Cart .not-logged-wrapper, .Cart .next-wrapper, .Cart .empty-cart-wrapper {
     width: 100%;
 
     display: flex;
@@ -93,7 +79,7 @@
 .Cart .not-logged-wrapper {
     background-color: rgba(13, 110, 253, 0.2);
 }
-.Cart .order-wrapper {
+.Cart .next-wrapper {
     background-color: rgba(25, 135, 84, 0.2);
 }
 .Cart .total-price-wrapper .total-normal {
@@ -117,6 +103,9 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+.Cart .name {
+    cursor: pointer;
 }
 .Cart .total-price-wrapper .total-normal, .Cart .total-price-wrapper .total-disc {
     display: flex;

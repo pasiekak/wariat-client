@@ -14,11 +14,16 @@ export const AccountProvider = ({children}) => {
     useEffect(() => {
         if(!user && cookies.user) {
             accountActions.login().then(res => {
-                setAccountData(res.data);
-                console.log(res.data);
+                if(res.success) {
+                    setAccountData(res.data)
+                };
             });
-        }
-    },[user, cookies.user])
+        };
+    },[user, cookies]);
+
+    useEffect(() => {
+        console.log(companyData);
+    }, [companyData])
 
     const setAccountData = (data) => {
         const {user, address, personalData, discountGroup, companyData} = data;
@@ -26,7 +31,7 @@ export const AccountProvider = ({children}) => {
         setAddress(address);
         setPersonalData(personalData);
         setDiscountGroup(discountGroup);
-        setCompanyData(companyData)
+        setCompanyData(companyData);
     }
     const clearAccount = () => {
         setUser(null);
@@ -45,6 +50,7 @@ export const AccountProvider = ({children}) => {
             discountGroup,
             companyData,
             setAccountData,
+            setCompanyData,
             clearAccount
         }}>
             {children}

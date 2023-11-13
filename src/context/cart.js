@@ -69,6 +69,11 @@ export const CartProvider = ({children}) => {
         setCartItems([]); // set the cart items to an empty array
     };
 
+    const isEmpty = () => {
+        if (cartItems.length === 0) return true;
+        return false;
+    }
+
     const getCartTotal = () => {
         return Number(cartItems.reduce((total, item) => total + item.price * item.quantity, 0)).toFixed(2); // calculate the total price of the items in the cart
     };
@@ -95,7 +100,8 @@ export const CartProvider = ({children}) => {
             getCartTotal,
             getCartCount,
             getCartAfterDisc,
-            isInCart
+            isInCart,
+            isEmpty
           }}
         >
           {children}

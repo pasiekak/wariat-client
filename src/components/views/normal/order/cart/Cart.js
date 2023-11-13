@@ -1,22 +1,20 @@
 import { useContext } from "react";
-import { useCookies } from "react-cookie";
 import { useTranslation } from "react-i18next";
 
-import { CartContext } from "../../../../context/cart";
+import { CartContext } from "../../../../../context/cart";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListItem from "./listItem/ListItem";
 
 import './cart.css';
 
-const Cart = () => {
-    const { t } = useTranslation(null, { keyPrefix: "components.cart" })
+const Cart = ({dispatch, access}) => {
+    const { t } = useTranslation(null, { keyPrefix: "components.order.cart" })
     const { cartItems, getCartTotal, getCartCount, getCartAfterDisc } = useContext(CartContext);
-    const [cookies] = useCookies();
 
     return (
-        <div className="Cart bck-smooth">
-            <div className="cart-title-wrapper">
+        <div className="Cart Order bck-smooth">
+            <div className="order-wrapper">
                 <h4 className="title">{t('title')}</h4>
                 <div className="cart-wrapper">
                     <div className="cart-summary">
@@ -33,16 +31,16 @@ const Cart = () => {
                     </div>
                     <div className="horizontal-line"></div>
                     <div className="cart-actions">
-                        {!(cookies.user) && <div className="not-logged-wrapper">
+                        {!(access) && <div className="not-logged-wrapper">
                             <span id="not-logged-message">{t('not-logged')}</span>
-                            <Button href="/login?redirect=cart">Zaloguj się</Button>
+                            <Button href="/login?redirect=order">Zaloguj się</Button>
                         </div>}
-                        {(getCartCount() === 0 && (cookies.user)) && 
+                        {(getCartCount() === 0 && (access)) && 
                         <div className="empty-cart-wrapper">
                             <span id="empty-cart-message">{t('empty-cart-button-disabled')}</span>
                         </div>
                         }
-                        <div className="order-wrapper">
+                        <div className="next-wrapper">
                             <div className="total-price-wrapper">
                                 <div className="total-normal">
                                     <span className="total-message">{t('total')}:</span>
@@ -54,7 +52,10 @@ const Cart = () => {
                                 </div>}
                             </div>
                             <Button variant="success" 
-                            disabled={(!(cookies.user) || getCartCount() === 0)}>{(cookies.user) ? t('order-button') : t('not-logged')}</Button>    
+                            disabled={(!(access) || getCartCount() === 0)}
+                            onClick={() => dispatch({type: 'inc'})}>
+                                {(access) ? t('order-button') : t('not-logged')}
+                            </Button>    
                         </div>
                     </div>
                 </div>

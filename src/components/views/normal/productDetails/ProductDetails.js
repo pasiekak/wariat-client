@@ -15,7 +15,7 @@ const ProductDetails = () => {
 
     const location = useLocation();
     let product = location.state?.product;
-    let mainImageId = location.state?.mainImageId;
+    let mainImageId = product?.mainImageId;
 
     const { addToCart, removeFromCart, isInCart } = useContext(CartContext);
     //Carousel states

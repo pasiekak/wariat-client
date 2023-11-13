@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
 
-import { CartContext } from "../../../../../context/cart";
+import { CartContext } from "../../../../../../context/cart";
 import ListGroup from "react-bootstrap/ListGroup";
 import Form from "react-bootstrap/Form";
 
 const ListItem = ({item}) => {
+    const navigate = useNavigate();
     const { t: tCart } = useTranslation(null, {keyPrefix: 'components.cart'})
     const [customInput, setCustomInput] = useState(false);
     const [customInputValue, setCustomInputValue] = useState(item.quantity);
@@ -32,12 +33,16 @@ const ListItem = ({item}) => {
         <ListGroup.Item key={item.id}>
             <div className="item-left">
                 <img src={`/api/images/${item.mainImageId}`} alt=""/>
-                <Link to={`/products/product/${item.id}`}>
-                    <span className="name">{item.name}</span>        
-                </Link>
+                    <span className="name" onClick={() => {
+                        console.log(item);
+                        navigate(`/products/product/${item.id}`, { state: { product: item }})
+                    }}>{item.name}</span> 
                 <Button 
                     variant="outline-secondary" 
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => { 
+                        removeFromCart(item) 
+                        setCustomInputValue(prev => prev-1);
+                    }}
                     title={tCart('remove-from-cart-button')}
                     id="remove-button"
                 >

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Button from "react-bootstrap/Button";
@@ -9,6 +9,10 @@ const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, at
     const [temp, setTemp] = useState(attr);
     const [attribute, setAttribute] = useState(attr ? attr : '')
     const [showEditor, setShowEditor] = useState(false);
+
+    useEffect(() => {
+        setAttribute(attr ? attr : '')
+    },[attr])
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -5,3 +5,14 @@
 .nip-form-input-error input {
     width: 100%;
 }
+.nip-property .single-property form {
+    display: flex;
+    flex-direction: column !important;
+}
+
+@media (max-width: 767px) {
+    .nip-property .single-property form .buttons-wrapper {
+        flex-direction: column !important;
+    }
+}
+  

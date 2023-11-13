@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { useCookies } from 'react-cookie';
 
 import accountActions from "../../../../api/accountActions";
@@ -12,15 +12,18 @@ import './dashboard-layout.css';
 
 
 const DashboardLayout = () => {
+    const navigate = useNavigate();
     const [access, setAccess] = useState(null);
     const [cookies] = useCookies();
-    const verifyAccess = async () => {
-        let res = await accountActions.verifyModerator()
-        setAccess(res.success);
-    }
     useEffect(() => {
-        verifyAccess();
-    }, [])
+        accountActions.verifyLoggedAccount().then(res => {
+            if(res.success === false) {
+                navigate('/not-logged');
+            } else {
+                setAccess(true);
+            }
+        })
+    }, [navigate])
 
     return (
         <>

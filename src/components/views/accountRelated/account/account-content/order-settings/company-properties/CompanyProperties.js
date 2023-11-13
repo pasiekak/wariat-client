@@ -7,12 +7,35 @@ import SimpleProperty from "../../simple-property/SimpleProperty";
 import NipProperty from "./nip-property/NipProperty";
 
 const CompanyProperties = () => {
-    const { companyData } = useContext(AccountContext);
+    const { companyData, setCompanyData } = useContext(AccountContext);
+
+
+    const uploadNIPdata = async (nip) => {
+        let response = await accountActions.companyData.getDataByNIP(nip)
+        if(response.success) {
+            let updateBody = {
+                nip: response.data.companyNip,
+                companyName: response.data.companyName,
+                city: response.data.companyCity,
+                street: response.data.companyStreet,
+                postalCode: response.data.companyPostalCode,
+                country: response.data.companyCountry,
+                buildingNumber: response.data.companyBuildingNumber
+            }
+            let response2 = await accountActions.companyData.updateAll(updateBody);
+            if(response2.data.success) {
+                setCompanyData(updateBody);
+            }
+            return response
+        } else {
+            return response
+        }
+    }
 
     return (
         <div className="company-properties properties">
             {companyData && <>
-                <NipProperty companyData={companyData} />
+                <NipProperty nipOriginal={companyData.nip} uploadNIPdata={uploadNIPdata}/>
                 <SimpleProperty 
                 inputType='text'
                 titleTranslation='order-settings.delivery-or-company-properties.company-name'
@@ -50,10 +73,10 @@ const CompanyProperties = () => {
                 />
                 <SimpleProperty 
                 inputType='text'
-                titleTranslation='order-settings.delivery-or-company-properties.home-number'
-                placeholderTranslation={'order-settings.delivery-or-company-properties.home-number-placeholder'}
-                attr={companyData.homeNumber}
-                updateFunction={accountActions.companyData.updateHomeNumber}
+                titleTranslation='order-settings.delivery-or-company-properties.building-number'
+                placeholderTranslation={'order-settings.delivery-or-company-properties.building-number-placeholder'}
+                attr={companyData.buildingNumber}
+                updateFunction={accountActions.companyData.updateBuildingNumber}
                 />
             </>}
         </div>
