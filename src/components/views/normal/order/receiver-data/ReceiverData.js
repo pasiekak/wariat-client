@@ -10,7 +10,7 @@ import './receiver-data.css';
 import PhoneInput from 'react-phone-number-input/react-hook-form';
 import accountActions from "../../../../../api/accountActions";
 
-const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, personalData, companyData }) => {
+const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, personalData, companyData, loading }) => {
     const { t } = useTranslation(null, { keyPrefix: 'components.order.receiver-data' });
     const [nipLoading, setNipLoading] = useState(false);
     const [nipReqCount, setNipReqCount] = useState(0);
@@ -39,6 +39,8 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
             companyBuildingNumber: companyData?.buildingNumber || '',
         }
     });
+    let wantInvoiceInput = watch('wantInvoice');
+    let nipInput = watch('companyNip');
 
     useEffect(() => {
         let timer;
@@ -52,15 +54,23 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
         return () => clearTimeout(timer);
     }, [nipReqCount]);
 
-    const onSubmit = (data) => {
-        if(!isValidNip(data.companyNip)) {
-            setError('nip', {
-                type: 'valid',
-                message: t('form.nip-invalid')
-            })
+    useEffect(() => {
+        if(wantInvoiceInput) {
+            if(!isValidNip(nipInput)) {
+                setError('nip', {
+                    type: 'valid',
+                    message: t('form.nip-invalid')
+                })
+            } else {
+                clearErrors('nip')
+            }
         } else {
-            performOrder(data);
+            clearErrors('nip')
         }
+    }, [nipInput, wantInvoiceInput, clearErrors, setError, t])
+
+    const onSubmit = (data) => {
+        performOrder(data);
     };
 
     const loadCompanyDataFromApi = () => {
@@ -97,7 +107,8 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
 
     return (
         <div className="ReceiverData Order bck-smooth">
-            <div className="order-wrapper">
+            <div className="order-wrapper" style={{alignItems: loading && 'center', justifyContent: loading && 'center'}}>
+                {loading ? <Spinner/> : <>
                 <h4 className="title">{t('title')}</h4>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <h5>{t('personal-data-title')}</h5>
@@ -289,7 +300,7 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
                             {t('form.submit-button')}
                         </Button>
                     </div>
-                </Form>
+                </Form></>}
             </div>
         </div>
     );

@@ -7,12 +7,12 @@ import FirstLastNameProperty from './first-last-name-property/FirstLastNamePrope
 import './person-properties.css';
 
 const PersonProperties = () => {
-    const { personalData } = useContext(AccountContext);
+    const { personalData, updateAttributeValues } = useContext(AccountContext);
 
     return (
         <div className='person-properties properties'>
-            <FirstLastNameProperty personalData={personalData}/>
-            <PhoneNumberProperty personalData={personalData}/>
+            <FirstLastNameProperty firstName={personalData.firstName} lastName={personalData.lastName} updateContextFunction={updateAttributeValues}/>
+            <PhoneNumberProperty phone={personalData.phone} updateContextFunction={updateAttributeValues}/>
         </div>
     )
 }

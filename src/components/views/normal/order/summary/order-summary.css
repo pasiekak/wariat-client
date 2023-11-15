@@ -1,0 +1,9 @@
+.OrderSummary {
+    padding-block: 1rem;
+    padding-inline: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.OrderSummary h1 {
+    text-align: center;
+}

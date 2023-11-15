@@ -1,9 +1,11 @@
 import { useContext, useEffect, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import accountActions from "../../../../api/accountActions";
 
 import { OrderContext } from "../../../../context/order";
 import { AccountContext } from "../../../../context/account";
+import { CartContext } from "../../../../context/cart";
 import Cart from "./cart/Cart";
 import Delivery from "./delivery/Delivery";
 import ReceiverData from "./receiver-data/ReceiverData";
@@ -28,10 +30,13 @@ const countReducer = (state, action) => {
 }
 
 const Order = () => {
+    const navigate = useNavigate();
     const [access, setAccess] = useState(false);
     const [needAddress, setNeedAddress] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [index, dispatch] = useReducer(countReducer, localStorage.getItem('order-index') ? JSON.parse(localStorage.getItem('order-index')) : 1);
-    const { cartItems, discountGroup, deliveryMethod, isEmpty } = useContext(OrderContext);
+    const { cartItems, isEmpty, clearCart } = useContext(CartContext);
+    const { deliveryMethod } = useContext(OrderContext);
     const { address, companyData, personalData, user } = useContext(AccountContext);
 
     useEffect(() => {
@@ -57,13 +62,51 @@ const Order = () => {
     }, [deliveryMethod])
 
     const performOrder = (data) => {
+        setLoading(true)
+        let products = cartItems.map(product => {
+            return {
+                id: product.id,
+                quantity: product.quantity
+            }
+        })
         const order = {
-            items: cartItems,
-            discount: discountGroup,
-            deliveryMethod,
-            receiverData: data
+            username: user.username,
+            products: products,
+            deliveryType: deliveryMethod,
+            wantInvoice: data.wantInvoice,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            ...(needAddress && { 
+                deliveryAddress: {
+                    country: data.country,
+                    city: data.city,
+                    postalCode: data.postalCode,
+                    street: data.street,
+                    homeNumber: parseInt(data.homeNumber)
+            }}),
+            ...(data.wantInvoice && {
+                invoiceDetails: {
+                    nip: data.companyNip,
+                    companyName: data.companyName,
+                    country: data.companyCountry,
+                    city: data.companyCity,
+                    postalCode: data.companyPostalCode,
+                    street: data.companyStreet,
+                    buildingNumber: parseInt(data.companyBuildingNumber),
+            }})
         }
-        orderActions.makeOrder(order);
+        orderActions.makeOrder(order).then(res => {
+            if(res.success) {
+                clearCart();
+                let orderID = res.data;
+                navigate(`/order/${orderID}`)
+                setLoading(false)
+            } else {
+                alert(res.message);
+                setLoading(false)
+            }
+        })
     }
 
     return (
@@ -71,7 +114,7 @@ const Order = () => {
             {index === 1 && <Cart dispatch={dispatch} access={access}/>}
             {index === 2 && <Delivery dispatch={dispatch} needAddress={needAddress}/>}
             {index === 3 && (address && personalData && companyData && user) && <ReceiverData dispatch={dispatch} performOrder={performOrder} 
-            needAddress={needAddress} user={user} address={address} personalData={personalData} companyData={companyData}/>}
+            needAddress={needAddress} user={user} address={address} personalData={personalData} companyData={companyData} loading={loading}/>}
         </>
     )
 }

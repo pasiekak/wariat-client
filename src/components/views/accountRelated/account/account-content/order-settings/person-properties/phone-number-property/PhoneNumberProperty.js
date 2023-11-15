@@ -1,34 +1,33 @@
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-import PhoneInput from 'react-phone-number-input';
+import PhoneInputWithCountrySelect from 'react-phone-number-input';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import 'react-phone-number-input/style.css';
 import accountActions from '../../../../../../../../api/accountActions';
 
-const PhoneNumberProperty = ({personalData}) => {
+const PhoneNumberProperty = ({phone, updateContextFunction}) => {
     const { t: tAcc } = useTranslation(null, {keyPrefix: 'components.account'});
     const { t: tOrd } = useTranslation(null, {keyPrefix: 'components.account.order-settings.person-properties'})
-    const [tempPhone, setTempPhone] = useState(personalData.phone || '');
-    const [phoneNumber, setPhoneNumber] = useState(personalData.phone ? personalData.phone : '');
-
+    const { handleSubmit, control, setValue, watch } = useForm()
     const [showPhoneEditor, setShowPhoneEditor] = useState(false);
-    const handlePhoneNumberChange = (e) => {
-        e.preventDefault();
-        if(phoneNumber) {
-            accountActions.personalData.updatePhoneNumber(phoneNumber).then(res => {
+    
+    useEffect(() => {
+        setValue('phone', phone);
+    }, [phone,setValue])
+
+    const onSubmit = (data) => {
+        if(data.phone) {
+            accountActions.personalData.updatePhoneNumber(data.phone).then(res => {
                 if(res.data.success) {
-                    setTempPhone(phoneNumber)
+                    updateContextFunction('personalData', {phone: data.phone})
                 }
             });
             setShowPhoneEditor(false);
         }
-    }
-    
-    const setDefault = () => {
-        setPhoneNumber(tempPhone || '');
     }
 
     return (
@@ -36,15 +35,17 @@ const PhoneNumberProperty = ({personalData}) => {
             <h5>{tOrd('phone-number')}</h5>
             <div className="single-property">
                 {(showPhoneEditor) ? (
-                    <Form onSubmit={handlePhoneNumberChange}>
-                        <PhoneInput 
-                            defaultCountry='PL'
-                            value={phoneNumber}
-                            onChange={setPhoneNumber}/>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <PhoneInputWithCountrySelect 
+                        name="phone"
+                        value={watch('phone')}
+                        control={control}
+                        rules={{required: true}}
+                        onChange={(value) => setValue('phone', value)}
+                        />
                         <div className='buttons-wrapper'>
                             <Button variant='outline-dark' onClick={() => { 
                                 setShowPhoneEditor(false); 
-                                setDefault();
                                 }}>{tAcc('go-back-button')}</Button>
                             <Button type='submit' variant='outline-dark'>{tAcc('confirm-button')}</Button>
                         </div>
@@ -52,8 +53,8 @@ const PhoneNumberProperty = ({personalData}) => {
                     )
                     :
                     <div className='property-row'>
-                        {phoneNumber ? 
-                        <span>{phoneNumber}</span> :
+                        {phone ? 
+                        <span>{phone}</span> :
                         <span>{tOrd('no-phone-number-provided')}</span>}
                         <Button variant='outline-dark' onClick={() => setShowPhoneEditor(true)}>{tAcc('change-button')}</Button>
                     </div>

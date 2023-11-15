@@ -30,7 +30,7 @@ export const isValidNip = (nip) => {
     
     return sum % 11 === controlNumber;
 }
-const NipProperty = ({nipOriginal, uploadNIPdata}) => {
+const NipProperty = ({nipOriginal, uploadNIPdata, updateContextFunction}) => {
     const { register, handleSubmit, setError, clearErrors, watch, formState:{ errors } } = useForm({
         defaultValues: {
             nip: nipOriginal ? nipOriginal : ''
@@ -39,7 +39,6 @@ const NipProperty = ({nipOriginal, uploadNIPdata}) => {
     });
     const { t: tCom } = useTranslation(null, { keyPrefix: 'components.account.order-settings.delivery-or-company-properties'})
     const { t: tAcc } = useTranslation(null, { keyPrefix: 'components.account' })
-    const [nip, setNIP] = useState(nipOriginal ? nipOriginal : '')
     const [showEditor, setShowEditor] = useState(false);
     
     const onSubmit = (data) => {
@@ -47,7 +46,7 @@ const NipProperty = ({nipOriginal, uploadNIPdata}) => {
             clearErrors('nip')
             accountActions.companyData.updateNIP(data.nip).then(res => {
                 if(res.data.success) {
-                    setNIP(data.nip);
+                    updateContextFunction('companyData', {nip: data.nip})
                     setShowEditor(false);
                 }
             })
@@ -92,7 +91,7 @@ const NipProperty = ({nipOriginal, uploadNIPdata}) => {
                 :
                 <div className="property-row">
                     <span>
-                        {nip ? nip : tAcc('empty-property-message')}
+                        {nipOriginal ? nipOriginal : tAcc('empty-property-message')}
                     </span>
                     <Button variant='outline-dark' onClick={() => setShowEditor(true)}>{tAcc('change-button')}</Button>
                 </div>

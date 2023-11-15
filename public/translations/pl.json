@@ -111,6 +111,11 @@
                     "back-to-delivery-type-button": "Wróć do wyboru sposobu dostawy",
                     "submit-button": "Złóż zamówienie"
                 }
+            },
+            "order-summary": {
+                "title": "Udało Ci się złożyć zamówienie",
+                "title-des1": "Dziękujemy za złożenie zamówienia na naszej stronie.",
+                "order-number": "Numer zamówienia"
             }
         },
 
@@ -301,6 +306,14 @@
             "badToken": "Nieudana próba autentykacji użytkownika",
             "notAdmin": "Nie masz uprawnień do tej operacji",
             "notModerator": "Nie masz uprawnień do tej operacji"
+        },
+
+        "order": {
+            "order-created": "Udało Ci się złożyć zamówienie",
+            "user-dont-match": "Nie masz dostępu do tego zamówienia",
+            "order-not-found": "Nie istnieje takie zamówienie",
+            "order-creating-error": "Nie udało się złożyć zamówienia",
+            "server-error": "Wystąpił błąd w przeprowadzaniu zamówienia"
         }
 
     }

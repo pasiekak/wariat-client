@@ -1,58 +1,51 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import accountActions from '../../../../../../../../api/accountActions';
 
-const FirstLastNameProperty = ({personalData}) => {
+const FirstLastNameProperty = ({firstName, lastName, updateContextFunction}) => {
     const { t: tAcc } = useTranslation(null, {keyPrefix: 'components.account'});
     const { t: tPers } = useTranslation(null, {keyPrefix: 'components.account.order-settings.person-properties'})
-    const [tempFirst, setTempFirst] = useState(personalData.firstName || '');
-    const [tempLast, setTempLast] = useState(personalData.lastName || '');
-    const [firstName, setFirstName] = useState(personalData.firstName || '');
-    const [lastName, setLastName] = useState(personalData.lastName || '');
     const [showEditor, setShowEditor] = useState(false);
-    const handleChange = (e) => {
-        e.preventDefault();
-        accountActions.personalData.updateFirstLastName(firstName, lastName).then(res => {
+    const { register, handleSubmit } = useForm({
+        defaultValues: {
+            firstName: firstName,
+            lastName: lastName
+        }
+    })
+
+    const onSubmit = (data) => {
+        accountActions.personalData.updateFirstLastName(data.firstName, data.lastName).then(res => {
             if(res.data.success) {
-                setTempFirst(firstName);
-                setTempLast(lastName);
+                updateContextFunction('personalData', {firstName: data.firstName, lastName: data.lastName})
+                setShowEditor(false);
             }
         });
-        setShowEditor(false);
-    }
-
-    const setDefaultState = () => {
-        setFirstName(tempFirst || '');
-        setLastName(tempLast || '');
     }
 
     return (
         <div className='single-property-wrapper'>
             <h5>{tPers('first-last-name')}</h5>
-            <div className='single-property'>
+            <div className='single-property first-last-name-property'>
                 {showEditor ? 
-                <Form onSubmit={handleChange}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Control 
                     placeholder={tPers('first-name-placeholder')} 
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}/>
+                    {...register('firstName')}/>
                     <Form.Control
                     placeholder={tPers('last-name-placeholder')} 
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}/>
-                    <div className='buttons-wrapper'>
-                        <Button variant='outline-dark' 
-                        onClick={() => { 
-                            setShowEditor(false);
-                            setDefaultState();
-                        }}>
-                            {tAcc('go-back-button')}</Button>
-                        <Button type='submit' variant='outline-dark'>{tAcc('confirm-button')}</Button>
-                    </div>
+                    {...register('lastName')}/>
+                    <Button variant='outline-dark' 
+                    onClick={() => { 
+                        setShowEditor(false);
+                    }}>
+                        {tAcc('go-back-button')}
+                    </Button>
+                    <Button type='submit' variant='outline-dark'>{tAcc('confirm-button')}</Button>
                 </Form> 
                 :
                 <div className='property-row'>

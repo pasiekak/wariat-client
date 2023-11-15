@@ -19,6 +19,7 @@ import { OrderProvider } from './context/order';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
+import OrderSummary from './components/views/normal/order/summary/OrderSummary';
 
 function App() {
 
@@ -55,6 +56,7 @@ const NormalRoutes = () => {
           <Route path="/about" Component={About}/>
           <Route path="/account" Component={Account}/>
           <Route path="/order" element={<OrderProvider><Order/></OrderProvider>}/>
+          <Route path="/order/:orderID" Component={OrderSummary}/>
           <Route path="/*" Component={NotFound}/>
       </Routes>
       <Footer/>

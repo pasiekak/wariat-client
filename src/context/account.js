@@ -37,6 +37,28 @@ export const AccountProvider = ({children}) => {
         setCompanyData(null);
     }
 
+    const updateAttributeValues = (attributeName, newValue) => {
+        switch (attributeName) {
+            case 'user':
+                setUser(prevUser => ({...prevUser, ...newValue}));
+                break;
+            case 'address':
+                setAddress(prevAddress => ({...prevAddress, ...newValue}));
+                break;
+            case 'personalData':
+                setPersonalData(prevPersonalData => ({...prevPersonalData, ...newValue}));
+                break;
+            case 'discountGroup':
+                setDiscountGroup(prevDiscountGroup => ({...prevDiscountGroup, ...newValue}));
+                break;
+            case 'companyData':
+                setCompanyData(prevCompanyData => ({...prevCompanyData, ...newValue}));
+                break;
+            default:
+                console.warn(`Unknown attribute name: ${attributeName}`);
+        }
+    };
+
     return (
         <AccountContext.Provider
         value={{
@@ -46,6 +68,7 @@ export const AccountProvider = ({children}) => {
             discountGroup,
             companyData,
             setAccountData,
+            updateAttributeValues,
             setCompanyData,
             clearAccount
         }}>
