@@ -4,7 +4,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-
     font-size: large;
 }
 .topPanel {
@@ -20,7 +19,6 @@
     display: flex;
     flex-direction: row;
     background-color: #E1EFE6;
-    overflow-x: scroll;
 }
 
 .topPanel img {

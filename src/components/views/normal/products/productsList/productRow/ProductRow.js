@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Button from 'react-bootstrap/Button';
 import { CartContext } from '../../../../../../context/cart';
+import defaultImage from '../../../../../common/logo/wariatLogo.png'
 
 import './product-row.css';
 
@@ -26,7 +27,7 @@ const ProductRow = ({product}) => {
     return (
         <div className="product-row">
             <div className='left-row'>
-                {mainImageId && <img src={`/api/images/${mainImageId}`} alt=''/>}
+                <img src={mainImageId ? `/api/images/${mainImageId}` : defaultImage} alt=''/>
             </div>
             <div className='line'>
                 
@@ -51,6 +52,7 @@ const ProductRow = ({product}) => {
                         variant="outline-dark" 
                         onClick={() => addToCart(product)}
                         title={tCart('add-to-cart-button')}
+                        disabled={product.maxQuantity === 0}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>

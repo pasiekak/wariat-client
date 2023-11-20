@@ -112,10 +112,57 @@
                     "submit-button": "Złóż zamówienie"
                 }
             },
-            "order-summary": {
+            "summary": {
                 "title": "Udało Ci się złożyć zamówienie",
                 "title-des1": "Dziękujemy za złożenie zamówienia na naszej stronie.",
-                "order-number": "Numer zamówienia"
+                "order-number": "Numer zamówienia",
+                "products-summary-table": {
+                    "title": "Zamówione produkty",
+                    "quantity": "Ilość",
+                    "price": "Cena",
+                    "price-with-discount": "Cena po zniżkach"
+                },
+                "order-summary": {
+                    "title": "Podsumowanie zamówienia",
+                    "order-created": "Data złożenia",
+                    "order-time": "Godzina złożenia",
+                    "delivery-fee": "Dostawa",
+                    "tax": "Podatek",
+                    "total": "Do zapłaty",
+                    "Accepted": "Do opłacenia",
+                    "Paid": "Opłacone",
+                    "Sent": "Wysłane",
+                    "Completed" : "Zakończone"
+                },
+                "customer-order": {
+                    "title": "Szczegóły zamówienia i odbiorcy",
+                    "first-and-last-name": "Imię i nazwisko",
+                    "email": "Adres email",
+                    "phone": "Numer telefonu",
+                    "delivery-type": "Sposób dostawy"
+                },
+                "delivery-address": {
+                    "title": "Adres dostawy",
+                    "country": "Kraj",
+                    "city": "Miasto",
+                    "postal-code": "Kod pocztowy",
+                    "street": "Ulica",
+                    "home-number": "Numer domu/mieszkania"
+                },
+                "billing-data": {
+                    "title": "Dane firmy",
+                    "nip": "NIP",
+                    "company-name": "Nazwa",
+                    "country": "Kraj",
+                    "city": "Miasto",
+                    "street": "Ulica",
+                    "postal-code": "Kod pocztowy",
+                    "building-number": "Numer budynku"
+                },
+                "documents": {
+                    "title": "Dokumenty dotyczące zamówienia",
+                    "payment-methods-btn": "Pobierz pdf z metodami płatności"
+                }
             }
         },
 
@@ -172,14 +219,27 @@
                     "nip-digits": "NIP musi zawierać 10 cyfr",
                     "nip-valid": "Ten NIP jest niepoprawny"
                 }
+            },
+            "orders" : {
+                "title": "Twoje zamówienia",
+                "orders-empty": "Na twoim koncie nie ma żadnych zamówień.",
+                "contact": "Kontakt",
+                "id": "ID",
+                "created-at": "Data",
+                "status": "Stan",
+                "delivery-type":"Dostawa",
+                "total": "Cena",
+                "Accepted": "Do opłacenia",
+                "Paid": "Opłacone",
+                "Sent": "Wysłane",
+                "Completed" : "Zakończone"
             }
         },
 
         "footer":{
-
+            "contact": "Kontakt",
             "about": "O nas",
-            "projects": "Nasze projekty",
-            "contact": "Kontakt"
+            "projects": "Nasze projekty"
 
         }
 

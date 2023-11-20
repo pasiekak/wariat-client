@@ -1,0 +1,16 @@
+
+.delivery-address .title {
+    font-weight: 600;
+    font-size: 17px;
+}
+.delivery-address div {
+    display: flex;
+    flex-direction: column;
+}
+.delivery-address p span {
+    font-weight: bold;
+}
+.delivery-address p {
+    line-height: 2rem;
+    margin: 0
+}

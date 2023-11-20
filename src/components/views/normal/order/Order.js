@@ -76,6 +76,7 @@ const Order = () => {
             wantInvoice: data.wantInvoice,
             firstName: data.firstName,
             lastName: data.lastName,
+            phone: data.phone,
             email: data.email,
             ...(needAddress && { 
                 deliveryAddress: {
@@ -99,6 +100,7 @@ const Order = () => {
         orderActions.makeOrder(order).then(res => {
             if(res.success) {
                 clearCart();
+                dispatch({type: 'setIndex', value: 1})
                 let orderID = res.data;
                 navigate(`/order/${orderID}`)
                 setLoading(false)

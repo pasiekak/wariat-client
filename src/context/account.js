@@ -16,7 +16,9 @@ export const AccountProvider = ({children}) => {
             accountActions.login().then(res => {
                 if(res.success) {
                     setAccountData(res.data)
-                };
+                } else {
+                    
+                }
             });
         };
     },[user, cookies]);

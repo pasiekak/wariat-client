@@ -15,11 +15,12 @@ import NotLogged from './components/views/accountRelated/not-logged/Not-logged';
 import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
 import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
 import Order from './components/views/normal/order/Order';
+import Orders from './components/views/normal/dashboard/customTables/Orders';
+import Summary from './components/views/normal/order/summary/Summary';
 import { OrderProvider } from './context/order';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
-import OrderSummary from './components/views/normal/order/summary/OrderSummary';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='/dashboard' Component={DashboardLayout}>
             <Route path='users' element={<BasicTable tableName='users'/>} />
             <Route path='products' element={<BasicTable tableName='products'/>}/>
+            <Route path='orders' Component={Orders}/>
             <Route path='categories' element={<BasicTable tableName='categories'/>}/>
             <Route path='marks' element={<BasicTable tableName='marks'/>}/>
             <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
@@ -56,7 +58,7 @@ const NormalRoutes = () => {
           <Route path="/about" Component={About}/>
           <Route path="/account" Component={Account}/>
           <Route path="/order" element={<OrderProvider><Order/></OrderProvider>}/>
-          <Route path="/order/:orderID" Component={OrderSummary}/>
+          <Route path="/order/:orderID" Component={Summary}/>
           <Route path="/*" Component={NotFound}/>
       </Routes>
       <Footer/>

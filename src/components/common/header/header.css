@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     max-height: 100px;
     background-color: #000411;
     box-shadow: #2C313A 0px 5px, #575E62 0px 10px, #838A8B 0px 15px;
@@ -14,12 +13,11 @@
     justify-content: space-around;
     align-items: center;
 }
-.Header a, .Header span {
-    font-size: 17px;
+.Header a, .Header span, .Header button {
     text-decoration-color: transparent;
     color: white;
     cursor: pointer;
-
+    font-size: 19px;
     transition: 200ms;
 }
 
