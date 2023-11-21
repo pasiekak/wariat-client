@@ -154,7 +154,7 @@
             "confirm-button": "Approve",
             "go-back-button": "Back",
             "empty-property-message": "No data available",
-            "upload-company-data": "Complete the data using the company ID",
+            "upload-company-data": "Complete the data using the TIN",
             "account-settings": {
                 "title": "Settings and account details",
                 "login": "Username",
