@@ -2,3 +2,6 @@
     text-decoration: none;
     color: black;
 }
+.table-names-dropdown a:hover {
+    background-color: lightblue;
+}

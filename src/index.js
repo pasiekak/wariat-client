@@ -10,6 +10,7 @@ import App from './App';
 import { CartProvider } from './context/cart';
 import { AccountProvider } from './context/account';
 
+import './fonts/stylesheet.css';
 import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

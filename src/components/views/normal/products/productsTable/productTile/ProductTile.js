@@ -37,8 +37,7 @@ const ProductTile = ({product}) => {
             </div>
             <div className="card-content">
                 <span className="card-title" onClick={() => navigate(`/products/product/${product.id}`, { state: {
-                    product, mainImageId
-                }} )}>{product.name}</span>
+                    product}})}>{product.name}</span>
                 <div className="card-bottom">
                     {isInCart(product) ? 
                         <Button 
@@ -56,6 +55,7 @@ const ProductTile = ({product}) => {
                         variant="outline-dark" 
                         onClick={() => addToCart(product)}
                         title={tCart('add-to-cart-button')}
+                        disabled={product.maxQuantity === 0}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>

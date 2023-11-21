@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link  } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 
@@ -13,12 +12,6 @@ const Footer = () => {
     return (
         <footer className='Footer'>
             <div className='container'>
-                <div className='column'>
-                    <h4>{t('about')}</h4>
-                    <Link to='/projects'>{t('projects')}</Link>
-                    <Link to='/'>Cos tam</Link>
-                    <Link to='/'>Cos tam</Link>
-                </div>
                 <div className='column'>
                     <h4>{t('contact')}</h4>
                     <div className='mediaPhone'>

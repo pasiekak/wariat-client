@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './languageSelect.css';
 
 const LanguageSelect = ({className}) => {
-    const [lang, setLang] = useState('pl');
+    const [lang, setLang] = useState(localStorage.getItem('lang') ? localStorage.getItem('lang') : 'pl');
     const { i18n } = useTranslation();
 
 
@@ -16,7 +16,6 @@ const LanguageSelect = ({className}) => {
     useEffect(() => {
         setLang(localStorage.getItem('lang'))
     }, [lang])
-
 
     return (
         <div className={`LanguageSelect${' '+className}`}>

@@ -14,11 +14,14 @@ export const AccountProvider = ({children}) => {
     useEffect(() => {
         if(!user && cookies.user) {
             accountActions.login().then(res => {
-                setAccountData(res.data);
-                console.log(res.data);
+                if(res.success) {
+                    setAccountData(res.data)
+                } else {
+                    
+                }
             });
-        }
-    },[user, cookies.user])
+        };
+    },[user, cookies]);
 
     const setAccountData = (data) => {
         const {user, address, personalData, discountGroup, companyData} = data;
@@ -26,7 +29,7 @@ export const AccountProvider = ({children}) => {
         setAddress(address);
         setPersonalData(personalData);
         setDiscountGroup(discountGroup);
-        setCompanyData(companyData)
+        setCompanyData(companyData);
     }
     const clearAccount = () => {
         setUser(null);
@@ -35,6 +38,28 @@ export const AccountProvider = ({children}) => {
         setDiscountGroup(null);
         setCompanyData(null);
     }
+
+    const updateAttributeValues = (attributeName, newValue) => {
+        switch (attributeName) {
+            case 'user':
+                setUser(prevUser => ({...prevUser, ...newValue}));
+                break;
+            case 'address':
+                setAddress(prevAddress => ({...prevAddress, ...newValue}));
+                break;
+            case 'personalData':
+                setPersonalData(prevPersonalData => ({...prevPersonalData, ...newValue}));
+                break;
+            case 'discountGroup':
+                setDiscountGroup(prevDiscountGroup => ({...prevDiscountGroup, ...newValue}));
+                break;
+            case 'companyData':
+                setCompanyData(prevCompanyData => ({...prevCompanyData, ...newValue}));
+                break;
+            default:
+                console.warn(`Unknown attribute name: ${attributeName}`);
+        }
+    };
 
     return (
         <AccountContext.Provider
@@ -45,6 +70,8 @@ export const AccountProvider = ({children}) => {
             discountGroup,
             companyData,
             setAccountData,
+            updateAttributeValues,
+            setCompanyData,
             clearAccount
         }}>
             {children}

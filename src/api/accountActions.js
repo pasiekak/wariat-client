@@ -64,13 +64,27 @@ const accountActions = {
     },
     verifyModerator: async() => {
         try {
-            let response = await axios.get('/api');
+            let response = await axios.get('/moderator');
             return response.data;
         } catch (err) {
             if (err.response?.status === 500) {
                 return { success: false, message: 'serverError' }
             } else if (err.response.status) {
-                return err.response.data;
+                return { success: false, message: err.response.data };
+            } else {
+                return { success: false, message: 'error' };
+            }
+        }
+    },
+    verifyLoggedAccount: async () => {
+        try {
+            let response = await axios.get('/auth');
+            return response.data;
+        } catch (err) {
+            if (err.response?.status === 500) {
+                return { success: false, message: 'serverError' }
+            } else if (err.response.status) {
+                return { success: false, message: err.response.data };
             } else {
                 return { success: false, message: 'error' };
             }
@@ -117,11 +131,26 @@ const accountActions = {
         updateStreet: async (street) => {
             return performUpdate('/api/companyData', { street });
         },
-        updateHomeNumber: async (homeNumber) => {
-            return performUpdate('/api/companyData', { homeNumber });
+        updateBuildingNumber: async (buildingNumber) => {
+            return performUpdate('/api/companyData', { buildingNumber });
         },
         updatePostalCode: async (postalCode) => {
             return performUpdate('/api/companyData', { postalCode });
+        },
+        updateAll: async (companyData) => {
+            return performUpdate('/api/companyData',companyData);
+        },
+        getDataByNIP: async (nip) => {
+            try {
+                let response = await axios.get(`/api/companyData/byNip/${nip}`);
+                return { success: true, data: response.data }
+            } catch (err) {
+                if(err.response.status === 400) {
+                    return { success: false, message: 'nip-invalid'}
+                } else {
+                    return { success: false, message: 'Nie udało się pobrać danych firmy' }
+                }
+            }
         }
     }
 }

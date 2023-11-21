@@ -34,10 +34,25 @@
 .Filters .title {
     align-self: center;
 }
-.Filters .expand-collapse {
+.Filters .MultiSelectFilter {
+    align-self: center;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+}
+.Filters .MultiSelectFilter > * {
+    overflow: hidden;
+}
+.Filters .MultiSelectFilter.open {
+    grid-template-rows: 1fr;
+}
+.Filters svg {
     align-self: center;
     transition: 500ms ease;
     cursor: pointer;
+}
+.Filters svg.open {
+    rotate: 180deg;
 }
 .Filters .buttons {
     margin-top: 10px;

@@ -5,18 +5,21 @@ import Home from './components/views/normal/home/Home';
 import Products from './components/views/normal/products/Products';
 import ProductDetails from './components/views/normal/productDetails/ProductDetails';
 import Gallery from './components/views/normal/gallery/Gallery';
-import About from './components/views/normal/about/About';
 import Account from './components/views/accountRelated/account/Account';
 import NotFound from './components/views/normal/notFound/NotFound';
 import LoginPage from './components/views/accountRelated/login/LoginPage';
 import RegisterPage from './components/views/accountRelated/register/RegisterPage';
 import EmailVerification from './components/views/accountRelated/email/EmailVerification';
-import './styles/App.css';
+import NotLogged from './components/views/accountRelated/not-logged/Not-logged';
 import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
 import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
-import Cart from './components/views/normal/cart/Cart';
+import Order from './components/views/normal/order/Order';
+import Orders from './components/views/normal/dashboard/customTables/Orders';
+import Summary from './components/views/normal/order/summary/Summary';
+import { OrderProvider } from './context/order';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/App.css';
 
 function App() {
 
@@ -29,12 +32,14 @@ function App() {
           <Route path='/dashboard' Component={DashboardLayout}>
             <Route path='users' element={<BasicTable tableName='users'/>} />
             <Route path='products' element={<BasicTable tableName='products'/>}/>
+            <Route path='orders' Component={Orders}/>
             <Route path='categories' element={<BasicTable tableName='categories'/>}/>
             <Route path='marks' element={<BasicTable tableName='marks'/>}/>
             <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
             <Route path='discountGroups' element={<BasicTable tableName='discountGroups'/>}/>
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
+          <Route path='/not-logged' Component={NotLogged}/>
         </Routes>
     </div>
   );
@@ -49,9 +54,9 @@ const NormalRoutes = () => {
           <Route path="/products" Component={Products}/>
           <Route path="/products/product/:productId" Component={ProductDetails}/>
           <Route path="/gallery" Component={Gallery} />
-          <Route path="/about" Component={About}/>
           <Route path="/account" Component={Account}/>
-          <Route path="/cart" Component={Cart}/>
+          <Route path="/order" element={<OrderProvider><Order/></OrderProvider>}/>
+          <Route path="/order/:orderID" Component={Summary}/>
           <Route path="/*" Component={NotFound}/>
       </Routes>
       <Footer/>

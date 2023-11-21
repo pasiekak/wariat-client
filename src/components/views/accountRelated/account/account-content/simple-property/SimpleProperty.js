@@ -1,32 +1,31 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useForm } from "react-hook-form";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, attr, updateFunction}) => {
+const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, attrName, attrValue, updateFunction, updateContextFunction, contextAttrName}) => {
     const { t } = useTranslation()
-    const [temp, setTemp] = useState(attr);
-    const [attribute, setAttribute] = useState(attr ? attr : '')
     const [showEditor, setShowEditor] = useState(false);
+    const { register, handleSubmit, watch } = useForm({
+        defaultValues: {
+            [attrName]: attrValue
+        }
+    })
+    const input = watch(attrName)
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(attribute !== '') {
-            updateFunction(attribute).then(res => {
+    const onSubmit = (data) => {
+        if(input !== '') {
+            updateFunction(attrValue).then(res => {
                 if(res.data.success) {
-                    setTemp(attribute);
+                    updateContextFunction(contextAttrName, data)
                 }
             })
             setShowEditor(false);
         } else {
-            setDefaultState();
             setShowEditor(false);
         }
-    }
-
-    const setDefaultState = () => {
-        setAttribute(temp || '');
     }
 
     return (
@@ -34,16 +33,14 @@ const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, at
             <h5>{t(`components.account.${titleTranslation}`)}</h5>
             <div className="single-property">
                 {showEditor ?
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Control 
                     type={inputType}
                     placeholder={t(`components.account.${placeholderTranslation}`)} 
-                    value={attribute}
-                    onChange={(e) => setAttribute(e.target.value)}/>
+                    {...register(`${attrName}`)}/>
                     <div className='buttons-wrapper'>
                         <Button variant='outline-dark' onClick={() => {
                             setShowEditor(false);
-                            setDefaultState();     
                         }}>{t('components.account.go-back-button')}</Button>
                         <Button type='submit' variant='outline-dark'>{t('components.account.confirm-button')}</Button>
                     </div>
@@ -51,7 +48,7 @@ const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, at
                 :
                 <div className="property-row">
                     <span>
-                        {attribute ? attribute : t('components.account.empty-property-message')}
+                        {attrValue}
                     </span>
                     <Button variant='outline-dark' onClick={() => setShowEditor(true)}>{t('components.account.change-button')}</Button>
                 </div>

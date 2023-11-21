@@ -1,6 +1,6 @@
 import './multi-select-filter.css';
 
-const MultiSelectFilter = ({data, style, set, t}) => {
+const MultiSelectFilter = ({data, className, set, t}) => {
     const handleChange = (e) => {
         const { name, checked } = e.target;
 
@@ -18,7 +18,7 @@ const MultiSelectFilter = ({data, style, set, t}) => {
     }
 
     return (
-        <div className="MultiSelectFilter" style={style}>
+        <div className={className}>
             {data.length > 0 ? <form>
                 {
                 data.map((option) => (

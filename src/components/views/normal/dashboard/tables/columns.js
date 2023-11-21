@@ -93,6 +93,10 @@ const columns = {
             }
         },
         {
+            header: 'Ilość w magazynie',
+            accessorKey: 'maxQuantity',
+        },
+        {
             header: 'Data utworzenia',
             accessorKey: 'createdAt',
             cell: info => DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED)

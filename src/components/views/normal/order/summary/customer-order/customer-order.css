@@ -1,0 +1,14 @@
+.customer-order .customer-order-details div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.customer-order .customer-order-details div span:last-child {
+    text-align: right;
+}
+.customer-order .customer-order-details div span {
+    line-height: 2rem;
+}
+.customer-order .title {
+    font-weight: 600;
+    font-size: 17px;
+}
