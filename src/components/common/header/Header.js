@@ -41,15 +41,20 @@ const Header = () => {
                 </div>
                 <Logo width={125} height={125} pathTo={'/'}/>
             <div className='rightHeader'>
-                <Link to="/about">{t('about')}</Link>
                 <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic">
                         {t('account')}
                     </Dropdown.Toggle>
                     <Dropdown.Menu variant='dark'>
-                        {(cookies.user) ? '' : <Dropdown.Item onClick={()=>navigate('/login')}>{t('login')}</Dropdown.Item>}
-                        {(cookies.user) ? <Dropdown.Item onClick={() => navigate('/account')}>{t('your-account')}</Dropdown.Item> : ''}
-                        {(cookies.user) ? <Dropdown.Item onClick={logout}>{t('logout')}</Dropdown.Item> : ''}
+                        {(cookies.user) ? '' : <Dropdown.Item onClick={()=>navigate('/login')}>
+                            {t('login')}
+                        </Dropdown.Item>}
+                        {(cookies.user) ? <Dropdown.Item onClick={() => navigate('/account')}>
+                            {t('your-account')}
+                            </Dropdown.Item> : ''}
+                        {(cookies.user) ? <Dropdown.Item onClick={logout}>
+                            {t('logout')}
+                            </Dropdown.Item> : ''}
                     </Dropdown.Menu>
                 </Dropdown>
                 <Link to="/order">{t('cart')}({getCartCount()})</Link>

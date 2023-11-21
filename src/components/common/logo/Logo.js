@@ -12,9 +12,9 @@ const Logo = ({width, height, withPhone=false, pathTo}) => {
     return (
         <div className='Logo'>
             {pathTo ? 
-            <Link to={pathTo}><img src={withPhone ? logoPhone : logo} style={logoStyle} alt='Wariat logo'/></Link>
+            <Link to={pathTo}><img src={withPhone ? logoPhone : logo} loading="blur" style={logoStyle} alt='Wariat logo'/></Link>
             :
-            <img src={withPhone ? logoPhone : logo} style={logoStyle} alt='Wariat logo'/>
+            <img src={withPhone ? logoPhone : logo} style={logoStyle} loading="blur" alt='Wariat logo'/>
             }
         </div>
     )

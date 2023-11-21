@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 
 import './documents.css';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
 import orderActions from '../../../../../../api/orderActions';
 
 const Documents = ({order}) => {

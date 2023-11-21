@@ -14,6 +14,9 @@
     background-color: #000411;
     color: #E1EFE6;
 }
+.topPanel h3 {
+    margin: 0;
+}
 .bottomPanel {
     flex: 0.9;
     display: flex;

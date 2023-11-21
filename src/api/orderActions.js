@@ -7,6 +7,9 @@ const orderActions = {
     getOrder: async (orderID) => {
         return await reqMaker(axios.get, `/api/order/${orderID}`); 
     },
+    getOrderStatistics: async () => {
+        return await reqMaker(axios.get, '/api/order/statistics');
+    },
     getOrders: async () => {
         return await reqMaker(axios.get, '/api/order');
     },

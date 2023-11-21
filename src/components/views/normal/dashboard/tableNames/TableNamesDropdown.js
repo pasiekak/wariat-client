@@ -1,16 +1,20 @@
 import Dropdown from 'react-bootstrap/Dropdown';
-
-import './table-names-list.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+
+import './table-names-list.css';
+
 const TableNamesDropdown = () => {
     const navigate = useNavigate();
-    const [selected, setSelected] = useState(null);
+    const currentTable = sessionStorage.getItem("dashboard-current-table")
+    const [selected, setSelected] = useState(currentTable);
 
     const handleClick = (to, e) => {
+        const table = e.target.innerText;
         navigate(to);
-        setSelected(e.target.innerText);
+        setSelected(table);
+        sessionStorage.setItem("dashboard-current-table", table);
     }
 
     return (

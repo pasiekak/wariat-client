@@ -22,6 +22,7 @@ const ProductDetails = () => {
     const [slides, setSlides] = useState([]);
     const [galleryStartIndex, setGalleryStartIndex] = useState(0);
     const [showLightbox, setShowLightbox] = useState(false);
+    const [noImages, setNoImages] = useState(false);
 
     useEffect(() => {
         if(product && mainImageId) {
@@ -36,7 +37,9 @@ const ProductDetails = () => {
 
     useEffect(() => {
         if(product) {
-            if(product.Images.length === slides.length) {
+            if (product.Images.length === 0) {
+                setNoImages(true);
+            } else if (product.Images.length === slides.length) {
                 setShowLightbox(true);
             }
         }
@@ -45,7 +48,7 @@ const ProductDetails = () => {
     return (
         <div className="ProductDetails bck-smooth">
             <div className="product-wrapper">
-                <div className="left">
+                {!noImages && <div className="left">
                     <div className="gallery">
                         {showLightbox ?
                         <ImageGallery 
@@ -60,7 +63,7 @@ const ProductDetails = () => {
                         <FadeLoader color="white"/>
                         }
                     </div>
-                </div>
+                </div>}
                 <div className="right">
                     <span className="title">{product && product.name}</span>
                     <span className="description">{product && product.description}</span>

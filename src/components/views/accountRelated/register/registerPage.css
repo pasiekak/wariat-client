@@ -14,3 +14,9 @@
     border: 5px solid rgba(118,120,126, 0.10);
     background-color: rgba(235, 235, 235, 0.13);;
 }
+
+@media (max-width: 767px) {
+    .RegisterPage .left {
+        display: none;
+    }
+}

@@ -26,7 +26,6 @@ const MobileHeader = ({logout, t, cookies}) => {
                     <Link to="/">{t('mainPage')}</Link>
                     <Link to="/products">{t('products')}</Link>
                     <Link to="/gallery">{t('gallery')}</Link>
-                    <Link to="/about">{t('about')}</Link>
                     {(cookies.user) ? '' : <Link to="/login">{t('login')}</Link>}
                     {(cookies.user) ? <Link to="/account">{t('your-account')}</Link> : ''}
                     {(cookies.user) ? <Link to="/"><span onClick={logout}>{t('logout')}</span></Link> : ''}
