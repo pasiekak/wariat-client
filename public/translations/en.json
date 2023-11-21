@@ -50,7 +50,7 @@
                 "personal-data-title": "Credentials",
                 "company-data-title": "Company data",
                 "form": {
-                    "first-name-label": "Firstname",
+                    "first-name-label": "First name",
                     "first-name-placeholder": "Your name...",
                     "first-name-required": "City is required",
                     "last-name-label": "Last Name",
@@ -72,7 +72,7 @@
                     "city-label": "City",
                     "city-placeholder": "Your city...",
                     "city-required": "The city is required",
-                    "postal-code-label": "Post code/ZIP",
+                    "postal-code-label": "Post code/zip",
                     "postal-code-placeholder": "Your zip code...",
                     "postal-code-required": "Zip code required",
                     "street-label": "Street",
