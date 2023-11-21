@@ -27,16 +27,126 @@
                 "placeholder": "Enter your search term..."
             }
         },
-        "cart": {
-            "add-to-cart-button": "Add to cart",
-            "remove-from-cart-button": "Remove from cart",
-            "order-button": "Choose your delivery method",
-            "empty-cart-message": "Your cart is empty",
-            "empty-cart-button-disabled": "The order cannot be processed because the shopping cart is empty",
-            "title": "Your Cart",
-            "total": "Total Price",
-            "total-disc": "Price after discounts",
-            "not-logged": "You must log in to place an order"
+        "order": {
+            "cart": {
+                "add-to-cart-button": "Add to cart",
+                "remove-from-cart-button": "Remove from cart",
+                "order-button": "Choose your delivery method",
+                "empty-cart-message": "Your cart is empty",
+                "empty-cart-button-disabled": "The order cannot be processed because the shopping cart is empty",
+                "title": "Your Cart",
+                "total": "Total Price",
+                "total-disc": "Price after discounts",
+                "not-logged": "You must log in to place an order"
+            },
+            "delivery-type": {
+                "title": "Choose your delivery method",
+                "back-to-cart-button": "Return to cart",
+                "move-to-receiver-data": "Go to shipping details"
+            },
+            "receiver-data": {
+                "title": "Fill in the recipient's details",
+                "shipment-data-title": "Delivery Address",
+                "personal-data-title": "Credentials",
+                "company-data-title": "Company data",
+                "form": {
+                    "first-name-label": "Firstname",
+                    "first-name-placeholder": "Your name...",
+                    "first-name-required": "City is required",
+                    "last-name-label": "Last Name",
+                    "last-name-placeholder": "Your last name...",
+                    "last-name-required": "Last name is required",
+                    "phone-label": "Phone number",
+                    "phone-placeholder": "Your phone number...",
+                    "phone-required": "Phone number is required",
+                    "email-label": "Email",
+                    "email-placeholder": "Your email address...",
+                    "email-required": "Email address is required",
+                    "want-invoice-label": "Do you want an invoice?",
+                    "company-name-label": "Company Name",
+                    "company-name-placeholder": "Your company name...",
+                    "company-name-required": "Company name is required",
+                    "country-label": "Country",
+                    "country-placeholder": "Your country...",
+                    "country-required": "Username is too long",
+                    "city-label": "City",
+                    "city-placeholder": "Your city...",
+                    "city-required": "The city is required",
+                    "postal-code-label": "Post code/ZIP",
+                    "postal-code-placeholder": "Your zip code...",
+                    "postal-code-required": "Zip code required",
+                    "street-label": "Street",
+                    "street-placeholder": "Your street name...",
+                    "street-required": "Street is required",
+                    "home-number-label": "Building number",
+                    "home-number-placeholder": "Your building number...",
+                    "home-number-required": "The building number is required",
+                    "building-number-label": "Building number",
+                    "building-number-placeholder": "Your building number...",
+                    "building-number-required": "The building number is required",
+                    "nip-label": "Company identification code",
+                    "nip-placeholder": "10-digit company identification code",
+                    "nip-required": "Company ID is required",
+                    "nip-invalid": "Company ID is invalid",
+                    "load-nip-data": "Load company data using ID",
+                    "too-much-requests": "Wait a minute",
+                    "unable-to-load-nip": "Failed to get company data.",
+                    "back-to-delivery-type-button": "Back to choosing a delivery method",
+                    "submit-button": "Place Order"
+                }
+            },
+            "summary": {
+                "title": "You have successfully placed an order",
+                "title-des1": "Thank you for placing your order on our website.",
+                "order-number": "Order number",
+                "products-summary-table": {
+                    "title": "Ordered products",
+                    "quantity": "Count",
+                    "price": "Price",
+                    "price-with-discount": "Price after discounts"
+                },
+                "order-summary": {
+                    "title": "Order Summary",
+                    "order-created": "Submission Date",
+                    "order-time": "Time of submission",
+                    "delivery-fee": "Delivery",
+                    "tax": "Tax",
+                    "total": "To be paid",
+                    "Accepted": "To be paid",
+                    "Paid": "Paid",
+                    "Sent": "Sent",
+                    "Completed": "Completed"
+                },
+                "customer-order": {
+                    "title": "Order details and recipients",
+                    "first-and-last-name": "Full Name",
+                    "email": "Email address",
+                    "phone": "Phone number",
+                    "delivery-type": "Delivery method"
+                },
+                "delivery-address": {
+                    "title": "Delivery address",
+                    "country": "Country",
+                    "city": "City",
+                    "postal-code": "Post code/ZIP",
+                    "street": "Street",
+                    "home-number": "House/apartment number"
+                },
+                "billing-data": {
+                    "title": "Company data",
+                    "nip": "Company identification code",
+                    "company-name": "Name",
+                    "country": "Country",
+                    "city": "City",
+                    "street": "Street",
+                    "postal-code": "Post code/ZIP",
+                    "building-number": "Building number"
+                },
+                "documents": {
+                    "title": "Documents relating to the order",
+                    "payment-methods-btn": "Download a pdf of payment methods"
+                }
+            }
         },
         "account": {
             "welcome-message": "Hello",
@@ -44,6 +154,7 @@
             "confirm-button": "Approve",
             "go-back-button": "Back",
             "empty-property-message": "No data available",
+            "upload-company-data": "Complete the data using the TIN",
             "account-settings": {
                 "title": "Settings and account details",
                 "login": "Username",
@@ -76,20 +187,39 @@
                     "street": "Street",
                     "street-placeholder": "Your street name",
                     "home-number": "House number",
-                    "home-number-placeholder": "Your house number",
+                    "home-number-placeholder": "House number",
+                    "building-number": "Building number",
+                    "building-number-placeholder": "Company building number",
                     "postal-code": "Post code/ZIP",
                     "postal-code-placeholder": "Postal code in the format 'xx-xxx'",
                     "company-name": "Company Name",
                     "company-name-placeholder": "Your company name",
                     "nip": "Company identification code",
-                    "nip-placeholder": "Your company identification code"
+                    "nip-placeholder": "Your company identification code",
+                    "nip-required": "Company ID is required",
+                    "nip-digits": "Company ID must have 10 digits",
+                    "nip-valid": "Your ID is invalid"
                 }
+            },
+            "orders": {
+                "title": "Your orders",
+                "orders-empty": "There are no orders in your account.",
+                "contact": "Contact",
+                "id": "ID",
+                "created-at": "Date",
+                "status": "State",
+                "delivery-type": "Delivery Service",
+                "total": "Price",
+                "Accepted": "To be paid",
+                "Paid": "Paid",
+                "Sent": "Sent",
+                "Completed": "Completed"
             }
         },
         "footer": {
+            "contact": "Contact",
             "about": "About us",
-            "projects": "Our projects",
-            "contact": "Contact"
+            "projects": "Our projects"
         }
     },
     "forms": {
@@ -175,6 +305,13 @@
             "badToken": "Failed user authentication attempt",
             "notAdmin": "You do not have authorization for this operation",
             "notModerator": "You do not have authorization for this operation"
+        },
+        "order": {
+            "order-created": "You have successfully placed an order",
+            "user-dont-match": "You do not have access to this order",
+            "order-not-found": "No such order exists",
+            "order-creating-error": "Failed to place order",
+            "server-error": "There was an error in carrying out the order"
         }
     }
 }
