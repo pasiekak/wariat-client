@@ -10,8 +10,7 @@ import './cart.css';
 
 const Cart = ({dispatch, access}) => {
     const { t } = useTranslation(null, { keyPrefix: "components.order.cart" })
-    const { cartItems, getCartTotal, getCartCount, getCartAfterDisc } = useContext(CartContext);
-
+    const { cartItems, priceGetters, getCartCount } = useContext(CartContext);
     return (
         <div className="Cart Order bck-smooth">
             <div className="order-wrapper">
@@ -44,11 +43,11 @@ const Cart = ({dispatch, access}) => {
                             <div className="total-price-wrapper">
                                 <div className="total-normal">
                                     <span className="total-message">{t('total')}:</span>
-                                    <span className="total">{getCartTotal()} zł</span> 
+                                    <span className="total">{priceGetters.getProductsBrutto().toFixed(2)} zł</span> 
                                 </div>
-                                {getCartAfterDisc() && <div className="total-disc">
+                                {priceGetters.getCartAfterGroupDiscount() === priceGetters.getProductsBrutto() && <div className="total-disc">
                                     <span className="total-disc-message">{t('total-disc')}:</span>
-                                    <span className="total">{getCartAfterDisc()} zł</span>
+                                    <span className="total">{priceGetters.getCartAfterGroupDiscount().toFixed(2)} zł</span>
                                 </div>}
                             </div>
                             <Button variant="success" 

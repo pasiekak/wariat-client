@@ -9,7 +9,6 @@ import NipProperty from "./nip-property/NipProperty";
 const CompanyProperties = () => {
     const { companyData, setCompanyData, updateAttributeValues } = useContext(AccountContext);
 
-
     const uploadNIPdata = async (nip) => {
         let response = await accountActions.companyData.getDataByNIP(nip)
         if(response.success) {
@@ -40,7 +39,7 @@ const CompanyProperties = () => {
                 inputType='text'
                 titleTranslation='order-settings.delivery-or-company-properties.company-name'
                 placeholderTranslation={'order-settings.delivery-or-company-properties.company-name-placeholder'}
-                attrName={'name'}
+                attrName={'companyName'}
                 attrValue={companyData.companyName}
                 updateFunction={accountActions.companyData.updateCompanyName}
                 updateContextFunction={updateAttributeValues}

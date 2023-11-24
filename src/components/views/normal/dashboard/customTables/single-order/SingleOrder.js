@@ -48,7 +48,7 @@ const SingleOrder = ({order}) => {
                 </div>
                 <div>
                     <span className="mobile-header">Kwota</span>
-                    <span>{order.priceAfterDiscounts} zł</span>
+                    <span>{Number(order.total).toFixed(2)} zł</span>
                 </div>
                 <div>
                     <span className="mobile-header">Dowód zakupu</span>
@@ -73,7 +73,7 @@ const SingleOrder = ({order}) => {
                         return <div key={product.id}>
                             <span>ID: {product.id}</span>
                             <span>Nazwa: {product.name}</span>
-                            <span>Cena za produkt: {product.price} zł</span>
+                            <span>Cena Brutto: {product.priceBrutto} zł</span>
                             <span>Ilość: {product.quantity}</span>
                         </div>
                     })}
@@ -114,8 +114,8 @@ const SingleOrder = ({order}) => {
                         <span>Dokładna data złożenia: {createdAt.toLocaleString()}</span>
                         <span>Chce fakture: {order.wantInvoice ? 'Tak' : 'Nie'}</span>
                         <span>Sposób dostawy: {order.deliveryType}</span>
-                        <span>Cena bez zniżki: {order.price} zł</span>
-                        <span>Cena ze zniżką: {order.priceAfterDiscounts} zł</span>
+                        <span>Cena całkowita: {Number(order.total).toFixed(2)} zł</span>
+                        {order.comment &&<span>Komentarz do zamówienia: {order.comment}</span>}
                         <span>Grupa i procent zniżki: {order.discount.id}, {order.discount.percentage} %</span>
                     </div>
                 </div>

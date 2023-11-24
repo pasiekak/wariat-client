@@ -57,6 +57,12 @@ const Summary = () => {
                             {order.billingData && <section>
                                 <BillingData billing={order.billingData}/>
                             </section>}
+                            {order.comment && <section>
+                                <div className="comment">
+                                    <span className='title'>{t('comment-title')}</span>
+                                    <p>{order.comment}</p>
+                                </div>
+                            </section>}
                         </div>
                         <div className="right">
                             <img src={defaultImage} alt="" />

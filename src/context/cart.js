@@ -5,11 +5,16 @@ export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
+    const [deliveryMethod, setDeliveryMethod] = useState(localStorage.getItem('delivery') || '');
     const { discountGroup } = useContext(AccountContext);
 
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }, [cartItems]);
+
+    useEffect(() => {
+        localStorage.setItem('delivery', deliveryMethod)
+    },[deliveryMethod]);
 
     useEffect(() => {
         const cartItems = localStorage.getItem("cartItems");
@@ -66,17 +71,45 @@ export const CartProvider = ({children}) => {
         return false;
     }
 
-    const getCartTotal = () => {
-        return Number(cartItems.reduce((total, item) => total + item.price * item.quantity, 0)).toFixed(2); // calculate the total price of the items in the cart
-    };
-    const getCartAfterDisc = () => {
-        if (discountGroup?.id > 1) {
-            return Number(getCartTotal() * (1 - discountGroup.percentage * 0.01)).toFixed(2); 
-        } else {
-            return null
+    const priceGetters = {
+        getProductsNetto: () => {
+            // calculate the total price of the items in the cart
+            let totalNetto = priceGetters.getProductsBrutto() / 1.23;
+            return totalNetto;
+        },
+        getProductsBrutto: () => {
+            let totalBrutto = 0;
+            cartItems.forEach(product => {
+                totalBrutto += product.priceBrutto * product.quantity;
+            })
+            return totalBrutto;
+        },
+        getCartAfterGroupDiscount: () => {
+            // calculate total price after group discount
+            if (discountGroup?.id > 1) {
+                const totalBrutto = priceGetters.getProductsBrutto();
+                const discountFactor = 1 - discountGroup.percentage * 0.01;
+                const totalBruttoAfterDiscount = totalBrutto * discountFactor;
+                return totalBruttoAfterDiscount
+            } else {
+                return priceGetters.getProductsBrutto();
+            }
+        },
+        getDeliveryPrice: (delMethod = deliveryMethod) => {
+            switch(delMethod) {
+              case 'DPD kurier przelew': return 17;
+              case 'DPD kurier pobranie' : return 30;
+              case 'InPost paczkomat przelew' : return 17;
+              case 'Odbior osobisty' : return 0;
+              default: return null;
+            }
+        },
+        getCartTotal: () => {
+            const afterDiscount = priceGetters.getCartAfterGroupDiscount();
+            const final = afterDiscount + priceGetters.getDeliveryPrice();
+            return final;
         }
     }
-
     const getCartCount = () => {
         return cartItems.length;
     }
@@ -85,15 +118,16 @@ export const CartProvider = ({children}) => {
         <CartContext.Provider
           value={{
             cartItems,
+            deliveryMethod,
+            priceGetters,
             addToCart,
             removeFromCart,
             clearCart,
             updateQuantityInCart,
-            getCartTotal,
             getCartCount,
-            getCartAfterDisc,
             isInCart,
-            isEmpty
+            isEmpty,
+            setDeliveryMethod
           }}
         >
           {children}

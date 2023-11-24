@@ -63,8 +63,8 @@ const ProductForm = ({type, oldData, goBack, reloadPage}) => {
                 <textarea {...register('description', { required: true })} />
                 {errors.description?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
-                <label htmlFor="price">Cena</label>
-                <input type="number" step='0.01' {...register('price', { required: true, min: 0, max: 999999 })} />
+                <label htmlFor="priceBrutto">Cena Brutto</label>
+                <input type="number" step='0.01' {...register('priceBrutto', { required: true, min: 0, max: 999999 })} />
                 {errors.price?.type === 'required' && <span className="error-span">To pole jest wymagane</span>}
 
                 <label htmlFor="maxQuantity">Ilość</label>

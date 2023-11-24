@@ -88,7 +88,7 @@ const ListItem = ({item}) => {
                         ))}
                     </Form.Select>}
                 </Form>
-                <span className="price">{Number(item.price*item.quantity).toFixed(2)} zł</span>
+                <span className="price">{Number(item.priceBrutto*item.quantity).toFixed(2)} zł</span>
             </div>
         </ListGroup.Item>
     )

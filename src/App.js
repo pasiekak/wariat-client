@@ -16,7 +16,6 @@ import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
 import Order from './components/views/normal/order/Order';
 import Orders from './components/views/normal/dashboard/customTables/Orders';
 import Summary from './components/views/normal/order/summary/Summary';
-import { OrderProvider } from './context/order';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
@@ -55,7 +54,7 @@ const NormalRoutes = () => {
           <Route path="/products/product/:productId" Component={ProductDetails}/>
           <Route path="/gallery" Component={Gallery} />
           <Route path="/account" Component={Account}/>
-          <Route path="/order" element={<OrderProvider><Order/></OrderProvider>}/>
+          <Route path="/order" Component={Order}/>
           <Route path="/order/:orderID" Component={Summary}/>
           <Route path="/*" Component={NotFound}/>
       </Routes>

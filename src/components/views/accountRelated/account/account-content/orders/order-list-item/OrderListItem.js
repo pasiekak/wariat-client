@@ -12,7 +12,7 @@ const OrderListItem = ({order}) => {
             <span>{createdAt.toLocaleDateString()}</span>
             <span><span className={`status ${order.status}`}>{t(order.status)}</span></span>
             <span>{order.deliveryType}</span>
-            <span>{order.price} zł</span>
+            <span>{order.total} zł</span>
         </div>
     )
 }

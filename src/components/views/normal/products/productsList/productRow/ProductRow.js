@@ -61,7 +61,7 @@ const ProductRow = ({product}) => {
                         </Button>
                     }
                 </div>
-                <span id='price'>{product.price} zł</span>
+                <span id='price'>{product.priceBrutto} zł</span>
             </div>
         </div>
     )

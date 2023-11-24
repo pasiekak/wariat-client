@@ -67,7 +67,7 @@ const ProductDetails = () => {
                 <div className="right">
                     <span className="title">{product && product.name}</span>
                     <span className="description">{product && product.description}</span>
-                    <span className="price">{product && product.price} zł Brutto</span>
+                    <span className="price">{product && product.priceBrutto} zł Brutto</span>
                     <div className="buttons">
                         {product && <Button 
                         variant="dark" 

@@ -63,7 +63,7 @@ const ProductTile = ({product}) => {
                             </svg>
                         </Button>
                     }
-                    <span className="card-price">{product.price} zł</span>
+                    <span className="card-price">{product.priceBrutto} zł</span>
                 </div>
             </div>
         </div>

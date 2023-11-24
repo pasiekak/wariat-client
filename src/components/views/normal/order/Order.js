@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import accountActions from "../../../../api/accountActions";
 
-import { OrderContext } from "../../../../context/order";
 import { AccountContext } from "../../../../context/account";
 import { CartContext } from "../../../../context/cart";
 import Cart from "./cart/Cart";
 import Delivery from "./delivery/Delivery";
 import ReceiverData from "./receiver-data/ReceiverData";
+import SummaryBeforeSubmission from "./summary-before-submission/SummaryBeforeSubmission";
 
 import './order.css';
 import orderActions from "../../../../api/orderActions";
@@ -35,8 +35,7 @@ const Order = () => {
     const [needAddress, setNeedAddress] = useState(true);
     const [loading, setLoading] = useState(false);
     const [index, dispatch] = useReducer(countReducer, localStorage.getItem('order-index') ? JSON.parse(localStorage.getItem('order-index')) : 1);
-    const { cartItems, isEmpty, clearCart } = useContext(CartContext);
-    const { deliveryMethod } = useContext(OrderContext);
+    const { cartItems, isEmpty, clearCart, deliveryMethod } = useContext(CartContext);
     const { address, companyData, personalData, user } = useContext(AccountContext);
 
     useEffect(() => {
@@ -49,7 +48,6 @@ const Order = () => {
     useEffect(() => {
         if(isEmpty())  {
             dispatch({type: 'setIndex', value: 1})
-            localStorage.setItem('order-index', JSON.stringify(1));
         }
     }, [isEmpty])
 
@@ -61,11 +59,14 @@ const Order = () => {
         }
     }, [deliveryMethod])
 
-    const performOrder = (data) => {
-        setLoading(true)
-        let products = cartItems.map(product => {
+    const prepareOrder = (data) => {
+        const products = cartItems.map(product => {
             return {
                 id: product.id,
+                name: product.name,
+                image: product.mainImageId || null,
+                priceBrutto: product.priceBrutto,
+                priceNetto: product.priceNetto,
                 quantity: product.quantity
             }
         })
@@ -97,10 +98,17 @@ const Order = () => {
                     buildingNumber: parseInt(data.companyBuildingNumber),
             }})
         }
-        orderActions.makeOrder(order).then(res => {
+        sessionStorage.setItem('order-before-submission', JSON.stringify(order));
+        dispatch({type: 'inc'});
+    }
+    
+    const performOrder = (order) => {
+        setLoading(true)
+            orderActions.makeOrder(order).then(res => {
             if(res.success) {
                 clearCart();
-                dispatch({type: 'setIndex', value: 1})
+                sessionStorage.clear()
+                localStorage.setItem('order-index', 1)
                 let orderID = res.data;
                 navigate(`/order/${orderID}`)
                 setLoading(false)
@@ -115,8 +123,9 @@ const Order = () => {
         <>
             {index === 1 && <Cart dispatch={dispatch} access={access}/>}
             {index === 2 && <Delivery dispatch={dispatch} needAddress={needAddress}/>}
-            {index === 3 && (address && personalData && companyData && user) && <ReceiverData dispatch={dispatch} performOrder={performOrder} 
+            {index === 3 && (address && personalData && companyData && user) && <ReceiverData dispatch={dispatch} prepareOrder={prepareOrder} 
             needAddress={needAddress} user={user} address={address} personalData={personalData} companyData={companyData} loading={loading}/>}
+            {index === 4 && <SummaryBeforeSubmission performOrder={performOrder} dispatch={dispatch}/>}
         </>
     )
 }

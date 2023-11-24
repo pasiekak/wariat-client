@@ -10,35 +10,37 @@ import './receiver-data.css';
 import PhoneInput from 'react-phone-number-input/react-hook-form';
 import accountActions from "../../../../../api/accountActions";
 
-const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, personalData, companyData, loading }) => {
+const ReceiverData = ({ dispatch, prepareOrder, needAddress, user, address, personalData, companyData, loading }) => {
     const { t } = useTranslation(null, { keyPrefix: 'components.order.receiver-data' });
+    const sessionOrder = JSON.parse(sessionStorage.getItem('order-before-submission')) || null
     const [nipLoading, setNipLoading] = useState(false);
     const [nipReqCount, setNipReqCount] = useState(0);
     const [isNipButtonDisabled, setIsNipButtonDisabled] = useState(false);
     const { register, handleSubmit, control, watch, setError, setValue, clearErrors, formState: { errors } } = useForm({
         defaultValues: {
             // receiver personal data
-            email: user?.email || '',
-            firstName: personalData?.firstName || '',
-            lastName: personalData?.lastName || '',
-            phone: personalData?.phone || '',
+            email: sessionOrder?.email || user?.email || '',
+            firstName: sessionOrder?.firstName || personalData?.firstName || '',
+            lastName: sessionOrder?.lastName || personalData?.lastName || '',
+            phone: sessionOrder?.phone || personalData?.phone || '',
             // delivery address
-            country: address?.country || '',
-            city: address?.city || '',
-            postalCode: address?.postalCode || '',
-            street: address?.street || '',
-            homeNumber: address?.homeNumber || '',
+            country: sessionOrder?.deliveryAddress?.country || address?.country || '',
+            city: sessionOrder?.deliveryAddress?.city || address?.city || '',
+            postalCode: sessionOrder?.deliveryAddress?.postalCode || address?.postalCode || '',
+            street: sessionOrder?.deliveryAddress?.street || address?.street || '',
+            homeNumber: sessionOrder?.deliveryAddress?.homeNumber || address?.homeNumber || '',
             // company data
             wantInvoice: false,
-            companyNip: companyData?.nip || '',
-            companyName: companyData?.companyName || '',
-            companyCountry: companyData?.country || '',
-            companyCity: companyData?.city || '',
-            companyPostalCode: companyData?.postalCode || '',
-            companyStreet: companyData?.street || '',
-            companyBuildingNumber: companyData?.buildingNumber || '',
+            companyNip: sessionOrder?.invoiceDetails?.nip || companyData?.nip || '',
+            companyName: sessionOrder?.invoiceDetails?.companyName || companyData?.companyName || '',
+            companyCountry: sessionOrder?.invoiceDetails?.country || companyData?.country || '',
+            companyCity: sessionOrder?.invoiceDetails?.city || companyData?.city || '',
+            companyPostalCode: sessionOrder?.invoiceDetails?.postalCode || companyData?.postalCode || '',
+            companyStreet: sessionOrder?.invoiceDetails?.street || companyData?.street || '',
+            companyBuildingNumber: sessionOrder?.invoiceDetails?.buildingNumber || companyData?.buildingNumber || '',
         }
     });
+    
     let wantInvoiceInput = watch('wantInvoice');
     let nipInput = watch('companyNip');
 
@@ -70,7 +72,7 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
     }, [nipInput, wantInvoiceInput, clearErrors, setError, t])
 
     const onSubmit = (data) => {
-        performOrder(data);
+        prepareOrder(data);
     };
 
     const loadCompanyDataFromApi = () => {
@@ -296,8 +298,8 @@ const ReceiverData = ({ dispatch, performOrder, needAddress, user, address, pers
                         <Button variant="outline-success" onClick={() => dispatch({ type: 'dec' })}>
                             {t('form.back-to-delivery-type-button')}
                         </Button>
-                        <Button variant="primary" type="submit">
-                            {t('form.submit-button')}
+                        <Button variant="success" type="submit">
+                            {t('form.move-to-summary-button')}
                         </Button>
                     </div>
                 </Form></>}

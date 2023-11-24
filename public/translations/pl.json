@@ -44,7 +44,6 @@
 
         "order" : {
             "cart": {
-        
                 "add-to-cart-button":"Dodaj do koszyka",
                 "remove-from-cart-button":"Usuń z koszyka",
                 "order-button":"Wybierz sposób dostawy",
@@ -109,17 +108,24 @@
                     "too-much-requests": "Poczekaj minutę",
                     "unable-to-load-nip": "Nie udało się wczytać danych firmy",
                     "back-to-delivery-type-button": "Wróć do wyboru sposobu dostawy",
-                    "submit-button": "Złóż zamówienie"
+                    "move-to-summary-button": "Przejdź do podsumowania"
                 }
             },
             "summary": {
                 "title": "Udało Ci się złożyć zamówienie",
                 "title-des1": "Dziękujemy za złożenie zamówienia na naszej stronie.",
                 "order-number": "Numer zamówienia",
+                "comment-textarea-placeholder": "W tym miejscu możesz dołączyć jakiś komentarz do zamówienia",
+                "comment-title": "Twój komentarz",
+                "go-back-button": "Wróć do danych odbiorcy",
+                "place-an-order-button": "Złóż zamówienie",
                 "products-summary-table": {
                     "title": "Zamówione produkty",
+                    "title2": "Wybrane produkty",
                     "quantity": "Ilość",
                     "price": "Cena",
+                    "price-for-one": "Cena za sztukę",
+                    "price-for-all": "Cena razem",
                     "price-with-discount": "Cena po zniżkach"
                 },
                 "order-summary": {
@@ -136,6 +142,7 @@
                 },
                 "customer-order": {
                     "title": "Szczegóły zamówienia i odbiorcy",
+                    "title2": "Dane odbiorcy",
                     "first-and-last-name": "Imię i nazwisko",
                     "email": "Adres email",
                     "phone": "Numer telefonu",
@@ -150,7 +157,11 @@
                     "home-number": "Numer domu/mieszkania"
                 },
                 "billing-data": {
+                    "invoice": "Faktura",
+                    "receipt": "Paragon",
+                    "settlement-document": "Rodzaj rozliczenia",
                     "title": "Dane firmy",
+                    "title2": "Dane rozliczeniowe",
                     "nip": "NIP",
                     "company-name": "Nazwa",
                     "country": "Kraj",
@@ -158,6 +169,14 @@
                     "street": "Ulica",
                     "postal-code": "Kod pocztowy",
                     "building-number": "Numer budynku"
+                },
+                "pricing": {
+                    "sum-netto": "Suma za produkty netto",
+                    "sum-brutto": "Suma za produkty brutto",
+                    "sum-after-group-discount": "Suma po zniżce grupowej",
+                    "delivery-fee": "Dostawa",
+                    "vat-tax": "Podatek VAT",
+                    "total-price": "Całkowita kwota do zapłacenia"
                 },
                 "documents": {
                     "title": "Dokumenty dotyczące zamówienia",
@@ -217,7 +236,8 @@
                     "nip-placeholder": "Numer NIP twojej firmy",
                     "nip-required":"NIP jest wymagany",
                     "nip-digits": "NIP musi zawierać 10 cyfr",
-                    "nip-valid": "Ten NIP jest niepoprawny"
+                    "nip-invalid": "Ten NIP jest niepoprawny",
+                    "company-with-this-nip-not-found": "Firma o takim NIP nie została odnaleziona w bazie danych"
                 }
             },
             "orders" : {

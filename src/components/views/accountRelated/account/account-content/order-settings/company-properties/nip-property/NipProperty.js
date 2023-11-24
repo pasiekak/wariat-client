@@ -51,19 +51,21 @@ const NipProperty = ({nipOriginal, uploadNIPdata, updateContextFunction}) => {
                 }
             })
         } else {
-            setError('nip', { type: 'valid', message: 'nip-valid'})
+            setError('nip', { type: 'valid', message: 'nip-invalid'})
         }
     }
 
     const loadCompanyDataFromApi = () => {
         let nip = watch('nip');
-        uploadNIPdata(nip).then(res => {
-            if(!res.success) {
-                setError('nip', { type: 'valid', message: 'nip-valid'})
-            } else {
-                clearErrors('nip')
-            }
-        })
+        if(isValidNip(nip)) {
+            uploadNIPdata(nip).then(res => {
+                if(!res.success) {
+                    setError('nip', { type: 'valid', message: res.message})
+                } else {
+                    clearErrors('nip')
+                }
+            })
+        }
     }
 
     return (

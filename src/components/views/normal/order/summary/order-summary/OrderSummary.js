@@ -1,10 +1,14 @@
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+
+import { CartContext } from "../../../../../../context/cart";
 
 import './order-summary.css';
 
 const OrderSummary = ({order}) => {
     const { t } = useTranslation(null, {keyPrefix: 'components.order.summary.order-summary'})
     const orderDate = new Date(order.createdAt);
+    const { priceGetters } = useContext(CartContext);
     return (
         <div className="order-summary">
             <div>
@@ -17,13 +21,13 @@ const OrderSummary = ({order}) => {
                 <span>{t('order-time')}</span><span>{orderDate.toLocaleTimeString()}</span>
             </div>
             {order.shippingAddress && <div>
-                <span>{t('delivery-fee')}</span><span>X</span>
+                <span>{t('delivery-fee')}</span><span>{priceGetters.getDeliveryPrice(order.deliveryType)} zł</span>
             </div>}
             <div>
-                <span>{t('tax')}</span><span>X</span>
+                <span>{t('tax')}</span><span>23%</span>
             </div>
             <div>
-                <span>{t('total')}</span><span>{order.priceAfterDiscounts} zł</span>
+                <span>{t('total')}</span><span>{order.total} zł</span>
             </div>
         </div>
     )

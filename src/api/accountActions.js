@@ -143,12 +143,16 @@ const accountActions = {
         getDataByNIP: async (nip) => {
             try {
                 let response = await axios.get(`/api/companyData/byNip/${nip}`);
-                return { success: true, data: response.data }
+                if(response.status === 200) {
+                    return { success: true, data: response.data }
+                } else if (response.status === 204) {
+                    return { success: false, message: 'company-with-this-nip-not-found'}
+                }
             } catch (err) {
                 if(err.response.status === 400) {
                     return { success: false, message: 'nip-invalid'}
                 } else {
-                    return { success: false, message: 'Nie udało się pobrać danych firmy' }
+                    return { success: false, message: 'failed' }
                 }
             }
         }

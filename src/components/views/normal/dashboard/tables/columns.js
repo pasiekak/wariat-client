@@ -82,8 +82,12 @@ const columns = {
             accessorKey: 'description',
         },
         {
-            header: 'Cena',
-            accessorKey: 'price',
+            header: 'Cena brutto',
+            accessorKey: 'priceBrutto',
+        },
+        {
+            header: 'Cena netto',
+            accessorKey: 'priceNetto',
         },
         {
             header: 'Opublikowane?',

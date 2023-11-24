@@ -19,7 +19,7 @@ const ProductSummaryTable = ({products, withDiscountPrices}) => {
             </thead>
             <tbody>
                 {products.map(product => {
-                    const total = Number(product.price * product.quantity).toFixed(2);
+                    const total = Number(product.priceBrutto * product.quantity).toFixed(2);
                 return <tr key={product.id}>
                     <td>
                         <img src={product.imageID ? `/api/images/${product.imageID}` : defaultImage} alt=""/>

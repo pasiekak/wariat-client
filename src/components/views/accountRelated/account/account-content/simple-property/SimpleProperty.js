@@ -17,7 +17,7 @@ const SimpleProperty = ({inputType, titleTranslation, placeholderTranslation, at
 
     const onSubmit = (data) => {
         if(input !== '') {
-            updateFunction(attrValue).then(res => {
+            updateFunction(input).then(res => {
                 if(res.data.success) {
                     updateContextFunction(contextAttrName, data)
                 }
