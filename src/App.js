@@ -1,27 +1,24 @@
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/common/header/Header';
-import Footer from './components/common/footer/Footer';
-import Home from './components/views/normal/home/Home';
-import Products from './components/views/normal/products/Products';
-import ProductDetails from './components/views/normal/productDetails/ProductDetails';
-import Gallery from './components/views/normal/gallery/Gallery';
-import Account from './components/views/accountRelated/account/Account';
-import NotFound from './components/views/normal/notFound/NotFound';
-import LoginPage from './components/views/accountRelated/login/LoginPage';
-import RegisterPage from './components/views/accountRelated/register/RegisterPage';
-import EmailVerification from './components/views/accountRelated/email/EmailVerification';
-import NotLogged from './components/views/accountRelated/not-logged/Not-logged';
-import DashboardLayout from './components/views/normal/dashboard/DashboardLayout';
-import BasicTable from './components/views/normal/dashboard/tables/BasicTable';
-import Order from './components/views/normal/order/Order';
-import Orders from './components/views/normal/dashboard/customTables/Orders';
-import Summary from './components/views/normal/order/summary/Summary';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Home from './components/landing-page/Home';
+import Products from './features/products/Products';
+import ProductDetails from './features/products/features/product-page/ProductDetails';
+import Gallery from './features/gallery/Gallery';
+import Account from './features/account/features/page/Account';
+import NotFound from './components/not-found-page/NotFound';
+import LoginPage from './features/account/features/auth/features/login/LoginPage';
+import RegisterPage from './features/account/features/auth/features/register/RegisterPage';
+import EmailVerification from './features/account/features/auth/features/email/EmailVerification';
+import NotLogged from './features/account/features/auth/components/not-logged/Not-logged';
+import DashboardLayout from './features/dashboard/DashboardLayout';
+import Order from './features/order/Order';
+import Summary from './features/order/features/summary/Summary';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 
 function App() {
-
   return (
     <div className='App'>
         <Routes >
@@ -29,13 +26,7 @@ function App() {
           <Route path='/login' Component={LoginPage} />
           <Route path='/register' Component={RegisterPage} />
           <Route path='/dashboard' Component={DashboardLayout}>
-            <Route path='users' element={<BasicTable tableName='users'/>} />
-            <Route path='products' element={<BasicTable tableName='products'/>}/>
-            <Route path='orders' Component={Orders}/>
-            <Route path='categories' element={<BasicTable tableName='categories'/>}/>
-            <Route path='marks' element={<BasicTable tableName='marks'/>}/>
-            <Route path='discounts' element={<BasicTable tableName='discounts'/>}/>
-            <Route path='discountGroups' element={<BasicTable tableName='discountGroups'/>}/>
+
           </Route>
           <Route path='/email-verification' Component={EmailVerification}/>
           <Route path='/not-logged' Component={NotLogged}/>

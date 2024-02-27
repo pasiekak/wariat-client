@@ -7,8 +7,8 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 
 import App from './App';
-import { CartProvider } from './context/cart';
-import { AccountProvider } from './context/account';
+import { CartProvider } from './features/order/features/cart/context/cart';
+import { AccountProvider } from './features/account/context/account';
 
 import './fonts/stylesheet.css';
 import './styles/index.css';

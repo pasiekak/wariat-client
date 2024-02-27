@@ -58,6 +58,7 @@
             "delivery-type": {
                 "title": "Wybierz sposób dostawy",
                 "back-to-cart-button": "Wróć do koszyka",
+                "has-to-pick-delivery-method": "Aby przejść dalej musisz wybrać sposób dostawy.",
                 "move-to-receiver-data": "Przejdź do danych wysyłki"
             },
             "receiver-data": {
