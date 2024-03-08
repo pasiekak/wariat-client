@@ -1,11 +1,11 @@
 .account-settings {
-    min-height: 100%;
-    padding-inline: 5%;
-    display: flex;
-    flex-direction: column;
+  min-height: 100%;
+  padding-inline: 5%;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 767px) {
-    .account-settings {
-        padding-inline: 0;
-    }
+  .account-settings {
+    padding-inline: 0;
+  }
 }

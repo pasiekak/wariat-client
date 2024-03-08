@@ -1,34 +1,35 @@
 .Products {
-    flex: 1;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
 }
 
 .Filters {
-    flex: 0.2;
+  flex: 0.2;
 }
 .content {
-    flex: 0.8;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 10px 10px 10px;
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 10px;
 }
 .SearchBar {
-    flex: 0.1;
+  flex: 0.1;
 }
-.ProductsTable, .ProductsList {
-    flex: 0.9;
+.ProductsTable,
+.ProductsList {
+  flex: 0.9;
 }
 
 @media (max-width: 767px) {
-    .ProductsTable {
-        flex: 1;
-    }
-    .content {
-        flex: 1;
-    }
-    .Filters {
-        margin-right: 10px;
-    }
+  .ProductsTable {
+    flex: 1;
+  }
+  .content {
+    flex: 1;
+  }
+  .Filters {
+    margin-right: 10px;
+  }
 }

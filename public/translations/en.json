@@ -1,317 +1,317 @@
 {
-    "components": {
-        "header": {
-            "mainPage": "Home",
-            "products": "Products",
-            "gallery": "Gallery",
-            "contact": "Contact",
-            "about": "About us",
-            "login": "Log in",
-            "logout": "Log out",
-            "account": "Account",
-            "your-account": "Your account",
-            "cart": "Cart"
-        },
-        "home": {
-            "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
-        },
-        "products": {
-            "filters": {
-                "title": "Filters",
-                "marks": "Manufacturers",
-                "categories": "Categories",
-                "confirm-button": "Filter",
-                "no-filters-message": "No filters available"
-            },
-            "search-bar": {
-                "placeholder": "Enter your search term..."
-            }
-        },
-        "order": {
-            "cart": {
-                "add-to-cart-button": "Add to cart",
-                "remove-from-cart-button": "Remove from cart",
-                "order-button": "Choose your delivery method",
-                "empty-cart-message": "Your cart is empty",
-                "empty-cart-button-disabled": "The order cannot be processed because the shopping cart is empty",
-                "title": "Your Cart",
-                "total": "Total Price",
-                "total-disc": "Price after discounts",
-                "not-logged": "You must log in to place an order"
-            },
-            "delivery-type": {
-                "title": "Choose your delivery method",
-                "back-to-cart-button": "Return to cart",
-                "move-to-receiver-data": "Go to shipping details"
-            },
-            "receiver-data": {
-                "title": "Fill in the recipient's details",
-                "shipment-data-title": "Delivery Address",
-                "personal-data-title": "Credentials",
-                "company-data-title": "Company data",
-                "form": {
-                    "first-name-label": "First name",
-                    "first-name-placeholder": "Your name...",
-                    "first-name-required": "City is required",
-                    "last-name-label": "Last Name",
-                    "last-name-placeholder": "Your last name...",
-                    "last-name-required": "Last name is required",
-                    "phone-label": "Phone number",
-                    "phone-placeholder": "Your phone number...",
-                    "phone-required": "Phone number is required",
-                    "email-label": "Email",
-                    "email-placeholder": "Your email address...",
-                    "email-required": "Email address is required",
-                    "want-invoice-label": "Do you want an invoice?",
-                    "company-name-label": "Company Name",
-                    "company-name-placeholder": "Your company name...",
-                    "company-name-required": "Company name is required",
-                    "country-label": "Country",
-                    "country-placeholder": "Your country...",
-                    "country-required": "Username is too long",
-                    "city-label": "City",
-                    "city-placeholder": "Your city...",
-                    "city-required": "The city is required",
-                    "postal-code-label": "Post code/zip",
-                    "postal-code-placeholder": "Your zip code...",
-                    "postal-code-required": "Zip code required",
-                    "street-label": "Street",
-                    "street-placeholder": "Your street name...",
-                    "street-required": "Street is required",
-                    "home-number-label": "Building number",
-                    "home-number-placeholder": "Your building number...",
-                    "home-number-required": "The building number is required",
-                    "building-number-label": "Building number",
-                    "building-number-placeholder": "Your building number...",
-                    "building-number-required": "The building number is required",
-                    "nip-label": "Company identification code",
-                    "nip-placeholder": "10-digit company identification code",
-                    "nip-required": "Company ID is required",
-                    "nip-invalid": "Company ID is invalid",
-                    "load-nip-data": "Load company data using ID",
-                    "too-much-requests": "Wait a minute",
-                    "unable-to-load-nip": "Failed to get company data.",
-                    "back-to-delivery-type-button": "Back to choosing a delivery method",
-                    "submit-button": "Place Order"
-                }
-            },
-            "summary": {
-                "title": "You have successfully placed an order",
-                "title-des1": "Thank you for placing your order on our website.",
-                "order-number": "Order number",
-                "products-summary-table": {
-                    "title": "Ordered products",
-                    "quantity": "Count",
-                    "price": "Price",
-                    "price-with-discount": "Price after discounts"
-                },
-                "order-summary": {
-                    "title": "Order Summary",
-                    "order-created": "Submission Date",
-                    "order-time": "Time of submission",
-                    "delivery-fee": "Delivery",
-                    "tax": "Tax",
-                    "total": "To be paid",
-                    "Accepted": "To be paid",
-                    "Paid": "Paid",
-                    "Sent": "Sent",
-                    "Completed": "Completed"
-                },
-                "customer-order": {
-                    "title": "Order details and recipients",
-                    "first-and-last-name": "Full Name",
-                    "email": "Email address",
-                    "phone": "Phone number",
-                    "delivery-type": "Delivery method"
-                },
-                "delivery-address": {
-                    "title": "Delivery address",
-                    "country": "Country",
-                    "city": "City",
-                    "postal-code": "Post code/ZIP",
-                    "street": "Street",
-                    "home-number": "House/apartment number"
-                },
-                "billing-data": {
-                    "title": "Company data",
-                    "nip": "Company identification code",
-                    "company-name": "Name",
-                    "country": "Country",
-                    "city": "City",
-                    "street": "Street",
-                    "postal-code": "Post code/ZIP",
-                    "building-number": "Building number"
-                },
-                "documents": {
-                    "title": "Documents relating to the order",
-                    "payment-methods-btn": "Download a pdf of payment methods"
-                }
-            }
-        },
-        "account": {
-            "welcome-message": "Hello",
-            "change-button": "Modify",
-            "confirm-button": "Approve",
-            "go-back-button": "Back",
-            "empty-property-message": "No data available",
-            "upload-company-data": "Complete the data using the company ID",
-            "account-settings": {
-                "title": "Settings and account details",
-                "login": "Username",
-                "email": "Email address",
-                "dashboard-place": "Dashboard",
-                "dashboard-button": "Dashboard"
-            },
-            "order-settings": {
-                "title": "Order data",
-                "private-person": "Credentials",
-                "delivery-data": "Delivery Address",
-                "company": "Billing",
-                "person-properties": {
-                    "first-last-name": "Full Name",
-                    "first-name-placeholder": "Firstname",
-                    "last-name-placeholder": "Last Name",
-                    "no-first-and-last-name-provided": "Fill in your first name and last name",
-                    "no-first-name-provided": "Fill in your name",
-                    "no-last-name-provided": "Fill in your last name",
-                    "phone-number": "Phone number",
-                    "no-phone-number-provided": "Fill in your phone number",
-                    "phone-number-placeholder": "Type phone number",
-                    "phone-number-err-message": "Invalid phone number"
-                },
-                "delivery-or-company-properties": {
-                    "country": "Country",
-                    "country-placeholder": "Country of origin",
-                    "city": "City",
-                    "city-placeholder": "City of residence",
-                    "street": "Street",
-                    "street-placeholder": "Your street name",
-                    "home-number": "House number",
-                    "home-number-placeholder": "House number",
-                    "building-number": "Building number",
-                    "building-number-placeholder": "Company building number",
-                    "postal-code": "Post code/ZIP",
-                    "postal-code-placeholder": "Postal code in the format 'xx-xxx'",
-                    "company-name": "Company Name",
-                    "company-name-placeholder": "Your company name",
-                    "nip": "Company identification code",
-                    "nip-placeholder": "Your company identification code",
-                    "nip-required": "Company ID is required",
-                    "nip-digits": "Company ID must have 10 digits",
-                    "nip-valid": "Your ID is invalid"
-                }
-            },
-            "orders": {
-                "title": "Your orders",
-                "orders-empty": "There are no orders in your account.",
-                "contact": "Contact",
-                "id": "ID",
-                "created-at": "Date",
-                "status": "State",
-                "delivery-type": "Delivery Service",
-                "total": "Price",
-                "Accepted": "To be paid",
-                "Paid": "Paid",
-                "Sent": "Sent",
-                "Completed": "Completed"
-            }
-        },
-        "footer": {
-            "contact": "Contact",
-            "about": "About us",
-            "projects": "Our projects"
-        }
+  "components": {
+    "header": {
+      "mainPage": "Home",
+      "products": "Products",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "about": "About us",
+      "login": "Log in",
+      "logout": "Log out",
+      "account": "Account",
+      "your-account": "Your account",
+      "cart": "Cart"
     },
-    "forms": {
-        "login": {
-            "title": "Logging",
-            "username": "Username",
-            "password": "Password",
-            "button": "Sign in"
-        },
-        "register": {
-            "title": "Registration",
-            "username": "Username",
-            "password": "Password",
-            "passwordRepeat": "Repeat password",
-            "email": "Email address",
-            "firstName": "Name",
-            "lastName": "Name",
-            "button": "Register",
-            "buttonNext": "Continue",
-            "buttonPrev": "Return"
-        },
-        "links": {
-            "noAccount": "Don't have an account? Sign up!",
-            "haveAccount": "Do you already have an account? Sign in!",
-            "goBack": "Return to home page."
-        },
-        "emailCode": {
-            "title": "Email address verification",
-            "codeLabel": "Enter the code you received to your email address",
-            "submit": "Verify"
-        }
+    "home": {
+      "welcomeMessage": "Welcome to Wariat Garage - the place where off-roaders become true off-road champions! We are a team of passionate specialists who devote ourselves to the art of modifying, repairing and tuning off-roaders. Our passion is to transform these powerful vehicles to make them perfect in every way. Whether you need professional modifications, repairs or tuning, we are ready to provide you with the highest quality services. Our work is art, and your off-roader becomes the canvas on which we create a work of art. Let the spirit of adventure accompany you at every turn. Join us at Wariat Garage and experience the power of off-road that we create together! (Created by GPT 3.5)"
     },
-    "schemas": {
-        "login": {
-            "passwordRequired": "Password is required",
-            "usernameRequired": "User name is required"
-        },
-        "register": {
-            "usernameRequired": "User name is required",
-            "passwordRequired": "Password is required",
-            "passwordDigits": "The password must have a digit",
-            "passwordSmallLetter": "The password must be lowercase",
-            "passwordBigLetter": "The password must have a capital letter",
-            "passwordSymbol": "The password must have a symbol (e.g. !@#$%^&*)",
-            "passwordRepeatRequired": "Repeat password",
-            "passwordRepeatOneOf": "Passwords must be the same",
-            "emailInvalid": "Incorrect email address",
-            "emailRequired": "Email address is required"
-        },
-        "emailCode": {
-            "codeRequired": "Code Required",
-            "codeExactlyFourDigits": "The code must have exactly 4 digits",
-            "codeDigitsOnly": "The code must contain only digits"
-        }
+    "products": {
+      "filters": {
+        "title": "Filters",
+        "marks": "Manufacturers",
+        "categories": "Categories",
+        "confirm-button": "Filter",
+        "no-filters-message": "No filters available"
+      },
+      "search-bar": {
+        "placeholder": "Enter your search term..."
+      }
     },
-    "apiMessages": {
-        "login": {
-            "success": "Logged in successfully",
-            "noDataProvided": "No login and password provided",
-            "wrongUsernameOrPassword": "Check that the name and password are correct",
-            "serverError": "A server error occurred",
-            "error": "An error occurred"
-        },
-        "register": {
-            "success": "You have successfully registered an account",
-            "userExists": "Such a user already exists",
-            "serverError": "A server error occurred",
-            "error": "An error occurred"
-        },
-        "logout": {
-            "success": "Logged out successfully",
-            "error": "An error occurred"
-        },
-        "emailCode": {
-            "userRegistered": "You have successfully registered an account, we are about to redirect you to the home page.",
-            "error": "An error occurred",
-            "noCodeCookie": "An error occurred.",
-            "wrongCode": "Wrong code specified"
-        },
-        "token": {
-            "authorized": "Logged in and authorized user to perform this operation",
-            "noToken": "You need to log in",
-            "badToken": "Failed user authentication attempt",
-            "notAdmin": "You do not have authorization for this operation",
-            "notModerator": "You do not have authorization for this operation"
-        },
-        "order": {
-            "order-created": "You have successfully placed an order",
-            "user-dont-match": "You do not have access to this order",
-            "order-not-found": "No such order exists",
-            "order-creating-error": "Failed to place order",
-            "server-error": "There was an error in carrying out the order"
+    "order": {
+      "cart": {
+        "add-to-cart-button": "Add to cart",
+        "remove-from-cart-button": "Remove from cart",
+        "order-button": "Choose your delivery method",
+        "empty-cart-message": "Your cart is empty",
+        "empty-cart-button-disabled": "The order cannot be processed because the shopping cart is empty",
+        "title": "Your Cart",
+        "total": "Total Price",
+        "total-disc": "Price after discounts",
+        "not-logged": "You must log in to place an order"
+      },
+      "delivery-type": {
+        "title": "Choose your delivery method",
+        "back-to-cart-button": "Return to cart",
+        "move-to-receiver-data": "Go to shipping details"
+      },
+      "receiver-data": {
+        "title": "Fill in the recipient's details",
+        "shipment-data-title": "Delivery Address",
+        "personal-data-title": "Credentials",
+        "company-data-title": "Company data",
+        "form": {
+          "first-name-label": "First name",
+          "first-name-placeholder": "Your name...",
+          "first-name-required": "City is required",
+          "last-name-label": "Last Name",
+          "last-name-placeholder": "Your last name...",
+          "last-name-required": "Last name is required",
+          "phone-label": "Phone number",
+          "phone-placeholder": "Your phone number...",
+          "phone-required": "Phone number is required",
+          "email-label": "Email",
+          "email-placeholder": "Your email address...",
+          "email-required": "Email address is required",
+          "want-invoice-label": "Do you want an invoice?",
+          "company-name-label": "Company Name",
+          "company-name-placeholder": "Your company name...",
+          "company-name-required": "Company name is required",
+          "country-label": "Country",
+          "country-placeholder": "Your country...",
+          "country-required": "Username is too long",
+          "city-label": "City",
+          "city-placeholder": "Your city...",
+          "city-required": "The city is required",
+          "postal-code-label": "Post code/zip",
+          "postal-code-placeholder": "Your zip code...",
+          "postal-code-required": "Zip code required",
+          "street-label": "Street",
+          "street-placeholder": "Your street name...",
+          "street-required": "Street is required",
+          "home-number-label": "Building number",
+          "home-number-placeholder": "Your building number...",
+          "home-number-required": "The building number is required",
+          "building-number-label": "Building number",
+          "building-number-placeholder": "Your building number...",
+          "building-number-required": "The building number is required",
+          "nip-label": "Company identification code",
+          "nip-placeholder": "10-digit company identification code",
+          "nip-required": "Company ID is required",
+          "nip-invalid": "Company ID is invalid",
+          "load-nip-data": "Load company data using ID",
+          "too-much-requests": "Wait a minute",
+          "unable-to-load-nip": "Failed to get company data.",
+          "back-to-delivery-type-button": "Back to choosing a delivery method",
+          "submit-button": "Place Order"
         }
+      },
+      "summary": {
+        "title": "You have successfully placed an order",
+        "title-des1": "Thank you for placing your order on our website.",
+        "order-number": "Order number",
+        "products-summary-table": {
+          "title": "Ordered products",
+          "quantity": "Count",
+          "price": "Price",
+          "price-with-discount": "Price after discounts"
+        },
+        "order-summary": {
+          "title": "Order Summary",
+          "order-created": "Submission Date",
+          "order-time": "Time of submission",
+          "delivery-fee": "Delivery",
+          "tax": "Tax",
+          "total": "To be paid",
+          "Accepted": "To be paid",
+          "Paid": "Paid",
+          "Sent": "Sent",
+          "Completed": "Completed"
+        },
+        "customer-order": {
+          "title": "Order details and recipients",
+          "first-and-last-name": "Full Name",
+          "email": "Email address",
+          "phone": "Phone number",
+          "delivery-type": "Delivery method"
+        },
+        "delivery-address": {
+          "title": "Delivery address",
+          "country": "Country",
+          "city": "City",
+          "postal-code": "Post code/ZIP",
+          "street": "Street",
+          "home-number": "House/apartment number"
+        },
+        "billing-data": {
+          "title": "Company data",
+          "nip": "Company identification code",
+          "company-name": "Name",
+          "country": "Country",
+          "city": "City",
+          "street": "Street",
+          "postal-code": "Post code/ZIP",
+          "building-number": "Building number"
+        },
+        "documents": {
+          "title": "Documents relating to the order",
+          "payment-methods-btn": "Download a pdf of payment methods"
+        }
+      }
+    },
+    "account": {
+      "welcome-message": "Hello",
+      "change-button": "Modify",
+      "confirm-button": "Approve",
+      "go-back-button": "Back",
+      "empty-property-message": "No data available",
+      "upload-company-data": "Complete the data using the company ID",
+      "account-settings": {
+        "title": "Settings and account details",
+        "login": "Username",
+        "email": "Email address",
+        "dashboard-place": "Dashboard",
+        "dashboard-button": "Dashboard"
+      },
+      "order-settings": {
+        "title": "Order data",
+        "private-person": "Credentials",
+        "delivery-data": "Delivery Address",
+        "company": "Billing",
+        "person-properties": {
+          "first-last-name": "Full Name",
+          "first-name-placeholder": "Firstname",
+          "last-name-placeholder": "Last Name",
+          "no-first-and-last-name-provided": "Fill in your first name and last name",
+          "no-first-name-provided": "Fill in your name",
+          "no-last-name-provided": "Fill in your last name",
+          "phone-number": "Phone number",
+          "no-phone-number-provided": "Fill in your phone number",
+          "phone-number-placeholder": "Type phone number",
+          "phone-number-err-message": "Invalid phone number"
+        },
+        "delivery-or-company-properties": {
+          "country": "Country",
+          "country-placeholder": "Country of origin",
+          "city": "City",
+          "city-placeholder": "City of residence",
+          "street": "Street",
+          "street-placeholder": "Your street name",
+          "home-number": "House number",
+          "home-number-placeholder": "House number",
+          "building-number": "Building number",
+          "building-number-placeholder": "Company building number",
+          "postal-code": "Post code/ZIP",
+          "postal-code-placeholder": "Postal code in the format 'xx-xxx'",
+          "company-name": "Company Name",
+          "company-name-placeholder": "Your company name",
+          "nip": "Company identification code",
+          "nip-placeholder": "Your company identification code",
+          "nip-required": "Company ID is required",
+          "nip-digits": "Company ID must have 10 digits",
+          "nip-valid": "Your ID is invalid"
+        }
+      },
+      "orders": {
+        "title": "Your orders",
+        "orders-empty": "There are no orders in your account.",
+        "contact": "Contact",
+        "id": "ID",
+        "created-at": "Date",
+        "status": "State",
+        "delivery-type": "Delivery Service",
+        "total": "Price",
+        "Accepted": "To be paid",
+        "Paid": "Paid",
+        "Sent": "Sent",
+        "Completed": "Completed"
+      }
+    },
+    "footer": {
+      "contact": "Contact",
+      "about": "About us",
+      "projects": "Our projects"
     }
+  },
+  "forms": {
+    "login": {
+      "title": "Logging",
+      "username": "Username",
+      "password": "Password",
+      "button": "Sign in"
+    },
+    "register": {
+      "title": "Registration",
+      "username": "Username",
+      "password": "Password",
+      "passwordRepeat": "Repeat password",
+      "email": "Email address",
+      "firstName": "Name",
+      "lastName": "Name",
+      "button": "Register",
+      "buttonNext": "Continue",
+      "buttonPrev": "Return"
+    },
+    "links": {
+      "noAccount": "Don't have an account? Sign up!",
+      "haveAccount": "Do you already have an account? Sign in!",
+      "goBack": "Return to home page."
+    },
+    "emailCode": {
+      "title": "Email address verification",
+      "codeLabel": "Enter the code you received to your email address",
+      "submit": "Verify"
+    }
+  },
+  "schemas": {
+    "login": {
+      "passwordRequired": "Password is required",
+      "usernameRequired": "User name is required"
+    },
+    "register": {
+      "usernameRequired": "User name is required",
+      "passwordRequired": "Password is required",
+      "passwordDigits": "The password must have a digit",
+      "passwordSmallLetter": "The password must be lowercase",
+      "passwordBigLetter": "The password must have a capital letter",
+      "passwordSymbol": "The password must have a symbol (e.g. !@#$%^&*)",
+      "passwordRepeatRequired": "Repeat password",
+      "passwordRepeatOneOf": "Passwords must be the same",
+      "emailInvalid": "Incorrect email address",
+      "emailRequired": "Email address is required"
+    },
+    "emailCode": {
+      "codeRequired": "Code Required",
+      "codeExactlyFourDigits": "The code must have exactly 4 digits",
+      "codeDigitsOnly": "The code must contain only digits"
+    }
+  },
+  "apiMessages": {
+    "login": {
+      "success": "Logged in successfully",
+      "noDataProvided": "No login and password provided",
+      "wrongUsernameOrPassword": "Check that the name and password are correct",
+      "serverError": "A server error occurred",
+      "error": "An error occurred"
+    },
+    "register": {
+      "success": "You have successfully registered an account",
+      "userExists": "Such a user already exists",
+      "serverError": "A server error occurred",
+      "error": "An error occurred"
+    },
+    "logout": {
+      "success": "Logged out successfully",
+      "error": "An error occurred"
+    },
+    "emailCode": {
+      "userRegistered": "You have successfully registered an account, we are about to redirect you to the home page.",
+      "error": "An error occurred",
+      "noCodeCookie": "An error occurred.",
+      "wrongCode": "Wrong code specified"
+    },
+    "token": {
+      "authorized": "Logged in and authorized user to perform this operation",
+      "noToken": "You need to log in",
+      "badToken": "Failed user authentication attempt",
+      "notAdmin": "You do not have authorization for this operation",
+      "notModerator": "You do not have authorization for this operation"
+    },
+    "order": {
+      "order-created": "You have successfully placed an order",
+      "user-dont-match": "You do not have access to this order",
+      "order-not-found": "No such order exists",
+      "order-creating-error": "Failed to place order",
+      "server-error": "There was an error in carrying out the order"
+    }
+  }
 }

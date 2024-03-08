@@ -1,38 +1,37 @@
 .Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 100px;
-    background-color: #000411;
-    box-shadow:
-    #2C313A 0px 5px,
-    #575E62 0px 10px,
-    #838A8B 0px 15px 10px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 100px;
+  background-color: #000411;
+  box-shadow:
+    #2c313a 0px 5px,
+    #575e62 0px 10px,
+    #838a8b 0px 15px 10px;
+  margin-bottom: 10px;
 }
-.leftHeader, .rightHeader {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.leftHeader,
+.rightHeader {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.Header a, .Header span, .Header button {
-    background-image: linear-gradient(
-    to right,
-    #00a2dd,
-    #00a2dd 50%,
-    #FFF 50%
-    );
-    font-size: 18px;
-    font-weight: bold;
-    background-size: 200% 100%;
-    background-position: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 0.3s ease-in-out;
+.Header a,
+.Header span,
+.Header button {
+  background-image: linear-gradient(to right, #00a2dd, #00a2dd 50%, #fff 50%);
+  font-size: 18px;
+  font-weight: bold;
+  background-size: 200% 100%;
+  background-position: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
-.Header a:hover, .Header button:hover {
-    background-position: 0;
+.Header a:hover,
+.Header button:hover {
+  background-position: 0;
 }

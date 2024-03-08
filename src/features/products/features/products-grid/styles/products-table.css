@@ -1,18 +1,17 @@
 .ProductsTable {
-    display: grid;
-    
-    grid-auto-rows: 300px;
-    grid-gap: 20px;
+  display: grid;
 
+  grid-auto-rows: 300px;
+  grid-gap: 20px;
+}
+/* Ogranicz wysokość na ekranach o szerokości większej niż 1200px */
+@media (min-width: 767px) {
+  .ProductsTable {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  /* Ogranicz wysokość na ekranach o szerokości większej niż 1200px */
-  @media (min-width: 767px) {
-    .ProductsTable {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
+}
+@media (max-width: 767px) {
+  .ProductsTable {
+    grid-template-columns: 100%;
   }
-  @media (max-width: 767px) {
-    .ProductsTable {
-      grid-template-columns: 100%;
-    }
-  }
+}

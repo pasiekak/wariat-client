@@ -1,86 +1,85 @@
 .summary-before-submission {
-
 }
 .summary-before-submission .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    
-    margin: 1rem;
-    padding: 1rem;
-    background-color: #DCDCDC;
-    border-radius: 0.5rem;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #dcdcdc;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
 }
 .summary-before-submission .products > div {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 .summary-before-submission .products .product {
-    display: grid;
-    grid-template-columns: 0.1fr 0.9fr;
-    grid-template-rows: 120px;
-    align-items: center;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 0.1fr 0.9fr;
+  grid-template-rows: 120px;
+  align-items: center;
+  gap: 2rem;
 }
 .summary-before-submission .products .product:last-of-type {
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .summary-before-submission .products .product .product-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .summary-before-submission h5 {
-    text-align: center;
+  text-align: center;
 }
 .summary-before-submission .products .product img {
-    max-width: 100%;
-    max-height: 100%;
-    justify-self: center;
+  max-width: 100%;
+  max-height: 100%;
+  justify-self: center;
 }
 .summary-before-submission .content-wrapper .shipping div,
 .summary-before-submission .content-wrapper .billing {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .summary-before-submission .content-wrapper .shipping span,
 .summary-before-submission .content-wrapper .billing span {
-    padding: 5px;
-    background-color: white;
-    border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
 }
 .summary-before-submission .content-wrapper .pricing {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .summary-before-submission .content-wrapper .pricing span {
-    padding-inline: 1rem;
+  padding-inline: 1rem;
 }
 .summary-before-submission .content-wrapper .pricing span:nth-of-type(even) {
-    text-align: right;
+  text-align: right;
 }
 .summary-before-submission .content-wrapper .pricing span:nth-of-type(odd) {
-    text-align: left;
-    font-weight: bold;
+  text-align: left;
+  font-weight: bold;
 }
 .summary-before-submission .content-wrapper .pricing .final {
-    grid-column: -3/-1 ;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  grid-column: -3/-1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    margin-block: 5px;
-    background-color: white;
-    border-radius: 5px;
-    font-size: 18px;
+  margin-block: 5px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 18px;
 }
 .summary-before-submission .content-wrapper form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .summary-before-submission .content-wrapper form .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

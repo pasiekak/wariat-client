@@ -1,60 +1,59 @@
 .cardd {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    border: 1px solid #a5a5a5;
-    border-radius: 10px;
-    padding: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: 1000ms ease;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #a5a5a5;
+  border-radius: 10px;
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 1000ms ease;
 }
 .cardd:hover {
-    border: 1px solid #4e4e4e;
+  border: 1px solid #4e4e4e;
 }
 .cardd .card-image {
-    height: 60%;
+  height: 60%;
 }
 .cardd .card-image div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1/1;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  height: 100%;
+  width: 100%;
 }
 .cardd img {
-    display: block;
+  display: block;
 
-    border-radius: 5px;
+  border-radius: 5px;
 
-    max-width:100%;
-    max-height:100%;
-    width: auto;
-    height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 .cardd .card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
 }
 .cardd .card-content .card-title {
-    font-size: 18px;
-    overflow: hidden;
-    text-align: center;
+  font-size: 18px;
+  overflow: hidden;
+  text-align: center;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 .cardd .card-content .card-bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 .cardd .card-content .card-bottom .card-price {
-    font-weight: 600;
+  font-weight: 600;
 }

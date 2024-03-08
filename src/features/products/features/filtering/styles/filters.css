@@ -1,60 +1,62 @@
 .Filters {
-    min-height: fit-content;
-    margin: 10px 0 10px 10px;
+  min-height: fit-content;
+  margin: 10px 0 10px 10px;
 }
 .Filters .filters-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 
-    background-color: rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
 .Filters .filters-title {
-    align-self: center;
-    font-size: 18px;
-    font-weight: bold;
+  align-self: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 .Filters .line {
-    align-self: center;
-    height: 1px;
-    width: 80%;
-    margin-block: 5px;
-    background-color: black;
+  align-self: center;
+  height: 1px;
+  width: 80%;
+  margin-block: 5px;
+  background-color: black;
 }
-.Filters .categories .line, .Filters .marks .line {
-    width: 60%;
+.Filters .categories .line,
+.Filters .marks .line {
+  width: 60%;
 }
-.Filters .marks, .Filters .categories {
-    display: flex;
-    flex-direction: column;
+.Filters .marks,
+.Filters .categories {
+  display: flex;
+  flex-direction: column;
 }
 .Filters .title {
-    align-self: center;
+  align-self: center;
 }
 .Filters .MultiSelectFilter {
-    align-self: center;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 500ms;
+  align-self: center;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
 }
 .Filters .MultiSelectFilter > * {
-    overflow: hidden;
+  overflow: hidden;
 }
 .Filters .MultiSelectFilter.open {
-    grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
 }
 .Filters svg {
-    align-self: center;
-    transition: 500ms ease;
-    cursor: pointer;
+  align-self: center;
+  transition: 500ms ease;
+  cursor: pointer;
 }
 .Filters svg.open {
-    rotate: 180deg;
+  rotate: 180deg;
 }
 .Filters .buttons {
-    margin-top: 10px;
-    align-self: center;
+  margin-top: 10px;
+  align-self: center;
 }

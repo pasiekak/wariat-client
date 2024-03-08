@@ -1,26 +1,27 @@
 .RegisterMultiForm {
-    display: flex;
-    flex-direction: column;
-    color: rgb(126, 129, 132);
+  display: flex;
+  flex-direction: column;
+  color: rgb(126, 129, 132);
 }
 .RegisterMultiForm h1 {
-    align-self: center;
+  align-self: center;
 }
 .RegisterMultiForm .stepButtons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-.RegisterMultiForm .stepButtons button, .RegisterMultiForm .submitButton {
-    flex: 1;
-    background-color: #000411;
-    border-radius: 5px;
-    border: 1px solid rgba(118,120,126, 0.10);
-    font-size: large;
-    cursor: pointer;
-    color: rgb(126, 129, 132);
-    transition: 500ms ease;
+.RegisterMultiForm .stepButtons button,
+.RegisterMultiForm .submitButton {
+  flex: 1;
+  background-color: #000411;
+  border-radius: 5px;
+  border: 1px solid rgba(118, 120, 126, 0.1);
+  font-size: large;
+  cursor: pointer;
+  color: rgb(126, 129, 132);
+  transition: 500ms ease;
 }
 .RegisterMultiForm .stepButtons button:hover {
-    border-color: rgba(255,255,255,0.25);
+  border-color: rgba(255, 255, 255, 0.25);
 }

@@ -1,15 +1,15 @@
 .NotLogged {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .NotLogged .not-logged-span-message {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #3b3b3b;
-    text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3b3b3b;
+  text-align: center;
 }

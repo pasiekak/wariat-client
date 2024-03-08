@@ -1,16 +1,14 @@
 .Home {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Home .page-description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Home .page-description span {
-    width: 80%;
+  width: 80%;
 }
-

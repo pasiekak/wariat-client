@@ -1,13 +1,12 @@
-
 body {
-  margin: 0;
-  background-color: #AEB7B3;
-  font-family: 'Lato', Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-4);
+    font-family: "Lato", Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

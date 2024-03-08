@@ -1,0 +1,47 @@
+/*Positioning*/
+.dashboard-layout .pagination-panel {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
+/*Style for page manager*/
+.dashboard-layout .pagination-panel .page-manager {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .pagination-panel svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 500ms;
+    border-radius: 50%;
+    background: var(--color-3);
+}
+
+.dashboard-layout .pagination-panel svg:hover {
+    color: var(--color-3);
+    background: blueviolet;
+}
+
+/*Style for max items displayed*/
+
+.dashboard-layout .item-number-manager {
+    display: grid;
+    grid-template-columns: repeat(4, 40px);
+    grid-template-rows: 40px;
+    gap: 5px;
+}
+
+.dashboard-layout .item-number-manager .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

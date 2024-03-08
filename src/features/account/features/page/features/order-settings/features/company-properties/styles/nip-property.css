@@ -1,18 +1,17 @@
 .nip-form-input-error {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .nip-form-input-error input {
-    width: 100%;
+  width: 100%;
 }
 .nip-property .single-property form {
-    display: flex;
-    flex-direction: column !important;
+  display: flex;
+  flex-direction: column !important;
 }
 
 @media (max-width: 767px) {
-    .nip-property .single-property form .buttons-wrapper {
-        flex-direction: column !important;
-    }
+  .nip-property .single-property form .buttons-wrapper {
+    flex-direction: column !important;
+  }
 }
-  

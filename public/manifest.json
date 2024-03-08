@@ -10,7 +10,7 @@
   ],
   "images": [
     {
-      "src":"src/images/wariatLogo.png",
+      "src": "src/images/wariatLogo.png",
       "sizes": "256x256",
       "type": "image/png"
     }

@@ -1,14 +1,14 @@
 .Order {
-    display: flex;
+  display: flex;
 }
 .Order .order-wrapper {
-    flex: 1;
+  flex: 1;
 
-    display: flex;
-    flex-direction: column;
-    margin: 20px 10px 20px 10px;
-    padding: 10px 20px 10px 20px;
-    background-color: #DCDCDC;
-    border: 1px solid #a5a5a5;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px 20px 10px;
+  padding: 10px 20px 10px 20px;
+  background-color: #dcdcdc;
+  border: 1px solid #a5a5a5;
+  border-radius: 10px;
 }

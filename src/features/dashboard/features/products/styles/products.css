@@ -1,0 +1,48 @@
+.dashboard-layout .products {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.dashboard-layout .products > * {
+    padding-inline: 0.5rem;
+}
+
+/*Columns*/
+.dashboard-layout .products .columns,
+.dashboard-layout .products .items > .product {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.dashboard-layout .products .columns {
+    font-size: 18px;
+    font-weight: bold;
+    align-content: center;
+    height: 32px;
+    background: var(--color-2);
+}
+
+.dashboard-layout .products .columns > span {
+    cursor: help;
+}
+
+/*Items*/
+.dashboard-layout .products .items {
+    padding-inline: 0;
+}
+
+.dashboard-layout .products .items > .product {
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding-inline: 0.5rem;
+}
+
+.dashboard-layout .products .items > .product:hover {
+    background: var(--color-4);
+}
+
+/*Actions*/
+.dashboard-layout .products .actions {
+    align-self: flex-end;
+}
