@@ -24,6 +24,8 @@
     padding: 0.5rem 10px;
     cursor: pointer;
     background: var(--color-3);
+    border-radius: 0 10px 10px 0;
+    transition: background 500ms;
 }
 
 .dashboard-layout .navigation-panel > div.selected svg {
@@ -39,15 +41,15 @@
     color: black;
 }
 
+.dashboard-layout .navigation-panel > div:hover {
+    background: var(--color-2);
+}
+
 .dashboard-layout .navigation-panel > div:hover span {
     max-width: 100px;
     margin-left: 0.5rem;
     transition: 500ms;
     opacity: 1;
-}
-
-.dashboard-layout .navigation-panel > div {
-    border-radius: 0 10px 10px 0;
 }
 
 .dashboard-layout .navigation-panel > div:hover svg {

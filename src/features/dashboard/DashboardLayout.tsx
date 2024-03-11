@@ -1,12 +1,15 @@
-import "./styles/dashboard-layout.css";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import NavigationPanel from "./components/navigation-panel/NavigationPanel";
 import HeadPanel from "./components/head-panel/HeadPanel";
 import Pagination from "./types/pagination";
 import PaginationPanel from "./components/pagination-panel/PaginationPanel";
 import Items from "./types/items";
+
+import "./styles/dashboard-layout.css";
+import "./styles/inputs.css";
 
 const DashboardLayout = () => {
   const [tableName, setTableName] = useState<string | undefined>();
@@ -92,16 +95,16 @@ const DashboardLayout = () => {
             loading,
           }}
         />
-        {items.count > 0 && (
-          <PaginationPanel
-            page={pagination.page}
-            perPage={pagination.perPage}
-            maxPage={pagination.maxPage}
-            incPage={incPage}
-            decPage={decPage}
-            setNumberOfItemsDisplayed={setNumberOfItemsDisplayed}
-          />
-        )}
+
+        <PaginationPanel
+          itemsCount={items.count}
+          page={pagination.page}
+          perPage={pagination.perPage}
+          maxPage={pagination.maxPage}
+          incPage={incPage}
+          decPage={decPage}
+          setNumberOfItemsDisplayed={setNumberOfItemsDisplayed}
+        />
       </section>
     </div>
   );

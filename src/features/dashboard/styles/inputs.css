@@ -1,0 +1,33 @@
+.dashboard-layout input[type=number],
+.dashboard-layout input[type=text],
+.dashboard-layout textarea {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.dashboard-layout input[type=file],
+.dashboard-layout input[type=number],
+.dashboard-layout input[type=text],
+.dashboard-layout textarea {
+    width: 100%;
+}
+
+.dashboard-layout input[type=number]:focus,
+.dashboard-layout input[type=text]:focus,
+.dashboard-layout textarea:focus {
+    outline: 1px solid blueviolet;
+}
+
+.dashboard-layout input[type=file]:focus {
+    border: 1px solid blueviolet;
+}
+
+.dashboard-layout textarea {
+    resize: vertical;
+    height: 10em;
+}
+
+.dashboard-layout label {
+    cursor: help;
+}

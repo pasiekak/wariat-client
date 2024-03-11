@@ -1,3 +1,36 @@
-.NotFound {
-  flex: 1;
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found span {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 500ms;
+}
+
+.not-found span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background: black;
+    transition: 500ms ease-out;
+}
+
+.not-found span:last-of-type::after {
+    right: 0;
+}
+
+.not-found span:hover {
+    color: blueviolet;
+}
+
+.not-found span:hover::after {
+    width: 100%;
 }

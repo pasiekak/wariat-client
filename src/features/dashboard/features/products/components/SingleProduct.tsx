@@ -1,4 +1,4 @@
-import ProductNotDetailed from "../../../types/product";
+import ProductNotDetailed from "../../../types/productNotDetailed";
 import {
   faCircleCheck,
   faCircleXmark,

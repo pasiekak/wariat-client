@@ -30,6 +30,7 @@
 /*Items*/
 .dashboard-layout .products .items {
     padding-inline: 0;
+    flex: 1;
 }
 
 .dashboard-layout .products .items > .product {
@@ -44,5 +45,6 @@
 
 /*Actions*/
 .dashboard-layout .products .actions {
-    align-self: flex-end;
+    display: flex;
+    justify-content: center;
 }

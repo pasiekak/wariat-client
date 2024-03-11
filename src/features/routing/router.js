@@ -17,6 +17,7 @@ import NotFound from "../../components/not-found-page/NotFound";
 import Footer from "../../components/footer/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "../dashboard/DashboardLayout";
+import AddProduct from "../dashboard/features/products/features/adding/AddProduct";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -36,7 +37,10 @@ function Root() {
           </ProtectedRoute>
         }
       >
-        <Route path="products" element={<DashboardProducts />} />
+        <Route path="products">
+          <Route path="" Component={DashboardProducts} />
+          <Route path="adding" Component={AddProduct} />
+        </Route>
       </Route>
       <Route path="/email-verification" Component={EmailVerification} />
       <Route path="/not-logged" Component={NotLogged} />
