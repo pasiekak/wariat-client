@@ -34,7 +34,7 @@ const Attributes = ({
 
   const removeSelectedAttribute = (attribute: ICategory | IMark) => {
     setSelectedAttributes((prev) => {
-      return prev.filter((ob) => ob !== attribute);
+      return prev.filter((ob) => ob.id !== attribute.id);
     });
   };
 
