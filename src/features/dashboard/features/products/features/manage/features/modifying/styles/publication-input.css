@@ -1,0 +1,8 @@
+.publication-input {
+    cursor: pointer;
+    transition: scale 0.25s;
+}
+
+.publication-input:hover {
+    scale: 1.5;
+}

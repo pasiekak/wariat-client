@@ -1,0 +1,47 @@
+.single-product-extended .modify {
+
+}
+
+.single-product-extended .modify h3 {
+    text-align: center;
+}
+
+.single-product-extended .modify form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem;
+}
+
+.single-product-extended .modify form .btn {
+    grid-column: span 2;
+}
+
+.single-product-extended .modify form label {
+    align-self: center;
+}
+
+.single-product-extended .modify form input:not(input[type="checkbox"]),
+.single-product-extended .modify form textarea {
+    width: 95%;
+    place-self: center;
+}
+
+.single-product-extended .modify form input[type="checkbox"] {
+    height: 25px;
+    margin-left: 2.5%;
+    aspect-ratio: 1/1;
+    justify-self: flex-start;
+}
+
+@media (max-width: 767px) {
+    .single-product-extended .modify form {
+        grid-template-columns: 1fr;
+    }
+    .single-product-extended .modify form .btn {
+        grid-column: 1;
+    }
+    .single-product-extended .modify form > * {
+        width: 95%;
+        place-self: center;
+    }
+}

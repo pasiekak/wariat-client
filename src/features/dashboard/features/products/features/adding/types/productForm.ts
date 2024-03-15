@@ -1,4 +1,4 @@
-interface Product {
+interface IProductForm {
   name: string;
   description: string;
   priceBrutto: number;
@@ -8,4 +8,4 @@ interface Product {
   images: File[];
 }
 
-export default Product;
+export default IProductForm;

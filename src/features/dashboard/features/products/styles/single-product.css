@@ -1,0 +1,74 @@
+.dashboard-layout .products .items > .product {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-layout .products .items > .product .single-product-short > *:nth-child(1),
+.dashboard-layout .products .items > .product .single-product-short > *:nth-child(3),
+.dashboard-layout .products .items > .product .single-product-short > *:nth-child(4),
+.dashboard-layout .products .items > .product .single-product-short > *:nth-child(5) {
+    justify-self: center;
+}
+
+.dashboard-layout .products .items > .product {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding-inline: 0.5rem;
+}
+
+.dashboard-layout .products .items > .product:hover,
+.dashboard-layout .products .items > .product.selected {
+    background: var(--color-6);
+}
+
+.dashboard-layout .products .items > .product .single-product-short > .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.dashboard-layout .products .items > .product .single-product-short > .actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--row-height) - 5px);
+}
+
+.dashboard-layout .products .items > .product .single-product-short {
+    grid-auto-rows: var(--row-height);
+}
+
+/*Height grid animation*/
+.dashboard-layout .products .items > .product .single-product-extended {
+    display: grid;
+    transition: grid-template-rows 1s ease-out;
+    grid-template-rows: 0fr;
+}
+
+.dashboard-layout .products .items > .product .single-product-extended.open {
+    transition: grid-template-rows 1s ease-in;
+    grid-template-rows: 1fr;
+}
+
+.dashboard-layout .products .items > .product .single-product-extended .single-product-extended-inner {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    transition: margin 1s;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .products .items > .product .single-product-extended.open .single-product-extended-inner {
+    margin: 0.5rem 0;
+}
+
+/*For less than 767px*/
+@media (max-width: 767px) {
+    .dashboard-layout .products .items > .product .single-product-short > .actions {
+        flex-direction: column;
+        margin-block: 2px;
+    }
+    .dashboard-layout .products .items > .product .single-product-short {
+        grid-auto-rows: auto;
+    }
+}

@@ -34,11 +34,19 @@ const PaginationPanel = ({
     return (
       <div className="pagination-panel">
         <div className="page-manager">
-          <FontAwesomeIcon icon={faCaretLeft} onClick={decPage} />
+          <FontAwesomeIcon
+            className={page === 1 ? "disabled" : ""}
+            icon={faCaretLeft}
+            onClick={decPage}
+          />
           <span>
             Aktualna strona: {page}/{maxPage}
           </span>
-          <FontAwesomeIcon icon={faCaretRight} onClick={incPage} />
+          <FontAwesomeIcon
+            className={page === maxPage ? "disabled" : ""}
+            icon={faCaretRight}
+            onClick={incPage}
+          />
         </div>
         <div className="item-number-manager">
           <Button

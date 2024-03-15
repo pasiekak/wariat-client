@@ -10,6 +10,7 @@ import Items from "./types/items";
 
 import "./styles/dashboard-layout.css";
 import "./styles/inputs.css";
+import IProductForm from "./features/products/features/manage/features/modifying/types/productForm";
 
 const DashboardLayout = () => {
   const [tableName, setTableName] = useState<string | undefined>();
@@ -46,6 +47,20 @@ const DashboardLayout = () => {
     });
   };
 
+  const updateItem = (id: number, data: IProductForm) => {
+    setItems((prevState) => {
+      return {
+        ...prevState,
+        rows: prevState.rows.map((item) => {
+          if (item.id === id) {
+            return { ...item, ...data };
+          }
+          return item;
+        }),
+      };
+    });
+  };
+
   const setNumberOfItemsDisplayed = (numberOfItemsDisplayed: number) => {
     setPagination((prevState) => {
       return {
@@ -66,7 +81,7 @@ const DashboardLayout = () => {
     }
   }, [tableName, items.count, pagination.perPage]);
 
-  useEffect(() => {
+  const fetchData = () => {
     if (tableName) {
       setLoading(true);
       axios
@@ -80,6 +95,10 @@ const DashboardLayout = () => {
           }
         });
     }
+  };
+
+  useEffect(() => {
+    fetchData();
   }, [tableName, pagination.page, pagination.perPage]);
 
   return (
@@ -90,9 +109,11 @@ const DashboardLayout = () => {
         <Outlet
           context={{
             tableName,
-            setTableName,
             items,
             loading,
+            setTableName,
+            fetchData,
+            updateItem,
           }}
         />
 

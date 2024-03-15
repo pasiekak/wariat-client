@@ -1,0 +1,54 @@
+.dashboard-layout .product .attributes .attribute {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+
+    border-radius: 1rem;
+}
+
+.dashboard-layout .product .attributes .attribute.normal {
+    border: 1px solid black;
+}
+
+.dashboard-layout .product .attributes .attribute .vertical-line {
+    width: 1px;
+    height: 100%;
+    background: black;
+}
+
+.dashboard-layout .product .attributes .attribute.normal span,
+.dashboard-layout .product .attributes .attribute.normal .delete {
+    padding: 2px 10px;
+    cursor: pointer;
+}
+
+.dashboard-layout .product .attributes .attribute.normal span {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.dashboard-layout .product .attributes .attribute.normal span.selected {
+    background: var(--color-2)
+}
+
+.dashboard-layout .product .attributes .attribute.normal span:hover {
+    box-shadow: 0 0 4px 1px black;
+}
+
+.dashboard-layout .product .attributes .attribute.normal .delete-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.dashboard-layout .product .attributes .attribute.normal .delete-wrapper:hover {
+    box-shadow: 0 0 5px 1px orangered;
+}
+
+.dashboard-layout .product .attributes .attribute.normal span:hover:active,
+.dashboard-layout .product .attributes .attribute.normal .delete-wrapper:hover:active {
+    background: rgba(0, 0, 0, 0.1);
+}

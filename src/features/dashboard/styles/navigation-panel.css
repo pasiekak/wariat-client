@@ -23,9 +23,9 @@
     width: fit-content;
     padding: 0.5rem 10px;
     cursor: pointer;
-    background: var(--color-3);
-    border-radius: 0 10px 10px 0;
     transition: background 500ms;
+    border-radius: 0 10px 10px 0;
+    background: var(--color-3);
 }
 
 .dashboard-layout .navigation-panel > div.selected svg {
@@ -54,4 +54,17 @@
 
 .dashboard-layout .navigation-panel > div:hover svg {
     color: blueviolet;
+}
+
+@media (max-width: 767px) {
+    .dashboard-layout .navigation-panel {
+        flex-direction: row;
+        border-radius: 0;
+    }
+    .dashboard-layout .navigation-panel > div {
+        border-radius: 0;
+    }
+    .dashboard-layout .navigation-panel > div:last-child {
+        border-radius: 0 10px 10px 0;
+    }
 }

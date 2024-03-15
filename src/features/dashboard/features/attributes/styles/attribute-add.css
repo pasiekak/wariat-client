@@ -1,0 +1,40 @@
+.dashboard-layout .product .attributes .attribute.add:hover {
+    box-shadow: 0 0 3px 1px forestgreen;
+}
+
+.dashboard-layout .product .attributes .attribute.add:active {
+    opacity: 80%;
+}
+
+.dashboard-layout .product .attributes .attribute.add {
+    padding: 2px 10px;
+    cursor: pointer;
+    border: 1px solid forestgreen;
+}
+
+.dashboard-layout .product .attributes .attribute.add form {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 5px;
+}
+
+.dashboard-layout .product .attributes .attribute.add form .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-layout .product .attributes .attribute.add form input:focus {
+    outline: none;
+}
+
+.dashboard-layout .product .attributes .attribute.add .api-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    width: 100%;
+}

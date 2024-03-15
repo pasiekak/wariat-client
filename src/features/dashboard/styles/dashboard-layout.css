@@ -21,3 +21,16 @@
 .dashboard-layout .head-panel {
     grid-column: 2 span;
 }
+
+@media (max-width: 767px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px min-content auto;
+    }
+    .dashboard-layout .head-panel {
+        grid-column: 1;
+    }
+    .dashboard-layout .dashboard-content {
+        margin: 1rem 0.1rem;
+    }
+}

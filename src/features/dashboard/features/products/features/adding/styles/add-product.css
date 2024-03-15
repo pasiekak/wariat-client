@@ -11,17 +11,55 @@
 
 .dashboard-layout .add-product .field {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    width: min(75%, 500px)
+    flex-direction: column;
 }
 
-.dashboard-layout .add-product .field:last-of-type {
+.dashboard-layout .add-product .field,
+.dashboard-layout .add-product .images,
+.dashboard-layout .add-product .api_message,
+.dashboard-layout .add-product .actions {
+    width: min(75%, 500px);
+}
+
+.dashboard-layout .add-product .images {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.dashboard-layout .add-product .images img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dashboard-layout .add-product .field.publication {
+    align-items: center;
     flex-direction: row;
+    justify-content: center;
     gap: 0.25rem;
 }
 
 .dashboard-layout .add-product .field,
-.dashboard-layout .add-product .btn {
+.dashboard-layout .add-product .images,
+.dashboard-layout .add-product .actions,
+.dashboard-layout .add-product .api_message {
     align-self: center;
+}
+
+.dashboard-layout .add-product .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dashboard-layout .add-product .api_message {
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .dashboard-layout .add-product .actions {
+        flex-direction: column;
+    }
 }

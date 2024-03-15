@@ -26,7 +26,11 @@
     background: var(--color-3);
 }
 
-.dashboard-layout .pagination-panel svg:hover {
+.dashboard-layout .pagination-panel svg.disabled {
+    color: gray;
+}
+
+.dashboard-layout .pagination-panel svg:not(.disabled):hover {
     color: var(--color-3);
     background: blueviolet;
 }

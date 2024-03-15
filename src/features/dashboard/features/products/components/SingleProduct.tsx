@@ -1,30 +1,15 @@
-import ProductNotDetailed from "../../../types/productNotDetailed";
-import {
-  faCircleCheck,
-  faCircleXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IProductExtendedByFn } from "../types/product";
+import "../styles/single-product.css";
+import SingleProductExtended from "./SingleProductExtended";
+import SingleProductShort from "./SingleProductShort";
 
-const SingleProduct = ({
-  id,
-  name,
-  priceBrutto,
-  maxQuantity,
-  published,
-}: ProductNotDetailed) => {
+const SingleProduct = (props: IProductExtendedByFn) => {
   return (
-    <div className="product">
-      <span>{id}</span>
-      <span>{name}</span>
-      <span>{maxQuantity}</span>
-      <span>{priceBrutto} zł</span>
-      <span>
-        {published ? (
-          <FontAwesomeIcon icon={faCircleCheck} color={"green"} />
-        ) : (
-          <FontAwesomeIcon icon={faCircleXmark} color={"red"} />
-        )}
-      </span>
+    <div
+      className={`product${props.openedProduct === props.id ? " selected" : ""}`}
+    >
+      <SingleProductShort {...props} />
+      <SingleProductExtended {...props} />
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.dashboard-layout .product .attributes {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-layout .product .attributes .attributes-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+}
+
+.dashboard-layout .product .attributes h3 {
+    text-align: center;
+}

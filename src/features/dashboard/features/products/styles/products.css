@@ -1,3 +1,7 @@
+:root {
+    --row-height: 30px;
+}
+
 .dashboard-layout .products {
     display: flex;
     flex: 1;
@@ -10,41 +14,69 @@
 
 /*Columns*/
 .dashboard-layout .products .columns,
-.dashboard-layout .products .items > .product {
+.dashboard-layout .products .items > .product .single-product-short {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    grid-template-columns: 3rem 1fr 50px 50px 100px 150px;
+    gap: 0.25rem;
+}
+
+.dashboard-layout .products .columns span:nth-child(1),
+.dashboard-layout .products .columns span:nth-child(3),
+.dashboard-layout .products .columns span:nth-child(4),
+.dashboard-layout .products .columns span:nth-child(5) {
+    justify-self: center;
 }
 
 .dashboard-layout .products .columns {
     font-size: 18px;
     font-weight: bold;
     align-content: center;
-    height: 32px;
     background: var(--color-2);
+    justify-items: flex-start;
 }
 
 .dashboard-layout .products .columns > span {
+    position: relative;
     cursor: help;
+}
+
+.dashboard-layout .products .columns > span:hover:after {
+    width: 100%;
+}
+
+.dashboard-layout .products .columns > span:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    content: "";
+    transition: width 500ms;
+    background: black;
+}
+
+.dashboard-layout .products .columns > span:last-of-type {
+    justify-self: center;
 }
 
 /*Items*/
 .dashboard-layout .products .items {
-    padding-inline: 0;
     flex: 1;
-}
-
-.dashboard-layout .products .items > .product {
-    cursor: pointer;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    padding-inline: 0.5rem;
-}
-
-.dashboard-layout .products .items > .product:hover {
-    background: var(--color-4);
+    padding-inline: 0;
 }
 
 /*Actions*/
-.dashboard-layout .products .actions {
+.dashboard-layout .products > .actions {
     display: flex;
     justify-content: center;
+    margin-top: 0.25rem;
+}
+
+/*Less than 767px*/
+@media (max-width: 767px) {
+    .dashboard-layout .products .columns,
+    .dashboard-layout .products .items > .product .single-product-short {
+        grid-template-columns: 3rem 1fr 50px 50px 100px 75px;
+    }
 }

@@ -1,62 +1,73 @@
 .Filters {
-  min-height: fit-content;
-  margin: 10px 0 10px 10px;
+    min-height: fit-content;
+    margin: 10px 0 10px 10px;
 }
-.Filters .filters-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
 
-  background-color: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+.Filters .filters-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .Filters .filters-title {
-  align-self: center;
-  font-size: 18px;
-  font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    align-self: center;
 }
+
 .Filters .line {
-  align-self: center;
-  height: 1px;
-  width: 80%;
-  margin-block: 5px;
-  background-color: black;
+    align-self: center;
+    width: 80%;
+    height: 1px;
+    background-color: black;
+    margin-block: 5px;
 }
-.Filters .categories .line,
+
+.Filters .attributes .line,
 .Filters .marks .line {
-  width: 60%;
+    width: 60%;
 }
+
 .Filters .marks,
-.Filters .categories {
-  display: flex;
-  flex-direction: column;
+.Filters .attributes {
+    display: flex;
+    flex-direction: column;
 }
+
 .Filters .title {
-  align-self: center;
+    align-self: center;
 }
+
 .Filters .MultiSelectFilter {
-  align-self: center;
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 500ms;
+    display: grid;
+    align-self: center;
+    transition: grid-template-rows 500ms;
+    grid-template-rows: 0fr;
 }
+
 .Filters .MultiSelectFilter > * {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .Filters .MultiSelectFilter.open {
-  grid-template-rows: 1fr;
+    grid-template-rows: 1fr;
 }
+
 .Filters svg {
-  align-self: center;
-  transition: 500ms ease;
-  cursor: pointer;
+    align-self: center;
+    cursor: pointer;
+    transition: 500ms ease;
 }
+
 .Filters svg.open {
-  rotate: 180deg;
+    rotate: 180deg;
 }
+
 .Filters .buttons {
-  margin-top: 10px;
-  align-self: center;
+    align-self: center;
+    margin-top: 10px;
 }
