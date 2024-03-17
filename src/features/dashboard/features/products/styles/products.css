@@ -21,10 +21,10 @@
     gap: 0.25rem;
 }
 
-.dashboard-layout .products .columns span:nth-child(1),
-.dashboard-layout .products .columns span:nth-child(3),
-.dashboard-layout .products .columns span:nth-child(4),
-.dashboard-layout .products .columns span:nth-child(5) {
+.dashboard-layout .products .columns div:nth-child(1),
+.dashboard-layout .products .columns div:nth-child(3),
+.dashboard-layout .products .columns div:nth-child(4),
+.dashboard-layout .products .columns div:nth-child(5) {
     justify-self: center;
 }
 
@@ -36,28 +36,37 @@
     justify-items: flex-start;
 }
 
-.dashboard-layout .products .columns > span {
+.dashboard-layout .products .columns > div {
     position: relative;
     cursor: help;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.dashboard-layout .products .columns > span:hover:after {
-    width: 100%;
-}
-
-.dashboard-layout .products .columns > span:after {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 1px;
-    content: "";
-    transition: width 500ms;
-    background: black;
-}
-
-.dashboard-layout .products .columns > span:last-of-type {
+.dashboard-layout .products .columns > div:last-of-type {
     justify-self: center;
+}
+
+/*Caret style*/
+.dashboard-layout .products .columns > div:hover .caret {
+    scale: 1.2;
+}
+
+.dashboard-layout .products .columns .caret {
+    transition: rotate 100ms, scale 200ms, max-height 200ms;
+}
+
+.dashboard-layout .products .columns .caret {
+}
+
+.dashboard-layout .products .columns .caret:not(.selected) {
+    scale: 0;
+}
+
+.dashboard-layout .products .columns .caret.up {
+    rotate: 180deg;
 }
 
 /*Items*/

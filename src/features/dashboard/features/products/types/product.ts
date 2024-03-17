@@ -58,9 +58,23 @@ interface ISingleProductExtended {
   ) => void;
 }
 
+interface IProductsList {
+  products: IProduct[];
+  setOpen: (id: number | ((prev: number | null) => number | null)) => void;
+  openedProduct: number | null;
+  categories: ICategory[];
+  marks: IMark[];
+  updateAttribute: (
+    attribute: ICategory | IMark,
+    attributeNameMany: string,
+    type: string,
+  ) => void;
+}
+
 export type {
   IProduct,
   ISingleProductShort,
   ISingleProductExtended,
   IProductExtendedByFn,
+  IProductsList,
 };

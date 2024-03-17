@@ -6,21 +6,33 @@ import NavigationPanel from "./components/navigation-panel/NavigationPanel";
 import HeadPanel from "./components/head-panel/HeadPanel";
 import Pagination from "./types/pagination";
 import PaginationPanel from "./components/pagination-panel/PaginationPanel";
-import Items from "./types/items";
+import { IItems } from "./types/items";
 
 import "./styles/dashboard-layout.css";
 import "./styles/inputs.css";
 import IProductForm from "./features/products/features/manage/features/modifying/types/productForm";
+import { IOrder } from "./types/IOrder";
 
 const DashboardLayout = () => {
   const [tableName, setTableName] = useState<string | undefined>();
-  const [items, setItems] = useState<Items>({ count: 0, rows: [] });
+  const [items, setItems] = useState<IItems>({
+    count: 0,
+    rows: [],
+  });
   const [pagination, setPagination] = useState<Pagination>({
     page: 1,
     maxPage: 1,
     perPage: 10,
   });
+  const [order, setOrder] = useState<IOrder>({ by: "id", direction: "DESC" });
   const [loading, setLoading] = useState<boolean>(true);
+
+  const updateOrder = (by: string, direction: string) => {
+    setOrder({
+      by: by,
+      direction: direction,
+    });
+  };
 
   const incPage = () => {
     setPagination((prevState) => {
@@ -86,34 +98,46 @@ const DashboardLayout = () => {
       setLoading(true);
       axios
         .get(
-          `/api/${tableName}?page=${pagination.page}&perPage=${pagination.perPage}`,
+          `/api/${tableName}?page=${pagination.page}&perPage=${pagination.perPage}&by=${order.by}&direction=${order.direction}`,
         )
         .then((res) => {
-          if (res.data.success) {
+          if (res?.data?.success) {
             setItems(res.data.items);
-            setLoading(false);
           }
+          setLoading(false);
         });
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, [tableName, pagination.page, pagination.perPage]);
+  }, [
+    tableName,
+    pagination.page,
+    pagination.perPage,
+    order.by,
+    order.direction,
+  ]);
 
   return (
     <div className="dashboard-layout">
       <HeadPanel />
-      <NavigationPanel />
+      <NavigationPanel
+        setItems={setItems}
+        loading={loading}
+        tableName={tableName}
+      />
       <section className="dashboard-content">
         <Outlet
           context={{
             tableName,
             items,
             loading,
+            order,
             setTableName,
             fetchData,
             updateItem,
+            updateOrder,
           }}
         />
 

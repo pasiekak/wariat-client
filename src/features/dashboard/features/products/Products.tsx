@@ -1,23 +1,18 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./styles/products.css";
-import SingleProduct from "./components/SingleProduct";
-import Items from "../../types/items";
 import Button from "react-bootstrap/Button";
 import Columns from "./components/Columns";
 import axios from "axios";
 import { ICategory } from "../attributes/types/ICategory";
 import { IMark } from "../attributes/types/IMark";
-
-interface OutletContext {
-  tableName: string;
-  setTableName: (tableName: string) => void;
-  items: Items;
-  loading: boolean;
-}
+import { IProductsOutletContext } from "../../types/IOutletContext";
+import ProductsList from "./components/ProductsList";
+import { IProduct } from "./types/product";
+import TableInfo from "../../components/table-info/TableInfo";
 
 const Products = () => {
-  const { tableName, setTableName, items, loading }: OutletContext =
+  const { setTableName, tableName, items, loading }: IProductsOutletContext =
     useOutletContext();
   const navigate = useNavigate();
   const [openedProduct, setOpenedProduct] = useState<number | null>(null);
@@ -82,30 +77,18 @@ const Products = () => {
 
   return (
     <section className="products">
-      <h1>Produkty( {items.count} )</h1>
+      <TableInfo tableName={tableName} count={items.count} />
       <Columns />
-      <div className="items">
-        {items.rows.length > 0 &&
-          items.rows.map((product, index) => (
-            <SingleProduct
-              id={product.id}
-              name={product.name}
-              description={product.description}
-              maxQuantity={product.maxQuantity}
-              priceBrutto={parseFloat(product.priceBrutto.toFixed(2))}
-              priceNetto={parseFloat(product.priceNetto.toFixed(2))}
-              published={product.published}
-              createdAt={new Date(product.createdAt)}
-              updatedAt={new Date(product.updatedAt)}
-              key={index}
-              setOpen={setOpenedProduct}
-              openedProduct={openedProduct}
-              categories={categories}
-              marks={marks}
-              updateAttribute={updateAttribute}
-            />
-          ))}
-      </div>
+      {items.rows.length > 0 && (
+        <ProductsList
+          products={items.rows as IProduct[]}
+          openedProduct={openedProduct}
+          categories={categories}
+          marks={marks}
+          updateAttribute={updateAttribute}
+          setOpen={setOpenedProduct}
+        />
+      )}
       <div className="actions">
         <Button
           variant="dark"

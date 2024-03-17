@@ -1,7 +1,6 @@
 import { createBrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "../account/features/auth/features/login/LoginPage";
 import RegisterPage from "../account/features/auth/features/register/RegisterPage";
-import { DashboardProvider } from "../dashboard/context/DashboardContext";
 import EmailVerification from "../account/features/auth/features/email/EmailVerification";
 import NotLogged from "../account/features/auth/components/not-logged/Not-logged";
 import Header from "../../components/header/Header";
@@ -15,9 +14,11 @@ import Order from "../order/Order";
 import Summary from "../order/features/summary/Summary";
 import NotFound from "../../components/not-found-page/NotFound";
 import Footer from "../../components/footer/Footer";
-import ProtectedRoute from "./components/ProtectedRoute";
-import DashboardLayout from "../dashboard/DashboardLayout";
 import AddProduct from "../dashboard/features/products/features/adding/AddProduct";
+import Users from "../dashboard/features/users/Users";
+import { DashboardProvider } from "../dashboard/context/DashboardContext";
+import DashboardLayout from "../dashboard/DashboardLayout";
+import ModeratorRoutes from "./components/ModeratorRoutes";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -27,19 +28,22 @@ function Root() {
       <Route path="/*" Component={NormalRoutes} />
       <Route path="/login" Component={LoginPage} />
       <Route path="/register" Component={RegisterPage} />
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute accessRoles={["admin", "moderator"]}>
+      <Route path="/dashboard" element={<ModeratorRoutes />}>
+        <Route
+          path=""
+          element={
             <DashboardProvider>
               <DashboardLayout />
             </DashboardProvider>
-          </ProtectedRoute>
-        }
-      >
-        <Route path="products">
-          <Route path="" Component={DashboardProducts} />
-          <Route path="adding" Component={AddProduct} />
+          }
+        >
+          <Route path="products">
+            <Route path="" element={<DashboardProducts />} />
+            <Route path="adding" element={<AddProduct />} />
+          </Route>
+          <Route path="users">
+            <Route path="" element={<Users />} />
+          </Route>
         </Route>
       </Route>
       <Route path="/email-verification" Component={EmailVerification} />

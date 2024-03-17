@@ -18,7 +18,7 @@ const Images = ({ productID }: IImagesProps) => {
         setImages(res.data.images);
       }
     });
-  }, []);
+  }, [productID]);
 
   const handleAddImage = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;

@@ -56,10 +56,10 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
       <h3>Dane produktu</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">Nazwa produktu</label>
-        <input type="text" {...register("name")} />
+        <input id="name" type="text" {...register("name")} />
 
         <label htmlFor="description">Opis</label>
-        <textarea {...register("description")} />
+        <textarea id="description" {...register("description")} />
 
         <label
           htmlFor="maxQuantity"
@@ -69,6 +69,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
         </label>
         <input
           type="number"
+          id="maxQuantity"
           min={0}
           {...register("maxQuantity", { required: true, valueAsNumber: true })}
         />
@@ -80,6 +81,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
           Cena Brutto
         </label>
         <input
+          id="priceBrutto"
           type="number"
           min={0.01}
           step={0.01}
@@ -97,6 +99,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
           Cena Netto
         </label>
         <input
+          id="priceNetto"
           type="number"
           min={0.01}
           step={0.01}
@@ -113,7 +116,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
         >
           Publikacja
         </label>
-        <input type="checkbox" {...register("published")} />
+        <input id="published" type="checkbox" {...register("published")} />
         <Button type="submit" variant="dark" disabled={loading}>
           Zatwierdź zmiany
         </Button>
