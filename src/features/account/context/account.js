@@ -4,7 +4,27 @@ import { useCookies } from "react-cookie";
 export const AccountContext = createContext();
 
 export const AccountProvider = ({ children }) => {
-  const [cookies] = useCookies();
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+
+  const isAdmin = () => {
+    return !!(cookies.user && cookies.user.role === "admin");
+  };
+
+  const isModerator = () => {
+    return !!(
+      cookies.user &&
+      (cookies.user.role === "moderator" || cookies.user.role === "admin")
+    );
+  };
+
+  const isClient = () => {
+    return !!(cookies.user && cookies.user.role === "client");
+  };
+
+  const isLogged = () => {
+    return !!cookies.user;
+  };
+
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || null,
   );
@@ -86,6 +106,10 @@ export const AccountProvider = ({ children }) => {
         updateAttributeValues,
         setCompanyData,
         clearAccount,
+        isLogged,
+        isClient,
+        isModerator,
+        isAdmin,
       }}
     >
       {children}
