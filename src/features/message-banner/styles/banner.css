@@ -1,0 +1,40 @@
+:root {
+    --banner-color-info: #2196f3;
+    --banner-color-success: #4caf50;
+    --banner-color-warning: #ff9800;
+    --banner-color-error: #f44336;
+}
+
+body .banner {
+    font-size: 24px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    gap: 1rem;
+}
+
+body .banner.success {
+    color: #ffffff;
+    background-color: var(--banner-color-success);
+}
+
+body .banner.info {
+    color: #ffffff;
+    background-color: var(--banner-color-info);
+}
+
+body .banner.warning {
+    color: #ffffff;
+    background-color: var(--banner-color-warning);
+}
+
+body .banner.error {
+    color: #ffffff;
+    background-color: var(--banner-color-error);
+}
+

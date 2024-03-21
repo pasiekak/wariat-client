@@ -1,0 +1,21 @@
+.banner {
+    position: relative;
+}
+
+.banner .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    opacity: 25%;
+    background-color: black;
+}
+
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
