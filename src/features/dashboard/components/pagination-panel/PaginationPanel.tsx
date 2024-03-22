@@ -3,6 +3,7 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import "../../styles/pagination-panel.css";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 interface PaginationPanelProps {
   itemsCount: number;
@@ -14,6 +15,8 @@ interface PaginationPanelProps {
   setNumberOfItemsDisplayed: (numberOfItemsDisplayed: number) => void;
 }
 
+const renderLocations = ["/dashboard/products", "/dashboard/users"];
+
 const PaginationPanel = ({
   itemsCount,
   page,
@@ -24,8 +27,23 @@ const PaginationPanel = ({
   setNumberOfItemsDisplayed,
 }: PaginationPanelProps) => {
   const location = useLocation();
-  const renderLocations = ["/dashboard/products", "/dashboard/users"];
+  const [decClicked, setDecClicked] = useState(false);
+  const [incClicked, setIncClicked] = useState(false);
 
+  const handleClick = (
+    incdec: () => void,
+    set: (x: boolean) => void,
+    prev: boolean,
+  ) => {
+    if (!prev) {
+      set(true);
+
+      setTimeout(() => {
+        set(false);
+      }, 500);
+    }
+    incdec();
+  };
   const checkIfLocationIsValid = () => {
     return renderLocations.includes(location.pathname);
   };
@@ -35,27 +53,24 @@ const PaginationPanel = ({
       <div className="pagination-panel">
         <div className="page-manager">
           <FontAwesomeIcon
-            className={page === 1 ? "disabled" : ""}
+            className={`
+              dec${page === 1 ? ` disabled${decClicked ? " clicked" : ""}` : ""}
+            `}
             icon={faCaretLeft}
-            onClick={decPage}
+            onClick={() => handleClick(decPage, setDecClicked, decClicked)}
           />
           <span>
             Aktualna strona: {page}/{maxPage}
           </span>
           <FontAwesomeIcon
-            className={page === maxPage ? "disabled" : ""}
+            className={`
+              inc${page === maxPage ? ` disabled${incClicked ? " clicked" : ""}` : ""}
+            `}
             icon={faCaretRight}
-            onClick={incPage}
+            onClick={() => handleClick(incPage, setIncClicked, incClicked)}
           />
         </div>
         <div className="item-number-manager">
-          <Button
-            variant="dark"
-            onClick={() => setNumberOfItemsDisplayed(5)}
-            disabled={perPage === 5}
-          >
-            5
-          </Button>
           <Button
             variant="dark"
             onClick={() => setNumberOfItemsDisplayed(10)}
@@ -65,17 +80,24 @@ const PaginationPanel = ({
           </Button>
           <Button
             variant="dark"
-            onClick={() => setNumberOfItemsDisplayed(15)}
-            disabled={perPage === 15}
-          >
-            15
-          </Button>
-          <Button
-            variant="dark"
             onClick={() => setNumberOfItemsDisplayed(20)}
             disabled={perPage === 20}
           >
             20
+          </Button>
+          <Button
+            variant="dark"
+            onClick={() => setNumberOfItemsDisplayed(40)}
+            disabled={perPage === 40}
+          >
+            40
+          </Button>
+          <Button
+            variant="dark"
+            onClick={() => setNumberOfItemsDisplayed(80)}
+            disabled={perPage === 80}
+          >
+            80
           </Button>
         </div>
       </div>

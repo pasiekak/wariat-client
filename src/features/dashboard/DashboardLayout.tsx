@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 import NavigationPanel from "./components/navigation-panel/NavigationPanel";
@@ -12,8 +12,14 @@ import "./styles/dashboard-layout.css";
 import "./styles/inputs.css";
 import IProductForm from "./features/products/features/manage/features/modifying/types/productForm";
 import { IOrder } from "./types/IOrder";
+import TableInfo from "./components/table-info/TableInfo";
+import BannerPortal from "../message-banner/BannerPortal";
+import { IBannerPortalForwardedFunctions } from "../message-banner/types/IBannerPortalForwardedFunctions";
+import { IBanner } from "../message-banner/types/IBanner";
 
+const fetchableTables = ["products", "users"];
 const DashboardLayout = () => {
+  const portalRef = useRef<IBannerPortalForwardedFunctions>(null);
   const [tableName, setTableName] = useState<string | undefined>();
   const [items, setItems] = useState<IItems>({
     count: 0,
@@ -22,10 +28,14 @@ const DashboardLayout = () => {
   const [pagination, setPagination] = useState<Pagination>({
     page: 1,
     maxPage: 1,
-    perPage: 10,
+    perPage: 20,
   });
   const [order, setOrder] = useState<IOrder>({ by: "id", direction: "DESC" });
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const addBanner = (banner: IBanner) => {
+    if (portalRef.current) portalRef.current.addBanner(banner);
+  };
 
   const updateOrder = (by: string, direction: string) => {
     setOrder({
@@ -81,19 +91,7 @@ const DashboardLayout = () => {
       };
     });
   };
-
-  useEffect(() => {
-    if (tableName && items.count > 0) {
-      setPagination((prevState) => {
-        return {
-          ...prevState,
-          maxPage: Math.ceil(items.count / prevState.perPage),
-        };
-      });
-    }
-  }, [tableName, items.count, pagination.perPage]);
-
-  const fetchData = () => {
+  const fetchData = useCallback(() => {
     if (tableName) {
       setLoading(true);
       axios
@@ -107,10 +105,6 @@ const DashboardLayout = () => {
           setLoading(false);
         });
     }
-  };
-
-  useEffect(() => {
-    fetchData();
   }, [
     tableName,
     pagination.page,
@@ -118,6 +112,23 @@ const DashboardLayout = () => {
     order.by,
     order.direction,
   ]);
+
+  useEffect(() => {
+    if (tableName && items.count > 0) {
+      setPagination((prevState) => {
+        return {
+          ...prevState,
+          maxPage: Math.ceil(items.count / prevState.perPage),
+        };
+      });
+    }
+  }, [tableName, items.count, pagination.perPage, fetchData]);
+
+  useEffect(() => {
+    if (tableName && fetchableTables.includes(tableName)) {
+      fetchData();
+    }
+  }, [fetchData, tableName]);
 
   return (
     <div className="dashboard-layout">
@@ -128,6 +139,7 @@ const DashboardLayout = () => {
         tableName={tableName}
       />
       <section className="dashboard-content">
+        {tableName && <TableInfo tableName={tableName} count={items.count} />}
         <Outlet
           context={{
             tableName,
@@ -138,6 +150,7 @@ const DashboardLayout = () => {
             fetchData,
             updateItem,
             updateOrder,
+            addBanner,
           }}
         />
 
@@ -150,6 +163,7 @@ const DashboardLayout = () => {
           decPage={decPage}
           setNumberOfItemsDisplayed={setNumberOfItemsDisplayed}
         />
+        <BannerPortal ref={portalRef} autoClose={true} autoCloseTime={5000} />
       </section>
     </div>
   );

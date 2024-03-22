@@ -1,0 +1,7 @@
+.dashboard-layout .discounts .edit-percentage-form {
+    display: grid;
+    width: 100%;
+    grid-column: span 2;
+    grid-template-columns: 1fr 1fr min-content;
+    gap: 0.5rem;
+}

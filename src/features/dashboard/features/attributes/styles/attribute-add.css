@@ -28,13 +28,3 @@
 .dashboard-layout .product .attributes .attribute.add form input:focus {
     outline: none;
 }
-
-.dashboard-layout .product .attributes .attribute.add .api-message {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    width: 100%;
-}

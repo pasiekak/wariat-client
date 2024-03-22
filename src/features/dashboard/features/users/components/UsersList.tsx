@@ -1,6 +1,8 @@
 import { IUser } from "../types/IUser";
 import UserCard from "./UserCard";
 
+import "../styles/users-list.css";
+
 const UsersList = ({ users }: { users: IUser[] }) => {
   return (
     <div className="users-list">

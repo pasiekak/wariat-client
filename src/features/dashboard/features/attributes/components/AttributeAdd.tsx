@@ -4,6 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import "../styles/attribute-add.css";
 import { IAttributeAddProps } from "../types/IAttributeAddProps";
+import { useOutletContext } from "react-router-dom";
+import { IDefaultOutletContext } from "../../../types/IOutletContext";
 
 interface IForm {
   name: string;
@@ -12,22 +14,23 @@ interface IForm {
 const AttributeAdd = ({
   attributeNameMany,
   updateAttribute,
-  setApiMessage,
 }: IAttributeAddProps) => {
-  const { register, handleSubmit } = useForm<IForm>();
+  const { addBanner } = useOutletContext<IDefaultOutletContext>();
+  const { register, handleSubmit, reset } = useForm<IForm>();
   const [showForm, setShowForm] = useState<boolean>(false);
   const onSubmit = (data: IForm) => {
     axios
       .post(`/api/${attributeNameMany}`, data)
       .then((res) => {
         if (res.status === 201) {
-          setApiMessage(null);
           setShowForm(false);
           updateAttribute(res.data.attribute, attributeNameMany, "add");
+          reset();
         }
       })
       .catch((err) => {
-        setApiMessage(`Wystąpił błąd. (${err.response.data.error})`);
+        if (err?.response?.data?.error)
+          addBanner({ message: err.response.data.error, type: "error" });
       });
   };
 
@@ -38,19 +41,12 @@ const AttributeAdd = ({
           <Button
             variant="outline-success"
             onClick={() => {
-              setApiMessage(null);
               setShowForm((prev) => !prev);
             }}
           >
             Anuluj
           </Button>
-          <input
-            type="text"
-            {...register("name")}
-            onChange={() => {
-              setApiMessage(null);
-            }}
-          />
+          <input type="text" {...register("name")} />
           <Button variant="outline-success" type="submit">
             Dodaj
           </Button>

@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxesStacked, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBoxesStacked,
+  faPercent,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import "../../styles/navigation-panel.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -23,11 +27,16 @@ const NavigationPanel = ({
       setSelected(1);
     } else if (location.pathname.includes("users")) {
       setSelected(2);
+    } else if (location.pathname.includes("discounts")) {
+      setSelected(3);
     }
   }, [location.pathname]);
 
   const handleClick = (to: string) => {
-    if (!loading || tableName === undefined) {
+    if (
+      (!loading || tableName === undefined) &&
+      !location.pathname.includes(to)
+    ) {
       setItems({ count: 0, rows: [] });
       navigate(`/dashboard/${to}`);
     }
@@ -48,6 +57,20 @@ const NavigationPanel = ({
       >
         <FontAwesomeIcon icon={faUsers} />
         <span>Użytkownicy</span>
+      </div>
+      <div className={selected === 3 ? "selected" : ""}>
+        <FontAwesomeIcon
+          icon={faPercent}
+          onClick={() => handleClick("discounts")}
+        />
+        <div className="nested">
+          <span onClick={() => handleClick("discounts/groups")}>
+            Grupy zniżkowe
+          </span>
+          <span onClick={() => handleClick("discounts/individual")}>
+            Nadawane zniżki
+          </span>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
+    padding: 0.5rem;
     gap: 0.5rem;
 }
 
@@ -30,6 +31,14 @@
     color: gray;
 }
 
+.dashboard-layout .pagination-panel svg.dec.disabled.clicked {
+    animation: shakeleft 500ms;
+}
+
+.dashboard-layout .pagination-panel svg.inc.disabled.clicked {
+    animation: shakeright 500ms;
+}
+
 .dashboard-layout .pagination-panel svg:not(.disabled):hover {
     color: var(--color-3);
     background: blueviolet;
@@ -48,4 +57,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*Style when users are displayed*/
+
+.dashboard-layout:has(.users) .pagination-panel {
+    border-radius: 5px;
+    background: var(--color-3);
+}
+
+@keyframes shakeleft {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-10px);
+    }
+    66% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shakeright {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(10px);
+    }
+    66% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

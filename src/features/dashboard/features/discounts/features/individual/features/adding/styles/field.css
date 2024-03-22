@@ -1,0 +1,10 @@
+.dashboard-layout .individual-discounts .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashboard-layout .individual-discounts .field .empty {
+    font-weight: bold;
+    color: darkred;
+}

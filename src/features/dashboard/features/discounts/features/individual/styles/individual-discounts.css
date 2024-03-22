@@ -1,0 +1,9 @@
+.dashboard-layout .discounts .individual-discounts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .discounts .individual-discounts .display h1 {
+    text-align: center;
+}

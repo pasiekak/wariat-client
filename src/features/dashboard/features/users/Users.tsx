@@ -3,22 +3,17 @@ import { IUsersOutletContext } from "../../types/IOutletContext";
 import { useEffect } from "react";
 
 import "./styles/users.css";
-import TableInfo from "../../components/table-info/TableInfo";
 import UsersList from "./components/UsersList";
 
 const Users = () => {
-  const { tableName, setTableName, items, loading }: IUsersOutletContext =
-    useOutletContext();
+  const { setTableName, items }: IUsersOutletContext = useOutletContext();
 
   useEffect(() => {
     setTableName("users");
-  }, []);
-
-  console.log(items);
+  }, [setTableName]);
 
   return (
     <section className="users">
-      <TableInfo tableName={tableName} count={items.count} />
       {items.count > 0 && <UsersList users={items.rows} />}
     </section>
   );

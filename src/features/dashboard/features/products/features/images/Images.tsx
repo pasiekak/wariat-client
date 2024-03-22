@@ -4,12 +4,15 @@ import "./styles/images.css";
 import IImage from "./types/IImage";
 import Image from "./components/Image";
 import EmptyImage from "./components/EmptyImage";
+import { useOutletContext } from "react-router-dom";
+import { IDefaultOutletContext } from "../../../../types/IOutletContext";
 
 interface IImagesProps {
   productID: number;
 }
 
 const Images = ({ productID }: IImagesProps) => {
+  const { addBanner } = useOutletContext<IDefaultOutletContext>();
   const [images, setImages] = useState<IImage[]>([]);
 
   useEffect(() => {
@@ -25,53 +28,78 @@ const Images = ({ productID }: IImagesProps) => {
     if (files && files.length > 0) {
       const formData = new FormData();
       formData.append("image", files[0]);
-      axios.post(`/api/images/products/${productID}`, formData).then((res) => {
-        if (res.status === 201) {
-          setImages((prev) => {
-            const newImage = res.data.images[0];
-            const newImageOb = {
-              id: newImage.id,
-              main: newImage.main,
-            };
-            return [...prev, newImageOb];
-          });
-        } else {
-          alert(res.data.message);
-        }
-      });
+      axios
+        .post(`/api/images/products/${productID}`, formData)
+        .then((res) => {
+          if (res.status === 201) {
+            setImages((prev) => {
+              const newImage = res.data.images[0];
+              const newImageOb = {
+                id: newImage.id,
+                main: newImage.main,
+              };
+              return [...prev, newImageOb];
+            });
+            addBanner({
+              message: "Dodano zdjęcie do produktu",
+              type: "success",
+            });
+          }
+        })
+        .catch((err) => {
+          if (err?.response?.data?.message)
+            addBanner({ message: err.response.data.message, type: "error" });
+        });
     }
   };
 
   const handleDelete = (id: number) => {
     axios
       .delete(`/api/images/${id}`)
-      .catch((err) => {
-        alert(err.response.data.message);
-      })
+
       .then((res) => {
         if (res) {
           if (res.status === 200) {
             setImages((prev) => {
               return prev.filter((ob) => ob.id !== id);
             });
+
+            addBanner({
+              message: "Usunięto zdjęcie produktu",
+              type: "success",
+            });
           }
         }
+      })
+      .catch((err) => {
+        if (err?.response?.data?.message)
+          addBanner({ message: err.response.data.message, type: "error" });
       });
   };
   const handleMain = (id: number) => {
-    axios.put(`/api/images/${id}`).then((res) => {
-      if (res.status === 200) {
-        setImages((prev) => {
-          return prev.map((image) => {
-            if (image.id === id) {
-              return { ...image, main: true };
-            } else {
-              return { ...image, main: false };
-            }
+    axios
+      .put(`/api/images/${id}`)
+      .then((res) => {
+        if (res.status === 200) {
+          setImages((prev) => {
+            return prev.map((image) => {
+              if (image.id === id) {
+                return { ...image, main: true };
+              } else {
+                return { ...image, main: false };
+              }
+            });
           });
-        });
-      }
-    });
+          addBanner({
+            message: "Zmieniono główne zdjęcie produktu",
+            type: "success",
+          });
+        }
+      })
+      .catch((err) => {
+        if (err?.response?.data?.message)
+          addBanner({ message: err.response.data.message, type: "error" });
+      });
   };
 
   return (

@@ -1,0 +1,39 @@
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div:not(.actions):not(.active-info) {
+    border-bottom: 1px solid black;
+
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div span {
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div.active-info {
+    font-weight: bold;
+    border-radius: 0.25rem;
+    margin-block: 0.25rem;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div.active {
+    background-color: limegreen;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount > div.not-active {
+    background-color: orangered;
+}
+
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper .single-discount .btn {
+    width: 100%;
+}

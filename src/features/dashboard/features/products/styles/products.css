@@ -17,7 +17,7 @@
 .dashboard-layout .products .items > .product .single-product-short {
     display: grid;
     align-items: center;
-    grid-template-columns: 3rem 1fr 50px 50px 100px 150px;
+    grid-template-columns: 3rem 1fr 75px 75px 100px 150px;
     gap: 0.25rem;
 }
 
@@ -38,11 +38,11 @@
 
 .dashboard-layout .products .columns > div {
     position: relative;
-    cursor: help;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    cursor: help;
 }
 
 .dashboard-layout .products .columns > div:last-of-type {
@@ -73,6 +73,12 @@
 .dashboard-layout .products .items {
     flex: 1;
     padding-inline: 0;
+}
+
+.dashboard-layout .products .items > .product .single-product-short span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /*Actions*/

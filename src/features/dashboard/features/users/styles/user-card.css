@@ -1,0 +1,46 @@
+.dashboard-layout .user-card {
+    display: grid;
+    overflow: hidden;
+    border-radius: 5px;
+    background: var(--color-3);
+    grid-template-columns: 1fr 1fr;
+}
+
+.dashboard-layout .user-card > * {
+    padding: 0.5rem;
+}
+
+.dashboard-layout .user-card .property {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+}
+
+/*specific fields*/
+.dashboard-layout .user-card .property.username {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dashboard-layout .user-card .property.role {
+    font-size: 24px;
+    font-weight: bold;
+    background: var(--color-2);
+}
+
+.dashboard-layout .user-card .btn {
+    border-radius: 0;
+}
+
+/*properties which takes 2 columns*/
+.dashboard-layout .user-card .property.username,
+.dashboard-layout .user-card .property.email,
+.dashboard-layout .user-card .property.created-at,
+.dashboard-layout .user-card .property.phone,
+.dashboard-layout .user-card .property.role,
+.dashboard-layout .user-card .btn {
+    grid-column: span 2;
+
+}

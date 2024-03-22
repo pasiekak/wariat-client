@@ -5,7 +5,11 @@ import Button from "react-bootstrap/Button";
 import { ChangeEvent, useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { calculateBrutto, calculateNetto } from "../../utils/priceFunctions";
+import {
+  calculateBrutto,
+  calculateNetto,
+} from "../../../../../../utils/priceFunctions";
+import { IBanner } from "../../../../../message-banner/types/IBanner";
 
 const defaultProduct = {
   name: "",
@@ -19,6 +23,7 @@ const defaultProduct = {
 
 interface IOutletContext {
   fetchData: () => void;
+  addBanner: (banner: IBanner) => void;
 }
 
 const AddProduct = () => {
@@ -30,7 +35,7 @@ const AddProduct = () => {
   const [imagesUpload, setImagesUpload] = useState({ msg: "", done: false });
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
-  const { fetchData }: IOutletContext = useOutletContext();
+  const { fetchData, addBanner }: IOutletContext = useOutletContext();
 
   const handleBruttoChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -117,6 +122,10 @@ const AddProduct = () => {
 
     const resProduct = await axios.post("/api/products", product);
     if (resProduct.status === 201) {
+      addBanner({
+        message: `Dodano produkt.`,
+        type: "success",
+      });
       setProductUpload({ msg: resProduct.data.message, done: true });
       const productId = resProduct.data.product.id;
       const resImages = await axios.post(
@@ -124,6 +133,10 @@ const AddProduct = () => {
         formData,
       );
       if (resImages.status === 201) {
+        addBanner({
+          message: `Dodano zdjęcia do produktu.`,
+          type: "success",
+        });
         setImagesUpload({ msg: resImages.data.message, done: true });
         fetchData();
       }

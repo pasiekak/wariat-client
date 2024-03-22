@@ -1,20 +1,26 @@
 .dashboard-layout input[type=number],
 .dashboard-layout input[type=text],
+.dashboard-layout input[type=datetime-local],
+.dashboard-layout select,
 .dashboard-layout textarea {
-    outline: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 2px;
+    outline: none;
 }
 
 .dashboard-layout input[type=file],
 .dashboard-layout input[type=number],
 .dashboard-layout input[type=text],
+.dashboard-layout input[type=datetime-local],
+.dashboard-layout select,
 .dashboard-layout textarea {
     width: 100%;
 }
 
 .dashboard-layout input[type=number]:focus,
 .dashboard-layout input[type=text]:focus,
+.dashboard-layout input[type=datetime-local]:focus,
+.dashboard-layout select:focus,
 .dashboard-layout textarea:focus {
     outline: 1px solid blueviolet;
 }
@@ -24,8 +30,8 @@
 }
 
 .dashboard-layout textarea {
-    resize: vertical;
     height: 10em;
+    resize: vertical;
 }
 
 .dashboard-layout label {

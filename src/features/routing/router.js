@@ -19,6 +19,11 @@ import Users from "../dashboard/features/users/Users";
 import { DashboardProvider } from "../dashboard/context/DashboardContext";
 import DashboardLayout from "../dashboard/DashboardLayout";
 import ModeratorRoutes from "./components/ModeratorRoutes";
+import User from "../dashboard/features/users/features/user/User";
+import Discounts from "../dashboard/features/discounts/Discounts";
+import IndividualDiscounts from "../dashboard/features/discounts/features/individual/IndividualDiscounts";
+import DefaultDiscounts from "../dashboard/features/discounts/components/DefaultDiscounts";
+import GroupDiscounts from "../dashboard/features/discounts/features/groups/GroupDiscounts";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -43,6 +48,12 @@ function Root() {
           </Route>
           <Route path="users">
             <Route path="" element={<Users />} />
+            <Route path=":userID" element={<User />} />
+          </Route>
+          <Route path="discounts" element={<Discounts />}>
+            <Route path="" element={<DefaultDiscounts />} />
+            <Route path="groups" element={<GroupDiscounts />} />
+            <Route path="individual" element={<IndividualDiscounts />} />
           </Route>
         </Route>
       </Route>

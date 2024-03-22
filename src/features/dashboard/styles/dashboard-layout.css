@@ -10,12 +10,16 @@
 .dashboard-layout .dashboard-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 1rem;
+    margin: 0.5rem;
     border-radius: 5px;
     background: var(--color-3);
-    padding-block: 0.5rem;
     gap: 0.5rem;
+}
+
+.dashboard-layout .dashboard-content:has(.users),
+.dashboard-layout .dashboard-content:has(.discounts) {
+    background: none;
+    padding-block: 0;
 }
 
 .dashboard-layout .head-panel {
@@ -31,6 +35,6 @@
         grid-column: 1;
     }
     .dashboard-layout .dashboard-content {
-        margin: 1rem 0.1rem;
+        margin: 0.5rem 0.1rem;
     }
 }

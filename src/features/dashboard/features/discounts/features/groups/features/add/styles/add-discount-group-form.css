@@ -1,0 +1,9 @@
+.dashboard-layout .discounts .add-discount-group-form {
+
+}
+
+.dashboard-layout .discounts .add-discount-group-form > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

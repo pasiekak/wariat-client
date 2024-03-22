@@ -4,15 +4,14 @@ import "./styles/products.css";
 import Button from "react-bootstrap/Button";
 import Columns from "./components/Columns";
 import axios from "axios";
-import { ICategory } from "../attributes/types/ICategory";
-import { IMark } from "../attributes/types/IMark";
+import { ICategory } from "../../../../api/types/ICategory";
+import { IMark } from "../../../../api/types/IMark";
 import { IProductsOutletContext } from "../../types/IOutletContext";
 import ProductsList from "./components/ProductsList";
 import { IProduct } from "./types/product";
-import TableInfo from "../../components/table-info/TableInfo";
 
 const Products = () => {
-  const { setTableName, tableName, items, loading }: IProductsOutletContext =
+  const { setTableName, items, loading, addBanner }: IProductsOutletContext =
     useOutletContext();
   const navigate = useNavigate();
   const [openedProduct, setOpenedProduct] = useState<number | null>(null);
@@ -31,7 +30,7 @@ const Products = () => {
         setMarks(res.data.marks);
       }
     });
-  }, []);
+  }, [setTableName]);
 
   const updateAttribute = (
     attribute: ICategory | IMark,
@@ -56,28 +55,37 @@ const Products = () => {
     setCategories((prev) => {
       return [...prev, category];
     });
+    addBanner({
+      message: `Dodano kategorię: ${category.name}`,
+      type: "success",
+    });
   };
 
   const removeCategory = (category: ICategory) => {
     setCategories((prev) => {
       return prev.filter((cat) => cat !== category);
     });
+    addBanner({
+      message: `Usunięto kategorię: ${category.name}`,
+      type: "info",
+    });
   };
   const addMark = (mark: IMark) => {
     setMarks((prev) => {
       return [...prev, mark];
     });
+    addBanner({ message: `Dodano markę: ${mark.name}`, type: "success" });
   };
 
   const removeMark = (mark: IMark) => {
     setMarks((prev) => {
       return prev.filter((m) => m !== mark);
     });
+    addBanner({ message: `Usunięto markę: ${mark.name}`, type: "info" });
   };
 
   return (
     <section className="products">
-      <TableInfo tableName={tableName} count={items.count} />
       <Columns />
       {items.rows.length > 0 && (
         <ProductsList

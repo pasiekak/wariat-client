@@ -1,0 +1,12 @@
+.dashboard-layout .user-card .property.role svg {
+    transition: 500ms;
+}
+
+.dashboard-layout .user-card .property.role.moderator:hover svg {
+    rotate: 360deg;
+}
+
+.dashboard-layout .user-card .property.role.admin:hover svg,
+.dashboard-layout .user-card .property.role.client:hover svg {
+    scale: 1.4;
+}

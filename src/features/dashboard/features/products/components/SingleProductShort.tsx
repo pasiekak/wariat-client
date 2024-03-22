@@ -1,25 +1,30 @@
 import Button from "react-bootstrap/Button";
-import YesOrNo from "../../../../../components/YesOrNo/YesOrNo";
+import YesOrNo from "../../../../../components/yes-or-no/YesOrNo";
 import axios from "axios";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { ISingleProductShort } from "../types/product";
 import PublicationInput from "../features/manage/features/modifying/components/PublicationInput";
+import { IBanner } from "../../../../message-banner/types/IBanner";
 
 interface IOutletContext {
   fetchData: () => void;
+  addBanner: (banner: IBanner) => void;
 }
 
 const SingleProductShort = (props: ISingleProductShort) => {
   const [showQuestion, setShowQuestion] = useState(false);
-  const { fetchData }: IOutletContext = useOutletContext();
+  const { fetchData, addBanner }: IOutletContext = useOutletContext();
   const handleDelete = () => {
     axios
       .delete(`/api/products/${props.id}`)
       .then((res) => {
         if (res.data.success) {
+          addBanner({
+            message: `Usunięto produkt.`,
+            type: "success",
+          });
           fetchData();
-          alert(res.data.message);
         }
       })
       .finally(() => {
@@ -28,11 +33,11 @@ const SingleProductShort = (props: ISingleProductShort) => {
   };
 
   return (
-    <div className="single-product-short">
+    <div className="single-product-short myrow">
       <span className="id">{props.id}</span>
-      <span>{props.name}</span>
+      <span className="name">{props.name}</span>
       <span className="max-quantity">{props.maxQuantity}</span>
-      <span>{props.priceBrutto} zł</span>
+      <span className="price-brutto">{props.priceBrutto} zł</span>
       <PublicationInput published={props.published} id={props.id} />
       <div className="actions">
         <Button

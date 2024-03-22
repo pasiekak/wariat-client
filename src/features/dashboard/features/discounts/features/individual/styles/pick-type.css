@@ -1,0 +1,16 @@
+.dashboard-layout .individual-discounts .pick-type {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .individual-discounts .pick-type .dropdown,
+.dashboard-layout .individual-discounts .pick-type #dropdown-basic-button,
+.dashboard-layout .individual-discounts .pick-type .dropdown-menu.show {
+    width: 100%;
+}
+
+.dashboard-layout .individual-discounts .pick-type .dropdown-item:hover {
+    color: white;
+    background-color: var(--bs-body-color);
+}

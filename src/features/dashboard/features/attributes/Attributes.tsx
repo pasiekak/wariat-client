@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import AttributeAdd from "./components/AttributeAdd";
 import Attribute from "./components/Attribute";
 import axios from "axios";
-import { ICategory } from "./types/ICategory";
-import { IMark } from "./types/IMark";
+import { ICategory } from "../../../../api/types/ICategory";
+import { IMark } from "../../../../api/types/IMark";
 import { IAttributesComponentProps } from "./types/IAttributesComponentProps";
 
 const Attributes = ({
@@ -13,7 +13,6 @@ const Attributes = ({
   attributes,
   updateAttribute,
 }: IAttributesComponentProps) => {
-  const [apiMessage, setApiMessage] = useState<string | null>(null);
   const [selectedAttributes, setSelectedAttributes] = useState<
     (ICategory | IMark)[]
   >([]);
@@ -60,9 +59,7 @@ const Attributes = ({
         <AttributeAdd
           attributeNameMany={attributeNameMany}
           updateAttribute={updateAttribute}
-          setApiMessage={setApiMessage}
         />
-        {apiMessage && <div className={`api-message`}>{apiMessage}</div>}
       </div>
     </section>
   );

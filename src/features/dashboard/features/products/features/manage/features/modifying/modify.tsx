@@ -5,14 +5,16 @@ import { ChangeEvent, useState } from "react";
 import {
   calculateBrutto,
   calculateNetto,
-} from "../../../../utils/priceFunctions";
+} from "../../../../../../../../utils/priceFunctions";
 import IProductForm from "./types/productForm";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import { useOutletContext } from "react-router-dom";
+import { IBanner } from "../../../../../../../message-banner/types/IBanner";
 
 interface IOutletContext {
   updateItem: (id: number, item: object) => void;
+  addBanner: (banner: IBanner) => void;
 }
 
 const ProductModifyForm = (props: ISingleProductExtended) => {
@@ -28,7 +30,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
   });
   const [loading, setLoading] = useState<boolean>(false);
 
-  const { updateItem } = useOutletContext<IOutletContext>();
+  const { updateItem, addBanner } = useOutletContext<IOutletContext>();
 
   const handleBruttoChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -45,6 +47,10 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
       .put(`/api/products/${props.id}`, data)
       .then((res) => {
         if (res.status === 204) {
+          addBanner({
+            message: `Zmodyfikowano produkt.`,
+            type: "success",
+          });
           updateItem(props.id, data);
         }
       })

@@ -1,4 +1,6 @@
 .dashboard-layout .users {
-    padding-inline: 0.5rem;
+}
 
+.dashboard-layout .users > * {
+    
 }

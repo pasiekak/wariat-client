@@ -1,0 +1,5 @@
+.dashboard-layout .individual-discounts .add-discount-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

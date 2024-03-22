@@ -7,7 +7,7 @@ const Columns = () => {
     useOutletContext<IProductsOutletContext>();
 
   return (
-    <div className="columns">
+    <div className="columns myrow">
       <div
         title="Indywidualny identyfikator produktu."
         className={`id`}
@@ -59,7 +59,7 @@ const Columns = () => {
         <span>Publikacja</span>
         <OrderDirection column="published" />
       </div>
-      <div title="Dostępne operacje na produkcie.">
+      <div className={"actions"} title="Dostępne operacje na produkcie.">
         <span>Akcje</span>
       </div>
     </div>

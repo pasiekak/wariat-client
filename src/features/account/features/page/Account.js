@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { AccountContext } from "../../context/account";
@@ -16,7 +16,6 @@ const Account = () => {
   const [access, setAccess] = useState(false);
   const [cookies] = useCookies();
   const [modAccess, setModAccess] = useState(false);
-
   useEffect(() => {
     accountActions.verifyLoggedAccount().then((res) => {
       if (res.success === false) {

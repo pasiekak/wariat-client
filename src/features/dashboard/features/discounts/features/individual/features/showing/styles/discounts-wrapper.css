@@ -1,0 +1,5 @@
+.dashboard-layout .discounts .individual-discounts .discounts-wrapper {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}

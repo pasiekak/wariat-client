@@ -1,17 +1,6 @@
-import { ICategory } from "../../attributes/types/ICategory";
-import { IMark } from "../../attributes/types/IMark";
-
-interface IProduct {
-  id: number;
-  name: string;
-  description: string;
-  priceBrutto: number;
-  priceNetto: number;
-  maxQuantity: number;
-  published: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
+import { ICategory } from "../../../../../api/types/ICategory";
+import { IMark } from "../../../../../api/types/IMark";
+import { IProduct } from "../../../../../api/types/IProduct";
 
 interface IProductExtendedByFn extends IProduct {
   setOpen: (id: number | ((prev: number | null) => number | null)) => void;

@@ -1,0 +1,9 @@
+.dashboard-layout .table-info {
+    padding: 0.5rem;
+}
+
+.dashboard-layout:has(.users) .table-info {
+    margin: 0;
+    border-radius: 5px;
+    background: var(--color-3);
+}

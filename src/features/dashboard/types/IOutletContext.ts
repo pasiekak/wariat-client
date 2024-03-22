@@ -1,6 +1,7 @@
 import { IProductsItems, IUsersItems } from "./items";
 import IProductForm from "../features/products/features/manage/features/modifying/types/productForm";
 import { IOrder } from "./IOrder";
+import { IBanner } from "../../message-banner/types/IBanner";
 
 export interface IDefaultOutletContext {
   tableName: string;
@@ -9,6 +10,7 @@ export interface IDefaultOutletContext {
   loading: boolean;
   fetchData: () => void;
   updateOrder: (by: string, direction: string) => void;
+  addBanner: (banner: IBanner) => void;
 }
 
 export interface IProductsOutletContext extends IDefaultOutletContext {

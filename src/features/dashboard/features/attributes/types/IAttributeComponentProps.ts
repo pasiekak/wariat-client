@@ -1,5 +1,5 @@
-import { ICategory } from "./ICategory";
-import { IMark } from "./IMark";
+import { ICategory } from "../../../../../api/types/ICategory";
+import { IMark } from "../../../../../api/types/IMark";
 
 export interface IAttributeComponentProps {
   productID: number;
