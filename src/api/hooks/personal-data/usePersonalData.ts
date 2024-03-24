@@ -27,7 +27,7 @@ const usePersonalData = ({ userID }: useAxiosGetProps): returnedObject => {
       .then((response) => setData(response.data))
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [userID]);
 
   return { data, error, loading };
 };

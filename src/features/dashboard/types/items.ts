@@ -1,5 +1,6 @@
 import { IProduct } from "../features/products/types/product";
 import { IUser } from "../features/users/types/IUser";
+import { IEvent } from "../../../api/types/IEvent";
 
 export interface IProductsItems {
   count: number;
@@ -11,7 +12,12 @@ export interface IUsersItems {
   rows: IUser[];
 }
 
+export interface IEventsItems {
+  count: number;
+  rows: IEvent[];
+}
+
 export interface IItems {
   count: number;
-  rows: (IUser | IProduct)[];
+  rows: (IUser | IProduct | IEvent)[];
 }

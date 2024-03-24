@@ -14,7 +14,7 @@ const CategoriesSelect = ({
   register,
   changeCategoriesEmpty,
 }: CategoriesSelectProps) => {
-  const { data, loading, error } = useAxiosGet({ url: "/api/categories" });
+  const { data } = useAxiosGet({ url: "/api/categories" });
   const [categories, setCategories] = useState<ICategory[] | null>(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const CategoriesSelect = ({
     } else {
       changeCategoriesEmpty(0);
     }
-  }, [data]);
+  }, [data, changeCategoriesEmpty]);
   if (categories) {
     return (
       <div className="field select-wrapper">

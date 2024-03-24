@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBoxesStacked,
+  faImages,
   faPercent,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
@@ -13,10 +14,12 @@ const NavigationPanel = ({
   setItems,
   loading,
   tableName,
+  setUsePagination,
 }: {
   setItems: (items: IProductsItems | IUsersItems) => void;
   loading: boolean;
   tableName: string | undefined;
+  setUsePagination: (use: boolean) => void;
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,11 +27,17 @@ const NavigationPanel = ({
 
   useEffect(() => {
     if (location.pathname.includes("products")) {
+      setUsePagination(true);
       setSelected(1);
     } else if (location.pathname.includes("users")) {
+      setUsePagination(true);
       setSelected(2);
     } else if (location.pathname.includes("discounts")) {
+      setUsePagination(true);
       setSelected(3);
+    } else if (location.pathname.includes("events")) {
+      setUsePagination(false);
+      setSelected(4);
     }
   }, [location.pathname]);
 
@@ -71,6 +80,13 @@ const NavigationPanel = ({
             Nadawane zniżki
           </span>
         </div>
+      </div>
+      <div
+        onClick={() => handleClick("events")}
+        className={selected === 4 ? "selected" : ""}
+      >
+        <FontAwesomeIcon icon={faImages} />
+        <span>Wydarzenia</span>
       </div>
     </section>
   );

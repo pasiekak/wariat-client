@@ -17,7 +17,8 @@
 }
 
 .dashboard-layout .dashboard-content:has(.users),
-.dashboard-layout .dashboard-content:has(.discounts) {
+.dashboard-layout .dashboard-content:has(.discounts),
+.dashboard-layout .dashboard-content:has(.events) {
     background: none;
     padding-block: 0;
 }
@@ -31,9 +32,11 @@
         grid-template-columns: 1fr;
         grid-template-rows: 100px min-content auto;
     }
+
     .dashboard-layout .head-panel {
         grid-column: 1;
     }
+
     .dashboard-layout .dashboard-content {
         margin: 0.5rem 0.1rem;
     }

@@ -1,4 +1,4 @@
-import { IProductsItems, IUsersItems } from "./items";
+import { IEventsItems, IProductsItems, IUsersItems } from "./items";
 import IProductForm from "../features/products/features/manage/features/modifying/types/productForm";
 import { IOrder } from "./IOrder";
 import { IBanner } from "../../message-banner/types/IBanner";
@@ -20,6 +20,10 @@ export interface IProductsOutletContext extends IDefaultOutletContext {
 
 export interface IUsersOutletContext extends IDefaultOutletContext {
   items: IUsersItems;
+}
+
+export interface IEventsOutletContext extends IDefaultOutletContext {
+  items: IEventsItems;
 }
 
 export interface IUsersOutletContext {}

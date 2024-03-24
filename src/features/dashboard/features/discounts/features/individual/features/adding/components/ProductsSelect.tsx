@@ -14,7 +14,7 @@ const ProductsSelect = ({
   register,
   changeProductsEmpty,
 }: ProductsSelectProps) => {
-  const { data, loading, error } = useAxiosGet({ url: "/api/products" });
+  const { data } = useAxiosGet({ url: "/api/products" });
   const [products, setProducts] = useState<IProduct[] | null>(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ProductsSelect = ({
     } else {
       changeProductsEmpty(0);
     }
-  }, [data]);
+  }, [data, changeProductsEmpty]);
   if (products) {
     return (
       <div className="field select-wrapper">

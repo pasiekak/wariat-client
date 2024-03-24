@@ -1,0 +1,25 @@
+.dashboard-layout .events {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .events .left,
+.dashboard-layout .events .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-layout .events .right .btn {
+    width: 100%;
+}
+
+.dashboard-layout .events .solo {
+    background: var(--color-3);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.dashboard-layout .events h1 {
+    text-align: center;
+}

@@ -21,7 +21,7 @@ const useBannerProgressBar = (props: UseBannerProgressBarProps) => {
     return () => {
       if (banner) banner.removeChild(progressDiv);
     };
-  }, []);
+  }, [props.autoCloseTime, props.id]);
 };
 
 export default useBannerProgressBar;

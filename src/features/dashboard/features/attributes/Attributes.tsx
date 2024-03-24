@@ -23,7 +23,7 @@ const Attributes = ({
         setSelectedAttributes(res.data.attributes);
       }
     });
-  }, []);
+  }, [productID, attributeNameMany]);
 
   const addSelectedAttribute = (attribute: ICategory | IMark) => {
     setSelectedAttributes((prev) => {

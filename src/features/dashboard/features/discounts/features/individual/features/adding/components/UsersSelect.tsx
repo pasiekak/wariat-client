@@ -11,7 +11,7 @@ type UsersSelectProps = {
 };
 
 const UsersSelect = ({ register, changeUsersEmpty }: UsersSelectProps) => {
-  const { data, loading, error } = useAxiosGet({
+  const { data } = useAxiosGet({
     url: "/api/users",
   });
   const [users, setUsers] = useState<IUser[] | null>(null);
@@ -23,7 +23,7 @@ const UsersSelect = ({ register, changeUsersEmpty }: UsersSelectProps) => {
     } else {
       changeUsersEmpty(0);
     }
-  }, [data]);
+  }, [data, changeUsersEmpty]);
 
   if (users) {
     return (

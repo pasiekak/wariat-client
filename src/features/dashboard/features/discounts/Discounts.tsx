@@ -10,7 +10,7 @@ const Discounts = () => {
 
   useEffect(() => {
     outletContext.setTableName("discounts");
-  }, []);
+  }, [outletContext]);
 
   return (
     <section className="discounts">

@@ -17,7 +17,7 @@ import BannerPortal from "../message-banner/BannerPortal";
 import { IBannerPortalForwardedFunctions } from "../message-banner/types/IBannerPortalForwardedFunctions";
 import { IBanner } from "../message-banner/types/IBanner";
 
-const fetchableTables = ["products", "users"];
+const fetchableTables = ["products", "users", "events"];
 const DashboardLayout = () => {
   const portalRef = useRef<IBannerPortalForwardedFunctions>(null);
   const [tableName, setTableName] = useState<string | undefined>();
@@ -26,6 +26,7 @@ const DashboardLayout = () => {
     rows: [],
   });
   const [pagination, setPagination] = useState<Pagination>({
+    use: true,
     page: 1,
     maxPage: 1,
     perPage: 20,
@@ -91,24 +92,33 @@ const DashboardLayout = () => {
       };
     });
   };
+
+  const setUsePagination = (use: boolean) => {
+    setPagination((p) => {
+      return { ...p, use: use };
+    });
+  };
+
   const fetchData = useCallback(() => {
     if (tableName) {
       setLoading(true);
+      const URL = pagination.use
+        ? `/api/${tableName}?page=${pagination.page}&perPage=${pagination.perPage}&by=${order.by}&direction=${order.direction}`
+        : `/api/${tableName}`;
       axios
-        .get(
-          `/api/${tableName}?page=${pagination.page}&perPage=${pagination.perPage}&by=${order.by}&direction=${order.direction}`,
-        )
+        .get(URL)
         .then((res) => {
           if (res?.data?.success) {
             setItems(res.data.items);
           }
-          setLoading(false);
-        });
+        })
+        .finally(() => setLoading(false));
     }
   }, [
     tableName,
     pagination.page,
     pagination.perPage,
+    pagination.use,
     order.by,
     order.direction,
   ]);
@@ -134,6 +144,7 @@ const DashboardLayout = () => {
     <div className="dashboard-layout">
       <HeadPanel />
       <NavigationPanel
+        setUsePagination={setUsePagination}
         setItems={setItems}
         loading={loading}
         tableName={tableName}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type useDisabledProps = {
   type: string;
@@ -9,17 +9,27 @@ const useDisabled = (props: useDisabledProps) => {
   const [categoriesEmpty, setCategoriesEmpty] = useState(true);
   const [productsEmpty, setProductsEmpty] = useState(true);
   const [disabled, setDisabled] = useState(true);
-  const changeUsersEmpty = (usersCount: number) => {
-    setUsersEmpty(usersCount === 0);
-  };
 
-  const changeCategoriesEmpty = (categoriesCount: number) => {
-    setCategoriesEmpty(categoriesCount === 0);
-  };
+  const changeUsersEmpty = useCallback(
+    (usersCount: number) => {
+      setUsersEmpty(usersCount === 0);
+    },
+    [setUsersEmpty],
+  );
 
-  const changeProductsEmpty = (productsCount: number) => {
-    setProductsEmpty(productsCount === 0);
-  };
+  const changeCategoriesEmpty = useCallback(
+    (categoriesCount: number) => {
+      setCategoriesEmpty(categoriesCount === 0);
+    },
+    [setCategoriesEmpty],
+  );
+
+  const changeProductsEmpty = useCallback(
+    (productsCount: number) => {
+      setProductsEmpty(productsCount === 0);
+    },
+    [setProductsEmpty],
+  );
 
   useEffect(() => {
     if (props.type === "user_for_all") {

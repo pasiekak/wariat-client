@@ -38,9 +38,7 @@ const generateDefaultValues = () => {
 
 const AddDiscountForm = (props: AddDiscountFormProps) => {
   const { addBanner } = useOutletContext<IDefaultOutletContext>();
-  const [defaultValues, setDefaultValues] = useState<defaultFormValues>(
-    generateDefaultValues(),
-  );
+  const [defaultValues] = useState<defaultFormValues>(generateDefaultValues());
   const [loading, setLoading] = useState(false);
 
   const { useUsersInput, useCategoriesInput, useProductsInput } = useInputs({
@@ -59,7 +57,7 @@ const AddDiscountForm = (props: AddDiscountFormProps) => {
 
   useEffect(() => {
     reset(generateDefaultValues());
-  }, [useUsersInput, useCategoriesInput, useProductsInput]);
+  }, [reset, useUsersInput, useCategoriesInput, useProductsInput]);
 
   const onSubmit = (data: defaultFormValues) => {
     setLoading(true);
