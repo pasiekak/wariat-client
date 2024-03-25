@@ -1,0 +1,61 @@
+.dashboard-layout .events .mini-events {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .events .mini-events h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.dashboard-layout .events .mini-events .mini-event {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: opacity 200ms;
+}
+
+.dashboard-layout .events .mini-events:has(.mini-event.selected) .mini-event:not(.selected) {
+    opacity: 60%;
+}
+
+.dashboard-layout .events .mini-events:has(.mini-event.selected) .mini-event:not(.selected):hover {
+    opacity: 100%;
+}
+
+.dashboard-layout .events .mini-events:has(.mini-event:hover) .mini-event:not(:hover) {
+    opacity: 60%;
+}
+
+.dashboard-layout .events .mini-events .mini-event .title {
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.dashboard-layout .events .mini-events .mini-event .date {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dashboard-layout .events .mini-events .mini-event .publication {
+    align-self: center;
+    text-align: center;
+    border-radius: 5px;
+    padding-inline: 0.5rem;
+}
+
+.dashboard-layout .events .mini-events .mini-event .publication.published {
+    background: lightgreen;
+
+}
+
+.dashboard-layout .events .mini-events .mini-event .publication.not-published {
+    background: indianred;
+}

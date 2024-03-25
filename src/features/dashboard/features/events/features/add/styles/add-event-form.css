@@ -1,0 +1,16 @@
+.dashboard-layout .events .add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dashboard-layout .events .add-event-form .field {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dashboard-layout .events .add-event-form .field:has(input[type="checkbox"]) {
+    flex-direction: row;
+    gap: 5px;
+}

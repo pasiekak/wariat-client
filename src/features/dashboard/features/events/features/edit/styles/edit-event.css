@@ -1,0 +1,9 @@
+.dashboard-layout .events .edit-event {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .events .edit-event h4 {
+    margin: 0;
+}

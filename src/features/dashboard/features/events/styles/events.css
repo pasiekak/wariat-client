@@ -8,16 +8,22 @@
 .dashboard-layout .events .right {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .events .left h1 {
+    margin: 0;
 }
 
 .dashboard-layout .events .right .btn {
     width: 100%;
+    border-radius: 2px;
 }
 
 .dashboard-layout .events .solo {
-    background: var(--color-3);
-    border-radius: 5px;
     padding: 0.5rem;
+    border-radius: 5px;
+    background: var(--color-3);
 }
 
 .dashboard-layout .events h1 {

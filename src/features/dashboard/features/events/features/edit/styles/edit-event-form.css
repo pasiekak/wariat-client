@@ -1,0 +1,9 @@
+.dashboard-layout .events .edit-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-layout .events .edit-event-form input[type="checkbox"] {
+    margin-right: 5px;
+}

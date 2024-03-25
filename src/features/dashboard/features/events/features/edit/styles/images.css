@@ -1,0 +1,16 @@
+.dashboard-layout .events .images {
+
+}
+
+.dashboard-layout .events .images h4 {
+    margin-bottom: 0.5rem;
+    justify-self: flex-start;
+}
+
+.dashboard-layout .events .images svg {
+    color: black !important;
+}
+
+.dashboard-layout .events .images svg.star.main {
+    color: var(--color-2) !important;
+}
