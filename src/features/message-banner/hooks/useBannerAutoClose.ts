@@ -15,7 +15,7 @@ const useBannerAutoClose = (props: UseBannerAutoCloseProps) => {
     if (removing) {
       props.setBanners((banners) => banners.filter((b) => b.id !== removing));
     }
-  }, [removing, props]);
+  }, [removing, props.setBanners]);
 
   useEffect(() => {
     if (props.autoClose && props.banners.length) {
