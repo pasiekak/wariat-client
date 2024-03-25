@@ -1,0 +1,42 @@
+
+.dashboard-layout .images .image-wrapper {
+    display: grid;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 0 0 5px 5px;
+    justify-items: center;
+    grid-template-rows: 80% 20%;
+    grid-template-columns: 1fr;
+}
+
+.dashboard-layout .images .image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.dashboard-layout .images .image-wrapper .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.dashboard-layout .images .image-wrapper .actions svg {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 500ms;
+}
+
+.dashboard-layout .images .image-wrapper .actions svg:hover {
+    transform: scale(1.2);
+}
+
+.dashboard-layout .images .image-wrapper .actions svg.star {
+    color: var(--color-3);
+}
+
+.dashboard-layout .images .image-wrapper .actions svg.star.main {
+    color: var(--color-2)
+}

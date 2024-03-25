@@ -5,23 +5,29 @@ import IImage from "./types/IImage";
 import Image from "./components/Image";
 import EmptyImage from "./components/EmptyImage";
 import { useOutletContext } from "react-router-dom";
-import { IDefaultOutletContext } from "../../../../types/IOutletContext";
+import { IDefaultOutletContext } from "../../types/IOutletContext";
+import useImagesRelatedToEntity from "../../../../api/hooks/images/useImagesRelatedToEntity";
 
 interface IImagesProps {
-  productID: number;
+  id: number;
+  entityPlural: "products" | "events";
+  className?: string;
 }
 
-const Images = ({ productID }: IImagesProps) => {
+const Images = ({ id, entityPlural, className }: IImagesProps) => {
   const { addBanner } = useOutletContext<IDefaultOutletContext>();
   const [images, setImages] = useState<IImage[]>([]);
 
+  const { data, error, loading } = useImagesRelatedToEntity({
+    id,
+    entityPlural,
+  });
+
   useEffect(() => {
-    axios.get(`/api/images/products/${productID}`).then((res) => {
-      if (res.status === 200) {
-        setImages(res.data.images);
-      }
-    });
-  }, [productID]);
+    if (data) {
+      setImages(data.images);
+    }
+  }, [id, data]);
 
   const handleAddImage = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -29,7 +35,7 @@ const Images = ({ productID }: IImagesProps) => {
       const formData = new FormData();
       formData.append("image", files[0]);
       axios
-        .post(`/api/images/products/${productID}`, formData)
+        .post(`/api/images/${entityPlural}/${id}`, formData)
         .then((res) => {
           if (res.status === 201) {
             setImages((prev) => {
@@ -41,7 +47,7 @@ const Images = ({ productID }: IImagesProps) => {
               return [...prev, newImageOb];
             });
             addBanner({
-              message: "Dodano zdjęcie do produktu",
+              message: "Dodano zdjęcie.",
               type: "success",
             });
           }
@@ -65,7 +71,7 @@ const Images = ({ productID }: IImagesProps) => {
             });
 
             addBanner({
-              message: "Usunięto zdjęcie produktu",
+              message: "Usunięto zdjęcie",
               type: "success",
             });
           }
@@ -91,7 +97,7 @@ const Images = ({ productID }: IImagesProps) => {
             });
           });
           addBanner({
-            message: "Zmieniono główne zdjęcie produktu",
+            message: "Ustawiono nowe główne zdjęcie.",
             type: "success",
           });
         }
@@ -103,8 +109,8 @@ const Images = ({ productID }: IImagesProps) => {
   };
 
   return (
-    <section className="images">
-      <h3>Zdjęcia produktu</h3>
+    <section className={`images${className ? ` ${className}` : ""}`}>
+      <h4>Zarządzanie zdjęciami</h4>
       {images.length > 0 &&
         images.map((image) => (
           <Image

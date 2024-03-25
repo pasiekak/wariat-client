@@ -1,0 +1,11 @@
+.dashboard-layout .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: min-content 200px;
+    gap: 0.25rem;
+}
+
+.dashboard-layout .images h4 {
+    justify-self: center;
+    grid-column: 1/-1;
+}
