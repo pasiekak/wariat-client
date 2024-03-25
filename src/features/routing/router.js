@@ -25,6 +25,8 @@ import IndividualDiscounts from "../dashboard/features/discounts/features/indivi
 import DefaultDiscounts from "../dashboard/features/discounts/components/DefaultDiscounts";
 import GroupDiscounts from "../dashboard/features/discounts/features/groups/GroupDiscounts";
 import Events from "../dashboard/features/events/Events";
+import AddEventForm from "../dashboard/features/events/features/add/AddEventForm";
+import EditEvent from "../dashboard/features/events/features/edit/EditEvent";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -56,8 +58,9 @@ function Root() {
             <Route path="groups" element={<GroupDiscounts />} />
             <Route path="individual" element={<IndividualDiscounts />} />
           </Route>
-          <Route path="events">
-            <Route path="" element={<Events />} />
+          <Route path="events" element={<Events />}>
+            <Route path="add" element={<AddEventForm />} />
+            <Route path=":eventID" element={<EditEvent />} />
           </Route>
         </Route>
       </Route>
