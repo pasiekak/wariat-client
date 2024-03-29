@@ -5,10 +5,8 @@ import EmailVerification from "../account/features/auth/features/email/EmailVeri
 import NotLogged from "../account/features/auth/components/not-logged/Not-logged";
 import Header from "../../components/header/Header";
 import Home from "../../components/landing-page/Home";
-import Products from "../products/Products";
 import DashboardProducts from "../dashboard/features/products/Products";
-import ProductDetails from "../products/features/product-page/ProductDetails";
-import Gallery from "../gallery/Gallery";
+import Products from "../products/features/products-page/Products";
 import Account from "../account/features/page/Account";
 import Order from "../order/Order";
 import Summary from "../order/features/summary/Summary";
@@ -24,9 +22,14 @@ import Discounts from "../dashboard/features/discounts/Discounts";
 import IndividualDiscounts from "../dashboard/features/discounts/features/individual/IndividualDiscounts";
 import DefaultDiscounts from "../dashboard/features/discounts/components/DefaultDiscounts";
 import GroupDiscounts from "../dashboard/features/discounts/features/groups/GroupDiscounts";
-import Events from "../dashboard/features/events/Events";
+import DashboardEvents from "../dashboard/features/events/Events";
 import AddEventForm from "../dashboard/features/events/features/add/AddEventForm";
 import EditEvent from "../dashboard/features/events/features/edit/EditEvent";
+import Events from "../events/Events";
+import Event from "../events/components/Event";
+import MiniEvents from "../events/components/MiniEvents";
+import Product from "../products/features/product-page/Product";
+import ProductsOutletContext from "../products/ProductsOutletContext";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -58,7 +61,7 @@ function Root() {
             <Route path="groups" element={<GroupDiscounts />} />
             <Route path="individual" element={<IndividualDiscounts />} />
           </Route>
-          <Route path="events" element={<Events />}>
+          <Route path="events" element={<DashboardEvents />}>
             <Route path="add" element={<AddEventForm />} />
             <Route path=":eventID" element={<EditEvent />} />
           </Route>
@@ -76,9 +79,14 @@ function NormalRoutes() {
       <Header />
       <Routes>
         <Route path="/" Component={Home} />
-        <Route path="/products" Component={Products} />
-        <Route path="/products/product/:productId" Component={ProductDetails} />
-        <Route path="/gallery" Component={Gallery} />
+        <Route path="/products" Component={ProductsOutletContext}>
+          <Route path="" Component={Products} />
+          <Route path=":id" Component={Product} />
+        </Route>
+        <Route path="/events" Component={Events}>
+          <Route path="" Component={MiniEvents} />
+          <Route path=":id" Component={Event} />
+        </Route>
         <Route path="/account" Component={Account} />
         <Route path="/order" Component={Order} />
         <Route path="/order/:orderID" Component={Summary} />
