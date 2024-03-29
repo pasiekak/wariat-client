@@ -21,6 +21,8 @@ export type useEventsFunctionsReturnedFunctions = {
 
 export type EventAddForm = {
   title: string;
+  place: string;
+  date: Date | string;
   content: string;
   published: boolean;
   images: File[];
@@ -28,6 +30,8 @@ export type EventAddForm = {
 
 export type EventAddEditFnProps = {
   title: string;
+  place: string;
+  date: Date | string;
   content: string;
   published: boolean;
 };

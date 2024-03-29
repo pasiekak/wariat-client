@@ -3,7 +3,7 @@
     "header": {
       "mainPage": "Strona główna",
       "products": "Produkty",
-      "gallery": "Galeria",
+      "events": "Wydarzenia",
       "contact": "Kontakt",
       "about": "O nas",
       "login": "Zaloguj się",
@@ -12,25 +12,9 @@
       "your-account": "Twoje konto",
       "cart": "Koszyk"
     },
-
     "home": {
       "welcomeMessage": "Witaj w Wariat Garage – miejscu, gdzie terenówki stają się prawdziwymi mistrzami off-roadu! Jesteśmy zespołem zapalonych specjalistów, którzy oddają się sztuce modyfikowania, naprawiania i tunigowania terenówek. Nasza pasja to odmienianie tych potężnych pojazdów, aby stały się doskonałe w każdym calu. Niezależnie od tego, czy potrzebujesz profesjonalnych modyfikacji, naprawy, czy tuningu, jesteśmy gotowi dostarczyć Ci najwyższej jakości usługi. Nasza praca to sztuka, a Twoja terenówka staje się płótnem, na którym tworzymy dzieło sztuki. Niech duch przygody towarzyszy Ci w każdym zakręcie. Dołącz do nas w Wariat Garage i doświadcz potęgi off-roadu, którą tworzymy razem! (Created by GPT 3.5)"
     },
-
-    "products": {
-      "filters": {
-        "title": "Filtry",
-        "marks": "Producenci",
-        "categories": "Kategorie",
-        "confirm-button": "Filtruj",
-        "no-filters-message": "Brak dostępnych filtrów"
-      },
-
-      "search-bar": {
-        "placeholder": "Wpisz wyszukiwane hasło..."
-      }
-    },
-
     "order": {
       "cart": {
         "add-to-cart-button": "Dodaj do koszyka",
@@ -173,7 +157,6 @@
         }
       }
     },
-
     "account": {
       "welcome-message": "Cześć",
       "change-button": "Zmień",
@@ -243,14 +226,28 @@
         "Completed": "Zakończone"
       }
     },
-
     "footer": {
       "contact": "Kontakt",
       "about": "O nas",
       "projects": "Nasze projekty"
+    },
+    "events": {
+      "title": "Wydarzenia i zdjęcia.",
+      "loading": "Ładowanie...",
+      "error": "Wystąpił błąd, nie udało się załadować wydarzeń...",
+      "place": "Miejsce",
+      "date": "Data",
+      "see-more": "Zobacz więcej",
+      "no-events": "Brak opublikowanych wydarzeń",
+      "go-back-to-events": "Wróć do listy wydarzeń",
+      "gallery-title": "Galeria zdjęć"
+    },
+    "products": {
+      "pagination": {
+        "items-per-page-title": "Ilość pokazanych produktów"
+      }
     }
   },
-
   "forms": {
     "login": {
       "title": "Logowanie",
@@ -258,7 +255,6 @@
       "password": "Hasło",
       "button": "Zaloguj się"
     },
-
     "register": {
       "title": "Rejestracja",
       "username": "Nazwa użytkownika",
@@ -271,26 +267,22 @@
       "buttonNext": "Dalej",
       "buttonPrev": "Wróć"
     },
-
     "links": {
       "noAccount": "Nie masz konta? Zarejestruj się!",
       "haveAccount": "Masz już konto? Zaloguj się!",
       "goBack": "Wróć do strony głównej."
     },
-
     "emailCode": {
       "title": "Weryfikacja adresu email",
       "codeLabel": "Wpisz kod otrzymany na adres email",
       "submit": "Zweryfikuj"
     }
   },
-
   "schemas": {
     "login": {
       "passwordRequired": "Hasło jest wymagane",
       "usernameRequired": "Nazwa użytkownika jest wymagana"
     },
-
     "register": {
       "usernameRequired": "Nazwa użytkownika jest wymagana",
       "passwordRequired": "Hasło jest wymagane",
@@ -303,14 +295,12 @@
       "emailInvalid": "Niepoprawny adres email",
       "emailRequired": "Adres email jest wymagany"
     },
-
     "emailCode": {
       "codeRequired": "Kod jest wymagany",
       "codeExactlyFourDigits": "Kod musi mieć dokładnie 4 cyfry",
       "codeDigitsOnly": "Kod musi zawierać tylko cyfry"
     }
   },
-
   "apiMessages": {
     "login": {
       "success": "Zalogowano pomyślnie",
@@ -319,26 +309,22 @@
       "serverError": "Wystąpił błąd serwera",
       "error": "Wystąpił błąd"
     },
-
     "register": {
       "success": "Udało Ci się zarejestrować konto",
       "userExists": "Taki użytkownik już istnieje",
       "serverError": "Wystąpił błąd serwera",
       "error": "Wystąpił błąd"
     },
-
     "logout": {
       "success": "Wylogowano pomyślnie",
       "error": "Wystąpił błąd"
     },
-
     "emailCode": {
       "userRegistered": "Udało Ci się zarejestrować konto, zaraz przekierujemy Cię na stronę główną.",
       "error": "Wystąpił błąd",
       "noCodeCookie": "Wystąpił błąd.",
       "wrongCode": "Podano zły kod"
     },
-
     "token": {
       "authorized": "Zalogowany i uprawniony użytkownik do wykonania tej operacji",
       "noToken": "Musisz się zalogować",
@@ -346,7 +332,6 @@
       "notAdmin": "Nie masz uprawnień do tej operacji",
       "notModerator": "Nie masz uprawnień do tej operacji"
     },
-
     "order": {
       "order-created": "Udało Ci się złożyć zamówienie",
       "user-dont-match": "Nie masz dostępu do tego zamówienia",

@@ -18,11 +18,13 @@ const EditEventForm = ({ eventID }: { eventID: number }) => {
   }, [getEvent, eventID]);
 
   const onSubmit = (data: IEvent) => {
-    const extracted = (({ title, content, published }) => ({
-      title,
-      content,
-      published,
-    }))(data);
+    const extracted = {
+      title: data.title,
+      place: data.place,
+      date: data.date,
+      content: data.content,
+      published: data.published,
+    };
     if (eventID) {
       updateEvent(eventID, extracted);
     }
@@ -35,6 +37,21 @@ const EditEventForm = ({ eventID }: { eventID: number }) => {
       <div className="field">
         <label htmlFor="title">Tytuł wydarzenia</label>
         <input id="title" type="text" required {...register("title")} />
+      </div>
+
+      <div className="field">
+        <label htmlFor="place">Miejsce*</label>
+        <input type="text" id="place" required {...register("place")} />
+      </div>
+
+      <div className="field">
+        <label htmlFor="date">Data wydarzenia*</label>
+        <input
+          type="date"
+          id="date"
+          required
+          {...register("date", { valueAsDate: true })}
+        />
       </div>
 
       <div className="field">

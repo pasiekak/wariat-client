@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import defaultImage from "../../../../../components/logo/wariatLogoBlack.png";
+import defaultImage from "../../../../../assets/wariatLogoBlack.png";
 
 import "../styles/product-summary-table.css";
 

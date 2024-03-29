@@ -49,6 +49,21 @@ const AddEventForm = () => {
       </div>
 
       <div className="field">
+        <label htmlFor="place">Miejsce*</label>
+        <input type="text" id="place" required {...register("place")} />
+      </div>
+
+      <div className="field">
+        <label htmlFor="date">Data wydarzenia*</label>
+        <input
+          type="date"
+          id="date"
+          required
+          {...register("date", { valueAsDate: true })}
+        />
+      </div>
+
+      <div className="field">
         <label htmlFor="content">Zawartość*</label>
         <textarea id="content" required {...register("content")} />
       </div>

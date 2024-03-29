@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 type MiniEventProps = {
   id: number;
   title: string;
-  createdAt: Date;
+  date: Date | string;
   published: boolean;
 };
 
@@ -35,7 +35,7 @@ const MiniEvent = (props: MiniEventProps) => {
       <h5 className="title">{props.title}</h5>
       <div className="date">
         <FontAwesomeIcon icon={faClock} />
-        <span>{new Date(props.createdAt).toLocaleString()}</span>
+        <span>{new Date(props.date).toLocaleDateString()}</span>
       </div>
       <span
         className={`publication${props.published ? " published" : " not-published"}`}

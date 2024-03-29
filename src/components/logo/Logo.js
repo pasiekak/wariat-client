@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "./wariatLogo.png";
-import logoPhone from "./wariatPhone.png";
+import logo from "../../assets/wariatLogo.png";
+import logoPhone from "../../assets/wariatPhone.png";
 import "./logo.css";
 
 const Logo = ({ width, height, withPhone = false, pathTo }) => {

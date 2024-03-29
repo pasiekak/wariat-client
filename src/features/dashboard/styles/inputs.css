@@ -1,6 +1,7 @@
 .dashboard-layout input[type=number],
 .dashboard-layout input[type=text],
 .dashboard-layout input[type=datetime-local],
+.dashboard-layout input[type=date],
 .dashboard-layout select,
 .dashboard-layout textarea {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -12,6 +13,7 @@
 .dashboard-layout input[type=number],
 .dashboard-layout input[type=text],
 .dashboard-layout input[type=datetime-local],
+.dashboard-layout input[type=date],
 .dashboard-layout select,
 .dashboard-layout textarea {
     width: 100%;
@@ -20,6 +22,7 @@
 .dashboard-layout input[type=number]:focus,
 .dashboard-layout input[type=text]:focus,
 .dashboard-layout input[type=datetime-local]:focus,
+.dashboard-layout input[type=date]:focus,
 .dashboard-layout select:focus,
 .dashboard-layout textarea:focus {
     outline: 1px solid blueviolet;
@@ -34,6 +37,6 @@
     resize: vertical;
 }
 
-.dashboard-layout label {
+.dashboard-layout .products label {
     cursor: help;
 }

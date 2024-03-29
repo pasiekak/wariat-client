@@ -8,7 +8,7 @@ import { CartContext } from "../context/cart";
 import ListGroup from "react-bootstrap/ListGroup";
 import Form from "react-bootstrap/Form";
 
-import defaultImage from "../../../../../components/logo/wariatLogoBlack.png";
+import defaultImage from "../../../../../assets/wariatLogoBlack.png";
 
 const ListItem = ({ item }) => {
   const navigate = useNavigate();

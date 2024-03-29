@@ -93,11 +93,14 @@ const DashboardLayout = () => {
     });
   };
 
-  const setUsePagination = (use: boolean) => {
-    setPagination((p) => {
-      return { ...p, use: use };
-    });
-  };
+  const setUsePagination = useCallback(
+    (use: boolean) => {
+      setPagination((p) => {
+        return { ...p, use: use };
+      });
+    },
+    [setPagination],
+  );
 
   const fetchData = useCallback(() => {
     if (tableName) {
@@ -155,6 +158,7 @@ const DashboardLayout = () => {
           context={{
             tableName,
             items,
+            setItems,
             loading,
             order,
             setTableName,

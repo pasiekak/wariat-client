@@ -1,4 +1,4 @@
-import { IProduct } from "../features/products/types/product";
+import { IProduct } from "../../../api/types/IProduct";
 import { IUser } from "../features/users/types/IUser";
 import { IEvent } from "../../../api/types/IEvent";
 

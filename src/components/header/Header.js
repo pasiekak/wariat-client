@@ -37,7 +37,7 @@ const Header = () => {
           <div className="leftHeader">
             <Link to="/">{t("mainPage")}</Link>
             <Link to="/products">{t("products")}</Link>
-            <Link to="/gallery">{t("gallery")}</Link>
+            <Link to="/events">{t("events")}</Link>
           </div>
           <Logo width={125} height={125} pathTo={"/"} />
           <div className="rightHeader">

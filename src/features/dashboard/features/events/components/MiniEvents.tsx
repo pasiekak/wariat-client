@@ -15,7 +15,7 @@ const MiniEvents = ({ events }: MiniEventsProps) => {
         <MiniEvent
           id={e.id}
           title={e.title}
-          createdAt={e.createdAt}
+          date={e.date}
           published={e.published}
           key={e.id}
         />

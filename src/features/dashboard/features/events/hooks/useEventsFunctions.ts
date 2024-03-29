@@ -8,6 +8,10 @@ import {
 import axios from "axios";
 import IImage from "../../images/types/IImage";
 import { useCallback } from "react";
+import {
+  getNowDateToInputString,
+  parseToInputDateString,
+} from "../../../../../utils/dateFunctions";
 
 const useEventsFunctions = ({
   events,
@@ -16,7 +20,10 @@ const useEventsFunctions = ({
 }: useEventsFunctionsProps): useEventsFunctionsReturnedFunctions => {
   const getEvent = useCallback(
     (id: number) => {
-      return events.rows.find((ev) => ev.id === id);
+      const event = events.rows.find((ev) => ev.id === id);
+      if (event && typeof event.date === "string")
+        event.date = event.date.slice(0, 10);
+      return event;
     },
     [events],
   );
@@ -24,12 +31,19 @@ const useEventsFunctions = ({
   const addEvent = async (
     data: EventAddEditFnProps,
   ): Promise<IEvent | null> => {
-    let res = await axios.post("/api/events", data);
+    const extracted = {
+      title: data.title,
+      place: data.place,
+      date: data.date,
+      content: data.content,
+      published: data.published,
+    };
+    let res = await axios.post("/api/events", extracted);
     if (res.status === 201) {
       setEvents((prevEvents) => {
         return {
           count: prevEvents.count + 1,
-          rows: [...prevEvents.rows, res.data.event],
+          rows: [...prevEvents.rows, { ...res.data.event }],
         };
       });
       return res.data.event;
@@ -62,6 +76,8 @@ const useEventsFunctions = ({
             ...prevEvents,
             rows: prevEvents.rows.map((e) => {
               if (e.id === eventID) {
+                if (typeof event.date === "object")
+                  event.date = parseToInputDateString(event.date);
                 return { ...e, ...event };
               }
               return e;
@@ -108,6 +124,8 @@ const useEventsFunctions = ({
   const generateDefaultValues = () => {
     return {
       title: "",
+      place: "",
+      date: getNowDateToInputString(),
       content: "",
       published: true,
       images: [],

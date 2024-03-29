@@ -39,7 +39,7 @@ const NavigationPanel = ({
       setUsePagination(false);
       setSelected(4);
     }
-  }, [location.pathname]);
+  }, [location.pathname, setUsePagination]);
 
   const handleClick = (to: string) => {
     if (

@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import CategoriesSelect from "./components/CategoriesSelect";
 import useDisabled from "./hooks/useDisabled";
 import ProductsSelect from "./components/ProductsSelect";
-import { getNowDateToInputString } from "../../../../../../../../utils/dateFunctions";
+import { getNowDateTimeToInputString } from "../../../../../../../../utils/dateFunctions";
 import axios from "axios";
 import { IDiscount } from "../../../../../../../../api/types/IDiscount";
 
@@ -28,7 +28,7 @@ type AddDiscountFormProps = {
 };
 const generateDefaultValues = () => {
   return {
-    expires: getNowDateToInputString(),
+    expires: getNowDateTimeToInputString(),
     percentage: 1,
     UserId: null,
     CategoryId: null,
@@ -116,7 +116,7 @@ const AddDiscountForm = (props: AddDiscountFormProps) => {
         <input
           id="expires"
           type="datetime-local"
-          min={getNowDateToInputString()}
+          min={getNowDateTimeToInputString()}
           required
           {...register("expires", { valueAsDate: true })}
         />

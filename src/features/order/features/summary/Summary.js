@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 
 import orderActions from "../../../../api/orderActions";
 import Spinner from "react-bootstrap/esm/Spinner";
@@ -13,7 +12,7 @@ import DeliveryAddress from "./components/DeliveryAddress";
 import BillingData from "./components/BillingData";
 import Documents from "./components/Documents";
 
-import defaultImage from "../../../../components/logo/wariatLogoBlack.png";
+import defaultImage from "../../../../assets/wariatLogoBlack.png";
 
 import "./styles/summary.css";
 

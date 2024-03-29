@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Form, Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { CartContext } from "../cart/context/cart";
 
-import defaultImage from "../../../../components/logo/wariatLogoBlack.png";
+import defaultImage from "../../../../assets/wariatLogoBlack.png";
 
 import "./styles/summary-before-submission.css";
 
