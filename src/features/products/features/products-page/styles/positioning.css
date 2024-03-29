@@ -1,0 +1,14 @@
+/*POSITIONING*/
+.App > .products {
+    display: grid;
+    padding: 0.5rem;
+    grid-template-columns: 0.1fr 0.1fr 0.6fr 0.1fr 0.1fr;
+    grid-template-rows: auto [last-line];
+}
+
+.App > .products > .items-per-page-picker {
+    align-self: end;
+    justify-self: center;
+    grid-row: last-line;
+    grid-column: 4 / 6;
+}
