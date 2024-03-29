@@ -1,0 +1,86 @@
+.image-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin-block: 15px;
+}
+
+/*background blurred image*/
+.image-carousel .background-image-wrapper {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px);
+    aspect-ratio: 16/9;
+}
+
+.image-carousel .background-image-wrapper::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(0, 0, 0, 0.3); /* Przyciemnienie: rgba(kolor, przezroczystość) */
+}
+
+/*Inside image not blurred*/
+.image-carousel .image-wrapper {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    aspect-ratio: 16/9;
+}
+
+/*Buttons*/
+.image-carousel .move {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+
+    transform: translateY(-50%);
+    gap: 0.5rem;
+}
+
+.image-carousel .move.disabled {
+    display: none;
+    pointer-events: none;
+}
+
+.image-carousel .move svg {
+    height: 48px;
+    color: var(--color-3);
+    filter: drop-shadow(0 0 3px black);
+}
+
+.image-carousel .move.left {
+    left: 5px;
+}
+
+.image-carousel .move.right {
+    right: 5px;
+}
+
+@media (max-width: 767px) {
+    .image-carousel {
+        width: 100%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1200px) {
+    .image-carousel {
+        width: 80%;
+    }
+}
