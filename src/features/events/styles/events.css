@@ -1,0 +1,125 @@
+.App > .events {
+    display: flex;
+    flex-direction: column;
+}
+
+.App > .events h1 {
+    text-align: center;
+}
+
+.App > .events > .events-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/*line between events*/
+.App > .events > .events-wrapper > .line {
+    align-self: center;
+    width: 50%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/*style for single event*/
+.App > .events > .events-wrapper > .mini-event {
+    display: grid;
+    overflow: hidden;
+    padding: 0.5rem;
+    border-radius: 2px;
+    justify-items: center;
+    gap: 50px;
+    grid-template-columns: 300px auto;
+    grid-auto-rows: 200px;
+
+}
+
+.App > .events > .events-wrapper > .line:last-of-type {
+    display: none;
+}
+
+.App > .events > .events-wrapper > .mini-event .image-wrapper {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.App > .events > .events-wrapper > .mini-event img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px;
+}
+
+.App > .events > .events-wrapper > .mini-event .title {
+    display: -webkit-box;
+    overflow: hidden;
+    align-self: start;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    justify-self: start;
+}
+
+.App > .events > .events-wrapper > .mini-event .desc {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.App > .events > .events-wrapper > .mini-event > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.App > .events > .events-wrapper > .mini-event > div .button-wrapper {
+    display: grid;
+    align-items: end;
+    flex: 1;
+    justify-items: end;
+
+}
+
+/*style for details*/
+.App > .events > .events-wrapper > .mini-event .details {
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.App > .events > .events-wrapper > .mini-event .details svg {
+    height: 20px;
+}
+
+.App > .events > .events-wrapper > .mini-event .details > div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.App > .events > .events-wrapper > .mini-event .details > div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 767px) {
+    /*style for single event on phone*/
+    .App > .events > .events-wrapper > .mini-event {
+        justify-items: center;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        /*grid-template-columns: 300px auto;*/
+        grid-auto-rows: 200px auto;
+
+    }
+    /*style for details on phone*/
+    .App > .events > .events-wrapper > .mini-event .details {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
