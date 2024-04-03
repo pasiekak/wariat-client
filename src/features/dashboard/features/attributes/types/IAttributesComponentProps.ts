@@ -1,12 +1,11 @@
-import { IMark } from "../../../../../api/types/IMark";
 import { ICategory } from "../../../../../api/types/ICategory";
 
 export interface IAttributesComponentProps {
   productID: number;
   attributeNameMany: string;
-  attributes: (ICategory | IMark)[];
+  attributes: (ICategory | ICategory)[];
   updateAttribute: (
-    attribute: ICategory | IMark,
+    attribute: ICategory | ICategory,
     attributeNameMany: string,
     type: string,
   ) => void;

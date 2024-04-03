@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import { props } from "../types/props";
-import { returns } from "../types/returns";
+import { usePaginationReturns } from "../types/usePaginationReturns";
 
-const usePagination = ({ entityPlural }: props): returns => {
+const usePagination = (): usePaginationReturns => {
   const [page, setPage] = useState<number>(1);
   const [maxPage, setMaxPage] = useState<number>(1);
   const [orderBy, setOrderBy] = useState<string>("id");
@@ -12,10 +11,6 @@ const usePagination = ({ entityPlural }: props): returns => {
   // Has to be calculated whenever count or items per page changes
   const [count, setCount] = useState(0);
 
-  const [URL, setURL] = useState(
-    `/api/${entityPlural}?page=${page}&perPage=${itemsPerPage}&by=${orderBy}&direction=${orderDirection}`,
-  );
-
   const calculateMaxPage = useCallback(() => {
     const newMaxPage = Math.ceil(count / itemsPerPage);
     if (newMaxPage === 0) {
@@ -24,17 +19,6 @@ const usePagination = ({ entityPlural }: props): returns => {
       setMaxPage(newMaxPage);
     }
   }, [count, itemsPerPage]);
-
-  const changeURL = useCallback(() => {
-    setURL(
-      `/api/${entityPlural}?page=${page}&perPage=${itemsPerPage}&by=${orderBy}&direction=${orderDirection}`,
-    );
-  }, [entityPlural, page, itemsPerPage, orderBy, orderDirection]);
-
-  // setting URL if one of state properties changes
-  useEffect(() => {
-    changeURL();
-  }, [changeURL]);
 
   // setting max page using callback
   useEffect(() => {
@@ -80,7 +64,6 @@ const usePagination = ({ entityPlural }: props): returns => {
   };
 
   return {
-    URL,
     page,
     maxPage,
     orderBy,

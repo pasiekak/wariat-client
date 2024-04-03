@@ -1,14 +1,13 @@
 import { ICategory } from "../../../../../api/types/ICategory";
-import { IMark } from "../../../../../api/types/IMark";
 import { IProduct } from "../../../../../api/types/IProduct";
 
 interface IProductExtendedByFn extends IProduct {
   setOpen: (id: number | ((prev: number | null) => number | null)) => void;
   openedProduct: number | null;
   categories: ICategory[];
-  marks: IMark[];
+  marks: ICategory[];
   updateAttribute: (
-    attribute: ICategory | IMark,
+    attribute: ICategory | ICategory,
     attributeNameMany: string,
     type: string,
   ) => void;
@@ -39,9 +38,9 @@ interface ISingleProductExtended {
   setOpen: (id: number | ((prev: number | null) => number | null)) => void;
   openedProduct: number | null;
   categories: ICategory[];
-  marks: IMark[];
+  marks: ICategory[];
   updateAttribute: (
-    attribute: ICategory | IMark,
+    attribute: ICategory | ICategory,
     attributeNameMany: string,
     type: string,
   ) => void;
@@ -52,9 +51,9 @@ interface IProductsList {
   setOpen: (id: number | ((prev: number | null) => number | null)) => void;
   openedProduct: number | null;
   categories: ICategory[];
-  marks: IMark[];
+  marks: ICategory[];
   updateAttribute: (
-    attribute: ICategory | IMark,
+    attribute: ICategory | ICategory,
     attributeNameMany: string,
     type: string,
   ) => void;

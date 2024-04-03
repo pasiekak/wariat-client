@@ -112,6 +112,7 @@ const DashboardLayout = () => {
         .get(URL)
         .then((res) => {
           if (res?.data?.success) {
+            console.log(res);
             setItems(res.data.items);
           }
         })

@@ -4,7 +4,6 @@ import AttributeAdd from "./components/AttributeAdd";
 import Attribute from "./components/Attribute";
 import axios from "axios";
 import { ICategory } from "../../../../api/types/ICategory";
-import { IMark } from "../../../../api/types/IMark";
 import { IAttributesComponentProps } from "./types/IAttributesComponentProps";
 
 const Attributes = ({
@@ -14,7 +13,7 @@ const Attributes = ({
   updateAttribute,
 }: IAttributesComponentProps) => {
   const [selectedAttributes, setSelectedAttributes] = useState<
-    (ICategory | IMark)[]
+    (ICategory | ICategory)[]
   >([]);
 
   useEffect(() => {
@@ -25,13 +24,13 @@ const Attributes = ({
     });
   }, [productID, attributeNameMany]);
 
-  const addSelectedAttribute = (attribute: ICategory | IMark) => {
+  const addSelectedAttribute = (attribute: ICategory | ICategory) => {
     setSelectedAttributes((prev) => {
       return [...prev, attribute];
     });
   };
 
-  const removeSelectedAttribute = (attribute: ICategory | IMark) => {
+  const removeSelectedAttribute = (attribute: ICategory | ICategory) => {
     setSelectedAttributes((prev) => {
       return prev.filter((ob) => ob.id !== attribute.id);
     });

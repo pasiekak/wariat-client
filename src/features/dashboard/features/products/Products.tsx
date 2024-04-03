@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Columns from "./components/Columns";
 import axios from "axios";
 import { ICategory } from "../../../../api/types/ICategory";
-import { IMark } from "../../../../api/types/IMark";
 import { IProductsOutletContext } from "../../types/IOutletContext";
 import ProductsList from "./components/ProductsList";
 import { IProduct } from "./types/product";
@@ -16,7 +15,7 @@ const Products = () => {
   const navigate = useNavigate();
   const [openedProduct, setOpenedProduct] = useState<number | null>(null);
   const [categories, setCategories] = useState<ICategory[]>([]);
-  const [marks, setMarks] = useState<IMark[]>([]);
+  const [marks, setMarks] = useState<ICategory[]>([]);
 
   useEffect(() => {
     setTableName("products");
@@ -33,7 +32,7 @@ const Products = () => {
   }, [setTableName]);
 
   const updateAttribute = (
-    attribute: ICategory | IMark,
+    attribute: ICategory | ICategory,
     attributeNameMany: string,
     type: string,
   ) => {
@@ -71,14 +70,14 @@ const Products = () => {
       type: "info",
     });
   };
-  const addMark = (mark: IMark) => {
+  const addMark = (mark: ICategory) => {
     setMarks((prev) => {
       return [...prev, mark];
     });
     addBanner({ message: `Dodano markę: ${mark.name}`, type: "success" });
   };
 
-  const removeMark = (mark: IMark) => {
+  const removeMark = (mark: ICategory) => {
     setMarks((prev) => {
       return prev.filter((m) => m !== mark);
     });

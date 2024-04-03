@@ -1,19 +1,181 @@
 /*Styles for children*/
-.App > .products > .items-per-page-picker {
+
+/*LEFT*/
+
+/*style for search input*/
+.App > .products > .left > .search-word-mini-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    box-shadow: 5px 5px 5px -6px black;
+
+    border-radius: 5px;
+}
+
+.App > .products > .left > .search-word-mini-form label {
+    text-align: center;
+}
+
+.App > .products > .left > .search-word-mini-form input {
+    outline: none;
+}
+
+/*filters*/
+.App > .products > .left > .filters {
+    box-shadow: 5px 0 5px -6px black;
+    border-radius: 5px;
+}
+
+.App > .products > .left > .filters > .filters-title {
+    text-align: center;
+}
+
+.App > .products > .left > .filters > .checkbox-filters {
+    display: grid;
+    grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
+    padding: 5px;
+    gap: 5px;
+}
+
+.App > .products > .left > .filters > .checkbox-filters .title {
+    text-align: center;
+    grid-column: span 2;
+}
+
+.App > .products > .left > .filters > .checkbox-filters .filter-field {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 20px auto;
+    grid-auto-rows: 20px;
+    align-items: center;
+}
+
+.App > .products > .left > .filters > .checkbox-filters .filter-field input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-2);
+    cursor: pointer;
+}
+
+/*sorting*/
+.App > .products > .left > .sorting {
+    box-shadow: 5px 0 5px -6px black;
+    border-radius: 5px;
+}
+
+.App > .products > .left > .sorting > .sorting-title {
+    text-align: center;
+}
+
+.App > .products > .left > .sorting > .sorting-picker {
+    padding: 0.5rem;
+}
+
+.App > .products > .left > .sorting > .sorting-picker .dropdown button {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .App > .products > .left > .filters > .checkbox-filters {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .App > .products > .left > .filters > .checkbox-filters .title {
+        grid-column: 1 / -1;
+    }
+
+    .App > .products > .left > .filters > .checkbox-filters .filter-field {
+        grid-column: auto;
+    }
+}
+
+/*styles for range inputs for max and min price*/
+.App > .products > .left > .filters > .price-range-picker {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px;
+}
+
+.App > .products > .left > .filters > .price-range-picker > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.App > .products > .left > .filters > .price-range-picker > div input {
+    width: 100%;
+    accent-color: var(--color-2);
+    cursor: pointer;
+}
+
+/*MIDDLE*/
+.App > .products > .middle > .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.App > .products > .middle > .products-wrapper.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 300px;
+    justify-content: center;
+    padding-bottom: 2rem;
+    column-gap: 0.44rem;
+    row-gap: 2rem;
+}
+
+/*style for product tile*/
+.App > .products > .middle > .products-wrapper.grid .product-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 5px -5px black, 2px 0 5px -5px black, -2px 0 5px -5px black;
+    border-radius: 5px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.App > .products > .middle > .products-wrapper.grid .product-tile .name {
+    font-size: 24px;
+}
+
+.App > .products > .middle > .products-wrapper.grid .product-tile .image-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.App > .products > .middle > .products-wrapper.grid .product-tile .price-brutto {
+    align-self: end;
+    font-size: 20px;
+    padding-inline: 5px;
+}
+
+
+/*RIGHT */
+/*style for displayed items number picker*/
+.App > .products > .right > .items-per-page-picker {
     display: grid;
     align-items: center;
+    justify-content: center;
     grid-template-columns: min-content min-content min-content;
     grid-auto-rows: min-content;
     gap: 0.25rem;
+    padding: 10px
 
 }
 
-.App > .products > .items-per-page-picker .title {
+.App > .products > .right > .items-per-page-picker .title {
     margin-right: 0.5rem;
     grid-column: 1;
-    grid-row: 1/3;
-}
-
-.App > .products > .items-per-page-picker .btn {
-
+    grid-row: span 2;
 }
