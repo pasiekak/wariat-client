@@ -24,7 +24,7 @@ const useMark = ({ markID }: useMarkProps = {}): returnedObject => {
 
   useEffect(() => {
     axios
-      .get(markID ? `/api/marks/${markID}` : "/api/mark")
+      .get(markID ? `/api/marks/${markID}` : "/api/marks")
       .then((response) => setData(response.data))
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
