@@ -1,57 +1,64 @@
 .Footer {
-  width: 100%;
-  position: relative;
-  background-color: #dcdcdc;
-  background-size: contain;
-  box-shadow:
-    #d1d3d2 0px -5px,
+    width: 100%;
+    position: relative;
+    background-color: #dcdcdc;
+    background-size: contain;
+    box-shadow: #d1d3d2 0px -5px,
     #c5cac8 0px -10px,
     #bac0bd 0px -15px;
 
-  margin-top: 10px;
+    margin-top: 10px;
 }
+
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
+
 .column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 1rem;
 }
+
 .mediaIcons,
 .mediaPhone,
 .mediaMail {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .mediaPhone,
 .mediaMail {
-  justify-content: center;
-  gap: 1rem;
-}
-.column h4 {
-  margin: 0;
-  align-self: center;
-}
-.column a {
-  text-decoration-color: transparent;
-  color: #3b3b3b;
-  transition: 300ms;
-}
-.column a:hover {
-  text-decoration-color: black;
-  color: black;
-  text-shadow: 0px 0px 25px rgb(75, 75, 75);
-}
-@media (max-width: 400px) {
-  .Footer .container {
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-  }
+    gap: 1rem;
+}
+
+.column h4 {
+    margin: 0;
+    align-self: center;
+}
+
+.column a {
+    text-decoration-color: transparent;
+    color: #3b3b3b;
+    transition: 300ms;
+}
+
+.column a:hover {
+    text-decoration-color: black;
+    color: black;
+    text-shadow: 0px 0px 25px rgb(75, 75, 75);
+}
+
+@media (max-width: 400px) {
+    .Footer .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
