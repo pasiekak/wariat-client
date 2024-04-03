@@ -243,8 +243,32 @@
       "gallery-title": "Galeria zdjęć"
     },
     "products": {
+      "title": "Produkty",
       "pagination": {
-        "items-per-page-title": "Ilość pokazanych produktów"
+        "items-per-page-title": "Ilość pokazywanych elementów"
+      },
+      "search": {
+        "search-word-mini-form-placeholder": "Wyszukiwane hasło...",
+        "search-word-mini-form-title": "Wyszukiwarka",
+        "search-button": "Szukaj"
+      },
+      "filters": {
+        "title": "Filtrowanie",
+        "title-categories": "Kategorie",
+        "title-marks": "Producenci",
+        "price-max-filter-label": "Cena maksymalna",
+        "price-min-filter-label": "Cena minimalna"
+      },
+      "sorting": {
+        "title": "Sortowanie",
+        "id-asc": "Domyślne, rosnąco",
+        "id-desc": "Domyślne, malejąco",
+        "name-asc": "Nazwa, rosnąco",
+        "name-desc": "Nazwa, malejąco",
+        "priceBrutto-asc": "Cena, rosnąco",
+        "priceBrutto-desc": "Cena, malejąco",
+        "createdAt-asc": "Data dodania, od najnowszych",
+        "createdAt-desc": "Data dodania od najstarszych"
       }
     }
   },
