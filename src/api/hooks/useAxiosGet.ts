@@ -32,7 +32,7 @@ const useAxiosGet = ({ url }: useAxiosGetProps): returnedObject => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("FETCH");
+    setLoading(true);
     axios
       .get(url)
       .then((response) => setData(response.data))
