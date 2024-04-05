@@ -6,10 +6,11 @@
 
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 0;
     height: 1px;
     content: "";
-    transition: width 400ms;
+    transition: 400ms;
     background: black;
 }
 
