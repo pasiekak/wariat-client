@@ -11,7 +11,15 @@ export type usePaginationReturnsPrimitives = {
 };
 
 export type usePaginationReturnsFunctions = {
-  changePage: (direction: "next" | "previous") => void;
+  changePage: (
+    direction:
+      | "next"
+      | "previous"
+      | "double next"
+      | "double previous"
+      | "first"
+      | "last",
+  ) => void;
   changeItemsPerPage: (itemsPerPage: number) => void;
   changeOrderDirection: (direction?: "ASC" | "DESC") => void;
   changeOrderProperty: (orderProperty: string) => void;
