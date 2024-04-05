@@ -6,14 +6,15 @@
 .App > .products > .left > .search-word-mini-form {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
     padding: 0.5rem;
+    border-radius: 5px;
     box-shadow: 5px 5px 5px -6px black;
 
-    border-radius: 5px;
+    gap: 0.25rem;
 }
 
 .App > .products > .left > .search-word-mini-form label {
+    font-size: calc(1.275rem + .3vw);
     text-align: center;
 }
 
@@ -21,10 +22,16 @@
     outline: none;
 }
 
+@media (max-width: 767px) {
+    .App > .products > .left > .search-word-mini-form {
+        box-shadow: none;
+    }
+}
+
 /*filters*/
 .App > .products > .left > .filters {
-    box-shadow: 5px 0 5px -6px black;
     border-radius: 5px;
+    box-shadow: 5px 0 5px -6px black;
 }
 
 .App > .products > .left > .filters > .filters-title {
@@ -33,8 +40,8 @@
 
 .App > .products > .left > .filters > .checkbox-filters {
     display: grid;
-    grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
     padding: 5px;
+    grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
     gap: 5px;
 }
 
@@ -45,23 +52,23 @@
 
 .App > .products > .left > .filters > .checkbox-filters .filter-field {
     display: grid;
+    align-items: center;
     gap: 5px;
     grid-template-columns: 20px auto;
     grid-auto-rows: 20px;
-    align-items: center;
 }
 
 .App > .products > .left > .filters > .checkbox-filters .filter-field input[type="checkbox"] {
     width: 16px;
     height: 16px;
-    accent-color: var(--color-2);
     cursor: pointer;
+    accent-color: var(--color-2);
 }
 
 /*sorting*/
 .App > .products > .left > .sorting {
-    box-shadow: 5px 0 5px -6px black;
     border-radius: 5px;
+    box-shadow: 5px 0 5px -6px black;
 }
 
 .App > .products > .left > .sorting > .sorting-title {
@@ -79,6 +86,7 @@
 @media (max-width: 767px) {
     .App > .products > .left > .filters > .checkbox-filters {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        padding-inline: 0.5rem;
     }
 
     .App > .products > .left > .filters > .checkbox-filters .title {
@@ -99,47 +107,48 @@
 
 .App > .products > .left > .filters > .price-range-picker > div {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .App > .products > .left > .filters > .price-range-picker > div input {
     width: 100%;
-    accent-color: var(--color-2);
     cursor: pointer;
+    accent-color: var(--color-2);
 }
 
 /*MIDDLE*/
 .App > .products > .middle > .title {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: 0;
 }
 
 .App > .products > .middle > .products-wrapper.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: 300px;
     justify-content: center;
     padding-bottom: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 300px;
     column-gap: 0.44rem;
     row-gap: 2rem;
 }
 
-/*style for product tile*/
+/*style for product GRID tile*/
 .App > .products > .middle > .products-wrapper.grid .product-tile {
     display: flex;
+    overflow: hidden;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 5px 5px -5px black, 2px 0 5px -5px black, -2px 0 5px -5px black;
-    border-radius: 5px;
-
-    background-size: cover;
+    border-radius: 10px;
     background-repeat: no-repeat;
+
     background-position: center;
+    background-size: cover;
+    box-shadow: 0 5px 5px -5px black, 2px 0 5px -5px black, -2px 0 5px -5px black;
 }
 
 .App > .products > .middle > .products-wrapper.grid .product-tile .name {
@@ -147,19 +156,186 @@
 }
 
 .App > .products > .middle > .products-wrapper.grid .product-tile .image-wrapper {
+    order: -1;
     width: 100%;
-    aspect-ratio: 4/3;
-    background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 4/3;
 }
 
-.App > .products > .middle > .products-wrapper.grid .product-tile .price-brutto {
+/*style for product list item*/
+.App > .products > .middle > .products-wrapper.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.33rem;
+}
+
+.App > .products > .middle > .products-wrapper.list .product-tile {
+    display: grid;
+    padding: 5px;
+
+    border-radius: 10px;
+    box-shadow: 0 5px 5px -5px black, 2px 0 5px -5px black, -2px 0 5px -5px black;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: auto auto;
+
+    gap: 5px;
+}
+
+.App > .products > .middle > .products-wrapper.list .product-tile .image-wrapper {
+    order: 1;
+
+    width: 100%;
+    transition: 200ms;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 4/3;
+
+    grid-row: 1/-1;
+}
+
+.App > .products > .middle > .products-wrapper.list .product-tile .name {
+    font-size: 24px;
+    align-self: start;
+    order: 2;
+    justify-self: center;
+}
+
+.App > .products > .middle > .products-wrapper.list .product-tile .info {
     align-self: end;
-    font-size: 20px;
-    padding-inline: 5px;
+    order: 3;
+    justify-self: end;
 }
 
+.App > .products > .middle > .products-wrapper.list .product-tile .image-wrapper:hover {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 767px) {
+    .App > .products > .middle > .products-wrapper.list .product-tile .name {
+        justify-self: start;
+    }
+}
+
+/*page picker*/
+.App > .products > .middle > .page-picker {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.App > .products > .middle > .page-picker .pick {
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.App > .products > .middle > .page-picker .pick:not(.btn):hover {
+    scale: 1.3;
+}
+
+.App > .products > .middle > .page-picker .pick.disabled {
+    pointer-events: none;
+    opacity: 30%;
+}
+
+@media (max-width: 767px) {
+    .App > .products > .middle > .page-picker {
+        padding-inline: 0.5rem;
+    }
+    .App > .products > .middle > .page-picker .pick.next.double,
+    .App > .products > .middle > .page-picker .pick.previous.double {
+        display: none;
+    }
+}
+
+/*both grid and list*/
+.App > .products > .middle > .products-wrapper {
+    flex: 1;
+    padding-inline: 0.5rem;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile {
+    position: relative;
+    transition: box-shadow 200ms;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile:hover {
+    box-shadow: 0 5px 10px -5px black, 2px 0 10px -5px black, -2px 0 10px -5px black;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .name {
+    cursor: pointer;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .info {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 5px;
+    gap: 5px;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .info .prices {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .info .prices .price-brutto.before-discount {
+    font-size: 14px;
+
+    justify-content: center;
+    text-decoration: black 1px line-through;
+    opacity: 80%;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .info .add-delete-product-from-cart {
+    width: 36px;
+    padding: 4px 8px;
+    border-radius: 0 5px 0 5px;
+}
+
+/*labels*/
+.App > .products > .middle > .products-wrapper .product-tile .labels {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .discount-label {
+    padding: 2px 5px;
+    border-radius: 5px;
+    background: rgba(255, 247, 100, 0.75);
+}
+
+.App > .products > .middle > .products-wrapper .product-tile .new-label {
+    padding: 2px 5px;
+    border-radius: 5px;
+    background: rgba(133, 255, 159, 0.75);
+}
+
+@media (max-width: 767px) {
+    .App > .products > .middle > .products-wrapper .product-tile .labels {
+        left: 5px;
+        gap: 4px;
+    }
+}
 
 /*RIGHT */
 /*style for displayed items number picker*/
@@ -167,10 +343,12 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -5px 5px 5px -6px black;
     grid-template-columns: min-content min-content min-content;
     grid-auto-rows: min-content;
     gap: 0.25rem;
-    padding: 10px
 
 }
 
@@ -178,4 +356,49 @@
     margin-right: 0.5rem;
     grid-column: 1;
     grid-row: span 2;
+}
+
+@media (max-width: 767px) {
+    .App > .products > .right > .items-per-page-picker {
+        display: flex;
+        flex-direction: row;
+        box-shadow: none;
+        padding-inline: 0.5rem;
+    }
+    .App > .products > .right > .items-per-page-picker .title {
+        display: none;
+    }
+}
+
+/*style for display picker*/
+.App > .products > .right > .display {
+    width: 100%;
+    padding: 5px;
+    box-shadow: -5px 0 5px -6px black;
+}
+
+.App > .products > .right > .display h4 {
+    text-align: center;
+}
+
+.App > .products > .right > .display .display-picker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.App > .products > .right > .display .display-picker svg {
+    height: 32px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.App > .products > .right > .display .display-picker svg:hover {
+    color: var(--color-2);
+    scale: 1.2;
+}
+
+.App > .products > .right > .display .display-picker .pick.selected svg {
+    color: var(--color-2);
 }

@@ -31,7 +31,6 @@ const ProductsOutletContext = () => {
     minPrice: priceFilter.minPrice,
   });
   const { data, loading } = useAxiosGet({ url: URL });
-
   useEffect(() => {
     if (data?.items?.count !== undefined && data?.items?.rows !== undefined) {
       pagination.changeCount(data.items.count);

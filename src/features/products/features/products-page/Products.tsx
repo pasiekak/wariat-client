@@ -11,6 +11,7 @@ import PriceRangePicker from "./components/PriceRangePicker";
 import SortingPicker from "./components/SortingPicker";
 import { orderOptions } from "../../data/orderOptions";
 import DisplayPicker from "./components/DisplayPicker";
+import PagePicker from "../../../pagination/components/PagePicker";
 
 const Products = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "components.products" });
@@ -48,9 +49,20 @@ const Products = () => {
         <h1 className="title">{t("title")}</h1>
         <div className={`products-wrapper ${context.display}`}>
           {context.products.map((product) => (
-            <ProductTile {...product} key={product.id} />
+            <ProductTile
+              {...product}
+              createdAt={new Date(product.createdAt)}
+              updatedAt={new Date(product.updatedAt)}
+              key={product.id}
+            />
           ))}
         </div>
+        <PagePicker
+          currentPage={context.page}
+          maxPage={context.maxPage}
+          loading={context.loading}
+          changePage={context.changePage}
+        />
       </div>
       <div className="right">
         <ItemsPerPagePicker
@@ -59,7 +71,10 @@ const Products = () => {
           selectedValue={context.itemsPerPage}
           withText={true}
         />
-        <DisplayPicker />
+        <div className="display">
+          <h4>{t("display.title")}</h4>
+          <DisplayPicker />
+        </div>
       </div>
     </section>
   );
