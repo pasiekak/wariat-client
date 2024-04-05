@@ -24,3 +24,11 @@ export const isFutureDate = (dateString: string): boolean => {
 
   return inputDate > currentDate;
 };
+
+export const isNewDate = (date: Date): boolean => {
+  const now = new Date();
+
+  const difference = now.getTime() - date.getTime();
+  const daysDifference = Math.floor(difference / (1000 * 3600 * 24));
+  return daysDifference <= 7;
+};
