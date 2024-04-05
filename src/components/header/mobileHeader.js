@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 
-import { CartContext } from "../../features/order/features/cart/context/cart";
+import { CartContext } from "../../features/cart/context/CartContext";
 import Logo from "../logo/Logo";
 
 import "./mobileHeader.css";
@@ -9,10 +9,10 @@ import "./mobileHeader.css";
 const MobileHeader = ({ logout, t, cookies }) => {
   const [showDropdown1, setShowDropdown1] = useState(false);
   const navigate = useNavigate();
-  const { getCartCount } = useContext(CartContext);
+  const { count } = useContext(CartContext);
 
-  const navigateToOrder = () => {
-    navigate("/order");
+  const navigateToCart = () => {
+    navigate("/cart");
   };
 
   return (
@@ -51,8 +51,8 @@ const MobileHeader = ({ logout, t, cookies }) => {
         )}
       </div>
       <Logo width={64} height={64} pathTo={"/"} />
-      <div className="rightMobile" onClick={navigateToOrder}>
-        {getCartCount() > 0 ? (
+      <div className="rightMobile" onClick={navigateToCart}>
+        {count > 0 ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"

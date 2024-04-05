@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import accountActions from "../../api/accountActions";
-import { CartContext } from "../../features/order/features/cart/context/cart";
+import { CartContext } from "../../features/cart/context/CartContext";
 import { AccountContext } from "../../features/account/context/account";
 import LanguageSelect from "./languageSelect/LanguageSelect";
 import MobileHeader from "./mobileHeader";
@@ -19,7 +19,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { t } = useTranslation(null, { keyPrefix: "components.header" });
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const { getCartCount } = useContext(CartContext);
+  const { count } = useContext(CartContext);
   const { clearAccount } = useContext(AccountContext);
   const logout = async () => {
     clearAccount();
@@ -67,8 +67,8 @@ const Header = () => {
                 )}
               </Dropdown.Menu>
             </Dropdown>
-            <Link to="/order">
-              {t("cart")}({getCartCount()})
+            <Link to="/cart">
+              {t("cart")}({count})
             </Link>
           </div>
           <LanguageSelect className={"topLang"} />
