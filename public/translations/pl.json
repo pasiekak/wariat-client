@@ -15,148 +15,6 @@
     "home": {
       "welcomeMessage": "Witaj w Wariat Garage – miejscu, gdzie terenówki stają się prawdziwymi mistrzami off-roadu! Jesteśmy zespołem zapalonych specjalistów, którzy oddają się sztuce modyfikowania, naprawiania i tunigowania terenówek. Nasza pasja to odmienianie tych potężnych pojazdów, aby stały się doskonałe w każdym calu. Niezależnie od tego, czy potrzebujesz profesjonalnych modyfikacji, naprawy, czy tuningu, jesteśmy gotowi dostarczyć Ci najwyższej jakości usługi. Nasza praca to sztuka, a Twoja terenówka staje się płótnem, na którym tworzymy dzieło sztuki. Niech duch przygody towarzyszy Ci w każdym zakręcie. Dołącz do nas w Wariat Garage i doświadcz potęgi off-roadu, którą tworzymy razem! (Created by GPT 3.5)"
     },
-    "order": {
-      "cart": {
-        "add-to-cart-button": "Dodaj do koszyka",
-        "remove-from-cart-button": "Usuń z koszyka",
-        "order-button": "Wybierz sposób dostawy",
-        "empty-cart-message": "Twój koszyk jest pusty",
-        "empty-cart-button-disabled": "Nie można przeprowadzić zamówienia, ponieważ koszyk jest pusty",
-        "title": "Twój koszyk",
-        "total": "Łączna cena",
-        "total-disc": "Cena po uwzględnieniu zniżek",
-        "not-logged": "Musisz się zalogować aby dokonać zamówienia"
-      },
-      "delivery-type": {
-        "title": "Wybierz sposób dostawy",
-        "back-to-cart-button": "Wróć do koszyka",
-        "has-to-pick-delivery-method": "Aby przejść dalej musisz wybrać sposób dostawy.",
-        "move-to-receiver-data": "Przejdź do danych wysyłki"
-      },
-      "receiver-data": {
-        "title": "Uzupełnij dane odbiorcy",
-        "shipment-data-title": "Adres dostawy",
-        "personal-data-title": "Dane odbiorcy",
-        "company-data-title": "Dane firmy",
-        "form": {
-          "first-name-label": "Imię",
-          "first-name-placeholder": "Twoje imię...",
-          "first-name-required": "Imię jest wymagane",
-          "last-name-label": "Nazwisko",
-          "last-name-placeholder": "Twoje nazwisko...",
-          "last-name-required": "Nazwisko jest wymagane",
-          "phone-label": "Numer telefonu",
-          "phone-placeholder": "Twój numer telefonu...",
-          "phone-required": "Numer telefonu jest wymagany",
-          "email-label": "Email",
-          "email-placeholder": "Twój adres email...",
-          "email-required": "Adres email jest wymagany",
-          "want-invoice-label": "Chcesz fakturę?",
-          "company-name-label": "Nazwa firmy",
-          "company-name-placeholder": "Nazwa Twojej firmy...",
-          "company-name-required": "Nazwa firmy jest wymagana",
-          "country-label": "Kraj",
-          "country-placeholder": "Twój kraj...",
-          "country-required": "Kraj jest wymagany",
-          "city-label": "Miasto",
-          "city-placeholder": "Twoje miasto...",
-          "city-required": "Miasto jest wymagane",
-          "postal-code-label": "Kod pocztowy",
-          "postal-code-placeholder": "Twój kod pocztowy...",
-          "postal-code-required": "Kod pocztowy jest wymagany",
-          "street-label": "Ulica",
-          "street-placeholder": "Twoja ulica...",
-          "street-required": "Ulica jest wymagana",
-          "home-number-label": "Numer budynku",
-          "home-number-placeholder": "Twój numer budynku...",
-          "home-number-required": "Numer budynku jest wymagany",
-          "building-number-label": "Numer budynku",
-          "building-number-placeholder": "Twój numer budynku...",
-          "building-number-required": "Numer budynku jest wymagany",
-          "nip-label": "NIP",
-          "nip-placeholder": "10-cio cyfrowy kod identyfikujący firmę",
-          "nip-required": "NIP jest wymagany",
-          "nip-invalid": "Ten NIP jest niepoprawny",
-          "load-nip-data": "Wczytaj dane wykorzystując NIP",
-          "too-much-requests": "Poczekaj minutę",
-          "unable-to-load-nip": "Nie udało się wczytać danych firmy",
-          "back-to-delivery-type-button": "Wróć do wyboru sposobu dostawy",
-          "move-to-summary-button": "Przejdź do podsumowania"
-        }
-      },
-      "summary": {
-        "title": "Udało Ci się złożyć zamówienie",
-        "title-des1": "Dziękujemy za złożenie zamówienia na naszej stronie.",
-        "order-number": "Numer zamówienia",
-        "comment-textarea-placeholder": "W tym miejscu możesz dołączyć jakiś komentarz do zamówienia",
-        "comment-title": "Twój komentarz",
-        "go-back-button": "Wróć do danych odbiorcy",
-        "place-an-order-button": "Złóż zamówienie",
-        "products-summary-table": {
-          "title": "Zamówione produkty",
-          "title2": "Wybrane produkty",
-          "quantity": "Ilość",
-          "price": "Cena",
-          "price-for-one": "Cena za sztukę",
-          "price-for-all": "Cena razem",
-          "price-with-discount": "Cena po zniżkach"
-        },
-        "order-summary": {
-          "title": "Podsumowanie zamówienia",
-          "order-created": "Data złożenia",
-          "order-time": "Godzina złożenia",
-          "delivery-fee": "Dostawa",
-          "tax": "Podatek",
-          "total": "Do zapłaty",
-          "Accepted": "Do opłacenia",
-          "Paid": "Opłacone",
-          "Sent": "Wysłane",
-          "Completed": "Zakończone"
-        },
-        "customer-order": {
-          "title": "Szczegóły zamówienia i odbiorcy",
-          "title2": "Dane odbiorcy",
-          "first-and-last-name": "Imię i nazwisko",
-          "email": "Adres email",
-          "phone": "Numer telefonu",
-          "delivery-type": "Sposób dostawy"
-        },
-        "delivery-address": {
-          "title": "Adres dostawy",
-          "country": "Kraj",
-          "city": "Miasto",
-          "postal-code": "Kod pocztowy",
-          "street": "Ulica",
-          "home-number": "Numer domu/mieszkania"
-        },
-        "billing-data": {
-          "invoice": "Faktura",
-          "receipt": "Paragon",
-          "settlement-document": "Rodzaj rozliczenia",
-          "title": "Dane firmy",
-          "title2": "Dane rozliczeniowe",
-          "nip": "NIP",
-          "company-name": "Nazwa",
-          "country": "Kraj",
-          "city": "Miasto",
-          "street": "Ulica",
-          "postal-code": "Kod pocztowy",
-          "building-number": "Numer budynku"
-        },
-        "pricing": {
-          "sum-netto": "Suma za produkty netto",
-          "sum-brutto": "Suma za produkty brutto",
-          "sum-after-group-discount": "Suma po zniżce grupowej",
-          "delivery-fee": "Dostawa",
-          "vat-tax": "Podatek VAT",
-          "total-price": "Całkowita kwota do zapłacenia"
-        },
-        "documents": {
-          "title": "Dokumenty dotyczące zamówienia",
-          "payment-methods-btn": "Pobierz pdf z metodami płatności"
-        }
-      }
-    },
     "account": {
       "welcome-message": "Cześć",
       "change-button": "Zmień",
@@ -244,8 +102,13 @@
     },
     "products": {
       "title": "Produkty",
+      "new-label": "Nowy",
       "pagination": {
-        "items-per-page-title": "Ilość pokazywanych elementów"
+        "items-per-page-title": "Ilość pokazywanych elementów",
+        "first-page-short": "Pierwsza",
+        "first-page": "Pierwsza strona",
+        "last-page": "Ostatnia strona",
+        "last-page-short": "Ostatnia"
       },
       "search": {
         "search-word-mini-form-placeholder": "Wyszukiwane hasło...",
@@ -269,7 +132,12 @@
         "priceBrutto-desc": "Cena, malejąco",
         "createdAt-asc": "Data dodania, od najnowszych",
         "createdAt-desc": "Data dodania od najstarszych"
+      },
+      "display": {
+        "title": "Wyświetlanie"
       }
+    },
+    "cart": {
     }
   },
   "forms": {
