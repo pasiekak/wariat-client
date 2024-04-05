@@ -8,8 +8,6 @@ import Home from "../../components/landing-page/Home";
 import DashboardProducts from "../dashboard/features/products/Products";
 import Products from "../products/features/products-page/Products";
 import Account from "../account/features/page/Account";
-import Order from "../order/Order";
-import Summary from "../order/features/summary/Summary";
 import NotFound from "../../components/not-found-page/NotFound";
 import Footer from "../../components/footer/Footer";
 import AddProduct from "../dashboard/features/products/features/adding/AddProduct";
@@ -88,8 +86,8 @@ function NormalRoutes() {
           <Route path=":id" Component={Event} />
         </Route>
         <Route path="/account" Component={Account} />
-        <Route path="/order" Component={Order} />
-        <Route path="/order/:orderID" Component={Summary} />
+        <Route path="/cart" element={<>Tutaj bedzie Koszyk</>} />
+        <Route path="/order" element={<>Tutaj będzie order</>} />
         <Route path="/*" Component={NotFound} />
       </Routes>
       <Footer />
