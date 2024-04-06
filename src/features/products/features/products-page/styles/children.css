@@ -32,6 +32,7 @@
 .App > .products > .left > .filters {
     border-radius: 5px;
     box-shadow: 5px 0 5px -6px black;
+    padding: 5px;
 }
 
 .App > .products > .left > .filters > .filters-title {
@@ -40,7 +41,6 @@
 
 .App > .products > .left > .filters > .checkbox-filters {
     display: grid;
-    padding: 5px;
     grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
     gap: 5px;
 }
@@ -69,14 +69,11 @@
 .App > .products > .left > .sorting {
     border-radius: 5px;
     box-shadow: 5px 0 5px -6px black;
+    padding: 5px;
 }
 
 .App > .products > .left > .sorting > .sorting-title {
     text-align: center;
-}
-
-.App > .products > .left > .sorting > .sorting-picker {
-    padding: 0.5rem;
 }
 
 .App > .products > .left > .sorting > .sorting-picker .dropdown button {
@@ -86,7 +83,6 @@
 @media (max-width: 767px) {
     .App > .products > .left > .filters > .checkbox-filters {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        padding-inline: 0.5rem;
     }
 
     .App > .products > .left > .filters > .checkbox-filters .title {
@@ -102,7 +98,6 @@
 .App > .products > .left > .filters > .price-range-picker {
     display: flex;
     flex-direction: column;
-    padding-inline: 10px;
 }
 
 .App > .products > .left > .filters > .price-range-picker > div {
@@ -116,6 +111,10 @@
     width: 100%;
     cursor: pointer;
     accent-color: var(--color-2);
+}
+
+.App > .products > .left > .filters > .clear-filters-button {
+    width: 100%;
 }
 
 /*MIDDLE*/
@@ -249,6 +248,7 @@
     .App > .products > .middle > .page-picker {
         padding-inline: 0.5rem;
     }
+
     .App > .products > .middle > .page-picker .pick.next.double,
     .App > .products > .middle > .page-picker .pick.previous.double {
         display: none;
@@ -365,6 +365,7 @@
         box-shadow: none;
         padding-inline: 0.5rem;
     }
+
     .App > .products > .right > .items-per-page-picker .title {
         display: none;
     }
