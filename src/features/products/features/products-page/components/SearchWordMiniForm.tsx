@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
+import { useEffect } from "react";
 
 type searchWordMiniFormProps = {
   searchWord: string;
@@ -12,9 +13,13 @@ const SearchWordMiniForm = (props: searchWordMiniFormProps) => {
   const { t } = useTranslation(undefined, {
     keyPrefix: "components.products.search",
   });
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     defaultValues: { searchWord: props.searchWord },
   });
+
+  useEffect(() => {
+    setValue("searchWord", props.searchWord);
+  }, [props.searchWord]);
 
   const onSubmit = (data: { searchWord: string }) => {
     props.changeFn(data.searchWord);

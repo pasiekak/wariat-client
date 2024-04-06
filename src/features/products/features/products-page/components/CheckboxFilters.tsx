@@ -43,6 +43,7 @@ const CheckboxFilters = (props: checkboxFiltersProps) => {
             <input
               id={`${props.type}${val.id}`}
               disabled={context.loading}
+              checked={props.selectedItems.some((o) => o.id === val.id)}
               type="checkbox"
               onChange={(e) => handleChange(e, val)}
             />

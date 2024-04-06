@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import { IOutletContext } from "../../../types/IOutletContext";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const PriceRangePicker = () => {
@@ -11,11 +11,15 @@ const PriceRangePicker = () => {
   const [min, setMin] = useState(context.minPrice);
   const [max, setMax] = useState(context.maxPrice);
 
+  useEffect(() => {
+    setMin(context.minPrice);
+    setMax(context.maxPrice);
+  }, [context.minPrice, context.maxPrice]);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const val = parseInt(e.target.value);
     if (e.target.id === "max") setMax(val);
     if (e.target.id === "min") setMin(val);
-    console.log(val);
   };
 
   const handleMouseUp = (type: string) => {

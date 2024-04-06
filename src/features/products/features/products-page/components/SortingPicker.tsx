@@ -29,7 +29,14 @@ const SortingPicker = (props: sortingPickerProps) => {
         disabled={context.loading}
       >
         {props.options.map((opt, index) => (
-          <Dropdown.Item key={index} onClick={() => handleClick(opt)}>
+          <Dropdown.Item
+            key={index}
+            onClick={() => handleClick(opt)}
+            disabled={
+              context.orderBy === opt.by &&
+              context.orderDirection === opt.direction
+            }
+          >
             {t(opt.by + "-" + opt.direction.toLowerCase())}
           </Dropdown.Item>
         ))}
