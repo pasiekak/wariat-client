@@ -39,7 +39,7 @@ const ProductTile = (props: IProduct) => {
       );
       setPriceAfterDiscount(discountPrice);
     }
-  }, [bestDiscount]);
+  }, [bestDiscount, props.priceBrutto]);
 
   return (
     <div className="product-tile">
