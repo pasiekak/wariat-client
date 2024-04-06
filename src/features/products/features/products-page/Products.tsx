@@ -12,6 +12,7 @@ import SortingPicker from "./components/SortingPicker";
 import { orderOptions } from "../../data/orderOptions";
 import DisplayPicker from "./components/DisplayPicker";
 import PagePicker from "../../../pagination/components/PagePicker";
+import ClearButton from "./components/ClearButton";
 
 const Products = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "components.products" });
@@ -39,6 +40,7 @@ const Products = () => {
             type={"mark"}
           />
           <PriceRangePicker />
+          <ClearButton />
         </div>
         <div className="sorting">
           <h4 className="sorting-title">{t("sorting.title")}</h4>
