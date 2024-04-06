@@ -37,7 +37,7 @@ const MobileHeader = ({ logout, t, cookies }) => {
           <div className="mobileDropdownList leftDropdown">
             <Link to="/">{t("mainPage")}</Link>
             <Link to="/products">{t("products")}</Link>
-            <Link to="/gallery">{t("gallery")}</Link>
+            <Link to="/events">{t("events")}</Link>
             {cookies.user ? "" : <Link to="/login">{t("login")}</Link>}
             {cookies.user ? <Link to="/account">{t("your-account")}</Link> : ""}
             {cookies.user ? (
