@@ -3,4 +3,5 @@ export type usePriceFilterReturns = {
   minPrice: number;
   changeMaxPrice: (newMax: number) => void;
   changeMinPrice: (newMin: number) => void;
+  clearPrices: () => void;
 };
