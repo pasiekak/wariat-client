@@ -1,15 +1,28 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { usePaginationReturns } from "../types/usePaginationReturns";
+import { useSessionStorage } from "../../../hooks/useStorage";
 
 const usePagination = (): usePaginationReturns => {
-  const [page, setPage] = useState<number>(1);
-  const [maxPage, setMaxPage] = useState<number>(1);
-  const [orderBy, setOrderBy] = useState<string>("createdAt");
-  const [orderDirection, setOrderDirection] = useState<"ASC" | "DESC">("DESC");
-  const [itemsPerPage, setItemsPerPage] = useState<number>(20);
+  const [page, setPage] = useSessionStorage<number>("pagination-page", 1);
+  const [maxPage, setMaxPage] = useSessionStorage<number>(
+    "pagination-max-page",
+    1,
+  );
+  const [orderBy, setOrderBy] = useSessionStorage<string>(
+    "pagination-order-by",
+    "createdAt",
+  );
+  const [orderDirection, setOrderDirection] = useSessionStorage<"ASC" | "DESC">(
+    "pagination-order-direction",
+    "DESC",
+  );
+  const [itemsPerPage, setItemsPerPage] = useSessionStorage<number>(
+    "pagination-items-per-page",
+    20,
+  );
 
   // Has to be calculated whenever count or items per page changes
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useSessionStorage<number>("pagination-count", 1);
 
   const calculateMaxPage = useCallback(() => {
     const newMaxPage = Math.ceil(count / itemsPerPage);
@@ -19,7 +32,7 @@ const usePagination = (): usePaginationReturns => {
       setMaxPage(newMaxPage);
     }
     setPage(1);
-  }, [count, itemsPerPage]);
+  }, [count, itemsPerPage, setPage, setMaxPage]);
 
   // setting max page using callback
   useEffect(() => {
