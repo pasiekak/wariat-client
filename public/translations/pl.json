@@ -120,7 +120,8 @@
         "title-categories": "Kategorie",
         "title-marks": "Producenci",
         "price-max-filter-label": "Cena maksymalna",
-        "price-min-filter-label": "Cena minimalna"
+        "price-min-filter-label": "Cena minimalna",
+        "clear-filters-button": "Wyczyść"
       },
       "sorting": {
         "title": "Sortowanie",
