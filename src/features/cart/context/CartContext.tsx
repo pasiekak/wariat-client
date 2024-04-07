@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useState } from "react";
+import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { CartContextReturns, CartProduct } from "../types/CartContextTypes";
 
 export const CartContext = createContext<CartContextReturns>(
@@ -7,7 +7,11 @@ export const CartContext = createContext<CartContextReturns>(
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
-  const [count, setCount] = useState<number>(cartProducts.length);
+  const [count, setCount] = useState<number>(0);
+
+  useEffect(() => {
+    setCount(cartProducts.length);
+  }, [cartProducts.length]);
 
   const addProductToCart = (cartProduct: CartProduct) => {
     setCartProducts((prev) => [...prev, cartProduct]);
