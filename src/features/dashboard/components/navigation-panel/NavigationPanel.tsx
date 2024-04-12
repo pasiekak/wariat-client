@@ -3,6 +3,7 @@ import {
   faBoxesStacked,
   faImages,
   faPercent,
+  faTruck,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/navigation-panel.css";
@@ -38,6 +39,9 @@ const NavigationPanel = ({
     } else if (location.pathname.includes("events")) {
       setUsePagination(false);
       setSelected(4);
+    } else if (location.pathname.includes("delivery")) {
+      setUsePagination(false);
+      setSelected(5);
     }
   }, [location.pathname, setUsePagination]);
 
@@ -87,6 +91,13 @@ const NavigationPanel = ({
       >
         <FontAwesomeIcon icon={faImages} />
         <span>Wydarzenia</span>
+      </div>
+      <div
+        onClick={() => handleClick("delivery")}
+        className={selected === 5 ? "selected" : ""}
+      >
+        <FontAwesomeIcon icon={faTruck} />
+        <span>Dostawa</span>
       </div>
     </section>
   );

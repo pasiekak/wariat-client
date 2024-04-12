@@ -1,6 +1,6 @@
 import useAxiosGet from "../../../../../../../../../api/hooks/useAxiosGet";
 import { useEffect, useState } from "react";
-import { IUser } from "../../../../../../users/types/IUser";
+import { IUser } from "../../../../../../../../../api/types/IUser";
 import { RegisterOptions } from "react-hook-form";
 
 import "../styles/field.css";
@@ -11,13 +11,17 @@ type UsersSelectProps = {
 };
 
 const UsersSelect = ({ register, changeUsersEmpty }: UsersSelectProps) => {
-  const { data } = useAxiosGet({
+  const { data } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    users: IUser[];
+  }>({
     url: "/api/users",
   });
   const [users, setUsers] = useState<IUser[] | null>(null);
 
   useEffect(() => {
-    if (data?.users) {
+    if (data) {
       setUsers(data.users);
       changeUsersEmpty(data.users.length);
     } else {

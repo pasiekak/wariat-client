@@ -10,6 +10,7 @@ const CompanyData = () => {
         <SingleDBProperty
           getURL={`/api/companyData/users/${parseInt(userID)}?attribute=nip`}
           putURL={`/api/companyData/users/${parseInt(userID)}`}
+          updateContextValueFN={(val: number | string) => {}}
           labelText={"NIP firmy:"}
           modifiable={true}
           attributeName={"nip"}

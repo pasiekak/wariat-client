@@ -66,6 +66,12 @@
     background: var(--color-3);
 }
 
+@media (max-width: 767px) {
+    .dashboard-layout .pagination-panel {
+        flex-direction: column;
+    }
+}
+
 @keyframes shakeleft {
     0% {
         transform: translateX(0);

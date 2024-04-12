@@ -36,7 +36,6 @@ const Products = () => {
     attributeNameMany: string,
     type: string,
   ) => {
-    console.log("IM WORKING");
     if (attributeNameMany === "marks") {
       if (type === "add") {
         addMark(attribute);

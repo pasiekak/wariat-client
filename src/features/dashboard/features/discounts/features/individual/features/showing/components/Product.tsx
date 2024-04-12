@@ -1,7 +1,7 @@
 import useProduct from "../../../../../../../../../api/hooks/product/useProduct";
 
 const Product = ({ productID }: { productID: number }) => {
-  const { data, error, loading } = useProduct({ productID: productID });
+  const { data, error, loading } = useProduct(productID);
 
   return (
     <div className="product-info">

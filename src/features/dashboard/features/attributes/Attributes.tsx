@@ -5,6 +5,7 @@ import Attribute from "./components/Attribute";
 import axios from "axios";
 import { ICategory } from "../../../../api/types/ICategory";
 import { IAttributesComponentProps } from "./types/IAttributesComponentProps";
+import { IMark } from "../../../../api/types/IMark";
 
 const Attributes = ({
   productID,
@@ -13,7 +14,7 @@ const Attributes = ({
   updateAttribute,
 }: IAttributesComponentProps) => {
   const [selectedAttributes, setSelectedAttributes] = useState<
-    (ICategory | ICategory)[]
+    (ICategory | IMark)[]
   >([]);
 
   useEffect(() => {

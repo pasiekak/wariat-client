@@ -14,11 +14,15 @@ const CategoriesSelect = ({
   register,
   changeCategoriesEmpty,
 }: CategoriesSelectProps) => {
-  const { data } = useAxiosGet({ url: "/api/categories" });
+  const { data } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    categories: ICategory[];
+  }>({ url: "/api/categories" });
   const [categories, setCategories] = useState<ICategory[] | null>(null);
 
   useEffect(() => {
-    if (data?.categories) {
+    if (data) {
       setCategories(data.categories);
       changeCategoriesEmpty(data.categories.length);
     } else {

@@ -1,4 +1,4 @@
-import { IUser } from "../types/IUser";
+import { IUser } from "../../../../../api/types/IUser";
 import UserPersonalData from "./UserPersonalData";
 import UserRole from "./UserRole";
 

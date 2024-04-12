@@ -5,10 +5,15 @@ import "./styles/user.css";
 import UserProperties from "./components/UserProperties";
 import { useParams } from "react-router-dom";
 import Actions from "../../components/Actions";
+import { IUser } from "../../../../../../api/types/IUser";
 
 const User = () => {
   const { userID } = useParams();
-  const { data, error, loading } = useAxiosGet({ url: `/api/users/${userID}` });
+  const { data, error, loading } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    user: IUser;
+  }>({ url: `/api/users/${userID}` });
   return (
     <section className="user">
       {loading && "Ładowanie"}

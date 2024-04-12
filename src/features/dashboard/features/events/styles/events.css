@@ -20,12 +20,6 @@
     border-radius: 2px;
 }
 
-.dashboard-layout .events .solo {
-    padding: 0.5rem;
-    border-radius: 5px;
-    background: var(--color-3);
-}
-
 .dashboard-layout .events h1 {
     text-align: center;
 }

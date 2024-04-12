@@ -2,6 +2,7 @@ import Images from "../../images/Images";
 import ProductModifyForm from "../features/manage/features/modifying/modify";
 import { ISingleProductExtended } from "../types/product";
 import Attributes from "../../attributes/Attributes";
+import ModifyProductDetails from "../features/manage/features/modifying/components/ModifyProductDetails";
 
 const SingleProductExtended = (props: ISingleProductExtended) => {
   return (
@@ -23,6 +24,7 @@ const SingleProductExtended = (props: ISingleProductExtended) => {
           updateAttribute={props.updateAttribute}
         />
         <Images id={props.id} entityPlural="products" />
+        <ModifyProductDetails productID={props.id} />
       </div>
     </div>
   );

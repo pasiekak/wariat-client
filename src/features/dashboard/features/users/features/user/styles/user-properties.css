@@ -2,37 +2,5 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-}
-
-.dashboard-layout .user .user-properties .single-db-property {
-    display: grid;
-    align-items: center;
     padding-inline: 0.5rem;
-    padding-block: 0.1rem;
-    grid-template-columns: max-content 1fr min-content;
-
-}
-
-.dashboard-layout .user .user-properties .single-db-property .label {
-    margin-right: 0.5rem;
-}
-
-.dashboard-layout .user .user-properties .single-db-property form {
-    display: grid;
-    align-items: center;
-    gap: 0.5rem;
-    grid-template-columns: min-content 1fr min-content;
-}
-
-.dashboard-layout .user .user-properties .single-db-property > *:first-child {
-    text-align: right;
-}
-
-@media (max-width: 767px) {
-    .dashboard-layout .user .user-properties .single-db-property {
-        grid-template-columns: 1fr;
-    }
-    .dashboard-layout .user .user-properties .single-db-property > *:first-child {
-        text-align: left;
-    }
 }

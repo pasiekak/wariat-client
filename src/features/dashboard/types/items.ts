@@ -1,5 +1,5 @@
 import { IProduct } from "../../../api/types/IProduct";
-import { IUser } from "../features/users/types/IUser";
+import { IUser } from "../../../api/types/IUser";
 import { IEvent } from "../../../api/types/IEvent";
 
 export interface IProductsItems {

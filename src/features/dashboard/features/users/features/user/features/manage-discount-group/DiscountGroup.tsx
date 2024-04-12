@@ -32,7 +32,7 @@ const DiscountGroup = ({ userID }: { userID: number }) => {
         />
       )}
       {!showForm && (
-        <Button variant="dark" onClick={() => setShowForm(true)}>
+        <Button variant="outline-dark" onClick={() => setShowForm(true)}>
           Edytuj
         </Button>
       )}

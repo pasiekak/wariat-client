@@ -1,0 +1,14 @@
+.App .dashboard-content .products .product .modify-product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 5px;
+    column-gap: 0.5rem;
+    row-gap: 0.375rem;
+
+}
+
+.App .dashboard-content .products .product .modify-product-details .btn,
+.App .dashboard-content .products .product .modify-product-details h3 {
+    text-align: center;
+    grid-column: span 2;
+}

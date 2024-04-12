@@ -18,13 +18,20 @@
 
 .dashboard-layout .dashboard-content:has(.users),
 .dashboard-layout .dashboard-content:has(.discounts),
-.dashboard-layout .dashboard-content:has(.events) {
+.dashboard-layout .dashboard-content:has(.events),
+.dashboard-layout .dashboard-content:has(.delivery) {
     background: none;
     padding-block: 0;
 }
 
 .dashboard-layout .head-panel {
     grid-column: 2 span;
+}
+
+.dashboard-layout .solo {
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: var(--color-3);
 }
 
 @media (max-width: 767px) {

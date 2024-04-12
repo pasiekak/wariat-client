@@ -1,7 +1,12 @@
 import useAxiosGet from "../../../../../../../../../api/hooks/useAxiosGet";
+import { singleAttribute } from "../../../../../../../../../api/types/singleAttribute";
 
 const UserName = ({ userID }: { userID: number }) => {
-  const { data, loading, error } = useAxiosGet({
+  const { data, loading, error } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    singleAttribute: singleAttribute;
+  }>({
     url: `/api/users/${userID}/?attribute=username`,
   });
   return (

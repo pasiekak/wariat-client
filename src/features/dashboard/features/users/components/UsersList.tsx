@@ -1,4 +1,4 @@
-import { IUser } from "../types/IUser";
+import { IUser } from "../../../../../api/types/IUser";
 import UserCard from "./UserCard";
 
 import "../styles/users-list.css";

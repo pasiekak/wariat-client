@@ -1,0 +1,91 @@
+.App .dashboard-content .delivery {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.App .dashboard-content .delivery h1 {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.App .dashboard-content .delivery form {
+    display: grid;
+    width: 100%;
+    padding-inline: 1rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.5rem;
+    grid-template-areas:
+        "title title"
+        "name name"
+        "price company"
+        "description description"
+        "description description"
+        "submit submit"
+        "optional optional";
+}
+
+.App .dashboard-content .delivery form h2 {
+    grid-area: title;
+}
+
+.App .dashboard-content .delivery form div:has(#nameID) {
+    grid-area: name;
+}
+
+.App .dashboard-content .delivery form div:has(#priceID) {
+    grid-area: price
+}
+
+.App .dashboard-content .delivery form div:has(#companyID) {
+    grid-area: company
+}
+
+.App .dashboard-content .delivery form div:has(#descriptionID) {
+    grid-area: description;
+}
+
+.App .dashboard-content .delivery form .btn {
+    grid-area: submit;
+}
+
+.App .dashboard-content .delivery form p {
+    grid-area: optional;
+}
+
+.App .dashboard-content .delivery .deliveries {
+    width: 100%;
+}
+
+.App .dashboard-content .delivery .deliveries div {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    padding: 5px 2px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr)) 50px;
+}
+
+.App .dashboard-content .delivery .deliveries div.columns {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .App .dashboard-content .delivery form {
+        display: grid;
+        padding-inline: 1rem;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.5rem;
+        grid-template-areas:
+        "title title"
+        "name name"
+        "price price"
+        "company company"
+        "description description"
+        "description description"
+        "submit submit"
+        "optional optional";
+    }
+}

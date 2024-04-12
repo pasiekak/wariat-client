@@ -55,27 +55,29 @@ const UserDiscountGroupForm = (props: UserDiscountGroupFormProps) => {
       }
     }
   };
-
-  if (discountGroups !== null) {
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Button variant="dark" onClick={props.hideForm}>
-          Wróć
-        </Button>
-        <select {...register("id")}>
-          {discountGroups.map((group) => (
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Button
+        variant="dark"
+        onClick={props.hideForm}
+        disabled={discountGroups === null}
+      >
+        Wróć
+      </Button>
+      <select {...register("id")}>
+        {discountGroups &&
+          discountGroups.map((group) => (
             <option
               value={group.id}
               key={group.id}
             >{`${group.id} - ${group.percentage} %`}</option>
           ))}
-        </select>
-        <Button variant="dark" type="submit">
-          Zatwierdź
-        </Button>
-      </form>
-    );
-  }
-  return null;
+      </select>
+      <Button variant="dark" type="submit" disabled={discountGroups === null}>
+        Zatwierdź
+      </Button>
+    </form>
+  );
 };
+
 export default UserDiscountGroupForm;

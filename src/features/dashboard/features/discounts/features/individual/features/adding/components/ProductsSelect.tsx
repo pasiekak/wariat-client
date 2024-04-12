@@ -14,11 +14,15 @@ const ProductsSelect = ({
   register,
   changeProductsEmpty,
 }: ProductsSelectProps) => {
-  const { data } = useAxiosGet({ url: "/api/products" });
+  const { data } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    products: IProduct[];
+  }>({ url: "/api/products" });
   const [products, setProducts] = useState<IProduct[] | null>(null);
 
   useEffect(() => {
-    if (data?.products) {
+    if (data) {
       setProducts(data.products);
       changeProductsEmpty(data.products.length);
     } else {
