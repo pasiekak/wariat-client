@@ -1,0 +1,8 @@
+.App > .cart .cart-title-wrapper h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+.App > .cart .cart-title-wrapper h1 span {
+    color: rgb(65, 65, 65);
+}

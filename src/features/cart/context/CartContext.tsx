@@ -1,17 +1,44 @@
-import { createContext, PropsWithChildren, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useEffect } from "react";
 import { CartContextReturns, CartProduct } from "../types/CartContextTypes";
+import { useSessionStorage } from "../../../hooks/useStorage";
+import { calculateFinalPrice } from "../../../utils/priceFunctions";
 
 export const CartContext = createContext<CartContextReturns>(
   {} as CartContextReturns,
 );
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
-  const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
-  const [count, setCount] = useState<number>(0);
+  const [cartProducts, setCartProducts] = useSessionStorage<CartProduct[]>(
+    "cart-products",
+    [],
+  );
+  const [count, setCount] = useSessionStorage<number>("cart-count", 0);
+  const [priceForAll, setPriceForAll] = useSessionStorage<number>(
+    "cart-price-for-all",
+    0,
+  );
+  const [priceForAllWithoutDiscounts, setPriceForAllWithoutDiscounts] =
+    useSessionStorage<number>("cart-price-for-all-without-discounts", 0);
 
   useEffect(() => {
     setCount(cartProducts.length);
-  }, [cartProducts.length]);
+    setPriceForAll((prev) => {
+      const onlyPrices = cartProducts.map((ob) => ob.fullPrice);
+      return Number(
+        onlyPrices
+          .reduce((acc, currentValue) => acc + currentValue, 0)
+          .toFixed(2),
+      );
+    });
+    setPriceForAllWithoutDiscounts((prev) => {
+      const onlyPrices = cartProducts.map((ob) => ob.fullPriceWithoutDiscount);
+      return Number(
+        onlyPrices
+          .reduce((acc, currentValue) => acc + currentValue, 0)
+          .toFixed(2),
+      );
+    });
+  }, [cartProducts, setCount, setPriceForAll]);
 
   const addProductToCart = (cartProduct: CartProduct) => {
     setCartProducts((prev) => [...prev, cartProduct]);
@@ -25,14 +52,54 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     return cartProducts.some((p) => p.product.id === productID);
   };
 
+  const getProductFromCart = (productID: number) => {
+    return cartProducts.find((p) => p.product.id === productID);
+  };
+
+  const clearCart = () => {
+    setCartProducts([]);
+    setCount(0);
+    setPriceForAll(0);
+  };
+
+  const changeProductQuantity = (newQuantity: number, productID: number) => {
+    setCartProducts((prevState) => {
+      return prevState.map((cartProduct) => {
+        const ok =
+          cartProduct.product.id === productID &&
+          newQuantity > 0 &&
+          newQuantity <= cartProduct.product.maxQuantity;
+        if (ok) {
+          return {
+            ...cartProduct,
+            fullPrice: calculateFinalPrice(
+              cartProduct.product.priceBrutto,
+              cartProduct?.bestDiscount
+                ? cartProduct.bestDiscount.percentage
+                : 0,
+              newQuantity,
+            ),
+            quantity: newQuantity,
+          };
+        }
+        return cartProduct;
+      });
+    });
+  };
+
   return (
     <CartContext.Provider
       value={{
         cartProducts,
         count,
+        priceForAll,
+        priceForAllWithoutDiscounts,
+        changeProductQuantity,
+        clearCart,
         addProductToCart,
         removeProductFromCart,
         isProductInCart,
+        getProductFromCart,
       }}
     >
       {children}
