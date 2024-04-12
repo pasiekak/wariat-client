@@ -1,67 +1,81 @@
-.Account {
-  flex: 1;
+.account {
+    display: flex;
 
-  display: flex;
-  padding: 10px;
-  overflow: hidden;
+    overflow: hidden;
+    flex: 1;
+    padding: 10px;
 }
-.Account .account-content-wrapper {
-  flex: 1;
-  width: 100%;
-  min-height: 100%;
 
-  display: flex;
-  flex-direction: row;
+.account .account-content-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
 
-  background: #dcdcdc;
+    width: 100%;
+    min-height: 100%;
 
-  padding: 10px;
-  border-radius: 10px;
-}
-.Account .account-content-wrapper .left {
-  flex: 0.2;
+    padding: 10px;
 
-  display: flex;
-  flex-direction: column;
-  text-wrap: nowrap;
-  gap: 5px;
+    border-radius: 10px;
+    background: #dcdcdc;
 }
-.Account .account-content-wrapper .line {
-  width: 1px;
-  height: 80%;
-  margin-inline: 1rem;
-  background-color: gray;
-  align-self: center;
-}
-.Account .account-content-wrapper .right {
-  flex: 0.8;
-}
-.Account .account-content-wrapper .left h5 {
-  padding-left: 1rem;
-}
-.Account .account-content-wrapper .left .left-item {
-  height: 50px;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-
-  cursor: pointer;
-  padding-inline: 1rem;
-  border-radius: 10px;
+.account .account-content-wrapper .right {
+    flex: 0.8;
 }
-.Account .account-content-wrapper .left .left-item:hover {
-  background: #0000001a;
+
+.account .account-content-wrapper .left {
+    display: flex;
+
+    flex: 0.2;
+    flex-direction: column;
+    white-space: nowrap;
+    gap: 5px;
+}
+
+.account .account-content-wrapper .line {
+    align-self: center;
+    width: 1px;
+    height: 80%;
+    background-color: gray;
+    margin-inline: 1rem;
+}
+
+.account .account-content-wrapper .left h5 {
+    padding-left: 1rem;
+}
+
+.account .account-content-wrapper .left .left-item {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    border-radius: 10px;
+    grid-template-columns: max-content 1fr;
+    justify-items: start;
+    grid-auto-rows: 40px;
+
+    gap: 1rem;
+    padding-inline: 0.25rem;
+}
+
+.account .account-content-wrapper .left .left-item svg {
+    width: 20px;
+    height: 20px;
+}
+
+.account .account-content-wrapper .left .left-item:hover {
+    background: #0000001a;
 }
 
 @media (max-width: 767px) {
-  .Account .account-content-wrapper {
-    flex-direction: column;
-  }
-  .Account .account-content-wrapper .line {
-    width: 80%;
-    height: 1px;
-    margin-block: 1rem;
-  }
+    .account .account-content-wrapper {
+        flex-direction: column;
+    }
+    .account .account-content-wrapper .line {
+        width: 80%;
+        height: 1px;
+        margin-block: 1rem;
+    }
 }

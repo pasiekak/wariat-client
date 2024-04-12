@@ -1,9 +1,0 @@
-.person-properties .PhoneInputInput {
-  width: 100%;
-}
-.single-property-wrapper .first-last-name-property form {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr); /* Dwie kolumny o równej szerokości */
-  grid-template-rows: repeat(2, 1fr); /* Dwa wiersze o równej wysokości */
-  gap: 16px; /* Odstęp między elementami (możesz dostosować według potrzeb) */
-}

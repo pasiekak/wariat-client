@@ -7,7 +7,7 @@ import DeliveryProperties from "./features/delivery-properties/DeliveryPropertie
 import CompanyProperties from "./features/company-properties/CompanyProperties";
 
 const OrderSettings = () => {
-  const { t } = useTranslation(null, {
+  const { t } = useTranslation(undefined, {
     keyPrefix: "components.account.order-settings",
   });
   const [type, setType] = useState("private");
@@ -18,21 +18,21 @@ const OrderSettings = () => {
       <div className="type-picker">
         <div
           id="private"
-          style={{ backgroundColor: type === "private" && "#EFCB68" }}
+          style={type === "private" ? { backgroundColor: "#efcb68" } : {}}
           onClick={() => setType("private")}
         >
           <span className="type-pick">{t("private-person")}</span>
         </div>
         <div
           id="delivery"
-          style={{ backgroundColor: type === "delivery" && "#EFCB68" }}
+          style={type === "delivery" ? { backgroundColor: "#efcb68" } : {}}
           onClick={() => setType("delivery")}
         >
           <span className="type-pick">{t("delivery-data")}</span>
         </div>
         <div
           id="company"
-          style={{ backgroundColor: type === "company" && "#EFCB68" }}
+          style={type === "company" ? { backgroundColor: "#efcb68" } : {}}
           onClick={() => setType("company")}
         >
           <span className="type-pick">{t("company")}</span>

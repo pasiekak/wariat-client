@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FadeLoader from "react-spinners/FadeLoader";
 
 import accountActions from "../../../../../../../api/accountActions";
 
-import { AccountContext } from "../../../../../context/account";
+import { AccountContext } from "../../../../../context/AccountContext";
 import { codeSchema } from "../schemas/schema";
 
 import "../styles/emailCodeForm.css";

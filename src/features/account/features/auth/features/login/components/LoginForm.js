@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import accountActions from "../../../../../../../api/accountActions";
 
-import { AccountContext } from "../../../../../context/account";
+import { AccountContext } from "../../../../../context/AccountContext";
 import { loginSchema } from "../schemas/loginSchema";
 
 import "../styles/loginForm.css";
@@ -29,6 +29,7 @@ const LoginForm = () => {
     setSuccess(apiResponse.success);
     setApiMsg(tStatus(apiResponse.message));
     if (apiResponse.success) {
+      console.log(apiResponse);
       setAccountData(apiResponse.data);
     }
   };
