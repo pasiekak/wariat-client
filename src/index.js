@@ -7,7 +7,7 @@ import i18n from "./i18n";
 
 import App from "./App";
 import { CartProvider } from "./features/cart/context/CartContext";
-import { AccountProvider } from "./features/account/context/account";
+import { AccountProvider } from "./features/account/context/AccountContext";
 
 import "./fonts/stylesheet.css";
 import "./styles/index.css";
