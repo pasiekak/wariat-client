@@ -1,4 +1,9 @@
-import { createContext, PropsWithChildren, useEffect } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+} from "react";
 import { CartContextReturns, CartProduct } from "../types/CartContextTypes";
 import { useSessionStorage } from "../../../hooks/useStorage";
 import { calculateFinalPrice } from "../../../utils/priceFunctions";
@@ -38,7 +43,7 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
           .toFixed(2),
       );
     });
-  }, [cartProducts, setCount, setPriceForAll]);
+  }, [cartProducts, setCount, setPriceForAll, setPriceForAllWithoutDiscounts]);
 
   const addProductToCart = (cartProduct: CartProduct) => {
     setCartProducts((prev) => [...prev, cartProduct]);
@@ -62,30 +67,33 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     setPriceForAll(0);
   };
 
-  const changeProductQuantity = (newQuantity: number, productID: number) => {
-    setCartProducts((prevState) => {
-      return prevState.map((cartProduct) => {
-        const ok =
-          cartProduct.product.id === productID &&
-          newQuantity > 0 &&
-          newQuantity <= cartProduct.product.maxQuantity;
-        if (ok) {
-          return {
-            ...cartProduct,
-            fullPrice: calculateFinalPrice(
-              cartProduct.product.priceBrutto,
-              cartProduct?.bestDiscount
-                ? cartProduct.bestDiscount.percentage
-                : 0,
-              newQuantity,
-            ),
-            quantity: newQuantity,
-          };
-        }
-        return cartProduct;
+  const changeProductQuantity = useCallback(
+    (newQuantity: number, productID: number) => {
+      setCartProducts((prevState) => {
+        return prevState.map((cartProduct) => {
+          const ok =
+            cartProduct.product.id === productID &&
+            newQuantity > 0 &&
+            newQuantity <= cartProduct.product.maxQuantity;
+          if (ok) {
+            return {
+              ...cartProduct,
+              fullPrice: calculateFinalPrice(
+                cartProduct.product.priceBrutto,
+                cartProduct?.bestDiscount
+                  ? cartProduct.bestDiscount.percentage
+                  : 0,
+                newQuantity,
+              ),
+              quantity: newQuantity,
+            };
+          }
+          return cartProduct;
+        });
       });
-    });
-  };
+    },
+    [setCartProducts],
+  );
 
   return (
     <CartContext.Provider

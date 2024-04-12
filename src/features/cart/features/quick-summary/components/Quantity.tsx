@@ -11,22 +11,22 @@ type QuantityProps = {
 
 const Quantity = (props: QuantityProps) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const cart = useContext(CartContext);
+  const { cartProducts, changeProductQuantity } = useContext(CartContext);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
   const { t } = useTranslation(undefined, {
     keyPrefix: "components.cart.quick-summary",
   });
 
   useEffect(() => {
-    const product = cart.cartProducts.find(
+    const product = cartProducts.find(
       (ob) => ob.product.id === props.productID,
     );
     if (product) setQuantity(product.quantity);
-  }, [cart.cartProducts]);
+  }, [cartProducts, props.productID]);
 
   useEffect(() => {
-    cart.changeProductQuantity(quantity, props.productID);
-  }, [quantity]);
+    changeProductQuantity(quantity, props.productID);
+  }, [quantity, props.productID, changeProductQuantity]);
 
   useEffect(() => {
     return () => stopCounter();
@@ -62,9 +62,7 @@ const Quantity = (props: QuantityProps) => {
         <FontAwesomeIcon
           className={"decrease"}
           icon={faAngleLeft}
-          onClick={() =>
-            cart.changeProductQuantity(quantity - 1, props.productID)
-          }
+          onClick={() => changeProductQuantity(quantity - 1, props.productID)}
           onMouseDown={() => startCounter("dec")}
           onMouseUp={stopCounter}
           onMouseLeave={stopCounter}
@@ -76,9 +74,7 @@ const Quantity = (props: QuantityProps) => {
         <FontAwesomeIcon
           className={"increase"}
           icon={faAngleRight}
-          onClick={() =>
-            cart.changeProductQuantity(quantity + 1, props.productID)
-          }
+          onClick={() => changeProductQuantity(quantity + 1, props.productID)}
           onMouseDown={() => startCounter("inc")}
           onMouseUp={stopCounter}
           onMouseLeave={stopCounter}
