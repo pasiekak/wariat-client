@@ -7,7 +7,11 @@ const Value = ({
   loading: boolean;
   value: singleAttribute | undefined;
 }) => {
-  return <span>{loading ? "Ładowanie" : value ? value : "Brak"}</span>;
+  return (
+    <span className="value">
+      {loading ? "Ładowanie" : value ? value : "Brak"}
+    </span>
+  );
 };
 
 export default Value;

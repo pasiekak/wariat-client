@@ -1,5 +1,4 @@
 import { SingleDBPropertyProps } from "./types/SingleDBPropertyProps";
-import useAxiosGet from "../../api/hooks/useAxiosGet";
 import Label from "./components/Label";
 import Value from "./components/Value";
 import { useEffect, useRef, useState } from "react";
@@ -8,6 +7,10 @@ import Button from "react-bootstrap/Button";
 import { singleAttribute } from "../../api/types/singleAttribute";
 import BannerPortal from "../message-banner/BannerPortal";
 import { IBannerPortalForwardedFunctions } from "../message-banner/types/IBannerPortalForwardedFunctions";
+import axios from "axios";
+
+import "./styles/single-db-property.css";
+import { useTranslation } from "react-i18next";
 
 const SingleDBProperty = ({
   modifiable = false,
@@ -16,17 +19,33 @@ const SingleDBProperty = ({
   getURL,
   putURL,
   labelText,
+  updateContextValueFN,
+  initialValue,
 }: SingleDBPropertyProps) => {
   const portalRef = useRef<IBannerPortalForwardedFunctions>(null);
-  const { data, loading } = useAxiosGet({ url: getURL });
+  const [loading, setLoading] = useState(false);
   const [value, setValue] = useState<singleAttribute>();
   const [showForm, setShowForm] = useState(false);
+  const { t } = useTranslation(undefined, {
+    keyPrefix: "components.account",
+  });
 
   useEffect(() => {
-    if (data?.singleAttribute !== undefined) {
-      setValue(data.singleAttribute);
+    if (!initialValue) {
+      setLoading(true);
+      axios
+        .get(getURL)
+        .then((res) => {
+          if (res?.data?.singleAttribute) {
+            setValue(res.data.singleAttribute);
+          }
+        })
+        .catch((err) => {})
+        .finally(() => setLoading(false));
+    } else {
+      setValue(initialValue);
     }
-  }, [data]);
+  }, [initialValue, getURL]);
 
   const updateValue = (value: string | number) => {
     if (portalRef.current)
@@ -34,6 +53,9 @@ const SingleDBProperty = ({
         message: "Udało się zmienić wartość",
         type: "success",
       });
+    if (attributeName && updateContextValueFN) {
+      updateContextValueFN(value, attributeName);
+    }
     setValue(value);
   };
 
@@ -59,8 +81,8 @@ const SingleDBProperty = ({
         <Value loading={loading} value={value} />
       )}
       {!showForm && modifiable && !loading && (
-        <Button variant="dark" onClick={() => setShowForm(true)}>
-          Edytuj
+        <Button variant="outline-dark" onClick={() => setShowForm(true)}>
+          {t("change-button")}
         </Button>
       )}
       <BannerPortal ref={portalRef} autoClose={true} autoCloseTime={5000} />

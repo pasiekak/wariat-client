@@ -3,6 +3,8 @@ import { singleAttribute } from "../../../api/types/singleAttribute";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import CustomInput from "./CustomInput";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type propertyFormProps = {
   input: string;
@@ -26,28 +28,37 @@ const PropertyForm = ({
       [attributeName]: value,
     },
   });
+  const { t } = useTranslation(undefined, {
+    keyPrefix: "components.account",
+  });
+
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (data: any) => {
-    axios.put(putURL, data).then((res) => {
-      if (res.status === 200 && res.data[0] === 1) {
-        updateValue(data[attributeName]);
-        hideForm();
-      }
-    });
+    setLoading(true);
+    axios
+      .put(putURL, data)
+      .then((res) => {
+        if (res.status === 200) {
+          updateValue(data[attributeName]);
+          hideForm();
+        }
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Button variant="dark" onClick={() => hideForm()}>
-        Wróć
-      </Button>
       <CustomInput
         type={input}
         register={register}
         attributeName={attributeName}
       />
-      <Button variant="dark" type="submit">
-        Zatwierdź
+      <Button variant="dark" onClick={() => hideForm()}>
+        {t("go-back-button")}
+      </Button>
+      <Button variant="success" type="submit" disabled={loading}>
+        {t("confirm-button")}
       </Button>
     </form>
   );

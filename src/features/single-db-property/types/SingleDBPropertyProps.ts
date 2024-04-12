@@ -3,6 +3,8 @@ export type SingleDBPropertyProps = {
   attributeName?: string;
   putURL?: string;
   input?: string;
+  updateContextValueFN?: (val: string | number, attribute: string) => void;
   getURL: string;
   labelText: string;
+  initialValue?: string | number;
 };
