@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 import accountActions from "../../api/accountActions";
 import { CartContext } from "../../features/cart/context/CartContext";
-import { AccountContext } from "../../features/account/context/account";
+import { AccountContext } from "../../features/account/context/AccountContext";
 import LanguageSelect from "./languageSelect/LanguageSelect";
 import MobileHeader from "./mobileHeader";
 import Logo from "../logo/Logo";
