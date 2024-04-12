@@ -46,10 +46,15 @@
     grid-row: 5;
 }
 
+.App > .events > .event .miniatures {
+    grid-column: 2;
+    grid-row: 6;
+}
+
 .App > .events > .event .btn {
     margin: 1rem;
     grid-column: span 3;
-    grid-row: 6;
+    grid-row: 7;
 }
 
 @media (min-width: 767px) and (max-width: 1200px) {
@@ -87,8 +92,12 @@
         grid-column: span 2;
         grid-row: 5;
     }
-    .App > .events > .event .btn {
+    .App > .events > .event .miniatures {
         grid-column: span 2;
         grid-row: 6;
+    }
+    .App > .events > .event .btn {
+        grid-column: span 2;
+        grid-row: 7;
     }
 }

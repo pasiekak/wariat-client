@@ -31,7 +31,11 @@ const Event = () => {
           <h1 className="title">{event.title}</h1>
           <p className="desc">{event.content}</p>
           <h1 className="gallery-title">{t("gallery-title")}</h1>
-          <ImageCarousel entityID={event.id} entityPlural={"events"} />
+          <ImageCarousel
+            entityID={event.id}
+            entityPlural={"events"}
+            showMiniatures={true}
+          />
           <Button variant="dark" onClick={() => navigate("/events")}>
             {t("go-back-to-events")}
           </Button>
