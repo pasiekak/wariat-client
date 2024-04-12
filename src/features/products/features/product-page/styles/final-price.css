@@ -1,0 +1,42 @@
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper .your-price-wrapper {
+    font-size: calc(1.125rem + 1.5vw);
+    line-height: calc(1.125rem + 1.5vw);;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper .your-price-wrapper span {
+
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper .discount-difference {
+    align-self: flex-end;
+    width: max-content;
+    padding: 2px 5px;
+    color: rgb(9, 126, 35);
+    border-radius: 5px;
+    background: rgba(133, 255, 159, 0.75);
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper .your-price-wrapper .final-price {
+    text-shadow: 0 0 10px rgba(38, 38, 38, 0.4);
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .final-price-wrapper .your-price-wrapper .final-price-without-discount {
+    font-size: calc(0.5rem + 1.5vw);
+    line-height: calc(0.5rem + 1.5vw);
+    align-self: start;
+    text-decoration: 1px solid line-through;
+    color: rgba(0, 0, 0, 0.7);
+}

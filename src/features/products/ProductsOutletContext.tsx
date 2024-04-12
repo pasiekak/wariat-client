@@ -9,6 +9,7 @@ import useCategoryFilter from "./hooks/useCategoryFilter";
 import useMarkFilter from "./hooks/useMarkFilter";
 import usePriceFilter from "./hooks/usePriceFilter";
 import useDisplay from "./hooks/useDisplay";
+import { IProductsItems } from "../dashboard/types/items";
 
 const ProductsOutletContext = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -30,7 +31,12 @@ const ProductsOutletContext = () => {
     maxPrice: priceFilter.maxPrice,
     minPrice: priceFilter.minPrice,
   });
-  const { data, loading } = useAxiosGet({ url: URL });
+  const { data, loading } = useAxiosGet<{
+    success: boolean;
+    message: string;
+    items: IProductsItems;
+  }>({ url: URL });
+
   useEffect(() => {
     if (data?.items?.count !== undefined && data?.items?.rows !== undefined) {
       pagination.changeCount(data.items.count);

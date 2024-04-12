@@ -1,0 +1,38 @@
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-inline: 0.5rem;
+    gap: 2rem;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions .btn {
+    font-weight: bold;
+    min-width: 160px;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions input {
+    min-width: 50px;
+    text-align: center;
+    opacity: 100%;
+    border: none;
+    border-radius: 0.375rem;
+    outline: none;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions input:disabled::-webkit-inner-spin-button,
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions input:disabled::-webkit-outer-spin-button {
+    opacity: 0 !important;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions input[type=number]::-webkit-inner-spin-button,
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .App > .product > section:nth-of-type(1) .add-to-cart-wrapper .actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

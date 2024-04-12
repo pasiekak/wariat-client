@@ -52,9 +52,11 @@ const Products = () => {
         <div className={`products-wrapper ${context.display}`}>
           {context.products.map((product) => (
             <ProductTile
-              {...product}
-              createdAt={new Date(product.createdAt)}
-              updatedAt={new Date(product.updatedAt)}
+              product={{
+                ...product,
+                createdAt: new Date(product.createdAt),
+                updatedAt: new Date(product.updatedAt),
+              }}
               key={product.id}
             />
           ))}

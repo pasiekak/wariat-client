@@ -9,21 +9,32 @@ import { useTranslation } from "react-i18next";
 import AddOrRemoveProductFromCart from "../../../../cart/components/AddOrRemoveProductFromCart";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faPercent } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faPercent } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { calculateFinalPrice } from "../../../../../utils/priceFunctions";
 
-const ProductTile = (props: IProduct) => {
+type ProductTileProps = {
+  product: IProduct;
+};
+
+const ProductTile = ({ product }: ProductTileProps) => {
   const [imageID, setImageID] = useState<number>();
   const [priceAfterDiscount, setPriceAfterDiscount] = useState<number>();
+  const [available, setAvailable] = useState<boolean>();
   const { data } = useImagesRelatedToEntity({
-    id: props.id,
+    id: product.id,
     entityPlural: "products",
     onlyMain: true,
   });
   const { t } = useTranslation(undefined, { keyPrefix: "components.products" });
   const navigate = useNavigate();
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 1200 });
 
-  const bestDiscount = useBestDiscount({ productID: props.id });
+  const bestDiscount = useBestDiscount({ productID: product.id });
+
+  useEffect(() => {
+    setAvailable(product.maxQuantity > 0);
+  }, [product.maxQuantity]);
 
   useEffect(() => {
     if (data?.image) setImageID(data.image.id);
@@ -31,41 +42,50 @@ const ProductTile = (props: IProduct) => {
 
   useEffect(() => {
     if (bestDiscount) {
-      const discountPrice = parseFloat(
-        (
-          props.priceBrutto -
-          props.priceBrutto * (bestDiscount.percentage / 100)
-        ).toFixed(2),
+      setPriceAfterDiscount(
+        calculateFinalPrice(product.priceBrutto, bestDiscount.percentage, 1),
       );
-      setPriceAfterDiscount(discountPrice);
     }
-  }, [bestDiscount, props.priceBrutto]);
+  }, [bestDiscount, product.priceBrutto]);
 
   return (
     <div className="product-tile">
       <span
         className={`name animated-underline`}
-        onClick={() => navigate(`/products/${props.id}`)}
+        onClick={() => navigate(`/products/${product.id}`)}
       >
-        {props.name}
+        {product.name}
       </span>
       <div
         className="image-wrapper"
         style={{
           backgroundImage: `url(${imageID ? `/api/images/${imageID}` : defaultImage})`,
         }}
+        onClick={() => navigate(`/products/${product.id}`)}
       ></div>
       <div className="info">
-        <AddOrRemoveProductFromCart
-          product={props}
-          quantity={1}
-          bestDiscount={bestDiscount}
-        />
+        {available && (
+          <AddOrRemoveProductFromCart
+            product={product}
+            quantity={1}
+            bestDiscount={bestDiscount}
+            fullPrice={calculateFinalPrice(
+              product.priceBrutto,
+              bestDiscount ? bestDiscount.percentage : 0,
+              1,
+            )}
+            fullPriceWithoutDiscount={calculateFinalPrice(
+              product.priceBrutto,
+              0,
+              1,
+            )}
+          />
+        )}
         <div className="prices">
           <span
             className={`price-brutto${bestDiscount ? " before-discount" : ""}`}
           >
-            {props.priceBrutto} zł
+            {product.priceBrutto} zł
           </span>
           {priceAfterDiscount && (
             <span className={`discount-price`}>{priceAfterDiscount} zł</span>
@@ -73,15 +93,34 @@ const ProductTile = (props: IProduct) => {
         </div>
       </div>
       <div className={"labels"}>
-        {isNewDate(props.createdAt) &&
+        {!available &&
           (isMobile ? (
-            <FontAwesomeIcon className="new-label" icon={faClock} />
+            <FontAwesomeIcon
+              icon={faBan}
+              title={t("not-available") || undefined}
+              className={`not-available-label`}
+            />
+          ) : (
+            <span className={`not-available-label`}>{t("not-available")}</span>
+          ))}
+        {isNewDate(product.createdAt) &&
+          available &&
+          (isMobile ? (
+            <FontAwesomeIcon
+              className="new-label"
+              title={t("new-label") || undefined}
+              icon={faClock}
+            />
           ) : (
             <div className={"new-label"}>{t("new-label")}</div>
           ))}
         {bestDiscount &&
           (isMobile ? (
-            <FontAwesomeIcon icon={faPercent} className={"discount-label"} />
+            <FontAwesomeIcon
+              icon={faPercent}
+              title={`${bestDiscount.percentage} %`}
+              className={"discount-label"}
+            />
           ) : (
             <div className={"discount-label"}>{bestDiscount.percentage}%</div>
           ))}

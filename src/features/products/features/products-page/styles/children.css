@@ -30,9 +30,9 @@
 
 /*filters*/
 .App > .products > .left > .filters {
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 5px 0 5px -6px black;
-    padding: 5px;
 }
 
 .App > .products > .left > .filters > .filters-title {
@@ -67,9 +67,9 @@
 
 /*sorting*/
 .App > .products > .left > .sorting {
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 5px 0 5px -6px black;
-    padding: 5px;
 }
 
 .App > .products > .left > .sorting > .sorting-title {
@@ -157,6 +157,7 @@
 .App > .products > .middle > .products-wrapper.grid .product-tile .image-wrapper {
     order: -1;
     width: 100%;
+    cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -285,6 +286,10 @@
     gap: 5px;
 }
 
+.App > .products > .middle > .products-wrapper .product-tile .info:has(.prices:only-child) {
+    justify-content: flex-end;
+}
+
 .App > .products > .middle > .products-wrapper .product-tile .info .prices {
     display: flex;
     align-items: center;
@@ -330,9 +335,16 @@
     background: rgba(133, 255, 159, 0.75);
 }
 
-@media (max-width: 767px) {
+.App > .products > .middle > .products-wrapper .product-tile .not-available-label {
+    padding: 2px 5px;
+    border-radius: 5px;
+    background: rgba(141, 141, 141, 0.75);
+}
+
+@media (max-width: 1200px) {
     .App > .products > .middle > .products-wrapper .product-tile .labels {
         left: 5px;
+        width: min-content;
         gap: 4px;
     }
 }

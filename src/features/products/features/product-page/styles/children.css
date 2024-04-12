@@ -1,0 +1,34 @@
+.App > .product {
+
+}
+
+.App > .product > section:nth-of-type(1) .name {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+}
+
+.App > .product > section:nth-of-type(1) .image-carousel {
+    width: 100%;
+}
+
+.App > .product > section:nth-of-type(1) .miniatures {
+
+}
+
+.App > .product > section:nth-of-type(2) .description {
+    margin: 0;
+    white-space: pre-line;
+}
+
+.App > .product > section:nth-of-type(1) .add-to-cart-wrapper {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 150px;
+    padding: 0.5rem 0 0 0;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    gap: 0.5rem;
+}

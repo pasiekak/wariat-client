@@ -1,0 +1,43 @@
+.App > .product .order-mini-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.App > .product .order-mini-info > .info {
+    display: flex;
+    align-items: center;
+
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+}
+
+.App > .product .order-mini-info > .info span {
+    font-size: calc(0.325rem + 2.25vh);
+}
+
+.App > .product .order-mini-info > .info svg {
+    font-size: calc(0.90rem + 2vh);
+}
+
+.App > .product .order-mini-info > .info.delivery-price svg {
+    color: yellow;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+
+}
+
+.App > .product .order-mini-info > .info.discount svg {
+    color: green;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+}
+
+.App > .product .order-mini-info > .info.available svg {
+    color: white;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+}
+
+.App > .product .order-mini-info > .info.not-available svg {
+    color: #444444;
+}

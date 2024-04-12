@@ -1,0 +1,32 @@
+.App > .product .attributes-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-block: 5px;
+    gap: 0.5rem;
+}
+
+.App > .product .attributes-wrapper span {
+    padding: 4px 8px;
+    border: 1px solid gray;
+    border-radius: 1rem;
+}
+
+.App > .product .product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.App > .product .product-details .detail {
+    display: grid;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    padding-inline: 5px;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.App > .product .product-details .detail span:nth-child(odd) {
+    font-weight: bold;
+    justify-self: flex-end;
+}
