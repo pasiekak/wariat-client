@@ -69,13 +69,14 @@ export const AccountProvider = ({ children }: PropsWithChildren) => {
     },
     [setUser, setAddress, setPersonalData, setDiscounts, setCompanyData],
   );
-  const clearAccount = () => {
+
+  const clearAccount = useCallback(() => {
     setUser(null);
     setAddress(null);
     setPersonalData(null);
     setDiscounts(null);
     setCompanyData(null);
-  };
+  }, [setUser, setAddress, setPersonalData, setDiscounts, setCompanyData]);
 
   useEffect(() => {
     if (
@@ -105,8 +106,10 @@ export const AccountProvider = ({ children }: PropsWithChildren) => {
           setAccountData(res.data.data);
         }
       });
+    } else {
+      clearAccount();
     }
-  }, [isLogged, setAccountData, user?.id]);
+  }, [isLogged, setAccountData, user?.id, clearAccount]);
 
   return (
     <AccountContext.Provider
