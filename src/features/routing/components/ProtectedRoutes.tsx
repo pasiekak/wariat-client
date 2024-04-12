@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AccountContext } from "../../account/context/account";
+import { AccountContext } from "../../account/context/AccountContext";
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoutes = () => {

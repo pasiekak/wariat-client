@@ -28,6 +28,9 @@ import Event from "../events/components/Event";
 import MiniEvents from "../events/components/MiniEvents";
 import Product from "../products/features/product-page/Product";
 import ProductsOutletContext from "../products/ProductsOutletContext";
+import ParamParser from "./components/ParamParser";
+import Delivery from "../dashboard/features/delivery/Delivery";
+import Cart from "../cart/Cart";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -35,6 +38,7 @@ function Root() {
   return (
     <Routes>
       <Route path="/*" Component={NormalRoutes} />
+      <Route path="/not-found" Component={NotFound} />
       <Route path="/login" Component={LoginPage} />
       <Route path="/register" Component={RegisterPage} />
       <Route path="/dashboard" element={<ModeratorRoutes />}>
@@ -63,6 +67,7 @@ function Root() {
             <Route path="add" element={<AddEventForm />} />
             <Route path=":eventID" element={<EditEvent />} />
           </Route>
+          <Route path="delivery" element={<Delivery />} />
         </Route>
       </Route>
       <Route path="/email-verification" Component={EmailVerification} />
@@ -79,14 +84,21 @@ function NormalRoutes() {
         <Route path="/" Component={Home} />
         <Route path="/products" Component={ProductsOutletContext}>
           <Route path="" Component={Products} />
-          <Route path=":id" Component={Product} />
+          <Route
+            path=":id"
+            element={
+              <ParamParser>
+                <Product />
+              </ParamParser>
+            }
+          />
         </Route>
         <Route path="/events" Component={Events}>
           <Route path="" Component={MiniEvents} />
           <Route path=":id" Component={Event} />
         </Route>
         <Route path="/account" Component={Account} />
-        <Route path="/cart" element={<>Tutaj bedzie Koszyk</>} />
+        <Route path="/cart" Component={Cart} />
         <Route path="/order" element={<>Tutaj będzie order</>} />
         <Route path="/*" Component={NotFound} />
       </Routes>
