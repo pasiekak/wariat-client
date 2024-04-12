@@ -28,7 +28,7 @@ const useCategoryFilter = (): useCategoryFilterReturns => {
         ),
       );
     }
-  }, [categories.length, selectedCategories.length]);
+  }, [categories, selectedCategories, setSelectedCategories]);
 
   const addCategoryFilter = (category: ICategory) => {
     setSelectedCategories((prev) => [...prev, category]);

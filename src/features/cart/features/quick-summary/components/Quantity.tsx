@@ -44,7 +44,7 @@ const Quantity = (props: QuantityProps) => {
 
   const stopCounter = () => {
     if (intervalRef.current) {
-      clearInterval(intervalRef.current);
+      clearInterval(intervalRef.current as NodeJS.Timeout);
       intervalRef.current = null;
     }
   };

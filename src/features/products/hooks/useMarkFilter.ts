@@ -27,7 +27,7 @@ const useMarkFilter = (): useMarkFilterReturns => {
         ),
       );
     }
-  }, [marks.length, selectedMarks.length]);
+  }, [marks, selectedMarks, setSelectedMarks]);
 
   const addMarkFilter = (mark: IMark) => {
     setSelectedMarks((prev) => [...prev, mark]);

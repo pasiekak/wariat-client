@@ -18,7 +18,7 @@ const Events = () => {
 
   useEffect(() => {
     dashboardContext.setTableName("events");
-  }, [dashboardContext.setTableName]);
+  }, [dashboardContext]);
 
   return (
     <section className="events">

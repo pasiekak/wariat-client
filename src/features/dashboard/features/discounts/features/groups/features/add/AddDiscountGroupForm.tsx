@@ -36,7 +36,12 @@ const AddDiscountGroupForm = (props: AddDiscountGroupFormProps) => {
       percentage: props.lastDiscountGroup.percentage + 1,
       limit: props.lastDiscountGroup.limit + 1000,
     });
-  }, [props.lastDiscountGroup]);
+  }, [
+    reset,
+    props.lastDiscountGroup.id,
+    props.lastDiscountGroup.percentage,
+    props.lastDiscountGroup.limit,
+  ]);
 
   return (
     <form className="add-discount-group-form" onSubmit={handleSubmit(onSubmit)}>

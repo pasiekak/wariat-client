@@ -15,7 +15,7 @@ const EditEventForm = ({ eventID }: { eventID: number }) => {
 
   useEffect(() => {
     reset(getEvent(eventID));
-  }, [getEvent, eventID]);
+  }, [reset, getEvent, eventID]);
 
   const onSubmit = (data: IEvent) => {
     const extracted = {

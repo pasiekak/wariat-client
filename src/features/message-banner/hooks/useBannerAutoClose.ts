@@ -8,21 +8,26 @@ type UseBannerAutoCloseProps = {
   autoCloseTime: number;
 };
 
-const useBannerAutoClose = (props: UseBannerAutoCloseProps) => {
+const useBannerAutoClose = ({
+  banners,
+  setBanners,
+  autoCloseTime,
+  autoClose,
+}: UseBannerAutoCloseProps) => {
   const [removing, setRemoving] = useState("");
 
   useEffect(() => {
     if (removing) {
-      props.setBanners((banners) => banners.filter((b) => b.id !== removing));
+      setBanners((ban) => ban.filter((b) => b.id !== removing));
     }
-  }, [removing, props.setBanners]);
+  }, [removing, setBanners]);
 
   useEffect(() => {
-    if (props.autoClose && props.banners.length) {
-      const id = props.banners[props.banners.length - 1].id;
-      setTimeout(() => setRemoving(id), props.autoCloseTime);
+    if (autoClose && banners.length) {
+      const id = banners[banners.length - 1].id;
+      setTimeout(() => setRemoving(id), autoCloseTime);
     }
-  }, [props.banners, props.autoCloseTime, props.autoClose]);
+  }, [banners, autoCloseTime, autoClose]);
 };
 
 export default useBannerAutoClose;

@@ -19,7 +19,7 @@ const SearchWordMiniForm = (props: searchWordMiniFormProps) => {
 
   useEffect(() => {
     setValue("searchWord", props.searchWord);
-  }, [props.searchWord]);
+  }, [props.searchWord, setValue]);
 
   const onSubmit = (data: { searchWord: string }) => {
     props.changeFn(data.searchWord);

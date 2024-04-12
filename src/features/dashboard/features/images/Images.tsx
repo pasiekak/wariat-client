@@ -18,7 +18,7 @@ const Images = ({ id, entityPlural, className }: IImagesProps) => {
   const { addBanner } = useOutletContext<IDefaultOutletContext>();
   const [images, setImages] = useState<IImage[]>([]);
 
-  const { data, error, loading } = useImagesRelatedToEntity({
+  const { data } = useImagesRelatedToEntity({
     id,
     entityPlural,
   });

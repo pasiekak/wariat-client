@@ -25,7 +25,7 @@ const MiniEvent = (props: MiniEventProps) => {
     } else {
       setSelected(false);
     }
-  }, [eventID]);
+  }, [eventID, props.id]);
 
   return (
     <div
