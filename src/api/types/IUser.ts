@@ -3,7 +3,7 @@ export interface IUser {
   username: string;
   email: string;
   RoleId: number;
-  DiscountGroupId: 1;
-  createdAt: string;
-  updatedAt: string;
+  DiscountGroupId: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
