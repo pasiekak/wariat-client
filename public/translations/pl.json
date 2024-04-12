@@ -16,7 +16,7 @@
       "welcomeMessage": "Witaj w Wariat Garage – miejscu, gdzie terenówki stają się prawdziwymi mistrzami off-roadu! Jesteśmy zespołem zapalonych specjalistów, którzy oddają się sztuce modyfikowania, naprawiania i tunigowania terenówek. Nasza pasja to odmienianie tych potężnych pojazdów, aby stały się doskonałe w każdym calu. Niezależnie od tego, czy potrzebujesz profesjonalnych modyfikacji, naprawy, czy tuningu, jesteśmy gotowi dostarczyć Ci najwyższej jakości usługi. Nasza praca to sztuka, a Twoja terenówka staje się płótnem, na którym tworzymy dzieło sztuki. Niech duch przygody towarzyszy Ci w każdym zakręcie. Dołącz do nas w Wariat Garage i doświadcz potęgi off-roadu, którą tworzymy razem! (Created by GPT 3.5)"
     },
     "account": {
-      "welcome-message": "Cześć",
+      "welcome-message": "Cześć {{name}}",
       "change-button": "Zmień",
       "confirm-button": "Zatwierdź",
       "go-back-button": "Wróć",
@@ -35,13 +35,12 @@
         "delivery-data": "Adresy dostawy",
         "company": "Dane do faktury",
         "person-properties": {
-          "first-last-name": "Imię i nazwisko",
-          "first-name-placeholder": "Imię",
-          "last-name-placeholder": "Nazwisko",
+          "first-name": "Imię",
+          "last-name": "Nazwisko",
+          "phone-number": "Numer telefonu",
           "no-first-and-last-name-provided": "Uzupełnij swoje imię i nazwisko",
           "no-first-name-provided": "Uzupełnij swoje imię",
           "no-last-name-provided": "Uzupełnij swoje nazwisko",
-          "phone-number": "Numer telefonu",
           "no-phone-number-provided": "Uzupełnij swój numer telefonu",
           "phone-number-placeholder": "Podaj swój numer telefonu...",
           "phone-number-err-message": "Niepoprawny numer telefonu"
@@ -66,22 +65,14 @@
           "nip-required": "NIP jest wymagany",
           "nip-digits": "NIP musi zawierać 10 cyfr",
           "nip-invalid": "Ten NIP jest niepoprawny",
+          "success-upload-nip": "Udało się pobrać dane o firmie i przypisać je do twojego konta",
+          "failed-to-set-nip": "Nie udało się zmienić twojego numeru NIP",
+          "nip-same": "Wprowadziłeś taką samą wartość co poprzednio",
+          "nip-error": "Wystąpił błąd",
+          "success-set-but-same-values": "Próba ustawienia takiego samego NIP",
+          "success-but-same-values": "Twoje dane są aktualne",
           "company-with-this-nip-not-found": "Firma o takim NIP nie została odnaleziona w bazie danych"
         }
-      },
-      "orders": {
-        "title": "Twoje zamówienia",
-        "orders-empty": "Na twoim koncie nie ma żadnych zamówień.",
-        "contact": "Kontakt",
-        "id": "ID",
-        "created-at": "Data",
-        "status": "Stan",
-        "delivery-type": "Dostawa",
-        "total": "Cena",
-        "Accepted": "Do opłacenia",
-        "Paid": "Opłacone",
-        "Sent": "Wysłane",
-        "Completed": "Zakończone"
       }
     },
     "footer": {
@@ -103,6 +94,7 @@
     "products": {
       "title": "Produkty",
       "new-label": "Nowy",
+      "not-available": "Niedostępny",
       "pagination": {
         "items-per-page-title": "Ilość pokazywanych elementów",
         "first-page-short": "Pierwsza",
@@ -118,7 +110,7 @@
       "filters": {
         "title": "Filtrowanie",
         "title-categories": "Kategorie",
-        "title-marks": "Producenci",
+        "title-marks": "Marki",
         "price-max-filter-label": "Cena maksymalna",
         "price-min-filter-label": "Cena minimalna",
         "clear-filters-button": "Wyczyść"
@@ -138,7 +130,58 @@
         "title": "Wyświetlanie"
       }
     },
+    "product": {
+      "description-label": "Opis",
+      "categories-label": "Kategorie",
+      "marks-label": "Marki",
+      "your-price": "Twoja cena:",
+      "description-title": "Szczegółowy opis produktu",
+      "discount-difference": "Oszczędzasz {{difference}} zł",
+      "add-to-cart": "Dodaj do koszyka",
+      "remove-from-cart": "Usuń z koszyka",
+      "product-is-available": "Produkt jest dostępny",
+      "product-is-not-available": "Produkt jest niedostępny",
+      "lowest-delivery-price": "Dostawa od {{price}} zł",
+      "you-have-discount": "Twoja zniżka to {{discount}}%",
+      "no-marks": "Brak danych o markach produktu",
+      "no-categories": "Brak danych o kategoriach produktu",
+      "details": {
+        "no-details": "Brak danych o specyfikacji produktu",
+        "title": "Specyfikacja produktu",
+        "id": "Identyfikator detali w bazie danych",
+        "code": "Kod produktu",
+        "height": "Wysokość (mm)",
+        "width": "Szerokość (mm)",
+        "depth": "Głębokość (mm)",
+        "weight": "Waga (kg)",
+        "thickness": "Grubość (mm)",
+        "diameter": "Średnica (mm)",
+        "capacity": "Pojemność (litry)",
+        "power": "Moc (km)",
+        "color": "Kolor",
+        "ProductId": "Identyfikator produktu"
+      }
+    },
     "cart": {
+      "title": "Koszyk",
+      "clear-cart": "Wyczyść koszyk",
+      "quick-summary": {
+        "title-h1-after-add": "Dodano produkt do koszyka",
+        "title-h1-in-cart": "Produkty w koszyku",
+        "title-h4": "Produkty w koszyku",
+        "quantity-text": "szt.",
+        "continue-shopping": "Kontynuuj zakupy",
+        "go-to-cart": "Przejdź do koszyka",
+        "go-to-delivery": "Przejdź do wyboru dostawy",
+        "see-our-products": "Zobacz nasze produkty",
+        "empty-cart": "Koszyk jest pusty",
+        "price-for-all": "Suma:",
+        "you-save": "Oszczędzasz:",
+        "recently-added": "Dodano",
+        "name": "Nazwa produktu",
+        "quantity": "Ilość",
+        "price": "Cena"
+      }
     }
   },
   "forms": {
@@ -224,13 +267,9 @@
       "badToken": "Nieudana próba autentykacji użytkownika",
       "notAdmin": "Nie masz uprawnień do tej operacji",
       "notModerator": "Nie masz uprawnień do tej operacji"
-    },
-    "order": {
-      "order-created": "Udało Ci się złożyć zamówienie",
-      "user-dont-match": "Nie masz dostępu do tego zamówienia",
-      "order-not-found": "Nie istnieje takie zamówienie",
-      "order-creating-error": "Nie udało się złożyć zamówienia",
-      "server-error": "Wystąpił błąd w przeprowadzaniu zamówienia"
     }
+  },
+  "shared": {
+    "loading": "Ładowanie"
   }
 }
