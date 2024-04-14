@@ -72,8 +72,17 @@
           "success-set-but-same-values": "Próba ustawienia takiego samego NIP",
           "success-but-same-values": "Twoje dane są aktualne",
           "company-with-this-nip-not-found": "Firma o takim NIP nie została odnaleziona w bazie danych"
+        },
+        "login": {
+          "title": "Logowanie"
         }
       }
+    },
+    "order": {
+      "title": "Zamówienie",
+      "first-stage-title": "Opcjonalne logowanie",
+      "second-stage-title": "Dostawa",
+      "third-stage-title": "Coś innego"
     },
     "footer": {
       "contact": "Kontakt",

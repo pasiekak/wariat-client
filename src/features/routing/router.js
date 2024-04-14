@@ -31,6 +31,10 @@ import ProductsOutletContext from "../products/ProductsOutletContext";
 import ParamParser from "./components/ParamParser";
 import Delivery from "../dashboard/features/delivery/Delivery";
 import Cart from "../cart/Cart";
+import Order from "../order/Order";
+import LoginBeforeOrder from "../order/features/login/LoginBeforeOrder";
+import DeliveryPick from "../order/features/delivery/DeliveryPick";
+import { OrderProvider } from "../order/context/OrderContext";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -99,7 +103,17 @@ function NormalRoutes() {
         </Route>
         <Route path="/account" Component={Account} />
         <Route path="/cart" Component={Cart} />
-        <Route path="/order" element={<>Tutaj będzie order</>} />
+        <Route
+          path="/order"
+          element={
+            <OrderProvider>
+              <Order />
+            </OrderProvider>
+          }
+        >
+          <Route path="login-before-order" element={<LoginBeforeOrder />} />
+          <Route path="delivery" element={<DeliveryPick />} />
+        </Route>
         <Route path="/*" Component={NotFound} />
       </Routes>
       <Footer />

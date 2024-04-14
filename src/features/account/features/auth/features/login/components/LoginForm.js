@@ -29,7 +29,6 @@ const LoginForm = () => {
     setSuccess(apiResponse.success);
     setApiMsg(tStatus(apiResponse.message));
     if (apiResponse.success) {
-      console.log(apiResponse);
       setAccountData(apiResponse.data);
     }
   };

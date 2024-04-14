@@ -1,0 +1,31 @@
+.App > .order .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.App > .order .navigation .stage {
+    position: relative;
+}
+
+.App > .order .navigation .stage-number {
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    background: white;
+}
+
+.App > .order .navigation .stage-title {
+    position: absolute;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    bottom: -22px;
+}

@@ -1,0 +1,5 @@
+.App > .order {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 0.5rem;
+}
