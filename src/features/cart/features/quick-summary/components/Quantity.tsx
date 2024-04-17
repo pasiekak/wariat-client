@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 type QuantityProps = {
   productID: number;
-  type: "after-add" | "in-cart";
+  type: "after-add" | "in-cart" | "in-order";
 };
 
 const Quantity = (props: QuantityProps) => {
@@ -49,7 +49,7 @@ const Quantity = (props: QuantityProps) => {
     }
   };
 
-  if (props.type === "after-add")
+  if (props.type === "after-add" || props.type === "in-order")
     return (
       <div className={`quantity`}>
         <span>{quantity}</span>

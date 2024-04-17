@@ -1,0 +1,14 @@
+.quick-summary.in-order {
+    height: max-content;
+    padding: 10px;
+}
+
+.quick-summary.in-order .cart-products {
+    border-radius: calc(1rem - 10px);
+}
+
+@media (max-width: 767px) {
+    .quick-summary.in-order {
+        display: none;
+    }
+}

@@ -11,7 +11,7 @@ import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 type SummaryProductProps = {
   cartProduct: CartProduct;
   last: boolean;
-  type: "after-add" | "in-cart";
+  type: "after-add" | "in-cart" | "in-order";
 };
 
 const SummaryProduct = ({ cartProduct, last, type }: SummaryProductProps) => {

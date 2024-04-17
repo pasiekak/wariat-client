@@ -29,11 +29,11 @@ import MiniEvents from "../events/components/MiniEvents";
 import Product from "../products/features/product-page/Product";
 import ProductsOutletContext from "../products/ProductsOutletContext";
 import ParamParser from "./components/ParamParser";
-import Delivery from "../dashboard/features/delivery/Delivery";
+import DeliveryDashboard from "../dashboard/features/delivery/Delivery";
 import Cart from "../cart/Cart";
 import Order from "../order/Order";
 import LoginBeforeOrder from "../order/features/login/LoginBeforeOrder";
-import DeliveryPick from "../order/features/delivery/DeliveryPick";
+import Delivery from "../order/features/delivery/Delivery";
 import { OrderProvider } from "../order/context/OrderContext";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
@@ -71,7 +71,7 @@ function Root() {
             <Route path="add" element={<AddEventForm />} />
             <Route path=":eventID" element={<EditEvent />} />
           </Route>
-          <Route path="delivery" element={<Delivery />} />
+          <Route path="delivery" element={<DeliveryDashboard />} />
         </Route>
       </Route>
       <Route path="/email-verification" Component={EmailVerification} />
@@ -112,7 +112,7 @@ function NormalRoutes() {
           }
         >
           <Route path="login-before-order" element={<LoginBeforeOrder />} />
-          <Route path="delivery" element={<DeliveryPick />} />
+          <Route path="delivery" element={<Delivery />} />
         </Route>
         <Route path="/*" Component={NotFound} />
       </Routes>

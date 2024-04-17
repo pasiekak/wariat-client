@@ -1,0 +1,45 @@
+.login-before-order {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-area: outlet;
+    gap: 0.5rem;
+}
+
+.login-before-order .login-form {
+    width: 80%;
+    max-width: 80%;
+    height: max-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.login-before-order .as-guest-wrapper,
+.login-before-order .register-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+
+}
+
+.login-before-order .register-info-wrapper .info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.login-before-order .register-info-wrapper .info div {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px 1fr;
+    gap: 0.25em;
+
+}
+
+.login-before-order .register-info-wrapper .info div svg {
+    width: 20px;
+}

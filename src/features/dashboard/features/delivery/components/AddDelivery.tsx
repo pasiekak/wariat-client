@@ -29,7 +29,7 @@ const AddDelivery = (props: AddDeliveryProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="solo">
+    <form onSubmit={handleSubmit(onSubmit)} className="solo add-delivery-form">
       <h2>Dodawanie rodzaju dostawy</h2>
 
       <div>

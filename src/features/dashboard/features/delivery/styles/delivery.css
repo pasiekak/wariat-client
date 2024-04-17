@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.App .dashboard-content .delivery form {
+.App .dashboard-content .delivery .add-delivery-form {
     display: grid;
     width: 100%;
     padding-inline: 1rem;
@@ -27,31 +27,31 @@
         "optional optional";
 }
 
-.App .dashboard-content .delivery form h2 {
+.App .dashboard-content .delivery .add-delivery-form h2 {
     grid-area: title;
 }
 
-.App .dashboard-content .delivery form div:has(#nameID) {
+.App .dashboard-content .delivery .add-delivery-form div:has(#nameID) {
     grid-area: name;
 }
 
-.App .dashboard-content .delivery form div:has(#priceID) {
+.App .dashboard-content .delivery .add-delivery-form div:has(#priceID) {
     grid-area: price
 }
 
-.App .dashboard-content .delivery form div:has(#companyID) {
+.App .dashboard-content .delivery .add-delivery-form div:has(#companyID) {
     grid-area: company
 }
 
-.App .dashboard-content .delivery form div:has(#descriptionID) {
+.App .dashboard-content .delivery .add-delivery-form div:has(#descriptionID) {
     grid-area: description;
 }
 
-.App .dashboard-content .delivery form .btn {
+.App .dashboard-content .delivery .add-delivery-form .btn {
     grid-area: submit;
 }
 
-.App .dashboard-content .delivery form p {
+.App .dashboard-content .delivery .add-delivery-form p {
     grid-area: optional;
 }
 
@@ -59,12 +59,24 @@
     width: 100%;
 }
 
+.App .dashboard-content .delivery .deliveries form {
+    width: 80px;
+}
+
 .App .dashboard-content .delivery .deliveries div {
     display: grid;
     align-items: center;
     width: 100%;
     padding: 5px 2px;
-    grid-template-columns: repeat(4, minmax(100px, 1fr)) 50px;
+    grid-template-columns: 100px repeat(4, minmax(100px, 1fr)) 50px;
+}
+
+.App .dashboard-content .delivery .deliveries .delivery-icon {
+    justify-self: center;
+}
+
+.App .dashboard-content .delivery .deliveries div.columns span:nth-child(1) {
+    justify-self: center;
 }
 
 .App .dashboard-content .delivery .deliveries div.columns {
@@ -73,7 +85,7 @@
 }
 
 @media (max-width: 767px) {
-    .App .dashboard-content .delivery form {
+    .App .dashboard-content .delivery .add-delivery-form {
         display: grid;
         padding-inline: 1rem;
         grid-template-columns: 1fr 1fr;

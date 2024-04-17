@@ -13,6 +13,7 @@ export type CartContextReturns = {
   removeProductFromCart: (productID: number) => void;
   isProductInCart: (productID: number) => boolean;
   getProductFromCart: (productID: number) => CartProduct | undefined;
+  getDiscountDifference: () => number;
 };
 
 export type CartProduct = {

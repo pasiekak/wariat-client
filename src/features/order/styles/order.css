@@ -1,5 +1,28 @@
 .App > .order {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    padding-top: 10px;
+    grid-template-rows: max-content auto;
+    column-gap: 0.5rem;
+    grid-template-columns: 1fr 0.4fr;
+    grid-template-areas:
+        "navigation navigation"
+        "outlet summary";
     padding-inline: 0.5rem;
+}
+
+.App > .order > .navigation {
+    grid-area: navigation;
+}
+
+.App > .order > .quick-summary {
+    grid-area: summary;
+}
+
+@media (max-width: 767px) {
+    .App > .order {
+        grid-template-columns: 1fr 0.4fr;
+        grid-template-areas:
+        "navigation navigation"
+        "outlet outlet";
+    }
 }

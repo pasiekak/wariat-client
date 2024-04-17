@@ -1,0 +1,29 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.login-form h2 {
+    text-align: center;
+}
+
+.login-form .error {
+    min-height: 24px;
+    padding-left: 2px;
+}
+
+.login-form label {
+    padding-left: 2px;
+}
+
+.login-form input {
+    padding-left: 2px;
+    border: thin solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    outline: none;
+}
+
+.login-form input:focus {
+    outline: #00000033 2px solid;
+}

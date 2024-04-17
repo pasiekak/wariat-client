@@ -17,7 +17,7 @@ import Columns from "./components/Columns";
 
 type props = {
   hide?: () => void;
-  type: "after-add" | "in-cart";
+  type: "after-add" | "in-cart" | "in-order";
   withColumns: boolean;
 };
 
@@ -61,10 +61,7 @@ const QuickSummary = (props: props) => {
               <div className={`difference-wrapper`}>
                 <span className={`you-save`}>{t("you-save")}</span>
                 <span className={`difference`}>
-                  {(
-                    cart.priceForAllWithoutDiscounts - cart.priceForAll
-                  ).toFixed(2)}{" "}
-                  zł
+                  {cart.getDiscountDifference().toFixed(2)} zł
                 </span>
               </div>
             )}

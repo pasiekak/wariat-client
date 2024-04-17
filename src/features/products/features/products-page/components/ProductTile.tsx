@@ -29,7 +29,6 @@ const ProductTile = ({ product }: ProductTileProps) => {
   const { t } = useTranslation(undefined, { keyPrefix: "components.products" });
   const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 1200 });
-
   const bestDiscount = useBestDiscount({ productID: product.id });
 
   useEffect(() => {

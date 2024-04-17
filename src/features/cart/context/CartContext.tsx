@@ -61,6 +61,10 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     return cartProducts.find((p) => p.product.id === productID);
   };
 
+  const getDiscountDifference = () => {
+    return priceForAllWithoutDiscounts - priceForAll;
+  };
+
   const clearCart = () => {
     setCartProducts([]);
     setCount(0);
@@ -83,6 +87,11 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
                 cartProduct?.bestDiscount
                   ? cartProduct.bestDiscount.percentage
                   : 0,
+                newQuantity,
+              ),
+              fullPriceWithoutDiscount: calculateFinalPrice(
+                cartProduct.product.priceBrutto,
+                0,
                 newQuantity,
               ),
               quantity: newQuantity,
@@ -108,6 +117,7 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
         removeProductFromCart,
         isProductInCart,
         getProductFromCart,
+        getDiscountDifference,
       }}
     >
       {children}
