@@ -72,17 +72,48 @@
           "success-set-but-same-values": "Próba ustawienia takiego samego NIP",
           "success-but-same-values": "Twoje dane są aktualne",
           "company-with-this-nip-not-found": "Firma o takim NIP nie została odnaleziona w bazie danych"
-        },
-        "login": {
-          "title": "Logowanie"
+        }
+      },
+      "login": {
+        "title": "Zaloguj się",
+        "username-label": "Nazwa użytkownika",
+        "password-label": "Hasło",
+        "button-submit": "Zaloguj się",
+        "schema": {
+          "username-required": "Nazwa użytkownika jest wymagana",
+          "password-required": "Hasło jest wymagane",
+          "wrong-login-pass": "Nieprawidłowy login lub hasło",
+          "server-error": "Błąd serwera",
+          "not-known-error": "Nieznany błąd"
         }
       }
     },
     "order": {
       "title": "Zamówienie",
-      "first-stage-title": "Opcjonalne logowanie",
-      "second-stage-title": "Dostawa",
-      "third-stage-title": "Coś innego"
+      "navigation": {
+        "first-stage-title": "Opcjonalne logowanie",
+        "first-stage-title-logged": "Zalogowano",
+        "first-stage-title-not-logged": "Gość",
+        "second-stage-title": "Dostawa",
+        "third-stage-title": "Coś innego"
+      },
+      "login-before-order": {
+        "as-guest-text": "Jeśli zamówisz jako gość, nie będziesz miał dostępu do historii swoich zamówień oraz twój zakup nie naliczy się do zniżek grupowych.",
+        "as-guest-title": "Zamów jako gość",
+        "register-info-title": "Zarejestruj konto",
+        "register-info-discounts": "Korzystaj z atrakcyjnych zniżek",
+        "register-info-receipts": "Przeglądaj historię zamówień",
+        "register-info-time": "Zamawiaj szybciej"
+      },
+      "delivery": {
+        "pick": {
+          "title": "Wybór dostawcy",
+          "in-person": "Odbiór osobisty",
+          "dpd-courier": "Kurier DPD",
+          "inpost-courier": "Kurier InPost",
+          "inpost-paczkomat": "Paczkomat InPost"
+        }
+      }
     },
     "footer": {
       "contact": "Kontakt",
