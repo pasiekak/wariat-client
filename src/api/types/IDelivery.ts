@@ -4,4 +4,6 @@ export interface IDelivery {
   price: number;
   description: string | null;
   company: string | null;
+  modifiable: boolean;
+  icon: string;
 }
