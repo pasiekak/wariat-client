@@ -1,14 +1,12 @@
 import { IDelivery } from "../../../../../api/types/IDelivery";
-import { UseFormRegister } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import DeliveryIcon from "../../../../../components/deliveryIcon/DeliveryIcon";
-import { FormFields } from "../types/FormFields";
 import { useContext } from "react";
 import { OrderContext } from "../../../context/OrderContext";
+import { useFormContext } from "react-hook-form";
 
 type DeliveryOptionProps = {
   delivery: IDelivery;
-  register: UseFormRegister<FormFields>;
 };
 
 const DeliveryOption = (props: DeliveryOptionProps) => {
@@ -16,6 +14,7 @@ const DeliveryOption = (props: DeliveryOptionProps) => {
     keyPrefix: "components.order.delivery.pick",
   });
   const { selectedDelivery } = useContext(OrderContext);
+  const { register } = useFormContext();
 
   return (
     <div
@@ -23,9 +22,9 @@ const DeliveryOption = (props: DeliveryOptionProps) => {
     >
       <input
         type="radio"
-        value={props.delivery.id}
         id={`option${props.delivery.id}`}
-        {...props.register(`selected`)}
+        value={props.delivery.id}
+        {...register("delivery")}
       />
       <label htmlFor={`option${props.delivery.id}`}>
         {props.delivery.icon === null

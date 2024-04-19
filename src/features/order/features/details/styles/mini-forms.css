@@ -1,0 +1,160 @@
+.App > .order .mini-form {
+    animation: show 1000ms;
+}
+
+.App > .order .mini-form > * {
+    padding-inline: 1rem;
+
+}
+
+.App > .order .mini-form .fields {
+    display: grid;
+    column-gap: 0.5em;
+}
+
+.App > .order .mini-form.company-data .fields {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "nip x country"
+        "name name name"
+        "postal city city"
+        "street street number";
+}
+
+.App > .order .mini-form.receiver-data .fields {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "firstname lastname"
+        "email phone"
+}
+
+.App > .order .mini-form.delivery-address .fields {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "country country"
+        "city street"
+        "home postal"
+
+}
+
+.App > .order .mini-form.company-data .fields .field.nip {
+    grid-area: nip;
+}
+
+.App > .order .mini-form.company-data .fields .field.company-name {
+    grid-area: name;
+}
+
+.App > .order .mini-form.company-data .fields .field.city {
+    grid-area: city;
+}
+
+.App > .order .mini-form.company-data .fields .field.street {
+    grid-area: street;
+}
+
+.App > .order .mini-form.company-data .fields .field.building-number {
+    grid-area: number;
+}
+
+.App > .order .mini-form.company-data .fields .field.postal-code {
+    grid-area: postal;
+}
+
+.App > .order .mini-form.company-data .fields .field.country {
+    grid-area: country;
+}
+
+.App > .order .mini-form.receiver-data .fields .field.firstname {
+    grid-area: firstname;
+}
+
+.App > .order .mini-form.receiver-data .fields .field.lastname {
+    grid-area: lastname;
+}
+
+.App > .order .mini-form.receiver-data .fields .field.email {
+    grid-area: email;
+}
+
+.App > .order .mini-form.receiver-data .fields .field.phone {
+    grid-area: phone;
+}
+
+.App > .order .mini-form.delivery-address .fields .field.country {
+    grid-area: country;
+}
+
+.App > .order .mini-form.delivery-address .fields .field.city {
+    grid-area: city;
+}
+
+.App > .order .mini-form.delivery-address .fields .field.street {
+    grid-area: street;
+}
+
+.App > .order .mini-form.delivery-address .fields .field.home-number {
+    grid-area: home;
+}
+
+.App > .order .mini-form.delivery-address .fields .field.postal-code {
+    grid-area: postal;
+}
+
+.App > .order .mini-form .fields .field {
+    display: flex;
+    flex-direction: column;
+    min-width: 20px;
+}
+
+.App > .order .mini-form .fields .field * {
+    padding-left: 2px;
+}
+
+.App > .order .mini-form .fields .field .error {
+    font-size: 10px;
+    min-height: 15px;
+}
+
+.App > .order .mini-form .fields .field input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.App > .order .mini-form .fields .field input:focus-visible {
+    outline: 3px solid lightblue;
+}
+
+.App > .order .mini-form .fields .field input.red-outline {
+    outline: 3px solid lightcoral;
+}
+
+@media (max-width: 767px) {
+    .App > .order .mini-form.company-data .fields {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "nip country"
+        "name name"
+        "city street"
+        "number postal"
+    }
+    .App > .order .mini-form.receiver-data .fields {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "firstname"
+        "lastname"
+        "email"
+        "phone"
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}

@@ -1,0 +1,29 @@
+.App > .order .details .invoice-choice {
+
+}
+
+.App > .order .details .invoice-choice .choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.App > .order .details .invoice-choice .choices .choice {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+    padding: 0.25em;
+    gap: 0.25em;
+}
+
+.App > .order .details .invoice-choice .choices .choice.selected {
+    border-radius: 1rem;
+    outline: thin solid black;
+}
+
+.App > .order .details .invoice-choice .choices .choice input,
+.App > .order .details .invoice-choice .choices .choice label {
+    cursor: pointer;
+    accent-color: black;
+}

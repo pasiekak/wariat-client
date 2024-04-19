@@ -1,0 +1,21 @@
+.App > .order .details {
+    grid-area: outlet;
+}
+
+.App > .order .details form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.App > .order .details form .title {
+    padding: 0.5rem 1rem 0 1rem;
+
+}
+
+.App > .order .details form > div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    background: var(--color-6);
+}

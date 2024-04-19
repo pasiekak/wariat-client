@@ -19,7 +19,7 @@ const LoginBeforeOrder = () => {
 
   const orderAsGuest = () => {
     setAsGuest(true);
-    navigate("/order/delivery");
+    navigate("/order/details");
   };
 
   return (

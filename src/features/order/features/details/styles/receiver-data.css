@@ -1,0 +1,7 @@
+.App > .order .receiver-data {
+    display: grid;
+}
+
+.App > .order .receiver-data > * {
+    padding-inline: 1rem;
+}

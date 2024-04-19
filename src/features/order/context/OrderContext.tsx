@@ -26,6 +26,10 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
   const [availableDeliveries, setAvailableDeliveries] = useState<IDelivery[]>(
     [],
   );
+  const [wantInvoice, setWantInvoice] = useSessionStorage(
+    "order-want-invoice",
+    false,
+  );
 
   useEffect(() => {
     axios.get(`/api/delivery`).then((res) => {
@@ -50,11 +54,13 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         stage,
         selectedDelivery,
         availableDeliveries,
+        wantInvoice,
 
         setAsGuest,
         setStage,
         setSelectedDelivery,
         setAvailableDeliveries,
+        setWantInvoice,
       }}
     >
       {children}

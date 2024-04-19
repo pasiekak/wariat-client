@@ -14,7 +14,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (!asGuest) {
-      navigate("/order/delivery");
+      navigate("/order/details");
     }
   }, [asGuest, navigate]);
 
@@ -39,7 +39,7 @@ const Navigation = () => {
       case "/order/login-before-order":
         setStage(1);
         break;
-      case "/order/delivery":
+      case "/order/details":
         setStage(2);
         break;
       default:
