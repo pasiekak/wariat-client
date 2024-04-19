@@ -7,3 +7,11 @@ export interface IAddress {
   postalCode: string | null;
   UserId: number | null;
 }
+
+export interface IAddressForOrder {
+  country: string;
+  city: string;
+  street: string;
+  homeNumber: number;
+  postalCode: string;
+}

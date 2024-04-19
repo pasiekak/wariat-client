@@ -9,3 +9,13 @@ export interface ICompanyData {
   country: string | null;
   UserId: number | null;
 }
+
+export interface ICompanyDataForOrder {
+  nip: string;
+  companyName: string;
+  city: string;
+  street: string;
+  buildingNumber: number;
+  postalCode: string;
+  country: string;
+}
