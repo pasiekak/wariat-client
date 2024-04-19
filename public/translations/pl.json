@@ -94,7 +94,7 @@
         "first-stage-title": "Opcjonalne logowanie",
         "first-stage-title-logged": "Zalogowano",
         "first-stage-title-not-logged": "Gość",
-        "second-stage-title": "Dostawa",
+        "second-stage-title": "Szczegóły zamówienia",
         "third-stage-title": "Coś innego"
       },
       "login-before-order": {
@@ -112,7 +112,35 @@
           "dpd-courier": "Kurier DPD",
           "inpost-courier": "Kurier InPost",
           "inpost-paczkomat": "Paczkomat InPost"
+        },
+        "address": {
+          "title-where-to-deliver": "Gdzie dostarczyć paczkę?",
+          "title-paczkomat": "Wybierz paczkomat",
+          "nip-label": "NIP",
+          "company-name-label": "Nazwa firmy",
+          "city-label": "Miasto",
+          "street-label": "Ulica",
+          "building-number-label": "Nr. budynku",
+          "home-number-label": "Nr. domu",
+          "postal-code-label": "Kod pocztowy",
+          "country-label": "Kraj"
         }
+      },
+      "invoice": {
+        "title": "Kupujesz jako?",
+        "label-for-false": "Osoba prywatna",
+        "label-for-true": "Firma",
+        "company-data": {
+          "title": "Dane do faktury",
+          "info": "Te dane zostaną wykorzystane do wystawienia faktury."
+        }
+      },
+      "receiver": {
+        "title": "Dane odbiorcy",
+        "firstname-label": "Imię",
+        "lastname-label": "Nazwisko",
+        "phone-label": "Numer telefonu",
+        "email-label": "E-mail"
       }
     },
     "footer": {
@@ -307,6 +335,38 @@
       "badToken": "Nieudana próba autentykacji użytkownika",
       "notAdmin": "Nie masz uprawnień do tej operacji",
       "notModerator": "Nie masz uprawnień do tej operacji"
+    }
+  },
+  "resolvers": {
+    "address": {
+      "nip-required": "NIP jest wymagany.",
+      "nip-digits": "NIP składa się tylko z cyfr.",
+      "nip-invalid": "NIP jest niepoprawny",
+      "company-name-required": "Nazwa firmy jest wymagana.",
+      "company-name-max": "Maksymalnie 50 znaków.",
+      "city-required": "Miasto jest wymagane.",
+      "city-max": "Maksymalnie 50 znaków.",
+      "street-required": "Ulica jest wymagana.",
+      "street-max": "Maksymalnie 50 znaków.",
+      "building-number-required": "Numer budynku jest wymagany.",
+      "building-number-min": "Liczba musi być dodatnia.",
+      "postal-code-required": "Kod pocztowy jest wymagany.",
+      "postal-code-min": "Kod pocztowy musi mieć co najmniej 5 znaków.",
+      "postal-code-max": "Kod pocztowy musi mieć co najwyżej 10 znaków.",
+      "country-required": "Kraj jest wymagany.",
+      "country-max": "Maksymalnie 30 znaków."
+    },
+    "personal-data": {
+      "firstname-required": "Imię jest wymagane.",
+      "lastname-required": "Nazwisko jest wymagane.",
+      "phone-required": "Numer telefonu jest wymagany.",
+      "phone-min": "Minimum 8 znaków.",
+      "phone-max": "Maksymalnie 15 znaków.",
+      "phone-invalid": "Niepoprawny format numeru telefonu."
+    },
+    "account": {
+      "email-required": "E-mail jest wymagany.",
+      "email-invalid": "Podany e-mail jest niepoprawny."
     }
   },
   "shared": {
