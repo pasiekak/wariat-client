@@ -33,7 +33,7 @@ import DeliveryDashboard from "../dashboard/features/delivery/Delivery";
 import Cart from "../cart/Cart";
 import Order from "../order/Order";
 import LoginBeforeOrder from "../order/features/login/LoginBeforeOrder";
-import Delivery from "../order/features/delivery/Delivery";
+import Details from "../order/features/details/Details";
 import { OrderProvider } from "../order/context/OrderContext";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
@@ -112,7 +112,7 @@ function NormalRoutes() {
           }
         >
           <Route path="login-before-order" element={<LoginBeforeOrder />} />
-          <Route path="delivery" element={<Delivery />} />
+          <Route path="details" element={<Details />} />
         </Route>
         <Route path="/*" Component={NotFound} />
       </Routes>
