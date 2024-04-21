@@ -3,7 +3,7 @@ import { faTruck, faWarehouse } from "@fortawesome/free-solid-svg-icons";
 
 import dpdPNG from "./assets/dpd.png";
 import inpostcourier from "./assets/inpost-courier.png";
-import inpostpaczkomat from "./assets/inpost-paczkomat.png";
+import inpostparcel from "./assets/inpost-parcel.png";
 
 import "./styles/basic-style.css";
 
@@ -20,11 +20,11 @@ const DeliveryIcon = ({ deliveryIcon }: { deliveryIcon: string }) => {
             alt={"inpost courier"}
           />
         );
-      case "inpost-paczkomat":
+      case "inpost-parcel":
         return (
           <img
             className="delivery-icon"
-            src={inpostpaczkomat}
+            src={inpostparcel}
             alt={"inpost paczkomat"}
           />
         );
