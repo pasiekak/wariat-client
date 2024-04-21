@@ -35,6 +35,7 @@ const useEventsFunctions = ({
       title: data.title,
       place: data.place,
       date: data.date,
+      youtubeURL: data.youtubeURL,
       content: data.content,
       published: data.published,
     };
@@ -126,6 +127,7 @@ const useEventsFunctions = ({
       title: "",
       place: "",
       date: getNowDateToInputString(),
+      youtubeURL: null,
       content: "",
       published: true,
       images: [],

@@ -17,6 +17,7 @@ const defaultProduct = {
   priceBrutto: 0.01,
   priceNetto: 0.01,
   maxQuantity: 1,
+  youtubeURL: null,
   published: false,
   images: undefined,
 };
@@ -102,6 +103,7 @@ const AddProduct = () => {
       priceNetto,
       priceBrutto,
       maxQuantity,
+      youtubeURL,
       images,
     } = data;
 
@@ -112,7 +114,10 @@ const AddProduct = () => {
       priceBrutto,
       priceNetto,
       maxQuantity,
+      youtubeURL,
     };
+
+    if (product.youtubeURL === "") product.youtubeURL = null;
 
     const formData = new FormData();
 
@@ -189,6 +194,21 @@ const AddProduct = () => {
             valueAsNumber: true,
             onChange: handleBruttoChange,
           })}
+        />
+      </div>
+
+      <div className="field">
+        <label
+          htmlFor="youtubeURL-id"
+          title="Adres URL filmiku z youtube. Wskazówki: https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+        >
+          Adres youtube
+        </label>
+        <input
+          type="text"
+          id="youtubeURL-id"
+          placeholder="https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+          {...register("youtubeURL")}
         />
       </div>
 

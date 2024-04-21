@@ -30,6 +30,7 @@ interface ISingleProductExtended {
   description: string;
   priceBrutto: number;
   priceNetto: number;
+  youtubeURL: string | null;
   maxQuantity: number;
   published: boolean;
   createdAt: Date;

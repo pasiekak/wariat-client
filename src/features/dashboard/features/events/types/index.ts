@@ -23,6 +23,7 @@ export type EventAddForm = {
   title: string;
   place: string;
   date: Date | string;
+  youtubeURL: string | null;
   content: string;
   published: boolean;
   images: File[];
@@ -32,6 +33,7 @@ export type EventAddEditFnProps = {
   title: string;
   place: string;
   date: Date | string;
+  youtubeURL: string | null;
   content: string;
   published: boolean;
 };

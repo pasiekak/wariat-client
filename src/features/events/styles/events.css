@@ -71,6 +71,7 @@
 .App > .events > .events-wrapper > .mini-event > div {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .App > .events > .events-wrapper > .mini-event > div .button-wrapper {
@@ -116,6 +117,7 @@
         grid-auto-rows: 200px auto;
 
     }
+
     /*style for details on phone*/
     .App > .events > .events-wrapper > .mini-event .details {
         flex-wrap: wrap;

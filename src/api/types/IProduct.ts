@@ -6,6 +6,7 @@ export interface IProduct {
   priceNetto: number;
   maxQuantity: number;
   published: boolean;
+  youtubeURL: string | null;
   createdAt: Date;
   updatedAt: Date;
 }

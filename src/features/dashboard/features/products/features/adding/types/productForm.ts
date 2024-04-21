@@ -5,6 +5,7 @@ interface IProductForm {
   priceNetto: number;
   maxQuantity: number;
   published: boolean;
+  youtubeURL: string | null;
   images: File[];
 }
 

@@ -18,10 +18,12 @@ const EditEventForm = ({ eventID }: { eventID: number }) => {
   }, [reset, getEvent, eventID]);
 
   const onSubmit = (data: IEvent) => {
+    if (data.youtubeURL === "") data.youtubeURL = null;
     const extracted = {
       title: data.title,
       place: data.place,
       date: data.date,
+      youtubeURL: data.youtubeURL,
       content: data.content,
       published: data.published,
     };
@@ -57,6 +59,21 @@ const EditEventForm = ({ eventID }: { eventID: number }) => {
       <div className="field">
         <label htmlFor="content">Zawartość tekstowa</label>
         <textarea id="content" required {...register("content")} />
+      </div>
+
+      <div className="field">
+        <label
+          htmlFor="youtube-url-id"
+          title="Adres URL filmiku z youtube. Wskazówki: https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+        >
+          Link youtube
+        </label>
+        <input
+          type="text"
+          placeholder="https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+          id="youtube-url-id"
+          {...register("youtubeURL")}
+        />
       </div>
 
       <div className="field">

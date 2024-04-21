@@ -13,6 +13,7 @@ import Attributes from "./components/Attributes";
 import Details from "./components/Details";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../../cart/context/CartContext";
+import YTPlayer from "../../../../components/youtube-player/YTPlayer";
 
 const Product = ({ id }: { id: number }) => {
   const { getProductFromCart } = useContext(CartContext);
@@ -94,6 +95,7 @@ const Product = ({ id }: { id: number }) => {
           <Attributes id={product.id} attributePlural={"categories"} />
           <Attributes id={product.id} attributePlural={"marks"} />
           <Details productID={product.id} />
+          {product.youtubeURL && <YTPlayer src={product.youtubeURL} />}
         </>
       )}
     </section>

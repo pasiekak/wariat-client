@@ -51,10 +51,20 @@
     grid-row: 6;
 }
 
+.App > .events > .event .youtube-title {
+    grid-column: 2;
+    grid-row: 7;
+}
+
+.App > .events > .event .youtube-player {
+    grid-column: 2;
+    grid-row: 8;
+}
+
 .App > .events > .event .btn {
     margin: 1rem;
     grid-column: span 3;
-    grid-row: 7;
+    grid-row: 9;
 }
 
 @media (min-width: 767px) and (max-width: 1200px) {
@@ -70,6 +80,7 @@
         row-gap: 0.5rem;
 
     }
+
     .App > .events > .event .title {
         grid-column: span 2;
         grid-row: 1;
@@ -79,23 +90,28 @@
         grid-column: 2;
         grid-row: 2;
     }
+
     .App > .events > .event .desc {
         grid-column: span 2;
         grid-row: 3;
     }
+
     .App > .events > .event .gallery-title {
         grid-column: span 2;
         grid-row: 4;
 
     }
+
     .App > .events > .event .image-carousel {
         grid-column: span 2;
         grid-row: 5;
     }
+
     .App > .events > .event .miniatures {
         grid-column: span 2;
         grid-row: 6;
     }
+
     .App > .events > .event .btn {
         grid-column: span 2;
         grid-row: 7;

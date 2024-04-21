@@ -25,6 +25,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
       priceBrutto: props.priceBrutto,
       priceNetto: props.priceNetto,
       published: props.published,
+      youtubeURL: props.youtubeURL,
       maxQuantity: props.maxQuantity,
     },
   });
@@ -43,6 +44,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
   };
   const onSubmit = (data: IProductForm) => {
     setLoading(true);
+    if (data.youtubeURL === "") data.youtubeURL = null;
     axios
       .put(`/api/products/${props.id}`, data)
       .then((res) => {
@@ -62,10 +64,10 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
       <h3>Dane produktu</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">Nazwa produktu</label>
-        <input id="name" type="text" {...register("name")} />
+        <input id="name" type="text" required {...register("name")} />
 
         <label htmlFor="description">Opis</label>
-        <textarea id="description" {...register("description")} />
+        <textarea id="description" required {...register("description")} />
 
         <label
           htmlFor="maxQuantity"
@@ -76,6 +78,7 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
         <input
           type="number"
           id="maxQuantity"
+          required
           min={0}
           {...register("maxQuantity", { required: true, valueAsNumber: true })}
         />
@@ -114,6 +117,16 @@ const ProductModifyForm = (props: ISingleProductExtended) => {
             valueAsNumber: true,
             onChange: handleNettoChange,
           })}
+        />
+        <label htmlFor="youtubeURL-id" title="Adres URL filmiku z youtube.">
+          Adres youtube
+        </label>
+
+        <input
+          type="text"
+          id="youtubeURL-id"
+          placeholder="https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+          {...register("youtubeURL")}
         />
 
         <label

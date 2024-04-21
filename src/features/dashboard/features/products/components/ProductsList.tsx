@@ -19,6 +19,7 @@ const ProductsList = ({
           maxQuantity={product.maxQuantity}
           priceBrutto={parseFloat(product.priceBrutto.toFixed(2))}
           priceNetto={parseFloat(product.priceNetto.toFixed(2))}
+          youtubeURL={product.youtubeURL}
           published={product.published}
           createdAt={new Date(product.createdAt)}
           updatedAt={new Date(product.updatedAt)}

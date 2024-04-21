@@ -19,6 +19,7 @@ const AddEventForm = () => {
 
   const onSubmit = (data: EventAddForm) => {
     setDisabled(true);
+    if (data.youtubeURL === "") data.youtubeURL = null;
     addEvent(data)
       .then((res) => {
         if (res) {
@@ -66,6 +67,21 @@ const AddEventForm = () => {
       <div className="field">
         <label htmlFor="content">Zawartość*</label>
         <textarea id="content" required {...register("content")} />
+      </div>
+
+      <div className="field">
+        <label
+          htmlFor="youtube-url-id"
+          title="Adres URL filmiku z youtube. Wskazówki: https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+        >
+          Link youtube
+        </label>
+        <input
+          type="text"
+          placeholder="https://www.youtube.com/embed/6R9L0Z-NsJ8 (Musi zawierać 'embed/' zamiast 'watch?v=')"
+          id="youtube-url-id"
+          {...register("youtubeURL")}
+        />
       </div>
 
       <div className="field">

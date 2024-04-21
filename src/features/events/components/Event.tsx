@@ -8,6 +8,7 @@ import "../styles/event.css";
 import Button from "react-bootstrap/Button";
 import Details from "./Details";
 import ImageCarousel from "../../image-carousel/ImageCarousel";
+import YTPlayer from "../../../components/youtube-player/YTPlayer";
 
 const Event = () => {
   const [event, setEvent] = useState<IEvent>();
@@ -36,6 +37,12 @@ const Event = () => {
             entityPlural={"events"}
             showMiniatures={true}
           />
+          {event.youtubeURL && (
+            <>
+              <h1 className="youtube-title">{t("youtube-title")}</h1>
+              <YTPlayer src={event.youtubeURL} />
+            </>
+          )}
           <Button variant="dark" onClick={() => navigate("/events")}>
             {t("go-back-to-events")}
           </Button>
