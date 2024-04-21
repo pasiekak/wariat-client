@@ -1,0 +1,10 @@
+.youtube-player {
+    height: 600px;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .youtube-player {
+        height: 200px;
+    }
+}
