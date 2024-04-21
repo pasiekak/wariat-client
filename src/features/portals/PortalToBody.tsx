@@ -20,7 +20,10 @@ export type props = {
 
 const PortalToBody = forwardRef<forwarded, props>((props, ref) => {
   const [hidden, setHidden] = useState<boolean>(true);
-  const { loaded, portalID } = usePortal({ hidden: hidden });
+  const { loaded, portalID } = usePortal({
+    hidden: hidden,
+    setHidden: setHidden,
+  });
   const portalTarget = document.getElementById(portalID);
 
   useImperativeHandle(ref, () => ({
