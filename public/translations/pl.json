@@ -111,11 +111,13 @@
           "in-person": "Odbiór osobisty",
           "dpd-courier": "Kurier DPD",
           "inpost-courier": "Kurier InPost",
-          "inpost-paczkomat": "Paczkomat InPost"
+          "inpost-parcel": "Paczkomat InPost",
+          "inpost-parcel-pick-button": "Wybierz paczkomat",
+          "inpost-parcel-change-button": "Zmień paczkomat",
+          "selected-parcel": "Twój paczkomat: {{address_details.province}}, {{address_details.post_code}} {{address_details.city}}, ul. {{address_details.street}} {{address_details.building_number}}"
         },
         "address": {
           "title-where-to-deliver": "Gdzie dostarczyć paczkę?",
-          "title-paczkomat": "Wybierz paczkomat",
           "nip-label": "NIP",
           "company-name-label": "Nazwa firmy",
           "city-label": "Miasto",
@@ -157,7 +159,8 @@
       "see-more": "Zobacz więcej",
       "no-events": "Brak opublikowanych wydarzeń",
       "go-back-to-events": "Wróć do listy wydarzeń",
-      "gallery-title": "Galeria zdjęć"
+      "gallery-title": "Galeria zdjęć",
+      "youtube-title": "Film"
     },
     "products": {
       "title": "Produkty",
