@@ -12,16 +12,20 @@ const DeliveryPick = () => {
   });
   const {
     watch,
+    setError,
     formState: {
       errors: { delivery: deliveryError },
     },
+    clearErrors,
   } = useFormContext<FormFields>();
   const deliveryWatch = watch("delivery");
 
+  // Integration of form input with context selected delivery
   useEffect(() => {
     if (deliveryWatch) {
-      const id = parseInt(deliveryWatch);
-      const delivery = availableDeliveries.find((d) => d.id === id);
+      const delivery = availableDeliveries.find(
+        (d) => d.icon === deliveryWatch,
+      );
       if (delivery) {
         setSelectedDelivery(delivery);
       }

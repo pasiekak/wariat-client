@@ -3,7 +3,7 @@ import DeliveryPick from "./components/DeliveryPick";
 import "./styles/styles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Button from "react-bootstrap/Button";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { FormFields } from "./types/FormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,14 +17,16 @@ import DeliveryAddress from "./components/DeliveryAddress";
 import { IAddressForOrder } from "../../../../api/types/IAddress";
 
 const Details = () => {
-  const { selectedDelivery, wantInvoice } = useContext(OrderContext);
+  const { selectedDelivery, selectedParcel, wantInvoice } =
+    useContext(OrderContext);
   const { companyData, address } = useContext(AccountContext);
   const methods = useForm<FormFields>({
     mode: "onChange",
     defaultValues: {
-      delivery: selectedDelivery ? selectedDelivery.id.toString() : undefined,
+      delivery: selectedDelivery ? selectedDelivery.icon : undefined,
       companyData: companyData ? (companyData as ICompanyDataForOrder) : null,
       address: address ? (address as IAddressForOrder) : null,
+      parcel: selectedParcel ? selectedParcel.name : undefined,
     },
     resolver: yupResolver(schema),
   });
@@ -36,6 +38,16 @@ const Details = () => {
     console.log(data);
   };
 
+  //Integration parcel from context with form
+  useEffect(() => {
+    if (selectedParcel) {
+      methods.setValue("parcel", selectedParcel.name);
+      methods.clearErrors("parcel");
+    } else {
+      methods.setValue("parcel", undefined);
+    }
+  }, [selectedParcel, methods.setValue, methods.clearErrors]);
+
   return (
     <div className="details">
       <FormProvider {...methods}>
@@ -44,7 +56,7 @@ const Details = () => {
           <InvoiceChoice />
           <ReceiverData />
           {wantInvoice && <CompanyData />}
-          {selectedDelivery?.icon !== "in-person" && <DeliveryAddress />}
+          {selectedDelivery?.icon.includes("courier") && <DeliveryAddress />}
           <Button type="submit">Zatwierdź</Button>
         </form>
       </FormProvider>

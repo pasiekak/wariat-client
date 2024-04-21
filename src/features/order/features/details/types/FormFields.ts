@@ -6,6 +6,7 @@ export type FormFields = {
   companyData: ICompanyDataForOrder | null;
   receiverData: ReceiverDataType;
   address: IAddressForOrder | null;
+  parcel?: string;
 };
 
 type ReceiverDataType = {

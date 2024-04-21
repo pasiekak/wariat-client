@@ -12,6 +12,7 @@
     column-gap: 0.5em;
 }
 
+
 .App > .order .mini-form.company-data .fields {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -140,6 +141,7 @@
         "city street"
         "number postal"
     }
+
     .App > .order .mini-form.receiver-data .fields {
         grid-template-columns: 1fr;
         grid-template-areas:

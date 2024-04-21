@@ -10,6 +10,7 @@ import { AccountContext } from "../../account/context/AccountContext";
 import { useSessionStorage } from "../../../hooks/useStorage";
 import { IDelivery } from "../../../api/types/IDelivery";
 import axios from "axios";
+import { InpostPoint } from "../../../components/inpost-widget/InpostPointType";
 
 export const OrderContext = createContext<OrderContextReturns>(
   {} as OrderContextReturns,
@@ -30,6 +31,9 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
     "order-want-invoice",
     false,
   );
+  const [selectedParcel, setSelectedParcel] = useSessionStorage<
+    InpostPoint | undefined
+  >("order-selected-parcel", undefined);
 
   useEffect(() => {
     axios.get(`/api/delivery`).then((res) => {
@@ -55,12 +59,14 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         selectedDelivery,
         availableDeliveries,
         wantInvoice,
+        selectedParcel,
 
         setAsGuest,
         setStage,
         setSelectedDelivery,
         setAvailableDeliveries,
         setWantInvoice,
+        setSelectedParcel,
       }}
     >
       {children}
