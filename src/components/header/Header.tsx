@@ -16,22 +16,22 @@ import "./header.css";
 
 const Header = () => {
   const [cookies, , removeCookie] = useCookies();
-  const navigate = useNavigate();
-  const { t } = useTranslation(null, { keyPrefix: "components.header" });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
   const { count } = useContext(CartContext);
   const { clearAccount } = useContext(AccountContext);
+  const { t } = useTranslation(undefined, { keyPrefix: "components.header" });
+  const navigate = useNavigate();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const logout = async () => {
     clearAccount();
     removeCookie("user");
     await accountActions.logout();
-    navigate("/");
+    navigate("/", { replace: true });
   };
 
   return (
     <>
       {isMobile ? (
-        <MobileHeader logout={logout} t={t} cookies={cookies} />
+        <MobileHeader logout={logout} />
       ) : (
         <header className="Header">
           <div className="leftHeader">

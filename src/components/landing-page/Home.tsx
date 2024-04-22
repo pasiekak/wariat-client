@@ -7,7 +7,7 @@ import "./styles/home.css";
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const { t } = useTranslation(null, { keyPrefix: "components.home" });
+  const { t } = useTranslation(undefined, { keyPrefix: "components.home" });
   return (
     <div className="Home bck-smooth">
       {!isMobile && <Logo width={400} height={400} withPhone={true} />}

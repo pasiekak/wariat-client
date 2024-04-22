@@ -6,7 +6,7 @@ import "./footer.css";
 import LanguageSelect from "../header/languageSelect/LanguageSelect";
 
 const Footer = () => {
-  const { t } = useTranslation(null, { keyPrefix: "components.footer" });
+  const { t } = useTranslation(undefined, { keyPrefix: "components.footer" });
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (

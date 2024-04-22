@@ -3,7 +3,7 @@ import axios from "axios";
 const accountActions = {
   verifyEmailCodeAndRegister: async (newUser, code) => {
     try {
-      let response = await axios.post("/auth/register", { newUser, code });
+      let response = await axios.post("/api/auth/register", { newUser, code });
       return response.data;
     } catch (err) {
       if (err.response?.status === 500) {
@@ -17,7 +17,7 @@ const accountActions = {
   },
   login: async (username, password) => {
     try {
-      let response = await axios.post("/auth/login", {
+      let response = await axios.post("/api/auth/login", {
         username,
         password,
       });
@@ -34,7 +34,7 @@ const accountActions = {
   },
   logout: async () => {
     axios
-      .delete("/auth/logout")
+      .delete("/api/auth/logout")
       .then(() => {
         alert("Wylogowano pomyślnie.");
       })
@@ -44,7 +44,7 @@ const accountActions = {
   },
   checkIfUserExists: async (username, email) => {
     try {
-      let response = await axios.post("/auth/checkIfUserExists", {
+      let response = await axios.post("/api/auth/checkIfUserExists", {
         username,
         email,
       });
@@ -61,7 +61,7 @@ const accountActions = {
   },
   sendVerificationEmail: async (email) => {
     try {
-      let response = await axios.post("/auth/sendEmail", { email });
+      let response = await axios.post("/api/auth/sendEmail", { email });
       return response.data;
     } catch (err) {
       if (err.response?.status === 500) {

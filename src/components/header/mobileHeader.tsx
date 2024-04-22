@@ -5,11 +5,19 @@ import { CartContext } from "../../features/cart/context/CartContext";
 import Logo from "../logo/Logo";
 
 import "./mobileHeader.css";
+import { useTranslation } from "react-i18next";
+import { AccountContext } from "../../features/account/context/AccountContext";
 
-const MobileHeader = ({ logout, t, cookies }) => {
+type MobileHeaderProps = {
+  logout: () => void;
+};
+
+const MobileHeader = ({ logout }: MobileHeaderProps) => {
   const [showDropdown1, setShowDropdown1] = useState(false);
   const navigate = useNavigate();
+  const { user } = useContext(AccountContext);
   const { count } = useContext(CartContext);
+  const { t } = useTranslation(undefined, { keyPrefix: "components.header" });
 
   const navigateToCart = () => {
     navigate("/cart");
@@ -38,9 +46,9 @@ const MobileHeader = ({ logout, t, cookies }) => {
             <Link to="/">{t("mainPage")}</Link>
             <Link to="/products">{t("products")}</Link>
             <Link to="/events">{t("events")}</Link>
-            {cookies.user ? "" : <Link to="/login">{t("login")}</Link>}
-            {cookies.user ? <Link to="/account">{t("your-account")}</Link> : ""}
-            {cookies.user ? (
+            {user ? "" : <Link to="/login">{t("login")}</Link>}
+            {user ? <Link to="/account">{t("your-account")}</Link> : ""}
+            {user ? (
               <Link to="/">
                 <span onClick={logout}>{t("logout")}</span>
               </Link>

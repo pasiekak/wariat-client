@@ -3,7 +3,14 @@ import logo from "../../assets/wariatLogo.png";
 import logoPhone from "../../assets/wariatPhone.png";
 import "./logo.css";
 
-const Logo = ({ width, height, withPhone = false, pathTo }) => {
+type LogoProps = {
+  width: number;
+  height: number;
+  withPhone?: boolean;
+  pathTo?: string;
+};
+
+const Logo = ({ width, height, withPhone = false, pathTo }: LogoProps) => {
   const logoStyle = {
     width: width,
     height: height,
@@ -15,7 +22,7 @@ const Logo = ({ width, height, withPhone = false, pathTo }) => {
         <Link to={pathTo}>
           <img
             src={withPhone ? logoPhone : logo}
-            loading="blur"
+            loading="lazy"
             style={logoStyle}
             alt="Wariat logo"
           />
@@ -24,7 +31,7 @@ const Logo = ({ width, height, withPhone = false, pathTo }) => {
         <img
           src={withPhone ? logoPhone : logo}
           style={logoStyle}
-          loading="blur"
+          loading="lazy"
           alt="Wariat logo"
         />
       )}

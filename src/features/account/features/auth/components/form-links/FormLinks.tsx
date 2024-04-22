@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./formLinks.css";
 
-const FormLinks = (props) => {
-  const [withRegister] = useState(props.withRegister);
-  const [withLogin] = useState(props.withLogin);
-  const [color] = useState(props.color || "rgb(126, 129, 132)");
+type FormLinksProps = {
+  withRegister: boolean;
+  withLogin: boolean;
+  color?: string;
+};
+
+const FormLinks = ({ withRegister, withLogin, color }: FormLinksProps) => {
   const { t } = useTranslation("links", { keyPrefix: "forms.links" });
 
   return (
     <div className="FormLinks">
       {withRegister ? (
-        <Link to="/register" style={{ color: color }}>
+        <Link to="/register" style={{ color: color || "rgb(126, 129, 132)" }}>
           {t("noAccount")}
         </Link>
       ) : null}
       {withLogin ? (
-        <Link to="/login" style={{ color: color }}>
+        <Link to="/login" style={{ color: color || "rgb(126, 129, 132)" }}>
           {t("haveAccount")}
         </Link>
       ) : null}
-      <Link to="/" style={{ color: color }}>
+      <Link to="/" style={{ color: color || "rgb(126, 129, 132)" }}>
         {t("goBack")}
       </Link>
     </div>

@@ -2,7 +2,7 @@ import { createBrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "../account/features/auth/features/login/LoginPage";
 import RegisterPage from "../account/features/auth/features/register/RegisterPage";
 import EmailVerification from "../account/features/auth/features/email/EmailVerification";
-import NotLogged from "../account/features/auth/components/not-logged/Not-logged";
+import NotLogged from "../account/features/auth/components/not-logged/NotLogged";
 import Header from "../../components/header/Header";
 import Home from "../../components/landing-page/Home";
 import DashboardProducts from "../dashboard/features/products/Products";
