@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "./languageSelect.css";
 import { useLocalStorage } from "../../../hooks/useStorage";
