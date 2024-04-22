@@ -7,8 +7,8 @@ i18n
   .use(initReactI18next)
   .use(HttpBackend)
   .init({
-    backend: { loadPath: "/translations/{{lng}}.json" },
     lng: localStorage.getItem("lang") ? localStorage.getItem("lang") : "pl",
+    backend: { loadPath: "/translations/{{lng}}.json" },
     fallbackLng: "pl",
     interpolation: { escapeValue: false },
     react: { useSuspense: true },

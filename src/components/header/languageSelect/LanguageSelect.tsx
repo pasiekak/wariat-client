@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "./languageSelect.css";
 import { useLocalStorage } from "../../../hooks/useStorage";
@@ -26,9 +26,12 @@ const LanguageSelect = ({ className }: LanguageSelect) => {
   const { i18n } = useTranslation();
 
   const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(event.target.value);
     setLang(event.target.value as availableLanguages);
   };
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang]);
 
   return (
     <div className={`LanguageSelect${" " + className}`}>
