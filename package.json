@@ -66,10 +66,5 @@
     "prettier": "3.2.5",
     "ts-jest": "^29.1.2",
     "typescript": "^5.4.2"
-  },
-  "overrides": {
-    "@typescript-eslint/typescript-estree": "^5.57.1",
-    "fork-ts-checker-webpack-plugin": "^6.5.3",
-    "typescript": "^5.4.2"
   }
 }
