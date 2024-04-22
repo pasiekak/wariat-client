@@ -83,7 +83,7 @@ export const AccountProvider = ({ children }: PropsWithChildren) => {
       [user, address, personalData, discounts, companyData].includes(null) &&
       cookies.user
     ) {
-      axios.post("/auth/login").then((res) => {
+      axios.post("/api/auth/login").then((res) => {
         if (res.status === 200) {
           setAccountData(res.data.data);
         }
