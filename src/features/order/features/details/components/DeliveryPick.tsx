@@ -12,11 +12,9 @@ const DeliveryPick = () => {
   });
   const {
     watch,
-    setError,
     formState: {
       errors: { delivery: deliveryError },
     },
-    clearErrors,
   } = useFormContext<FormFields>();
   const deliveryWatch = watch("delivery");
 

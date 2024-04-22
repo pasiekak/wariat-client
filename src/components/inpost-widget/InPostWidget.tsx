@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react"; // Rozszerzenie interfejsu Window o właściwość afterPointSelected
 
 // Rozszerzenie interfejsu Window o właściwość afterPointSelected
 declare global {
@@ -20,6 +20,7 @@ const InPostWidget = (props: InPostWidgetProps) => {
 
   useEffect(() => {
     let geowidget: HTMLElement;
+    const widgetRef = ref.current;
 
     // Definicja funkcji obsługującej zdarzenie onpoint
     window.afterPointSelected = (point: any) => {
@@ -32,7 +33,7 @@ const InPostWidget = (props: InPostWidgetProps) => {
     document.body.appendChild(script);
 
     script.onload = () => {
-      if (ref.current) {
+      if (widgetRef) {
         geowidget = document.createElement("inpost-geowidget");
         geowidget.setAttribute(
           "token",
@@ -51,19 +52,20 @@ const InPostWidget = (props: InPostWidgetProps) => {
               latitude: props.initialPosition.latitude,
             });
         });
-        ref.current.appendChild(geowidget);
+        widgetRef.appendChild(geowidget);
       }
     };
 
     return () => {
       document.body.removeChild(script);
-      if (ref.current && geowidget) ref.current.removeChild(geowidget);
+      if (widgetRef && geowidget) widgetRef.removeChild(geowidget);
+      
       // Usunięcie funkcji afterPointSelected z obiektu window
       if (window.afterPointSelected) {
         delete window.afterPointSelected;
       }
     };
-  }, [ref]);
+  }, [ref, props]);
 
   return <div id="inpost-geowidget-container" ref={ref}></div>;
 };

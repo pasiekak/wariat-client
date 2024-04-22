@@ -28,7 +28,7 @@ const usePortal = ({
         document.getElementsByTagName("body")[0].removeChild(div);
       };
     }
-  }, [portalID, hidden]);
+  }, [portalID, hidden, setHidden]);
 
   return { loaded, portalID };
 };

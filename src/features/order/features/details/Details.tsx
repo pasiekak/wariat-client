@@ -46,7 +46,7 @@ const Details = () => {
     } else {
       methods.setValue("parcel", undefined);
     }
-  }, [selectedParcel, methods.setValue, methods.clearErrors]);
+  }, [selectedParcel, methods]);
 
   return (
     <div className="details">
