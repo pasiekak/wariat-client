@@ -49,7 +49,7 @@ const Header = () => {
                 {cookies.user ? (
                   ""
                 ) : (
-                  <Dropdown.Item onClick={() => navigate("/login")}>
+                  <Dropdown.Item onClick={() => navigate("/auth/login")}>
                     {t("login")}
                   </Dropdown.Item>
                 )}

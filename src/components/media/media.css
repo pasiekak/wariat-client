@@ -1,0 +1,43 @@
+.App > .media {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0.5rem
+}
+
+.App > .media .title {
+    text-align: center;
+}
+
+.App > .media .images {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.App > .media .images .svg-wrapper {
+    width: 10%;
+    height: auto;
+    color: var(--bs-heading-color);
+}
+
+.App > .media .images .svg-wrapper svg {
+    width: 100%;
+    height: auto;
+    transition: color 200ms ease;
+}
+
+.App > .media .images .facebook:hover {
+    color: #4267b2;
+}
+
+.App > .media .images .instagram:hover {
+    color: #e1306c;
+}
+
+.App > .media .images .tiktok:hover {
+    color: #00f2ea;
+}

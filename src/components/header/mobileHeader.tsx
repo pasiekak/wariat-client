@@ -46,7 +46,7 @@ const MobileHeader = ({ logout }: MobileHeaderProps) => {
             <Link to="/">{t("mainPage")}</Link>
             <Link to="/products">{t("products")}</Link>
             <Link to="/events">{t("events")}</Link>
-            {user ? "" : <Link to="/login">{t("login")}</Link>}
+            {user ? "" : <Link to="/auth/login">{t("login")}</Link>}
             {user ? <Link to="/account">{t("your-account")}</Link> : ""}
             {user ? (
               <Link to="/">
