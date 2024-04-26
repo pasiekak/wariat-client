@@ -38,7 +38,7 @@ const accountActions = {
       .then(() => {
         alert("Wylogowano pomyślnie.");
       })
-      .catch((err) => {
+      .catch(() => {
         alert("Coś poszło nie tak..");
       });
   },
