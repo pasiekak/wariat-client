@@ -74,17 +74,32 @@
           "company-with-this-nip-not-found": "Firma o takim NIP nie została odnaleziona w bazie danych"
         }
       },
-      "login": {
-        "title": "Zaloguj się",
+      "auth": {
+        "login-title": "Zaloguj się",
+        "register-title": "Zarejestruj się",
         "username-label": "Nazwa użytkownika",
+        "email-label": "Adres e-mail",
         "password-label": "Hasło",
-        "button-submit": "Zaloguj się",
-        "schema": {
-          "username-required": "Nazwa użytkownika jest wymagana",
-          "password-required": "Hasło jest wymagane",
-          "wrong-login-pass": "Nieprawidłowy login lub hasło",
-          "server-error": "Błąd serwera",
-          "not-known-error": "Nieznany błąd"
+        "firstname-label": "Twoje imię",
+        "lastname-label": "Nazwisko",
+        "phone-label": "Numer telefonu",
+        "password-confirmation-label": "Powtórz hasło",
+        "login-submit": "Zaloguj się",
+        "register-submit": "Załóż konto",
+        "successful-login": "Udało Ci się zalogować na swoje konto.",
+        "next-button": "Dalej",
+        "back-button": "Wróć",
+        "email-waiting-title": "Aby zakończyć rejestracje aktywuj konto",
+        "email-waiting-message": "Wysłaliśmy wiadomość na twoją skrzynkę pocztową, aby zakończyć rejestrację musisz skorzystać z przycisku znajdującego się w tej wiadomości. To ostatni krok w procesie rejestracji.",
+        "email-activation-title": "Aktywacja konta",
+        "api-messages": {
+          "wrong-login-pass": "Nieprawidłowy login lub hasło.",
+          "user-exists": "Taki użytkownik już istnieje.",
+          "server-error": "Błąd serwera.",
+          "not-known-error": "Nieznany błąd.",
+          "jwt-expired": "Twój link aktywacyjny wygasł.",
+          "account-already-activated": "Konto zostało już aktywowane wcześniej.",
+          "account-activated": "Udało Ci się aktywować konto, możesz się teraz na nie zalogować."
         }
       }
     },
@@ -147,8 +162,12 @@
     },
     "footer": {
       "contact": "Kontakt",
-      "about": "O nas",
-      "projects": "Nasze projekty"
+      "see-also": "Zobacz też"
+    },
+    "contact": {
+    },
+    "media": {
+      "title": "Sprawdź nasze treści w mediach społecznościowych."
     },
     "events": {
       "title": "Wydarzenia i zdjęcia.",
@@ -256,24 +275,6 @@
     }
   },
   "forms": {
-    "login": {
-      "title": "Logowanie",
-      "username": "Nazwa użytkownika",
-      "password": "Hasło",
-      "button": "Zaloguj się"
-    },
-    "register": {
-      "title": "Rejestracja",
-      "username": "Nazwa użytkownika",
-      "password": "Hasło",
-      "passwordRepeat": "Powtórz hasło",
-      "email": "Adres email",
-      "firstName": "Imię",
-      "lastName": "Nazwisko",
-      "button": "Zarejestruj się",
-      "buttonNext": "Dalej",
-      "buttonPrev": "Wróć"
-    },
     "links": {
       "noAccount": "Nie masz konta? Zarejestruj się!",
       "haveAccount": "Masz już konto? Zaloguj się!",
@@ -363,11 +364,21 @@
       "firstname-required": "Imię jest wymagane.",
       "lastname-required": "Nazwisko jest wymagane.",
       "phone-required": "Numer telefonu jest wymagany.",
-      "phone-min": "Minimum 8 znaków.",
+      "phone-min": "Minimum 9 znaków.",
       "phone-max": "Maksymalnie 15 znaków.",
       "phone-invalid": "Niepoprawny format numeru telefonu."
     },
     "account": {
+      "username-required": "Nazwa użytkownika jest wymagana.",
+      "username-max": "Maksymalnie 50 znaków.",
+      "password-required": "Hasło jest wymagane.",
+      "password-min": "Minimum 8 znaków",
+      "password-digits": "Musi zawierać cyfrę",
+      "password-small-letter": "Musi zawierać małą literę.",
+      "password-big-letter": "Musi zawierać dużą literę.",
+      "password-special-sign": "Musi zawierać znak specjalny.",
+      "password-confirmation-required": "Powtórz hasło.",
+      "password-confirmation-one-of": "Hasła muszą byc identyczne.",
       "email-required": "E-mail jest wymagany.",
       "email-invalid": "Podany e-mail jest niepoprawny."
     }
