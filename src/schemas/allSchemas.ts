@@ -33,16 +33,31 @@ export const allSchemas = {
     country: yup.string().required("country-required").max(30, "country-max"),
   },
   personalData: {
-    firstname: yup.string().required("firstname-required"),
-    lastname: yup.string().required("lastname-required"),
+    firstname: yup.string(),
+    lastname: yup.string(),
     phone: yup
       .string()
-      .matches(/^[0-9 ()+-]+$/, "phone-invalid")
-      .min(9, "phone-min")
+      .matches(/^[0-9 ()+-]*$/, "phone-invalid")
       .max(15, "phone-max")
-      .required("phone-required"),
+      .test("min", "phone-min", (phone) => !phone || phone.length >= 9),
   },
   account: {
+    username: yup
+      .string()
+      .required("username-required")
+      .max(50, "username-max"),
+    password: yup
+      .string()
+      .required("password-required")
+      .min(8, "password-min")
+      .matches(/[0-9]/, "password-digits")
+      .matches(/[a-z]/, "password-small-letter")
+      .matches(/[A-Z]/, "password-big-letter")
+      .matches(/[^\w]/, "password-special-sign"),
+    passwordConfirmation: yup
+      .string()
+      .required("password-confirmation-required")
+      .oneOf([yup.ref("password")], "password-confirmation-one-of"),
     email: yup.string().required("email-required").email("email-invalid"),
   },
 };
