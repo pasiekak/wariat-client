@@ -4,6 +4,7 @@
   "homepage": "https://wariatgarage.pl",
   "private": true,
   "author": "Krzysztof Pasieka",
+  "type": "module",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -14,11 +15,10 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.1",
     "@testing-library/user-event": "^14.5.2",
-    "@vitejs/plugin-react": "^4.2.1",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.0-alpha3",
     "bootstrap-icons": "^1.10.5",
-    "browserslist-to-esbuild": "^2.1.1",
+    "eslint-config-airbnb-typescript": "^18.0.0",
     "formik": "^2.2.9",
     "i18next": "^23.11.1",
     "i18next-http-backend": "^2.2.1",
@@ -31,25 +31,15 @@
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.22.2",
     "react-spinners": "^0.13.8",
-    "vite": "^5.2.10",
     "vite-tsconfig-paths": "^4.3.2",
     "web-vitals": "^3.5.2",
     "yup": "^1.1.1"
   },
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage .",
-    "test:debug": "jest --inspect-brk --runInBand --no-cache"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "browserslist": [
     "iOS >= 9",
@@ -59,12 +49,16 @@
     "not dead"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.18.0",
-    "@types/jest": "^29.5.12",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "prettier": "3.2.5",
-    "ts-jest": "^29.1.2",
-    "typescript": "^5.4.2"
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.4.2",
+    "vite": "^5.2.10",
+    "prettier": "3.2.5"
   }
 }
