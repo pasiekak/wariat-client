@@ -1,20 +1,20 @@
-import DeliveryPick from "./components/DeliveryPick";
-
-import "./styles/styles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import Button from "react-bootstrap/Button";
 import { useContext, useEffect } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { FormFields } from "./types/FormFields";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schemas/schema";
+import Button from "react-bootstrap/Button";
+import DeliveryPick from "./components/DeliveryPick";
 import InvoiceChoice from "./components/InvoiceChoice";
 import CompanyData from "./components/CompanyData";
-import { AccountContext } from "../../../account/context/AccountContext";
-import { ICompanyDataForOrder } from "../../../../api/types/ICompanyData";
 import ReceiverData from "./components/ReceiverData";
 import DeliveryAddress from "./components/DeliveryAddress";
 import { IAddressForOrder } from "../../../../api/types/IAddress";
+import { AccountContext } from "../../../account/context/AccountContext";
+import { ICompanyDataForOrder } from "../../../../api/types/ICompanyData";
+
+import "./styles/styles";
 
 const Details = () => {
   const { selectedDelivery, selectedParcel, wantInvoice } =

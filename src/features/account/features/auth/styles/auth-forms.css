@@ -1,29 +1,41 @@
-.login-form {
+.auth-form {
     display: flex;
     flex-direction: column;
+    min-width: 250px;
     max-width: 300px;
 }
 
-.login-form h2 {
+.auth-form h2 {
     text-align: center;
 }
 
-.login-form .error {
+.error {
+    font-size: 14px;
     min-height: 24px;
     padding-left: 2px;
 }
 
-.login-form label {
+.auth-form label {
     padding-left: 2px;
 }
 
-.login-form input {
+.auth-form input {
     padding-left: 2px;
     border: thin solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     outline: none;
 }
 
-.login-form input:focus {
+.auth-form input:focus {
     outline: #00000033 2px solid;
+}
+
+.auth-form .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25em;
+}
+
+.auth-form .buttons .btn {
+    flex: 1;
 }

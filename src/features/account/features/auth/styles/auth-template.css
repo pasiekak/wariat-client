@@ -1,0 +1,54 @@
+.App > .auth-template {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-inline: 1rem;
+}
+
+.App > .auth-template > * {
+    grid-column: auto;
+}
+
+.App > .auth-template .logo {
+    position: relative;
+    width: 25vw !important;
+    height: auto !important;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 0 25px black);
+    aspect-ratio: 1/1;
+}
+
+.App > .auth-template form a {
+    color: var(--color-3) !important;
+}
+
+.App > .auth-template form .error {
+    color: #c70303;
+}
+
+@media (max-width: 767px) {
+    .App > .auth-template {
+        display: grid;
+        flex: 1;
+        grid-template-columns: auto 250px auto;
+        grid-template-rows: 30% 70%;
+        place-items: center;
+    }
+
+    .App > .auth-template > * {
+        grid-column: 2;
+    }
+    .App > .auth-template .logo {
+        width: 150px !important;
+        height: 150px !important;
+        aspect-ratio: 1/1;
+
+    }
+}

@@ -1,11 +1,14 @@
 .FormLinks {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
+
 .FormLinks a {
-  text-decoration-color: transparent;
-  transition: 200ms;
+    transition: 200ms;
+    text-align: center;
+    text-decoration: transparent underline;
 }
+
 .FormLinks a:hover {
-  text-decoration-color: rgb(126, 129, 132);
+    text-decoration: gray underline;
 }

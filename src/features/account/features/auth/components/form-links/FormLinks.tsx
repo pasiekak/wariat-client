@@ -16,12 +16,15 @@ const FormLinks = ({ withRegister, withLogin, color }: FormLinksProps) => {
   return (
     <div className="FormLinks">
       {withRegister ? (
-        <Link to="/register" style={{ color: color || "rgb(126, 129, 132)" }}>
+        <Link
+          to="/auth/register"
+          style={{ color: color || "rgb(126, 129, 132)" }}
+        >
           {t("noAccount")}
         </Link>
       ) : null}
       {withLogin ? (
-        <Link to="/login" style={{ color: color || "rgb(126, 129, 132)" }}>
+        <Link to="/auth/login" style={{ color: color || "rgb(126, 129, 132)" }}>
           {t("haveAccount")}
         </Link>
       ) : null}

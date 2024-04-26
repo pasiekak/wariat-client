@@ -1,7 +1,4 @@
 import { createBrowserRouter, Route, Routes } from "react-router-dom";
-import LoginPage from "../account/features/auth/features/login/LoginPage";
-import RegisterPage from "../account/features/auth/features/register/RegisterPage";
-import EmailVerification from "../account/features/auth/features/email/EmailVerification";
 import NotLogged from "../account/features/auth/components/not-logged/NotLogged";
 import Header from "../../components/header/Header";
 import Home from "../../components/landing-page/Home";
@@ -35,6 +32,14 @@ import Order from "../order/Order";
 import LoginBeforeOrder from "../order/features/login/LoginBeforeOrder";
 import Details from "../order/features/details/Details";
 import { OrderProvider } from "../order/context/OrderContext";
+import Login from "../account/features/auth/features/login/Login";
+import NotLoggedOnlyRoutes from "./components/NotLoggedOnlyRoutes";
+import Register from "../account/features/auth/features/register/Register";
+import EmailWaiting from "../account/features/auth/features/email/components/EmailWaiting";
+import AuthTemplate from "../account/features/auth/components/auth-template/AuthTemplate";
+import EmailActivation from "../account/features/auth/features/email/components/EmailActivation";
+import Contact from "../../components/contact/Contact";
+import Media from "../../components/media/Media";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -43,8 +48,22 @@ function Root() {
     <Routes>
       <Route path="/*" Component={NormalRoutes} />
       <Route path="/not-found" Component={NotFound} />
-      <Route path="/login" Component={LoginPage} />
-      <Route path="/register" Component={RegisterPage} />
+
+      <Route
+        path="/auth"
+        element={
+          <AuthTemplate>
+            <NotLoggedOnlyRoutes />
+          </AuthTemplate>
+        }
+      >
+        <Route path="login" Component={Login} />
+        <Route path="register" Component={Register} />
+        <Route path="email">
+          <Route path="waiting" Component={EmailWaiting} />
+          <Route path="activation" Component={EmailActivation} />
+        </Route>
+      </Route>
       <Route path="/dashboard" element={<ModeratorRoutes />}>
         <Route
           path=""
@@ -74,7 +93,6 @@ function Root() {
           <Route path="delivery" element={<DeliveryDashboard />} />
         </Route>
       </Route>
-      <Route path="/email-verification" Component={EmailVerification} />
       <Route path="/not-logged" Component={NotLogged} />
     </Routes>
   );
@@ -114,6 +132,8 @@ function NormalRoutes() {
           <Route path="login-before-order" element={<LoginBeforeOrder />} />
           <Route path="details" element={<Details />} />
         </Route>
+        <Route path="/contact" Component={Contact} />
+        <Route path="/media" Component={Media} />
         <Route path="/*" Component={NotFound} />
       </Routes>
       <Footer />

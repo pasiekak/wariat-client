@@ -15,9 +15,9 @@ export const schema = yup.object({
     })
     .nullable(),
   receiverData: yup.object({
-    firstname: allSchemas.personalData.firstname,
-    lastname: allSchemas.personalData.lastname,
-    phone: allSchemas.personalData.phone,
+    firstname: allSchemas.personalData.firstname.required("firstname-required"),
+    lastname: allSchemas.personalData.lastname.required("lastname-required"),
+    phone: allSchemas.personalData.phone.required("phone-required"),
     email: allSchemas.account.email,
   }),
   address: yup

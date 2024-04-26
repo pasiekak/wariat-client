@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
 import "./styles/login-before-order.css";
-import LoginFormV2 from "../../../account/features/auth/features/loginv2/components/LoginFormV2";
+import LoginForm from "../../../account/features/auth/features/login/components/LoginForm.tsx";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReceipt, faTags } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +24,7 @@ const LoginBeforeOrder = () => {
 
   return (
     <div className={`login-before-order`}>
-      <LoginFormV2 />
+      <LoginForm variant={"dark"} />
       <div className={`as-guest-wrapper`}>
         <h2>{t("as-guest-title")}</h2>
         <p>{t("as-guest-text")}</p>
