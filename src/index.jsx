@@ -11,17 +11,20 @@ import { AccountProvider } from "./features/account/context/AccountContext";
 
 import "./fonts/stylesheet.css";
 import "./styles/index.css";
+import { LanguageProvider } from "./features/language/context/LanguageContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Suspense fallback="Loading...">
-    <I18nextProvider i18n={i18n}>
-      <AccountProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </AccountProvider>
-    </I18nextProvider>
+    <LanguageProvider>
+      <I18nextProvider i18n={i18n}>
+        <AccountProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </AccountProvider>
+      </I18nextProvider>
+    </LanguageProvider>
   </Suspense>,
 );
 
