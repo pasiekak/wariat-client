@@ -14,6 +14,7 @@ export type CartContextReturns = {
   isProductInCart: (productID: number) => boolean;
   getProductFromCart: (productID: number) => CartProduct | undefined;
   getDiscountDifference: () => number;
+  refreshCart: () => void;
 };
 
 export type CartProduct = {

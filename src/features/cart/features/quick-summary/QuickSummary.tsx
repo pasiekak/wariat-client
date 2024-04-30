@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import SummaryProduct from "./components/SummaryProduct";
 
@@ -14,6 +14,8 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import Columns from "./components/Columns";
+import { OrderContext } from "../../../order/context/OrderContext.tsx";
+import { AccountContext } from "../../../account/context/AccountContext.tsx";
 
 type props = {
   hide?: () => void;
@@ -25,8 +27,16 @@ const QuickSummary = (props: props) => {
   const { t } = useTranslation(undefined, {
     keyPrefix: "components.cart.quick-summary",
   });
+  const { refreshCart } = useContext(CartContext);
+  const { isLogged } = useContext(AccountContext);
+  const { selectedDelivery } = useContext(OrderContext);
   const cart = useContext(CartContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    refreshCart();
+  }, [isLogged]);
+
   return (
     <div
       className={`quick-summary${cart.count === 0 ? " empty" : ""} ${props.type}`}
@@ -65,10 +75,23 @@ const QuickSummary = (props: props) => {
                 </span>
               </div>
             )}
+            {selectedDelivery && (
+              <div className={`delivery-price`}>
+                <span className={"delivery-price-label"}>
+                  {t("delivery-price-label")}
+                </span>
+                <span className={"delivery-price"}>
+                  {selectedDelivery.price.toFixed(2)} zł
+                </span>
+              </div>
+            )}
             <div>
               <span>{t("price-for-all")}</span>
               <span className={"price-for-all"}>
-                {cart.priceForAll.toFixed(2)} zł
+                {selectedDelivery
+                  ? (cart.priceForAll + selectedDelivery.price).toFixed(2)
+                  : cart.priceForAll.toFixed(2)}{" "}
+                zł
               </span>
             </div>
           </div>

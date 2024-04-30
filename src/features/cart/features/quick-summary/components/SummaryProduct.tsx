@@ -7,6 +7,8 @@ import Quantity from "./Quantity";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext.tsx";
 
 type SummaryProductProps = {
   cartProduct: CartProduct;
@@ -20,6 +22,7 @@ const SummaryProduct = ({ cartProduct, last, type }: SummaryProductProps) => {
     entityPlural: "products",
     onlyMain: true,
   });
+  const { removeProductFromCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const { t } = useTranslation(undefined, {
@@ -40,13 +43,30 @@ const SummaryProduct = ({ cartProduct, last, type }: SummaryProductProps) => {
       >
         {cartProduct.product.name}
       </span>
-      <Quantity productID={cartProduct.product.id} type={type} />
-      <span className={`price`}>{cartProduct.fullPrice.toFixed(2)}zł</span>
+      <Quantity
+        productID={cartProduct.product.id}
+        type={type}
+        max={cartProduct.product.maxQuantity}
+      />
+      <div className="price-wrapper">
+        <span className={`price-after-discount`}>
+          {cartProduct.fullPrice.toFixed(2)} zł
+        </span>
+        {cartProduct.bestDiscount !== null && (
+          <span className={`price-before-discount`}>
+            {cartProduct.fullPriceWithoutDiscount.toFixed(2)} zł
+          </span>
+        )}
+      </div>
       {last && type === "after-add" && (
         <span className={`label`}>{t("recently-added")}</span>
       )}
       {type === "in-cart" && (
-        <FontAwesomeIcon icon={faTrashCan} className="remove" />
+        <FontAwesomeIcon
+          icon={faTrashCan}
+          onClick={() => removeProductFromCart(cartProduct.product.id)}
+          className="remove"
+        />
       )}
     </div>
   );

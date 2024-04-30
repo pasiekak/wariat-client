@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 type QuantityProps = {
   productID: number;
   type: "after-add" | "in-cart" | "in-order";
+  max: number;
 };
 
 const Quantity = (props: QuantityProps) => {
@@ -35,9 +36,15 @@ const Quantity = (props: QuantityProps) => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       if (type === "inc") {
-        setQuantity((prev) => prev + 1);
+        setQuantity((prev) => {
+          if (prev + 1 > props.max) return prev;
+          return prev + 1;
+        });
       } else if (type === "dec") {
-        setQuantity((prev) => prev - 1);
+        setQuantity((prev) => {
+          if (prev - 1 < 1) return prev;
+          return prev - 1;
+        });
       }
     }, 125);
   };
