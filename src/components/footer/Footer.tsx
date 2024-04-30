@@ -11,6 +11,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
+import LanguageChanger from "../../features/language/components/LanguageChanger.tsx";
 
 const Footer = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "components.footer" });
@@ -80,6 +81,10 @@ const Footer = () => {
         >
           <span>Tiktok</span>
         </Link>
+      </div>
+      <div className="group language">
+        <h5 className="title">{t("language")}</h5>
+        <LanguageChanger />
       </div>
     </footer>
   );

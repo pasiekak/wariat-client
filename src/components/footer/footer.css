@@ -12,7 +12,7 @@ footer {
     justify-items: center;
     column-gap: 1em;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 footer .group {
@@ -24,6 +24,7 @@ footer .group {
 
 footer .group .title {
     grid-column: 1/-1;
+    align-self: start;
 }
 
 footer .group * {
@@ -65,11 +66,40 @@ footer .group .tiktok:has(+ .text:hover) {
     color: #00f2ea;
 }
 
+footer .group.language {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+footer .group.language .title {
+    cursor: default;
+    text-decoration: none;
+}
+
+footer .group.language .title:hover {
+    text-decoration: none;
+}
+
+footer .group.language .language-changer {
+}
+
+footer .group.language .language-changer select {
+    outline: none;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 1);
+    grid-column: 1/-1;
+}
+
+
 @media (max-width: 767px) {
     footer {
         row-gap: 1rem;
         grid-template-columns: 1fr;
     }
+
     footer .group {
         display: grid;
         align-items: center;
@@ -78,6 +108,7 @@ footer .group .tiktok:has(+ .text:hover) {
         column-gap: 0.5em;
         grid-template-columns: 16px max-content;
     }
+
     footer .group .title {
         text-align: center;
     }
