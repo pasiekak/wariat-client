@@ -162,9 +162,22 @@
     },
     "footer": {
       "contact": "Kontakt",
-      "see-also": "Zobacz też"
+      "see-also": "Zobacz też",
+      "language": "Zmień język"
     },
     "contact": {
+      "title": "Kontakt i lokalizacja",
+      "title-map": "Jesteśmy tutaj",
+      "hours": {
+        "title": "Godziny pracy",
+        "mon-fri": "Pon-pt:",
+        "sat": "Sobota:",
+        "sun": "Niedziela:",
+        "sun-text": "nieczynne"
+      },
+      "localisation": {
+        "title": "Warsztat"
+      }
     },
     "media": {
       "title": "Sprawdź nasze treści w mediach społecznościowych."
