@@ -19,12 +19,21 @@ import "./styles/styles";
 const Details = () => {
   const { selectedDelivery, selectedParcel, wantInvoice } =
     useContext(OrderContext);
-  const { companyData, address } = useContext(AccountContext);
+  const { companyData, address, user, personalData } =
+    useContext(AccountContext);
   const methods = useForm<FormFields>({
     mode: "onChange",
     defaultValues: {
       delivery: selectedDelivery ? selectedDelivery.icon : undefined,
       companyData: companyData ? (companyData as ICompanyDataForOrder) : null,
+      receiverData: {
+        firstname: personalData?.firstName
+          ? personalData?.firstName
+          : undefined,
+        lastname: personalData?.lastName ? personalData?.lastName : undefined,
+        phone: personalData?.phone ? personalData.phone : undefined,
+        email: user?.email ? user.email : undefined,
+      },
       address: address ? (address as IAddressForOrder) : null,
       parcel: selectedParcel ? selectedParcel.name : undefined,
     },
