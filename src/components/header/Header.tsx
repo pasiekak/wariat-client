@@ -1,36 +1,46 @@
-import React, { useContext } from "react";
-import { useCookies } from "react-cookie";
+import React, { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import Dropdown from "react-bootstrap/Dropdown";
-
-import accountActions from "../../api/accountActions";
 import { CartContext } from "../../features/cart/context/CartContext";
 import { AccountContext } from "../../features/account/context/AccountContext";
 import MobileHeader from "./mobileHeader";
 import Logo from "../logo/Logo";
 
 import "./header.css";
+import BannerPortal from "../../features/message-banner/BannerPortal.tsx";
+import { IBannerPortalForwardedFunctions } from "../../features/message-banner/types/IBannerPortalForwardedFunctions.ts";
 
 const Header = () => {
-  const [cookies, , removeCookie] = useCookies();
   const { count } = useContext(CartContext);
-  const { clearAccount } = useContext(AccountContext);
+  const { isLogged, logout } = useContext(AccountContext);
   const { t } = useTranslation(undefined, { keyPrefix: "components.header" });
   const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const logout = async () => {
-    clearAccount();
-    removeCookie("user");
-    await accountActions.logout();
-    navigate("/", { replace: true });
+  const bannerRef = useRef<IBannerPortalForwardedFunctions>(null);
+  const onLogout = async () => {
+    logout().then((success) => {
+      if (bannerRef.current) {
+        if (success) {
+          bannerRef.current.addBanner({
+            type: "info",
+            message: t("logout-success"),
+          });
+        } else {
+          bannerRef.current.addBanner({
+            type: "warning",
+            message: t("logout-error"),
+          });
+        }
+      }
+    });
   };
 
   return (
     <>
       {isMobile ? (
-        <MobileHeader logout={logout} />
+        <MobileHeader logout={onLogout} />
       ) : (
         <header className="Header">
           <div className="leftHeader">
@@ -45,24 +55,21 @@ const Header = () => {
                 {t("account")}
               </Dropdown.Toggle>
               <Dropdown.Menu variant="dark">
-                {cookies.user ? (
-                  ""
+                {isLogged() ? (
+                  <>
+                    <Dropdown.Item onClick={() => navigate("/account")}>
+                      {t("your-account")}
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={onLogout}>
+                      {t("logout")}
+                    </Dropdown.Item>
+                  </>
                 ) : (
-                  <Dropdown.Item onClick={() => navigate("/auth/login")}>
-                    {t("login")}
-                  </Dropdown.Item>
-                )}
-                {cookies.user ? (
-                  <Dropdown.Item onClick={() => navigate("/account")}>
-                    {t("your-account")}
-                  </Dropdown.Item>
-                ) : (
-                  ""
-                )}
-                {cookies.user ? (
-                  <Dropdown.Item onClick={logout}>{t("logout")}</Dropdown.Item>
-                ) : (
-                  ""
+                  <>
+                    <Dropdown.Item onClick={() => navigate("/auth/login")}>
+                      {t("login")}
+                    </Dropdown.Item>
+                  </>
                 )}
               </Dropdown.Menu>
             </Dropdown>
@@ -72,6 +79,7 @@ const Header = () => {
           </div>
         </header>
       )}
+      <BannerPortal autoClose={true} autoCloseTime={5000} ref={bannerRef} />
     </>
   );
 };
