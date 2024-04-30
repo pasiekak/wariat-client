@@ -22,7 +22,7 @@ export const AccountContext = createContext<AccountContextReturns>(
 );
 
 export const AccountProvider = ({ children }: PropsWithChildren) => {
-  const [cookies] = useCookies(["user"]);
+  const [cookies, , removeCookie] = useCookies(["user"]);
   const [user, setUser] = useSessionStorage<IUser | null>("account-user", null);
   const [address, setAddress] = useSessionStorage<IAddress | null>(
     "account-address",
@@ -78,6 +78,20 @@ export const AccountProvider = ({ children }: PropsWithChildren) => {
     setCompanyData(null);
   }, [setUser, setAddress, setPersonalData, setDiscounts, setCompanyData]);
 
+  const logout = useCallback(async () => {
+    try {
+      const response = await axios.delete("/api/auth/logout");
+      if (response.status === 200) {
+        removeCookie("user");
+        clearAccount();
+        return true;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
+  }, [removeCookie, clearAccount]);
+
   useEffect(() => {
     if (
       [user, address, personalData, discounts, companyData].includes(null) &&
@@ -132,6 +146,7 @@ export const AccountProvider = ({ children }: PropsWithChildren) => {
         isClient,
         isModerator,
         isAdmin,
+        logout,
       }}
     >
       {children}

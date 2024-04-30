@@ -16,6 +16,7 @@ export type AccountContextReturns = {
   isModerator: () => boolean;
   isClient: () => boolean;
   isLogged: () => boolean;
+  logout: () => Promise<boolean>;
 
   setUser: Dispatch<SetStateAction<IUser | null>>;
   setAddress: Dispatch<SetStateAction<IAddress | null>>;
