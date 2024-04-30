@@ -21,9 +21,7 @@ const Login = () => {
         message: t("successful-login"),
       });
     }
-    setTimeout(() => {
-      navigate("/");
-    }, 5000);
+    navigate("/");
   };
 
   return (
