@@ -69,7 +69,6 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
 
   const refreshCart = useCallback(() => {
     if (cartProducts.length > 0 && !refreshing) {
-      console.log("HELLO");
       for (let i = 0; i < cartProducts.length; i++) {
         const oldProduct = cartProducts[i];
         setRefreshing(true);

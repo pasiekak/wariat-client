@@ -53,6 +53,9 @@ const QuickSummary = (props: props) => {
       {props.type === "in-cart" && cart.count > 0 && (
         <h3>{t(`title-h1-${props.type}`)}</h3>
       )}
+      {props.type === "in-order" && cart.count > 0 && (
+        <h3>{t(`title-h1-${props.type}`)}</h3>
+      )}
       {cart.count > 0 && (
         <>
           <div className={`cart-products`}>
