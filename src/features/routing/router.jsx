@@ -40,6 +40,8 @@ import AuthTemplate from "../account/features/auth/components/auth-template/Auth
 import EmailActivation from "../account/features/auth/features/email/components/EmailActivation";
 import Contact from "../../components/contact/Contact";
 import Media from "../../components/media/Media";
+import OrderSummary from "../order/features/summary/OrderSummary";
+import PaymentVerification from "../order/features/payment/components/PaymentVerification";
 
 export const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
@@ -131,6 +133,8 @@ function NormalRoutes() {
         >
           <Route path="login-before-order" element={<LoginBeforeOrder />} />
           <Route path="details" element={<Details />} />
+          <Route path="summary" element={<OrderSummary />} />
+          <Route path="payment" element={<PaymentVerification />} />
         </Route>
         <Route path="/contact" Component={Contact} />
         <Route path="/media" Component={Media} />
