@@ -11,6 +11,7 @@ import { useSessionStorage } from "../../../hooks/useStorage";
 import { IDelivery } from "../../../api/types/IDelivery";
 import axios from "axios";
 import { InpostPoint } from "../../../components/inpost-widget/InpostPointType";
+import { IFinalOrder } from "../types/IFinalOrder.ts";
 
 export const OrderContext = createContext<OrderContextReturns>(
   {} as OrderContextReturns,
@@ -34,6 +35,23 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
   const [selectedParcel, setSelectedParcel] = useSessionStorage<
     InpostPoint | undefined
   >("order-selected-parcel", undefined);
+  const [finalOrder, setFinalOrder] = useSessionStorage<IFinalOrder>(
+    "order-final",
+    {
+      asGuest: true,
+      wantInvoice: false,
+      address: null,
+      companyData: null,
+      receiverData: null,
+      delivery: null,
+      parcel: null,
+      comment: null,
+      consents: {
+        rodo: false,
+        terms: false,
+      },
+    },
+  );
 
   useEffect(() => {
     axios.get(`/api/delivery`).then((res) => {
@@ -60,6 +78,7 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         availableDeliveries,
         wantInvoice,
         selectedParcel,
+        finalOrder,
 
         setAsGuest,
         setStage,
@@ -67,6 +86,7 @@ export const OrderProvider = ({ children }: PropsWithChildren) => {
         setAvailableDeliveries,
         setWantInvoice,
         setSelectedParcel,
+        setFinalOrder,
       }}
     >
       {children}
