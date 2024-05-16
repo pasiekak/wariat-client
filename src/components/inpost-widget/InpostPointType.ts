@@ -1,7 +1,7 @@
 export type InpostPoint = {
   name: string;
   position: InpostPosition;
-  address_details: InpostAddress_Details;
+  address_details: InpostAddressDetails;
 };
 
 export type InpostPosition = {
@@ -10,10 +10,11 @@ export type InpostPosition = {
   distance?: number;
 };
 
-export type InpostAddress_Details = {
+export type InpostAddressDetails = {
   building_number: number;
   city: string;
-  flat_number: number;
+  flat_number: number | null;
   post_code: string;
   province: string;
+  street: string;
 };
