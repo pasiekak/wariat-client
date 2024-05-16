@@ -3,10 +3,10 @@
     padding-top: 10px;
     grid-template-rows: max-content auto;
     column-gap: 0.5rem;
-    grid-template-columns: 1fr 0.4fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "navigation navigation"
-        "outlet summary";
+        "outlet outlet";
     padding-inline: 0.5rem;
 }
 
@@ -16,13 +16,4 @@
 
 .App > .order > .quick-summary {
     grid-area: summary;
-}
-
-@media (max-width: 767px) {
-    .App > .order {
-        grid-template-columns: 1fr 0.4fr;
-        grid-template-areas:
-        "navigation navigation"
-        "outlet outlet";
-    }
 }

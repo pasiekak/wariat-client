@@ -36,11 +36,15 @@
 }
 
 .App > .order .navigation.stage-2::after {
-    width: 50%;
+    width: 33%;
 }
 
 .App > .order .navigation.stage-3::after {
-    width: 100%
+    width: 66%;
+}
+
+.App > .order .navigation.stage-4::after {
+    width: 100%;
 }
 
 .App > .order .navigation .stage::before {
