@@ -13,10 +13,10 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!asGuest) {
+    if (!asGuest && location.pathname === "/order/login-before-order") {
       navigate("/order/details");
     }
-  }, [asGuest, navigate]);
+  }, [asGuest, navigate, location.pathname]);
 
   useEffect(() => {
     if (navigationRef.current) {
@@ -26,6 +26,8 @@ const Navigation = () => {
         navigationRef.current.className = "navigation stage-2";
       } else if (stage === 3) {
         navigationRef.current.className = "navigation stage-3";
+      } else if (stage === 4) {
+        navigationRef.current.className = "navigation stage-4";
       }
     }
   }, [navigationRef, stage]);
@@ -41,6 +43,12 @@ const Navigation = () => {
         break;
       case "/order/details":
         setStage(2);
+        break;
+      case "/order/summary":
+        setStage(3);
+        break;
+      case "/order/payment":
+        setStage(4);
         break;
       default:
         break;
@@ -62,7 +70,7 @@ const Navigation = () => {
         onClick={() => {
           if (asGuest) navigate("/order/login-before-order");
         }}
-        style={{ cursor: stage >= 2 ? "pointer" : "default" }}
+        style={{ cursor: stage >= 2 && asGuest ? "pointer" : "default" }}
         data-content={1}
       ></div>
       <div
@@ -74,6 +82,11 @@ const Navigation = () => {
         className={`stage${stage > 3 ? " done" : ""}${stage === 3 ? " current" : ""}`}
         data-title={t("third-stage-title")}
         data-content={3}
+      ></div>
+      <div
+        className={`stage${stage > 4 ? " done" : ""}${stage === 4 ? " current" : ""}`}
+        data-title={t("fourth-stage-title")}
+        data-content={4}
       ></div>
     </div>
   );
