@@ -1,0 +1,28 @@
+.App .order .order-summary > .delivery-info-wrapper {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+
+}
+
+.App .order .order-summary > .delivery-info-wrapper h3 {
+    grid-column: span 2;
+}
+
+.App .order .order-summary > .delivery-info-wrapper .delivery-icon {
+    align-self: center;
+    width: 80%;
+    height: auto;
+}
+
+.App .order .order-summary > .delivery-info-wrapper .delivery-address {
+    text-decoration: underline;
+}
+
+.App .order .order-summary > .delivery-info-wrapper:not(:has(.delivery-icon)) div {
+    grid-column: span 2;
+}
+
+.App .order .order-summary > .delivery-info-wrapper span {
+    display: block;
+}
+
