@@ -107,12 +107,14 @@
     },
     "order": {
       "title": "Zamówienie",
+      "go-to-order-summary": "Przejdź do podsumowania",
       "navigation": {
         "first-stage-title": "Opcjonalne logowanie",
         "first-stage-title-logged": "Zalogowano",
         "first-stage-title-not-logged": "Gość",
         "second-stage-title": "Szczegóły zamówienia",
-        "third-stage-title": "Coś innego"
+        "third-stage-title": "Podsumowanie",
+        "fourth-stage-title": "Płatność"
       },
       "login-before-order": {
         "as-guest-text": "Jeśli zamówisz jako gość, nie będziesz miał dostępu do historii swoich zamówień oraz twój zakup nie naliczy się do zniżek grupowych.",
@@ -160,6 +162,46 @@
         "lastname-label": "Nazwisko",
         "phone-label": "Numer telefonu",
         "email-label": "E-mail"
+      },
+      "summary": {
+        "title": "Podsumowanie i płatność",
+        "go-back": "Wróć do szczegółów zamówienia",
+        "form": {
+          "agree-for-all": "Zaznacz wszystkie powyższe.",
+          "comment-question": "Chcesz dodać komentarz do zamówienia?",
+          "go-to-payment": "Przejdź do płatności",
+          "required-fields": "* - Pola wymagane"
+        },
+        "delivery": {
+          "title": "Dostawca",
+          "courier": "Twoją paczkę dostarczy kurier {{courier_name}} na adres:",
+          "parcel": "Twoja paczka zostanie dostarczona do paczkomatu InPost dostępnego pod adresem:",
+          "in-person": "Twoją paczkę odbierzesz sam w naszym warsztacie pod adresem:",
+          "delivery-address": "{{country}}, {{postalCode}} {{city}}, ul. {{street}} {{homeNumber}}."
+        },
+        "receiver": {
+          "title": "Dane odbiorcy"
+        },
+        "invoice": {
+          "title": "Sposób rozliczenia",
+          "invoice": "Faktura",
+          "receipt": "Paragon"
+        },
+        "company": {
+          "title": "Dane do faktury"
+        },
+        "logged": {
+          "not-logged-message": "Zaloguj się aby skorzystać z poniższych benefitów przy składaniu zamówień:",
+          "logged-message": "Dziękujemy za składanie zamówienia jako zalogowany użytkownik. Oto zalety posiadania konta:",
+          "pros1_a": "Zniżki grupowe. ",
+          "pros1_b": "Kupuj w naszym sklepie internetowym, a po przekroczeniu pewnej sumy wszystkich zakupów otrzymasz zniżkę!",
+          "pros2_a": "Historia zakupów. ",
+          "pros2_b": "Przechowuj swoją historię zakupów na naszej stronie.",
+          "pros3_a": "Szybsze zamawianie. ",
+          "pros3_b": "Po uzupełnieniu danych konta zamawianie stanie się szybsze poprzez automatyczne wypełniene wymaganych pól.",
+          "pros4_a": "Inne zalety. ",
+          "pros4_b": "Nasza strona będzie stale się rozwijać, a zarejestrowani użytkownicy zawsze mają łatwiej ;)"
+        }
       }
     },
     "footer": {
@@ -273,11 +315,12 @@
       "quick-summary": {
         "title-h1-after-add": "Dodano produkt do koszyka",
         "title-h1-in-cart": "Produkty w koszyku",
+        "title-h1-in-order": "Twoje produkty",
         "title-h4": "Produkty w koszyku",
         "quantity-text": "szt.",
         "continue-shopping": "Kontynuuj zakupy",
         "go-to-cart": "Przejdź do koszyka",
-        "go-to-delivery": "Przejdź do wyboru dostawy",
+        "go-to-delivery": "Przejdź do zamówienia",
         "see-our-products": "Zobacz nasze produkty",
         "empty-cart": "Koszyk jest pusty",
         "price-for-all": "Suma:",
