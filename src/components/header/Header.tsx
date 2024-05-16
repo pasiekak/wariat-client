@@ -27,6 +27,7 @@ const Header = () => {
             type: "info",
             message: t("logout-success"),
           });
+          navigate("/");
         } else {
           bannerRef.current.addBanner({
             type: "warning",
