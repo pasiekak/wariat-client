@@ -3,8 +3,11 @@ import { useContext, useEffect } from "react";
 import { OrderContext } from "../../../context/OrderContext";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../types/FormFields";
+import { AccountContext } from "../../../../account/context/AccountContext.tsx";
+import { IAddressForOrder } from "../../../../../api/types/IAddress.ts";
 
 const DeliveryAddress = () => {
+  const { address } = useContext(AccountContext);
   const { selectedDelivery } = useContext(OrderContext);
   const { t } = useTranslation(undefined, {
     keyPrefix: "components.order.delivery.address",
@@ -21,6 +24,14 @@ const DeliveryAddress = () => {
   useEffect(() => {
     if (selectedDelivery?.icon === "inpost-paczkomat") {
       setValue("address", null);
+    } else if (selectedDelivery?.icon.includes("courier") && address) {
+      setValue("address", {
+        country: address.country,
+        city: address.city,
+        street: address.street,
+        postalCode: address.postalCode,
+        homeNumber: address.homeNumber,
+      } as IAddressForOrder);
     }
   }, [selectedDelivery, setValue]);
 

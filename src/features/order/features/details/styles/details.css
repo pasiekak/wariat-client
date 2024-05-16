@@ -1,4 +1,6 @@
 .App > .order .details {
+    width: 80%;
+    justify-self: center;
     grid-area: outlet;
 }
 
@@ -18,4 +20,10 @@
     flex-direction: column;
     border-radius: 1rem;
     background: var(--color-6);
+}
+
+@media (max-width: 767px) {
+    .App > .order .details {
+        width: 100%;
+    }
 }

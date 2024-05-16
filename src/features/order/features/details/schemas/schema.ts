@@ -29,8 +29,9 @@ export const schema = yup.object({
       postalCode: allSchemas.address.postalCode,
     })
     .nullable(),
-  parcel: yup.string().when("delivery", ([delivery], schema) => {
-    if (delivery === "inpost-parcel") return schema.required("required");
-    return schema.optional();
+  parcel: yup.string().when("delivery", {
+    is: "inpost-parcel",
+    then: (schema) => schema.required("required"),
+    otherwise: (schema) => schema.nullable(),
   }),
 });

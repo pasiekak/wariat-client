@@ -1,7 +1,7 @@
 import { IDelivery } from "../../../../../api/types/IDelivery";
 import { useTranslation } from "react-i18next";
 import DeliveryIcon from "../../../../../components/deliveryIcon/DeliveryIcon";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { OrderContext } from "../../../context/OrderContext";
 import { useFormContext } from "react-hook-form";
 import Button from "react-bootstrap/Button";
@@ -38,11 +38,27 @@ const DeliveryOption = (props: DeliveryOptionProps) => {
         latitude: point.location.latitude,
         longitude: point.location.longitude,
       },
-      address_details: point.address_details,
+      address_details: {
+        ...point.address_details,
+        building_number: parseInt(point.address_details.building_number),
+      },
     });
     clearErrors("parcel");
     if (portalRef.current) portalRef.current.hide();
   };
+
+  //Integration parcel and address from context with form
+  useEffect(() => {
+    if (selectedDelivery?.icon === "inpost-parcel") {
+      setValue("address", null);
+      if (selectedParcel) {
+        setValue("parcel", selectedParcel.name);
+        clearErrors("parcel");
+      }
+    } else {
+      setValue("parcel", null);
+    }
+  }, [selectedParcel, selectedDelivery, setValue, clearErrors]);
 
   return (
     <div
