@@ -18,6 +18,7 @@ import { useTranslation } from "react-i18next";
 import { ICompanyDataForOrder } from "../../../../api/types/ICompanyData.ts";
 import { IFinalOrder } from "../../types/IFinalOrder.ts";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../../cart/context/CartContext.tsx";
 
 const Details = () => {
   const {
@@ -29,6 +30,7 @@ const Details = () => {
   } = useContext(OrderContext);
   const { companyData, address, user, personalData } =
     useContext(AccountContext);
+  const { priceForAll, priceForAllWithoutDiscounts } = useContext(CartContext);
   const { t } = useTranslation(undefined, { keyPrefix: "components.order" });
   const navigate = useNavigate();
 
@@ -98,6 +100,11 @@ const Details = () => {
         rodo: false,
         terms: false,
       },
+      priceForAll:
+        priceForAll + (selectedDelivery ? selectedDelivery.price : 0),
+      priceForAllWithoutDiscounts:
+        priceForAllWithoutDiscounts +
+        (selectedDelivery ? selectedDelivery.price : 0),
     };
     setFinalOrder(finalOrder);
     navigate("/order/summary");

@@ -19,6 +19,8 @@ export interface IFinalOrder {
     rodo: boolean;
     terms: boolean;
   };
+  priceForAll: number;
+  priceForAllWithoutDiscounts: number;
 }
 
 export interface IReceiverDataForOrder {
