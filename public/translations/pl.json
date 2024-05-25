@@ -202,6 +202,10 @@
           "pros4_a": "Inne zalety. ",
           "pros4_b": "Nasza strona będzie stale się rozwijać, a zarejestrowani użytkownicy zawsze mają łatwiej ;)"
         }
+      },
+      "payment": {
+        "title": "Wybierz płatność",
+        "pay": "Zapłać"
       }
     },
     "footer": {
