@@ -80,7 +80,9 @@ const Details = () => {
       wantInvoice: !!data.companyData,
       asGuest: asGuest,
       companyData: data.companyData,
-      address: data.address,
+      address: ["in-person", "inpost-parcel"].includes(data.delivery)
+        ? null
+        : data.address,
       receiverData: data.receiverData,
       delivery: data.delivery,
       parcel:

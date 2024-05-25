@@ -1,0 +1,5 @@
+.App .order .payment {
+    display: grid;
+    place-items: center;
+    grid-area: outlet;
+}
